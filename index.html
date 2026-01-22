@@ -3,147 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Trendy Threads - Your go-to shop for the latest fashion trends.">
-    <title>Trendy Threads</title>
+    <meta name="description" content="Shop the latest fashion trends and styles at our ecommerce store.">
+    <title>Ecommerce Clothing Store</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
             color: #333;
         }
         header {
-            background: linear-gradient(to right, #FF6B6B, #FFD93D);
-            padding: 20px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            padding: 20px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         h1 {
-            font-size: 2.5em;
+            color: white;
+            font-size: 2.5rem;
             margin: 0;
+            animation: fadeIn 1.5s ease;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
         }
         nav {
-            margin: 15px 0;
+            margin-top: 20px;
         }
         nav a {
-            margin: 0 15px;
-            text-decoration: none;
             color: white;
-            font-weight: bold;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
             transition: color 0.3s;
         }
         nav a:hover {
-            color: #333;
+            color: #ffe600;
         }
         .hero {
-            background-image: url('https://source.unsplash.com/1600x900/?clothing,fashion');
-            height: 60vh;
-            background-position: center;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 50px 20px;
             color: white;
         }
-        .hero h2 {
-            font-size: 3em;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
         }
-        .section {
-            padding: 50px;
-            text-align: center;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px 0;
         }
-        .section h2 {
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-        .products {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .product {
-            margin: 10px;
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
             transition: transform 0.3s;
-            cursor: pointer;
         }
-        .product:hover {
+        .gallery img:hover {
             transform: scale(1.05);
         }
-        .product img {
-            width: 250px;
-            height: 250px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
         footer {
-            padding: 20px;
+            text-align: center;
+            padding: 20px 0;
             background-color: #333;
             color: white;
-            text-align: center;
         }
         @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2em;
+            h1 {
+                font-size: 2rem;
             }
-            .product img {
-                width: 200px;
-                height: 200px;
+            nav a {
+                font-size: 1rem;
+                margin: 0 10px;
             }
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Trendy Threads</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="hero" id="home">
-    <h2>Your Fashion Destination</h2>
-</section>
-
-<section class="section" id="about">
-    <h2>About Us</h2>
-    <p>Welcome to Trendy Threads! We offer the latest in fashion trends and timeless classics.</p>
-</section>
-
-<section class="section" id="products">
-    <h2>Our Products</h2>
-    <div class="products">
-        <div class="product">
-            <img src="https://source.unsplash.com/250x250/?clothing1" alt="Product Image 1">
+    <header>
+        <h1>Fashionista</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h2>Discover Your Style</h2>
+            <p>Explore the latest trends in fashion, tailored just for you.</p>
         </div>
-        <div class="product">
-            <img src="https://source.unsplash.com/250x250/?clothing2" alt="Product Image 2">
+    </section>
+    <section id="about" class="container">
+        <h2>About Us</h2>
+        <p>At Fashionista, we bring you the latest styles and trends. Our mission is to provide you with chic and affordable clothing that makes you feel great.</p>
+    </section>
+    <section id="products" class="container">
+        <h2>Our Products</h2>
+        <div class="gallery">
+            <img src="https://source.unsplash.com/250x250/?clothing1" alt="Clothing 1">
+            <img src="https://source.unsplash.com/250x250/?clothing2" alt="Clothing 2">
+            <img src="https://source.unsplash.com/250x250/?clothing3" alt="Clothing 3">
+            <img src="https://source.unsplash.com/250x250/?clothing4" alt="Clothing 4">
+            <img src="https://source.unsplash.com/250x250/?clothing5" alt="Clothing 5">
+            <img src="https://source.unsplash.com/250x250/?clothing6" alt="Clothing 6">
         </div>
-        <div class="product">
-            <img src="https://source.unsplash.com/250x250/?clothing3" alt="Product Image 3">
-        </div>
-        <div class="product">
-            <img src="https://source.unsplash.com/250x250/?clothing4" alt="Product Image 4">
-        </div>
-        <div class="product">
-            <img src="https://source.unsplash.com/250x250/?clothing5" alt="Product Image 5">
-        </div>
-    </div>
-</section>
-
-<section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>For inquiries, please email us at info@trendythreads.com.</p>
-</section>
-
-<footer>
-    <p>&copy; 2023 Trendy Threads. All rights reserved.</p>
-</footer>
-
+    </section>
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Email: info@fashionista.com</p>
+        <p>Phone: +123 456 7890</p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Fashionista. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
