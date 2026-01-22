@@ -1,1 +1,163 @@
-{ $json.output[0].content[0].text }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Homepage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #35424a;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #f4f4f4;
+        }
+        .hero {
+            background: url('https://source.unsplash.com/1600x400/?shopping') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 2.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product-item {
+            background: #f8f8f8;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            width: calc(33.333% - 20px);
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        .product-item img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .product-title {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .product-price {
+            color: #e67e22;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .footer {
+            background-color: #35424a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .product-item {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .product-item {
+                width: 100%;
+            }
+            .hero {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Shop</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="hero">
+        Shop the Latest Trends
+    </div>
+    <div class="container">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <div class="product-item">
+                <img src="https://source.unsplash.com/300x200/?product1" alt="Product 1">
+                <div class="product-title">Product 1</div>
+                <div class="product-price">$29.99</div>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://source.unsplash.com/300x200/?product2" alt="Product 2">
+                <div class="product-title">Product 2</div>
+                <div class="product-price">$39.99</div>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://source.unsplash.com/300x200/?product3" alt="Product 3">
+                <div class="product-title">Product 3</div>
+                <div class="product-price">$49.99</div>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://source.unsplash.com/300x200/?product4" alt="Product 4">
+                <div class="product-title">Product 4</div>
+                <div class="product-price">$19.99</div>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://source.unsplash.com/300x200/?product5" alt="Product 5">
+                <div class="product-title">Product 5</div>
+                <div class="product-price">$59.99</div>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://source.unsplash.com/300x200/?product6" alt="Product 6">
+                <div class="product-title">Product 6</div>
+                <div class="product-price">$39.99</div>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Our Shop. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
