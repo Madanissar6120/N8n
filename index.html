@@ -1,1 +1,135 @@
-{ $json.output[0].content[0].text }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background-image: url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .product-card h3 {
+            margin: 15px 0 10px;
+        }
+        .product-card p {
+            color: #666;
+        }
+        .product-card .price {
+            color: #000;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 600px) {
+            nav {
+                display: block;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Shop</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h2>Discover Amazing Products</h2>
+        <p>Quality Products at Unbeatable Prices</p>
+    </section>
+    
+    <section id="products" class="products">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/250" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of product 1 goes here.</p>
+            <p class="price">$19.99</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/250" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of product 2 goes here.</p>
+            <p class="price">$29.99</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/250" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Description of product 3 goes here.</p>
+            <p class="price">$39.99</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/250" alt="Product 4">
+            <h3>Product 4</h3>
+            <p>Description of product 4 goes here.</p>
+            <p class="price">$49.99</p>
+            <button>Add to Cart</button>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Our Shop. All rights reserved.</p>
+        <p>Follow us on social media!</p>
+    </footer>
+</body>
+</html>
