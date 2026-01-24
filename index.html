@@ -1,163 +1,122 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Trendy Store - Your premium destination for stylish shoes and clothes.">
-    <meta name="keywords" content="Shoes, Clothes, Fashion, Trendy Store">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <title>Trendy Store</title>
+    <title>Premium Web Development Platform</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; scroll-behavior: smooth; }
-        img { background: #f0f0f0; display: block; height: 100%; object-fit: cover; }
-        img::before { content: 'Loading...'; }
-        header { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); padding: 1rem 0; }
-        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; transition: all 0.3s ease; }
-        nav a:hover { background: rgba(255, 255, 255, 0.1); border-radius: 5px; }
-        .hero { display: flex; justify-content: center; align-items: center; height: 600px; position: relative; }
-        .hero img { height: 600px; width: 100%; }
-        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)); display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .hero h1 { color: white; font-size: 3rem; margin: 1rem 0; }
-        .hero p { color: white; font-size: 1.2rem; margin-bottom: 2rem; }
-        .cta { background: #ff4081; color: white; padding: 1rem 2rem; border-radius: 5px; transition: all 0.3s ease; }
-        .cta:hover { background: #ff1f71; }
-        main { padding: 4rem 2rem; max-width: 1200px; margin: auto; }
-        section { margin-bottom: 4rem; }
-        .card { background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-        .card:hover { transform: scale(1.05); }
-        .card img { height: 250px; width: 100%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        footer { text-align: center; padding: 2rem 0; background: #f8f8f8; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
-        @media (max-width: 768px) { main { padding: 2rem 1rem; } }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            background: #111;
+        }
+        header {
+            position: relative;
+            min-height: 90vh;
+            background-image: url('https://images.unsplash.com/photo-1517436072-9c965b0b85e3');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 4rem;
+            z-index: 1;
+        }
+        p {
+            font-size: 1.5rem;
+            z-index: 1;
+            margin: 20px 0;
+        }
+        .cta-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background: #007bff;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #aaa;
+        }
     </style>
 </head>
 <body>
-
-<header>
-    <nav>
-        <h1>Trendy Store</h1>
-        <ul style="list-style-type: none; display: flex; gap: 2rem;">
-            <li><a href="#services">Products</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section class="hero">
-    <img src="https://images.unsplash.com/photo-1555562561-9ffc6c740c66?w=1920&q=80&fit=crop&auto=format" alt="Trendy Store - Fashion Collection" loading="lazy">
-    <div class="hero-overlay">
-        <h1>Discover Your Style</h1>
-        <p>Shop the latest trends in shoes and clothes.</p>
-        <a href="#services" class="cta">Get Started Today</a>
-    </div>
-</section>
-
-<main>
-    <section id="services">
-        <h2>Our Products</h2>
-        <div class="grid">
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1574169208501-318c9a81abd3?w=800&h=300&fit=crop&auto=format" alt="Stylish Shoes" loading="lazy">
-                <h3>Shoes</h3>
-                <p>Starting at ₹3,000 + 18% GST</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1512833703-37a10f6eb381?w=800&h=300&fit=crop&auto=format" alt="Fashionable Clothes" loading="lazy">
-                <h3>Clothes</h3>
-                <p>Starting at ₹1,500 + 18% GST</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1624983383510-3a0055368dc0?w=800&h=300&fit=crop&auto=format" alt="Trendy Apparel" loading="lazy">
-                <h3>Apparel</h3>
-                <p>Starting at ₹2,000 + 18% GST</p>
-            </article>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>At Trendy Store, we believe in delivering the latest trends in fashion while ensuring quality and affordability. Our range encompasses stylish shoes and outfits that speak volumes of your personality.</p>
-    </section>
-
-    <section id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="carousel">
-            <p>"Amazing quality and great customer service!" - Priya, Mumbai</p>
-            <p>"Trendy Store has become my go-to for shopping." - Rohan, Delhi</p>
-        </div>
-    </section>
-
-    <section id="pricing">
-        <h2>Pricing Plans</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Basic</h3>
-                <p>₹5,000/month + 18% GST</p>
-                <ul>
-                    <li>1 Pair of Shoes</li>
-                    <li>1 Dress</li>
-                </ul>
-                <a href="#" class="cta">Choose Plan</a>
+    <header>
+        <h1>Welcome to Your Next Development Platform</h1>
+        <p>Build, collaborate, and deploy with ease</p>
+        <button class="cta-button">Get Started</button>
+    </header>
+    <section class="content">
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Code Editor">
+            <div class="card-content">
+                <h2>Powerful Code Editor</h2>
+                <p>Write and modify code efficiently with our advanced code editor features.</p>
             </div>
-            <div class="card">
-                <h3>Standard</h3>
-                <p>₹10,000/month + 18% GST</p>
-                <ul>
-                    <li>2 Pairs of Shoes</li>
-                    <li>2 Dresses</li>
-                </ul>
-                <a href="#" class="cta">Choose Plan</a>
+        </article>
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1544005313-b45e4e333b83" alt="Collaboration Tools">
+            <div class="card-content">
+                <h2>Collaboration Tools</h2>
+                <p>Work together with your team in real-time, no matter where they are.</p>
             </div>
-            <div class="card">
-                <h3>Premium</h3>
-                <p>₹20,000/month + 18% GST</p>
-                <ul>
-                    <li>3 Pairs of Shoes</li>
-                    <li>3 Dresses</li>
-                </ul>
-                <a href="#" class="cta">Choose Plan</a>
+        </article>
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1584697964183-5f18952e0680" alt="Deployment">
+            <div class="card-content">
+                <h2>Simple Deployment</h2>
+                <p>Deploy your applications in just a few clicks. It's that easy!</p>
             </div>
-        </div>
+        </article>
     </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" rows="4" required></textarea>
-            <button type="submit" class="cta">Send Message</button>
-        </form>
-    </section>
-</main>
-
-<footer>
-    <p>Contact us at: +91-9137002314 | issarmadan97@gmail.com</p>
-    <ul style="list-style-type: none; display: flex; gap: 1rem; justify-content: center;">
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Twitter</a></li>
-    </ul>
-    <p>&copy; 2023 Trendy Store. All rights reserved.</p>
-</footer>
-
-<script>
-    // Smooth scroll for internal links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-</script>
-
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+```
