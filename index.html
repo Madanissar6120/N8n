@@ -1,314 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Trendy Store, your ultimate destination for stylish shoes and clothes.">
-    <meta name="keywords" content="Trendy Store, shoes, clothes, fashion, shop">
-    <title>Trendy Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Premium Web Design</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
+            margin: 0;
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            color: #333;
+            line-height: 1.6;
         }
-
-        img {
-            background: #f0f0f0;
-            loading: lazy;
-            object-fit: cover;
-            display: block;
-            width: 100%;
-        }
-
-        img::before {
-            content: 'Loading...';
-        }
-
-        img {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% {
-                background-position: 200% 0;
-            }
-
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        header {
-            background-color: white;
-            padding: 1rem;
+        nav {
             position: sticky;
             top: 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            padding: 15px;
         }
-
-        nav {
+        .nav-links {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-around;
         }
-
-        nav a {
+        .nav-links a {
             text-decoration: none;
             color: #333;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            transition: color 0.3s;
         }
-
-        nav a:hover {
-            background-color: #f1f1f1;
+        .nav-links a:hover {
+            color: #1f78d1;
         }
-
         .hero {
+            background-image: url("https://images.unsplash.com/photo-1534009788091-4d9d5ef430f2?auto=format&fit=crop&w=1200&q=80");
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
             text-align: center;
-            background: url('https://images.unsplash.com/photo-1534859668817-5ac39a028f77?w=1920&q=80&fit=crop&auto=format') no-repeat center center/cover;
-            height: 600px;
-            position: relative;
-            color: white;
-            padding: 2rem;
+            padding: 20px;
         }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
-        }
-
         .hero h1 {
-            z-index: 1;
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
         }
-
         .hero p {
-            z-index: 1;
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
         }
-
-        .cta-btn {
-            z-index: 1;
-            background-color: #ff4081;
-            padding: 1rem 2rem;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
         }
-
-        .cta-btn:hover {
-            background-color: #e91e63;
-        }
-
-        main {
-            padding: 4rem 2rem;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-
-        section {
-            margin-bottom: 4rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
         .card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
         }
-
         .card:hover {
             transform: translateY(-5px);
         }
-
-        .testimonials {
-            position: relative;
-        }
-
-        .testimonial {
-            position: absolute;
+        .card img {
             width: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            border-radius: 12px;
         }
-
-        .testimonial.active {
-            opacity: 1;
+        .features, .about, .testimonials, .contact {
+            margin: 40px 0;
         }
-
-        footer {
-            background-color: #f8f8f8;
-            padding: 2rem 0;
+        .features h2, .about h2, .testimonials h2, .contact h2 {
             text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
-
-        .social-icons a {
-            margin: 0 0.5rem;
-            text-decoration: none;
-            color: #333;
+        .feature {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        .testimonial {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .testimonial img {
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            margin-right: 15px;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+        }
+        @media (min-width: 600px) {
+            .services {
+                display: flex;
+                justify-content: space-around;
             }
-
-            .hero p {
-                font-size: 1rem;
+            .card {
+                flex-basis: calc(30% - 40px);
             }
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div class="logo"><h2>Trendy Store</h2></div>
-            <div>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
+    <nav>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <section class="hero" id="home">
+        <div>
+            <h1>Welcome to Our Premium Service</h1>
+            <p>Your satisfaction is our priority.</p>
+        </div>
+    </section>
+    <div class="container">
+        <section class="services" id="services">
+            <h2>Our Services</h2>
+            <div class="card"><img src="https://images.unsplash.com/photo-1586511907025-3b8a3e3f1db9?auto=format&fit=crop&w=600&q=80" alt="Service 1">
+                <h3>Service One</h3>
+                <p>Description of Service One</p>
             </div>
-        </nav>
-    </header>
-
-    <div class="hero">
-        <h1>Trendy Store</h1>
-        <p>Your ultimate destination for stylish shoes and clothes!</p>
-        <button class="cta-btn">Get Started Today</button>
-    </div>
-
-    <main>
-        <section id="services">
-            <h2>Our Products</h2>
-            <div class="grid">
-                <article class="card">
-                    <h3>Shoes</h3>
-                    <img src="https://images.unsplash.com/photo-1542112026-e43f4af47605?w=800&h=250&q=80&fit=crop&auto=format" alt="Stylish shoes" style="height: 250px;">
-                    <p>Quality stylish shoes starting from <strong>₹1,500</strong> + 18% GST.</p>
-                </article>
-                <article class="card">
-                    <h3>Clothes</h3>
-                    <img src="https://images.unsplash.com/photo-1514916434063-0b43dd92f938?w=800&h=250&q=80&fit=crop&auto=format" alt="Fashionable clothing" style="height: 250px;">
-                    <p>Trendy clothes starting from <strong>₹1,000</strong> + 18% GST.</p>
-                </article>
+            <div class="card"><img src="https://images.unsplash.com/photo-1560272056-1a0491cbe117?auto=format&fit=crop&w=600&q=80" alt="Service 2">
+                <h3>Service Two</h3>
+                <p>Description of Service Two</p>
+            </div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1593642632870-e3f6f6bce701?auto=format&fit=crop&w=600&q=80" alt="Service 3">
+                <h3>Service Three</h3>
+                <p>Description of Service Three</p>
             </div>
         </section>
-
-        <section>
+        <section class="features" id="features">
+            <h2>Features</h2>
+            <div class="feature">Fast Performance</div>
+            <div class="feature">User Friendly</div>
+            <div class="feature">24/7 Support</div>
+        </section>
+        <section class="about" id="about">
             <h2>About Us</h2>
-            <p>At Trendy Store, we are dedicated to providing the latest fashion trends at unbeatable prices. We believe that style should be accessible to everyone.</p>
-            <img src="https://images.unsplash.com/photo-1611622641599-e2b02b38b7dc?w=600&h=400&q=80&fit=crop&auto=format" alt="About Trendy Store" style="height: 400px;">
+            <p>We are committed to providing top-quality services with a focus on customer satisfaction.</p>
         </section>
-
-        <section class="testimonials">
-            <h2>What Our Customers Say</h2>
-            <div class="testimonial active">
-                <p>"Absolutely love the variety at Trendy Store! Always my go-to for fashion!" - Priya</p>
+        <section class="testimonials" id="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <img src="https://images.unsplash.com/photo-1564518098550-038ecb56dd37?auto=format&fit=crop&w=70&q=80" alt="User 1">
+                <div>
+                    <strong>Jane Doe</strong>
+                    <p>"Amazing service!"</p>
+                </div>
             </div>
             <div class="testimonial">
-                <p>"Great quality and prices, highly recommend!" - Rohan</p>
+                <img src="https://images.unsplash.com/photo-1521115721511-1f32b9476734?auto=format&fit=crop&w=70&q=80" alt="User 2">
+                <div>
+                    <strong>John Smith</strong>
+                    <p>"I highly recommend them!"</p>
+                </div>
             </div>
         </section>
-
-        <section id="pricing">
-            <h2>Pricing Plans</h2>
-            <div class="grid">
-                <article class="card">
-                    <h3>Basic</h3>
-                    <p>Price: <strong>₹5,000</strong></p>
-                    <p>Your choice of any 2 products. + 18% GST</p>
-                </article>
-                <article class="card">
-                    <h3>Standard</h3>
-                    <p>Price: <strong>₹10,000</strong></p>
-                    <p>Your choice of any 5 products. + 18% GST</p>
-                </article>
-                <article class="card">
-                    <h3>Premium</h3>
-                    <p>Price: <strong>₹25,000</strong></p>
-                    <p>All products at a discounted rate. + 18% GST</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="gallery">
-            <h2>Gallery</h2>
-            <div class="grid">
-                <img src="https://images.unsplash.com/photo-1534528745383-672a6287509d?w=1200&h=400&q=80&fit=crop&auto=format" alt="Gallery item" style="height: 400px;">
-                <img src="https://images.unsplash.com/photo-1567123577166-e4592b984e8b?w=1200&h=400&q=80&fit=crop&auto=format" alt="Gallery item" style="height: 400px;">
-            </div>
-        </section>
-
-        <section id="contact">
+        <section class="contact" id="contact">
             <h2>Contact Us</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            <p>Contact us at: +91-9137002314 | Email: issarmadan97@gmail.com</p>
+            <p>Contact us via email at info@premiumservice.com</p>
         </section>
-    </main>
-
+    </div>
     <footer>
-        <div class="social-icons">
-            <h3>Follow Us:</h3>
-            <a href="https://facebook.com">Facebook</a>
-            <a href="https://instagram.com">Instagram</a>
-            <a href="https://linkedin.com">LinkedIn</a>
-            <a href="https://twitter.com">Twitter</a>
-        </div>
-        <p>© 2023 Trendy Store. All Rights Reserved.</p>
+        <p>&copy; 2023 Premium Service. All rights reserved.</p>
     </footer>
-    
-    <script>
-        const testimonials = document.querySelectorAll('.testimonial');
-        let index = 0;
-
-        function showTestimonials() {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.classList.remove('active');
-                if (i === index) {
-                    testimonial.classList.add('active');
-                }
-            });
-            index = (index + 1) % testimonials.length;
-        }
-
-        setInterval(showTestimonials, 3000);
-    </script>
 </body>
-
 </html>
