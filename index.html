@@ -3,59 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Business Name</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Trendy Store - Your one-stop shop for premium shoes and clothes.">
+    <title>Trendy Store</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
-            color: #333;
+            scroll-behavior: smooth;
+            line-height: 1.6;
         }
         header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 10;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 20px;
         }
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
         }
         nav a {
-            text-decoration: none;
             color: #333;
+            text-decoration: none;
             margin: 0 15px;
             transition: color 0.3s;
         }
         nav a:hover {
-            color: #007BFF;
+            color: #0077ff;
         }
         .hero {
             height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1584697964164-374c3b4f6b20');
-            background-size: cover;
-            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            color: white;
             text-align: center;
-            color: #fff;
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
         }
         .hero h1 {
-            font-size: 3em;
+            font-size: 48px;
             margin: 0;
         }
         .hero p {
-            font-size: 1.2em;
+            font-size: 20px;
         }
-        .button {
-            background: #007BFF;
+        .cta-button {
+            background: #0077ff;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -63,61 +73,87 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        .button:hover {
-            background: #0056b3;
+        .cta-button:hover {
+            background: #005bb5;
         }
-        section {
-            padding: 60px 50px;
-            text-align: center;
-            background: white;
-        }
-        .services, .features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
+            padding: 40px 20px;
         }
         .card {
-            background: #f9f9f9;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-title {
+            font-size: 24px;
+            padding: 15px;
+        }
+        .card-price {
+            color: #0077ff;
+            padding: 0 15px 15px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+        .feature {
+            flex: 1 1 30%;
+            display: flex;
+            align-items: center;
             padding: 20px;
-            width: calc(33.33% - 40px);
-            box-sizing: border-box;
-            transition: transform 0.3s;
         }
-        .card:hover {
-            transform: translateY(-5px);
+        .feature-icon {
+            font-size: 34px;
+            margin-right: 15px;
         }
-        footer {
+        .about, .testimonials, .contact, .footer {
+            padding: 40px 20px;
+        }
+        .testimonial-carousel {
+            display: flex;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+        .testimonial {
+            min-width: 100%;
+            transition: opacity 1s ease;
+            opacity: 0;
+        }
+        .testimonial.active {
+            opacity: 1;
+        }
+        .footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 20px 0;
         }
         @media (max-width: 768px) {
-            .card {
-                width: calc(50% - 40px);
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 18px;
             }
         }
-        @media (max-width: 480px) {
-            .card {
-                width: 100%;
-            }
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 10px 0;
-            }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500&display=swap');
     </style>
 </head>
 <body>
 
 <header>
     <nav>
-        <div><h1 style="margin: 0;">Your Business Name</h1></div>
+        <div class="logo">Trendy Store</div>
         <div>
             <a href="#services">Services</a>
             <a href="#about">About</a>
@@ -128,65 +164,93 @@
 </header>
 
 <section class="hero">
-    <h1>Welcome to Our Business!</h1>
-    <p>Your success is our mission.</p>
-    <button class="button">Get Started</button>
+    <h1>Welcome to Trendy Store</h1>
+    <p>Your one-stop shop for premium shoes and clothes.</p>
+    <button class="cta-button">Shop Now</button>
 </section>
 
-<section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Service One</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="card">
-            <h3>Service Two</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="card">
-            <h3>Service Three</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+<section id="services" class="services">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1511856008049-f5f28e6ee515?w=800&q=80" alt="Stylish Shoes" loading="lazy">
+        <div class="card-title">Stylish Shoes</div>
+        <div class="card-price">$89.99</div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1597051110131-73763ea77e42?w=800&q=80" alt="Trendy Clothes" loading="lazy">
+        <div class="card-title">Trendy Clothes</div>
+        <div class="card-price">$59.99</div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1465401645797-ee8c136cceec?w=800&q=80" alt="Casual Shoes" loading="lazy">
+        <div class="card-title">Casual Shoes</div>
+        <div class="card-price">$79.99</div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1585691292406-655aa0f7b8e0?w=800&q=80" alt="Formal Clothes" loading="lazy">
+        <div class="card-title">Formal Clothes</div>
+        <div class="card-price">$99.99</div>
     </div>
 </section>
 
 <section class="features">
-    <h2>Key Features</h2>
-    <div class="features">
-        <div class="card">
-            <h3>Feature One</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="card">
-            <h3>Feature Two</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="card">
-            <h3>Feature Three</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+    <div class="feature">
+        <div class="feature-icon">👟</div>
+        <div>High-Quality Materials</div>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">📦</div>
+        <div>Fast Shipping</div>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">💰</div>
+        <div>Affordable Prices</div>
     </div>
 </section>
 
-<section id="about">
+<section id="about" class="about">
     <h2>About Us</h2>
-    <p>We are committed to delivering the best services for our clients, ensuring satisfaction and success.</p>
+    <p>At Trendy Store, we believe in providing top-notch fashion products that cater to your style and comfort. Our passion for fashion drives us to curate the best selections of shoes and clothes to make you look good on any occasion.</p>
 </section>
 
-<section id="testimonials">
-    <h2>Testimonials</h2>
-    <p>"This company changed my life for the better!" - Happy Customer</p>
+<section id="testimonials" class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-carousel">
+        <div class="testimonial active">"Absolutely love my new shoes! They are so comfortable." - Sarah J.</div>
+        <div class="testimonial">"Great quality clothes at an amazing price!" - Michael P.</div>
+        <div class="testimonial">"Fast shipping and excellent customer service. Highly recommend!" - Linda W.</div>
+    </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p>Email: contact@yourbusiness.com</p>
+    <form>
+        <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <textarea name="message" placeholder="Your Message" required rows="5" style="width: 100%; padding: 10px; margin-bottom: 10px;"></textarea>
+        <button type="submit" class="cta-button">Send Message</button>
+    </form>
+    <p>Phone: +919137002314</p>
+    <p>Email: <a href="mailto:issarmadan97@gmail.com">issarmadan97@gmail.com</a></p>
 </section>
 
-<footer>
-    <p>&copy; 2023 Your Business Name. All rights reserved.</p>
+<footer class="footer">
+    <p>&copy; 2023 Trendy Store. All Rights Reserved</p>
+    <div>
+        <a href="#" style="color: white;">Facebook</a> |
+        <a href="#" style="color: white;">Instagram</a> |
+        <a href="#" style="color: white;">Twitter</a>
+    </div>
 </footer>
+
+<script>
+    let currentIndex = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    setInterval(() => {
+        testimonials[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        testimonials[currentIndex].classList.add('active');
+    }, 3000);
+</script>
 
 </body>
 </html>
