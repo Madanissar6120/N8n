@@ -1,122 +1,158 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Web Development Platform</title>
+    <title>Trendy Store</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            color: #ffffff;
-            background: #111;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
         }
-        header {
-            position: relative;
-            min-height: 90vh;
-            background-image: url('https://images.unsplash.com/photo-1517436072-9c965b0b85e3');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #000;
+            color: white;
             text-align: center;
-            color: #fff;
-            padding: 20px;
+            padding: 80px 20px;
+            position: relative;
         }
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
         }
-        h1 {
-            font-size: 4rem;
-            z-index: 1;
-        }
-        p {
-            font-size: 1.5rem;
-            z-index: 1;
-            margin: 20px 0;
-        }
+
         .cta-button {
+            background-color: #ff7f50;
+            color: white;
             padding: 15px 30px;
-            font-size: 1.2rem;
-            background: #007bff;
-            border: none;
-            color: #fff;
-            cursor: pointer;
+            text-decoration: none;
             border-radius: 5px;
-            z-index: 1;
+            transition: background-color 0.3s;
         }
-        .content {
-            padding: 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        .cta-button:hover {
+            background-color: #ff4500;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px 20px;
             gap: 20px;
         }
-        .card {
-            background: #222;
+
+        .product-card {
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            text-align: center;
             transition: transform 0.2s;
+            background-color: #fff;
+            min-height: 350px;
+            width: 200px;
         }
-        .card:hover {
-            transform: translateY(-5px);
+
+        .product-card:hover {
+            transform: scale(1.05);
         }
-        .card img {
+
+        .product-card img {
+            width: 100%;
             height: 200px;
             object-fit: cover;
-            width: 100%;
         }
-        .card-content {
-            padding: 20px;
-        }
-        footer {
+
+        .about {
+            padding: 40px 20px;
+            background: #f4f4f4;
             text-align: center;
-            padding: 20px;
-            background: #1e1e1e;
-            color: #aaa;
+        }
+
+        .contact {
+            padding: 40px 20px;
+            text-align: center;
+            background: #fff;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-card {
+                width: 90%;
+            }
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to Your Next Development Platform</h1>
-        <p>Build, collaborate, and deploy with ease</p>
-        <button class="cta-button">Get Started</button>
-    </header>
-    <section class="content">
-        <article class="card">
-            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Code Editor">
-            <div class="card-content">
-                <h2>Powerful Code Editor</h2>
-                <p>Write and modify code efficiently with our advanced code editor features.</p>
-            </div>
-        </article>
-        <article class="card">
-            <img src="https://images.unsplash.com/photo-1544005313-b45e4e333b83" alt="Collaboration Tools">
-            <div class="card-content">
-                <h2>Collaboration Tools</h2>
-                <p>Work together with your team in real-time, no matter where they are.</p>
-            </div>
-        </article>
-        <article class="card">
-            <img src="https://images.unsplash.com/photo-1584697964183-5f18952e0680" alt="Deployment">
-            <div class="card-content">
-                <h2>Simple Deployment</h2>
-                <p>Deploy your applications in just a few clicks. It's that easy!</p>
-            </div>
-        </article>
-    </section>
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1511918612501-0f63375d5e09" alt="Trendy Store Hero Image">
+        <h1>Welcome to Trendy Store</h1>
+        <p>Your one-stop shop for the latest shoes and clothes.</p>
+        <a href="#products" class="cta-button">Shop Now</a>
+    </div>
+
+    <div class="products" id="products">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1595121743587-d6fad451a0e3" alt="Stylish Shoes">
+            <h2>Shoes</h2>
+            <p>Price: $59.99</p>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1522789161564-5c9a3559a478" alt="Casual Shirt">
+            <h2>Shirt</h2>
+            <p>Price: $39.99</p>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1574158622686-3372c5e98e54" alt="Trendy Sneakers">
+            <h2>Sneakers</h2>
+            <p>Price: $69.99</p>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1520447129825-2c07d762977f" alt="Fashion Jacket">
+            <h2>Jacket</h2>
+            <p>Price: $75.99</p>
+        </div>
+    </div>
+
+    <div class="about">
+        <h2>About Us</h2>
+        <p>At Trendy Store, we curate the latest fashion trends to keep you stylish and comfortable.</p>
+    </div>
+
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: +919137002314</p>
+        <p>Email: <a href="mailto:issarmadan97@gmail.com">issarmadan97@gmail.com</a></p>
+    </div>
+
     <footer>
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
+        <p>&copy; 2023 Trendy Store. All Rights Reserved.</p>
     </footer>
+
 </body>
+
 </html>
-```
+``` 
+
+This HTML code provides a complete structure for a modern and attractive website for "Trendy Store," featuring sections for a hero image, product display, about us, contact details, and a footer. All images are sourced from Unsplash, conforming to user requirements.
