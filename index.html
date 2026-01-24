@@ -1,222 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Services</title>
-    <link href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Premium Fashion Store - Stylish Clothes, Shoes & Accessories.">
+    <title>Premium Fashion Store</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-around;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
+            line-height: 1.6;
         }
-
-        nav ul li a {
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        nav a {
             text-decoration: none;
             color: #333;
-            font-weight: 600;
-            transition: color 0.3s;
+            margin: 0 15px;
         }
-
-        nav ul li a:hover {
-            color: #007BFF;
+        nav a:hover {
+            color: #ff4791;
+            transition: color 0.3s ease;
         }
-
         .hero {
             height: 100vh;
-            background-image: url("https://images.unsplash.com/photo-1516728778615-2d99b24b4e87?auto=format&fit=crop&w=1200&q=80");
-            background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            color: #fff;
             text-align: center;
         }
-
         .hero h1 {
-            font-size: 4rem;
-            margin: 0;
+            font-size: 3rem;
+            margin: 0 0 1rem;
         }
-
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            margin: 0 0 2rem;
         }
-
-        .cards-container {
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #ff4791;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #ff367c;
+        }
+        section {
+            padding: 2rem 0;
+        }
+        .services, .features, .about, .testimonials, .pricing, .gallery, .contact {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+        .service-cards, .testimonials-carousel, .gallery-grid, .pricing-table {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px;
+            gap: 1rem;
         }
-
         .card {
-            background: white;
+            background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
-
         .card:hover {
             transform: translateY(-5px);
         }
-
         .card img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
+            loading: lazy;
         }
-
-        .card-content {
-            padding: 20px;
+        .card h3 {
+            padding: 1rem;
+            margin: 0;
         }
-
-        .features, .about, .testimonials, .contact {
-            padding: 40px 20px;
-            background: #f9f9f9;
+        .card p {
+            padding: 0 1rem 1rem;
         }
-
-        .testimonial {
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .carousel-content {
             display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+            transition: transform 0.5s ease;
         }
-
-        .testimonial img {
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            margin-right: 15px;
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 2rem;
+            text-align: center;
         }
-
         footer {
             background: #333;
-            color: white;
+            color: #fff;
             text-align: center;
-            padding: 20px;
+            padding: 2rem 0;
         }
-
-        @media(max-width: 768px) {
+        footer a {
+            color: #ff4791;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-
             .hero p {
                 font-size: 1rem;
             }
         }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
-
 <body>
 
+<header>
     <nav>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div><a href="#hero">Home</a></div>
+        <div>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
+</header>
 
-    <div class="hero" id="hero">
-        <h1>Premium Services</h1>
-        <p>Elevate your experience with our expert solutions.</p>
+<div class="hero" id="hero">
+    <div class="hero-content">
+        <h1>Discover Your Style</h1>
+        <p>Explore the trendiest clothes, shoes, and accessories.</p>
+        <button class="cta-button">Shop Now</button>
     </div>
+</div>
 
-    <section class="cards-container" id="services">
+<section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1517436078-Kl6Ecd-4s2Xs?auto=format&fit=crop&w=1200&q=80" alt="Service 1">
-            <div class="card-content">
-                <h3>Web Development</h3>
-                <p>Innovative web solutions tailored to your business needs.</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1587774784622-6820faec8c9d?auto=format&fit=crop&w=1200&q=80" alt="Service 2">
-            <div class="card-content">
-                <h3>Mobile Apps</h3>
-                <p>Engaging mobile applications that drive customer engagement.</p>
-            </div>
+            <img src="https://images.unsplash.com/photo-1526405321641-4c83e3a444ac?w=800&q=80" alt="Stylish Clothing" loading="lazy">
+            <h3>Stylish Clothing</h3>
+            <p>Trendy outfits for every occasion.</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1512904952686-8573f122ab1e?auto=format&fit=crop&w=1200&q=80" alt="Service 3">
-            <div class="card-content">
-                <h3>SEO Services</h3>
-                <p>Boost your online visibility and rank higher in search results.</p>
+            <img src="https://images.unsplash.com/photo-1500485542205-4b1c54045508?w=800&q=80" alt="Quality Footwear" loading="lazy">
+            <h3>Quality Footwear</h3>
+            <p>Comfort meets fashion with our shoes.</p>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604768789801-9e3bc99f0348?w=800&q=80" alt="Fashion Accessories" loading="lazy">
+            <h3>Fashion Accessories</h3>
+            <p>Complete your look with our accessories.</p>
+        </div>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <h2>Why Choose Us?</h2>
+    <div class="features-grid">
+        <div>
+            <h3>Quality Materials</h3>
+            <p>We use the finest materials to ensure the best products.</p>
+        </div>
+        <div>
+            <h3>Fast Shipping</h3>
+            <p>Your order will be with you in no time.</p>
+        </div>
+        <div>
+            <h3>Customer Support</h3>
+            <p>Our team is here to assist you 24/7.</p>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2>About Us</h2>
+    <p>We are a premium fashion store dedicated to offering the latest styles at competitive prices. Our mission is to help you look and feel great.</p>
+    <div>
+        <img src="https://images.unsplash.com/photo-1551467660-be28bd4de02b?w=600&q=80" alt="Fashion Team" loading="lazy" style="width:100%;height:auto;object-fit:cover;">
+    </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="carousel">
+        <div class="carousel-content">
+            <div class="carousel-item">
+                <p>"Amazing styles and quick delivery! Highly recommend!"</p>
+                <cite>- Anna S.</cite>
+            </div>
+            <div class="carousel-item">
+                <p>"Great quality clothing at affordable prices."</p>
+                <cite>- Ravi K.</cite>
+            </div>
+            <div class="carousel-item">
+                <p>"I love the accessories, they complete my outfit perfectly!"</p>
+                <cite>- Priya M.</cite>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="features">
-        <h2>Features</h2>
-        <p>Our services come with the following features:</p>
-        <ul>
-            <li>Custom Solutions</li>
-            <li>24/7 Support</li>
-            <li>Modern Technologies</li>
-        </ul>
-    </section>
-
-    <section class="about" id="about">
-        <h2>About Us</h2>
-        <p>We are a team of professionals dedicated to bringing your visions to reality.</p>
-    </section>
-
-    <section class="testimonials" id="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial">
-            <img src="https://images.unsplash.com/photo-1501532023115-78b8a47777d0?auto=format&fit=crop&w=1200&q=80" alt="Client 1">
-            <div>
-                <strong>Jane Doe</strong>
-                <p>"Exceptional service and support. Highly recommend!"</p>
-            </div>
+<section class="pricing" id="pricing">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-table">
+        <div class="card">
+            <h3>Basic Plan</h3>
+            <p>₹1,499</p>
+            <p>Includes access to exclusive deals.</p>
         </div>
-        <div class="testimonial">
-            <img src="https://images.unsplash.com/photo-1518891616203-6cecf1c4c567?auto=format&fit=crop&w=1200&q=80" alt="Client 2">
-            <div>
-                <strong>John Smith</strong>
-                <p>"A game-changer for my business. Thank you!"</p>
-            </div>
+        <div class="card">
+            <h3>Pro Plan</h3>
+            <p>₹2,999</p>
+            <p>Includes free shipping and premium support.</p>
         </div>
-    </section>
+        <div class="card">
+            <h3>Ultimate Plan</h3>
+            <p>₹4,999</p>
+            <p>All Pro benefits plus more exclusive offers.</p>
+        </div>
+    </div>
+</section>
 
-    <section class="contact" id="contact">
-        <h2>Contact Us</h2>
-        <p>If you have any questions, feel free to reach out!</p>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+<section class="gallery" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518709268807-160f62f9a393?w=800&q=80" alt="Fashion Collection" loading="lazy">
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1514002512782-1c7a12f1b1aa?w=800&q=80" alt="Casual Wear" loading="lazy">
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520745608375-2f165657afec?w=800&q=80" alt="Formal Attire" loading="lazy">
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2023 Premium Services. All rights reserved.</p>
-    </footer>
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out!</p>
+    <form>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2023 Premium Fashion Store | <a href="#privacy">Privacy Policy</a></p>
+    <div>
+        <a href="https://facebook.com" target="_blank">Facebook</a> |
+        <a href="https://instagram.com" target="_blank">Instagram</a> |
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+    </div>
+</footer>
+
+<script>
+    // Simple carousel functionality
+    let index = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+
+    function showItem() {
+        items.forEach((item, i) => {
+            item.style.display = (i === index) ? 'block' : 'none';
+        });
+        index = (index + 1) % totalItems;
+    }
+
+    setInterval(showItem, 3000);
+    showItem(); // initial call
+</script>
 
 </body>
-
 </html>
