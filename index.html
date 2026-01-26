@@ -1,159 +1,608 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium E-commerce Website</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 10px 0;
-        }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-        }
-        .hero {
-            height: 80vh;
-            overflow: hidden;
-        }
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .product-card {
-            height: 260px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            overflow: hidden;
-        }
-        .product-card:hover {
-            transform: scale(1.05);
-        }
-        .about {
-            height: 400px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-        .testimonial {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        footer {
-            padding: 20px;
-            background: #333;
-            color: #fff;
-            text-align: center;
-        }
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UrbanCraft - Premium Urban Lifestyle Apparel & Accessories</title>
+<style>
+  :root {
+    --clr-primary: #2563eb;
+    --clr-primary-hover: #1e40af;
+    --clr-dark: #111827;
+    --clr-gray-light: #f3f4f6;
+    --clr-gray-medium: #6b7280;
+    --clr-white: #fff;
+    --shadow-card: rgba(0, 0, 0, 0.12);
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; 
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: var(--clr-dark);
+    line-height: 1.6;
+    background-color: var(--clr-white);
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--clr-white);
+    box-shadow: 0 2px 8px var(--shadow-card);
+    z-index: 999;
+  }
+  nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--clr-primary);
+    letter-spacing: 0.07em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    outline: none;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* Hero */
+  .hero {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  .hero-content {
+    max-width: 520px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--clr-primary);
+  }
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--clr-gray-medium);
+  }
+  .btn-primary {
+    display: inline-block;
+    font-size: 1.1rem;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgb(37 99 235 / 0.4);
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background-color: var(--clr-primary-hover);
+    outline: none;
+  }
+  .hero-image-container {
+    height: 80vh;
+  }
+
+  /* Products */
+  #products {
+    margin-bottom: 4rem;
+  }
+  #products h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--clr-dark);
+    text-align: center;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 2rem;
+  }
+  .card {
+    background: var(--clr-white);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px var(--shadow-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 0.15);
+    outline: none;
+  }
+  .product-image-container {
+    height: 260px;
+    width: 100%;
+  }
+  .card-content {
+    padding: 1rem 1.25rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .product-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--clr-dark);
+    margin-bottom: 0.4rem;
+  }
+  .product-price {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--clr-primary);
+  }
+
+  /* Features */
+  #features {
+    margin-bottom: 4rem;
+    background-color: var(--clr-gray-light);
+    padding: 3rem 1.5rem;
+    border-radius: 12px;
+  }
+  #features h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--clr-dark);
+  }
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  .feature-item {
+    background: var(--clr-white);
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 6px 18px var(--shadow-card);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .feature-item:hover,
+  .feature-item:focus-within {
+    transform: translateY(-8px);
+    outline: none;
+  }
+  .feature-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--clr-primary);
+  }
+  .feature-desc {
+    color: var(--clr-gray-medium);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* About */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+  }
+  #about-content {
+    max-width: 520px;
+  }
+  #about h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--clr-dark);
+  }
+  #about p {
+    font-size: 1.1rem;
+    color: var(--clr-gray-medium);
+    line-height: 1.6;
+  }
+  .about-image-container {
+    height: 400px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Testimonials */
+  #testimonials {
+    margin-bottom: 4rem;
+    background-color: var(--clr-gray-light);
+    padding: 3rem 1.5rem;
+    border-radius: 12px;
+  }
+  #testimonials h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--clr-dark);
+  }
+  .testimonials-list {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    gap: 2rem;
+  }
+  .testimonial {
+    background: var(--clr-white);
+    padding: 1.75rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px var(--shadow-card);
+    font-style: italic;
+    color: var(--clr-gray-medium);
+    position: relative;
+    transition: box-shadow 0.3s ease;
+  }
+  .testimonial:hover,
+  .testimonial:focus-within {
+    box-shadow: 0 12px 28px rgb(0 0 0 / 0.15);
+    outline: none;
+  }
+  .testimonial::before {
+    content: "“";
+    font-size: 3.5rem;
+    color: var(--clr-primary);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-weight: 700;
+  }
+  .testimonial-text {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .testimonial-author {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--clr-dark);
+    text-align: right;
+  }
+
+  /* Contact */
+  #contact {
+    max-width: 600px;
+    margin: auto;
+  }
+  #contact h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--clr-dark);
+  }
+  form {
+    display: grid;
+    gap: 1.5rem;
+  }
+  label {
+    font-weight: 600;
+    color: var(--clr-dark);
+    font-size: 1rem;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: var(--clr-primary);
+    outline: none;
+  }
+  textarea {
+    min-height: 120px;
+  }
+  button[type="submit"] {
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgb(37 99 235 / 0.4);
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus-visible {
+    background-color: var(--clr-primary-hover);
+    outline: none;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--clr-dark);
+    color: var(--clr-gray-light);
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 1.5rem 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      height: auto;
+      gap: 2rem;
+    }
+    .hero-image-container {
+      height: 60vh;
+      width: 100%;
+    }
+    #about {
+      grid-template-columns: 1fr;
+    }
+    .about-image-container {
+      height: 300px;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+  }
+  @media (max-width: 500px) {
+    .hero h1 {
+      font-size: 2.1rem;
+    }
+    .btn-primary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
 </head>
 <body>
-
 <header>
-    <nav>
-        <a href="#hero">Home</a>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <nav aria-label="Primary navigation">
+    <a href="#" class="logo" tabindex="0">UrbanCraft</a>
+    <div class="nav-links">
+      <a href="#products" tabindex="0">Shop</a>
+      <a href="#features" tabindex="0">Features</a>
+      <a href="#about" tabindex="0">About</a>
+      <a href="#testimonials" tabindex="0">Testimonials</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </div>
+  </nav>
 </header>
-
-<section id="hero" class="hero">
-    <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
-         alt="Hero Image" style="width:100%; height:100%; object-fit:cover; display:block;">
-    <div style="position: absolute; bottom: 30px; left: 30px; color: #fff;">
-        <h1 style="font-size: 3rem;">Discover Your Style</h1>
-        <p style="font-size: 1.2rem;">Shop premium products at unbeatable prices.</p>
-        <a href="#products" style="padding: 10px 20px; background: #FF7A00; color: #fff; text-decoration: none;">Shop Now</a>
+<main>
+  <section class="hero" aria-label="Hero banner">
+    <div class="hero-content">
+      <h1>Elevate Your Urban Style</h1>
+      <p>Discover meticulously crafted apparel and accessories designed for city life. Modern fashion meets uncompromising comfort & quality.</p>
+      <a href="#products" class="btn-primary" role="button" tabindex="0">Shop Now</a>
     </div>
-</section>
+    <div class="hero-image-container">
+      <img 
+        src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
+        alt="Stylish urban man walking on city street wearing fashionable clothes" 
+        style="width:100%; height:100%; object-fit:cover; display:block;"
+        loading="eager"
+      />
+    </div>
+  </section>
 
-<section id="products">
-    <h2 style="text-align: center; margin: 20px 0;">Featured Products</h2>
-    <div class="products">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1515025511735-6e8a835c7577?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
-                 alt="Leather Sneakers" style="width:100%; height:100%; object-fit:cover; display:block;">
-            <h3>Leather Sneakers</h3>
-            <p>₹3,999</p>
+  <section id="products" aria-label="Featured products">
+    <h2>Featured Products</h2>
+    <div class="products-grid">
+      <article class="card" tabindex="0" aria-label="Leather Messenger Bag ₹4999">
+        <div class="product-image-container">
+          <img 
+            src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
+            alt="Premium leather messenger bag on wooden desk" 
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            loading="lazy"
+          />
         </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1522042027852-df1772a6b4c3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
-                 alt="Denim Jacket" style="width:100%; height:100%; object-fit:cover; display:block;">
-            <h3>Denim Jacket</h3>
-            <p>₹2,499</p>
+        <div class="card-content">
+          <h3 class="product-name">Leather Messenger Bag</h3>
+          <p class="product-price">₹4,999</p>
         </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1542771371-86e1f0a82018?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
-                 alt="Smart Fitness Watch" style="width:100%; height:100%; object-fit:cover; display:block;">
-            <h3>Smart Fitness Watch</h3>
-            <p>₹4,999</p>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Indigo Denim Jacket ₹3299">
+        <div class="product-image-container">
+          <img 
+            src="https://images.unsplash.com/photo-1555529669-24f2d9c37b3e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
+            alt="Man wearing indigo denim jacket outdoors" 
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            loading="lazy"
+          />
         </div>
-    </div>
-</section>
+        <div class="card-content">
+          <h3 class="product-name">Indigo Denim Jacket</h3>
+          <p class="product-price">₹3,299</p>
+        </div>
+      </article>
 
-<section>
-    <h2 style="text-align: center; margin: 20px 0;">Features</h2>
-    <p style="text-align: center; padding: 0 20px;">Explore our top-notch products with unique features tailored to meet your style and comfort. Quality materials, exquisite designs, and competitive pricing ensure you get the best value for your investment.</p>
-</section>
+      <article class="card" tabindex="0" aria-label="Smart Fitness Watch ₹7499">
+        <div class="product-image-container">
+          <img 
+            src="https://images.unsplash.com/photo-1516728778615-2d590ea1856f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
+            alt="Smart fitness watch on wrist with fitness app" 
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="product-name">Smart Fitness Watch</h3>
+          <p class="product-price">₹7,499</p>
+        </div>
+      </article>
 
-<section id="about" class="about">
-    <img src="https://images.unsplash.com/photo-1521386736578-085f084de19e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
-         alt="About Us" style="width:100%; height:100%; object-fit:cover; display:block;">
-    <h2 style="text-align: center; margin: 20px 0;">About Us</h2>
-    <p style="text-align: center; padding: 0 20px;">We are dedicated to providing top-quality fashion products tailored to the modern consumer. Drawing inspiration from the latest trends, we curate our collections with ongoing customer feedback to ensure satisfaction.</p>
-</section>
+      <article class="card" tabindex="0" aria-label="Eco-friendly Canvas Sneakers ₹2699">
+        <div class="product-image-container">
+          <img 
+            src="https://images.unsplash.com/photo-1528701800489-565cabb5282f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
+            alt="Pair of eco-friendly canvas sneakers on sidewalk" 
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="product-name">Eco-friendly Canvas Sneakers</h3>
+          <p class="product-price">₹2,699</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-<section>
-    <h2 style="text-align: center; margin: 20px 0;">Testimonials</h2>
-    <div class="testimonial">
-        <p>"Amazing quality products! I absolutely love my new sneakers!" - Priya S.</p>
+  <section id="features" aria-label="Key features">
+    <h2>Why Choose UrbanCraft?</h2>
+    <div class="features-list">
+      <article class="feature-item" tabindex="0">
+        <h3 class="feature-title">Crafted for Urban Living</h3>
+        <p class="feature-desc">Our designs blend style with functionality to meet the demands of modern city life.</p>
+      </article>
+      <article class="feature-item" tabindex="0">
+        <h3 class="feature-title">Sustainable Materials</h3>
+        <p class="feature-desc">We prioritize eco-friendly fabrics and responsible sourcing for a cleaner future.</p>
+      </article>
+      <article class="feature-item" tabindex="0">
+        <h3 class="feature-title">Exceptional Quality</h3>
+        <p class="feature-desc">Durability and premium craftsmanship ensure your products last season after season.</p>
+      </article>
+      <article class="feature-item" tabindex="0">
+        <h3 class="feature-title">Customer-Centric Support</h3>
+        <p class="feature-desc">Dedicated support team ready to assist you with your shopping experience end-to-end.</p>
+      </article>
     </div>
-    <div class="testimonial">
-        <p>"The denim jacket fits perfectly! Highly recommend!" - Rahul K.</p>
-    </div>
-    <div class="testimonial">
-        <p>"Outstanding service and fast delivery!" - Neha R.</p>
-    </div>
-</section>
+  </section>
 
-<section id="contact" style="padding: 20px;">
-    <h2 style="text-align: center; margin: 20px 0;">Contact Us</h2>
-    <form style="display: flex; flex-direction: column; max-width: 600px; margin: 0 auto;">
-        <input type="text" placeholder="Your Name" required style="margin: 10px 0; padding: 10px; border: 1px solid #ccc;">
-        <input type="email" placeholder="Your Email" required style="margin: 10px 0; padding: 10px; border: 1px solid #ccc;">
-        <textarea placeholder="Your Message" required style="margin: 10px 0; padding: 10px; border: 1px solid #ccc; height: 100px;"></textarea>
-        <button type="submit" style="padding: 10px; background: #FF7A00; color: #fff; border: none; cursor: pointer;">Send Message</button>
+  <section id="about" aria-label="About UrbanCraft">
+    <div id="about-content">
+      <h2>About UrbanCraft</h2>
+      <p>Founded in 2015, UrbanCraft is a leading e-commerce destination dedicated to premium urban lifestyle apparel and accessories. We combine innovative design with sustainable practices to bring you the best in quality and style for city dwellers who value both form and function.</p>
+      <p>Our commitment is to empower your everyday adventures with reliable, stylish, and eco-conscious products. From timeless denim jackets to smart wearable tech, each item is thoughtfully crafted to fit seamlessly into your fast-paced life.</p>
+    </div>
+    <div class="about-image-container">
+      <img 
+        src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" 
+        alt="Creative professionals collaborating in modern office space" 
+        style="width:100%; height:100%; object-fit:cover; display:block;"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <section id="testimonials" aria-label="Customer testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonials-list">
+      <aside class="testimonial" tabindex="0">
+        <p class="testimonial-text">UrbanCraft’s denim jacket is easily the best-fitting and most comfortable jacket I own. The quality is outstanding and it looks great whether I’m at work or out with friends.</p>
+        <p class="testimonial-author">– Rohit Sharma, Mumbai</p>
+      </aside>
+
+      <aside class="testimonial" tabindex="0">
+        <p class="testimonial-text">The smart fitness watch not only tracks my workouts but also pairs perfectly with my daily outfits. Durable, stylish, and functional – I’m impressed with every aspect.</p>
+        <p class="testimonial-author">– Meera Patel, Bangalore</p>
+      </aside>
+
+      <aside class="testimonial" tabindex="0">
+        <p class="testimonial-text">I love UrbanCraft’s eco-friendly sneakers! They’re lightweight, trendy, and I feel great knowing they’re made with sustainability in mind.</p>
+        <p class="testimonial-author">– Arjun Rao, Delhi</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact form">
+    <h2>Contact Us</h2>
+    <form id="contactForm" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" autocomplete="name" />
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" autocomplete="email" />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here" required aria-required="true"></textarea>
+      <button type="submit" aria-label="Send your message">Send Message</button>
     </form>
-</section>
+  </section>
+</main>
 
 <footer>
-    <p>&copy; 2023 Premium E-commerce. All Rights Reserved.</p>
+  &copy; 2024 UrbanCraft. All rights reserved.
 </footer>
 
+<script>
+  (function(){
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
+
+      if(!name){
+        alert("Please enter your full name.");
+        form.name.focus();
+        return;
+      }
+      if(!email || !emailPattern.test(email)){
+        alert("Please enter a valid email address.");
+        form.email.focus();
+        return;
+      }
+      if(!message){
+        alert("Please enter your message.");
+        form.message.focus();
+        return;
+      }
+      alert("Thank you for contacting us, " + name + "! We will get back to you soon.");
+      form.reset();
+    });
+  })();
+</script>
 </body>
 </html>
-```
