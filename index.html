@@ -1,45 +1,40 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Elegant E-Commerce Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EliteCommerce - Premium Online Shopping</title>
 <style>
-  /* Reset and base styles */
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #fff;
   }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
   /* Navbar */
   nav {
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+  nav container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    z-index: 10;
+    max-width: 1200px;
+    margin: auto;
   }
-  nav .logo {
+  nav h1 {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
     color: #222;
   }
   nav ul {
@@ -47,60 +42,65 @@
     display: flex;
     gap: 1.5rem;
   }
-  nav ul li a {
-    font-weight: 600;
-    color: #555;
+  nav li {
+    font-size: 1rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #222;
     transition: color 0.3s;
   }
-  nav ul li a:hover {
-    color: #000;
+  nav a:hover {
+    color: #007BFF;
   }
 
   /* Hero */
   .hero {
     height: 80vh;
-    width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
     position: relative;
-    overflow: hidden;
   }
   .hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
   .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-align: center;
-    padding: 0 2rem;
-    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    max-width: 800px;
+    background: rgba(255,255,255,0.8);
+    padding: 2rem;
+    border-radius: 8px;
   }
-  .hero h1 {
-    font-size: 3rem;
+  .hero h2 {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #222;
   }
   .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    color: #555;
   }
-  .btn-primary {
+  .cta-btn {
+    background-color: #007BFF;
+    color: #fff;
     padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    background-color: #ff6f61;
     border: none;
     border-radius: 4px;
-    color: #fff;
+    font-size: 1rem;
     cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s;
   }
-  .btn-primary:hover {
-    background-color: #ff3b2e;
+  .cta-btn:hover {
+    background-color: #0056b3;
   }
 
   /* Products */
@@ -108,42 +108,44 @@
     padding: 4rem 2rem;
     background-color: #f9f9f9;
   }
-  #products h2 {
+  #products h3 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     color: #222;
   }
-  .products-grid {
+  .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
   }
-  .card {
+  .product-card {
     background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .card:hover {
+  .product-card:hover {
+    transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transform: translateY(-5px);
   }
-  .card-img-container {
+  .product-image-container {
     height: 260px;
-    width: 100%;
+    overflow: hidden;
   }
-  .card-img-container img {
+  .product-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
-  .card-body {
-    padding: 1.5rem;
+  .product-info {
+    padding: 1rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -152,81 +154,94 @@
   .product-name {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    font-weight: 600;
     color: #222;
   }
   .product-price {
     font-size: 1.1rem;
-    color: #e91e63;
-    font-weight: 700;
+    font-weight: 600;
+    color: #28a745;
   }
 
   /* Features */
   #features {
     padding: 4rem 2rem;
   }
-  #features h2 {
+  #features h3 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 3rem;
     color: #222;
   }
-  .features-grid {
+  .feature-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
   }
-  .feature {
+  .feature-item {
     background: #fff;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .feature:hover {
+  .feature-item:hover {
+    transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transform: translateY(-3px);
   }
-  .feature h3 {
-    font-size: 1.4rem;
+  .feature-icon {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #007BFF;
+  }
+  .feature-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
     color: #222;
   }
-  .feature p {
-    font-size: 1rem;
+  .feature-desc {
+    font-size: 0.95rem;
     color: #555;
   }
 
   /* About */
   #about {
     padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  #about h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+  #about h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
     color: #222;
   }
-  .about-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-  }
-  .about-image {
-    flex: 1 1 400px;
+  .about-image-container {
     height: 400px;
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 2rem;
   }
-  .about-image img {
+  .about-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
   .about-text {
-    flex: 1 1 400px;
+    max-width: 800px;
     font-size: 1.1rem;
+    line-height: 1.6;
     color: #555;
+    text-align: center;
   }
 
   /* Testimonials */
@@ -234,9 +249,9 @@
     padding: 4rem 2rem;
     background-color: #f1f1f1;
   }
-  #testimonials h2 {
+  #testimonials h3 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 3rem;
     color: #222;
   }
@@ -244,110 +259,110 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
   }
-  .testimonial {
+  .testimonial-card {
     background: #fff;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center;
   }
-  .testimonial p {
+  .testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  .testimonial-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+  }
+  .testimonial-quote {
     font-style: italic;
     color: #555;
+    margin-bottom: 1rem;
   }
-  .testimonial .author {
+  .testimonial-author {
     font-weight: 600;
+    font-size: 1rem;
     color: #222;
-    align-self: flex-end;
   }
 
   /* Contact */
   #contact {
     padding: 4rem 2rem;
+    max-width: 600px;
+    margin: auto;
   }
-  #contact h2 {
+  #contact h3 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     color: #222;
   }
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+  form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 4px;
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 0.75rem;
     border: 1px solid #ccc;
+    border-radius: 4px;
     font-size: 1rem;
+    width: 100%;
   }
-  .contact-form button {
-    padding: 1rem;
-    background-color: #ff6f61;
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  button[type="submit"] {
+    background-color: #007BFF;
     color: #fff;
+    padding: 0.75rem;
     border: none;
     border-radius: 4px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  .contact-form button:hover {
-    background-color: #ff3b2e;
+  button[type="submit"]:hover {
+    background-color: #0056b3;
   }
 
   /* Footer */
   footer {
     background-color: #222;
-    color: #ccc;
     padding: 2rem;
+    color: #fff;
   }
-  footer .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+  footer .footer-container {
     max-width: 1200px;
-    margin: 0 auto;
-  }
-  footer .footer-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
   footer p {
     font-size: 0.9rem;
-    margin-bottom: 1rem;
   }
-
-  /* Responsive tweaks */
-  @media(max-width: 768px){
-    nav {
-      flex-direction: column;
-      align-items: flex-start;
+  /* Responsive Typography */
+  @media(max-width: 768px) {
+    .hero h2 {
+      font-size: 2rem;
     }
-    nav ul {
+    #about {
       flex-direction: column;
-      width: 100%;
-    }
-    nav ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .about-content {
-      flex-direction: column;
-    }
-
-    footer .footer-content {
-      flex-direction: column;
-      align-items: flex-start;
     }
   }
 </style>
@@ -356,148 +371,178 @@
 
 <!-- Navbar -->
 <nav>
-  <div class="logo">StylishMart</div>
-  <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="container">
+    <h1>EliteCommerce</h1>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 <!-- Hero -->
 <section id="hero" class="hero">
-  <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Lifestyle" />
-  <div class="hero-content">
-    <h1>Discover the Art of Style & Comfort</h1>
-    <p>Premium Indian Lifestyle Products Delivered To Your Doorstep</p>
-    <a href="#products" class="btn-primary">Shop Now</a>
+  <div class="hero-image-container" style="width:100%; height:80vh;">
+    <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Luxury Lifestyle" style="width:100%; height:100%; object-fit:cover; display:block;">
+  </div>
+  <div class="hero-content" style="position:relative; max-width:800px; background:rgba(255,255,255,0.8); padding:2rem; border-radius:8px;">
+    <h2>Discover Premium Quality Products</h2>
+    <p>Elevate your lifestyle with our curated selection of luxury essentials and accessories. Shop the latest trends today.</p>
+    <a href="#products" class="cta-btn">Shop Now</a>
   </div>
 </section>
 
 <!-- Products -->
-<section id="products">
-  <h2>Latest Collections</h2>
-  <div class="products-grid">
-    <!-- Product 1 -->
-    <div class="card">
-      <div class="card-img-container">
-        <img src="https://images.unsplash.com/photo-1601891443907-33bfc9b6694b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Handcrafted Leather Wallet" style="width:100%; height:100%; object-fit:cover; display:block;" />
+<section id="products" style="padding:4rem 2rem; background-color:#f9f9f9;">
+  <h3 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">Handcrafted Excellence</h3>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-image-container" style="height:260px;">
+        <img src="https://images.unsplash.com/photo-1595426430804-fc76fc501d38?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Leather Briefcase" style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
-      <div class="card-body">
-        <div class="product-name">Handcrafted Leather Wallet</div>
-        <div class="product-price">₹2,499</div>
-      </div>
-    </div>
-    <!-- Product 2 -->
-    <div class="card">
-      <div class="card-img-container">
-        <img src="https://images.unsplash.com/photo-1611697434484-52f73b900052?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Traditional Kurta Set" style="width:100%; height:100%; object-fit:cover; display:block;" />
-      </div>
-      <div class="card-body">
-        <div class="product-name">Traditional Kurta Set</div>
-        <div class="product-price">₹3,200</div>
+      <div class="product-info" style="padding:1rem; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div class="product-name" style="font-size:1.2rem; margin-bottom:0.5rem; color:#222;">Classic Leather Briefcase</div>
+          <div class="product-price" style="font-size:1.1rem; font-weight:600; color:#28a745;">₹12,499</div>
+        </div>
       </div>
     </div>
-    <!-- Product 3 -->
-    <div class="card">
-      <div class="card-img-container">
-        <img src="https://images.unsplash.com/photo-1621318801610-cb71662bc5b8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Jhumka Earrings" style="width:100%; height:100%; object-fit:cover; display:block;" />
+    <div class="product-card">
+      <div class="product-image-container" style="height:260px;">
+        <img src="https://images.unsplash.com/photo-1628094968297-90e35ec9effb?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Luxury Watch" style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
-      <div class="card-body">
-        <div class="product-name">Elegant Jhumka Earrings</div>
-        <div class="product-price">₹1,150</div>
+      <div class="product-info" style="padding:1rem; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div class="product-name" style="font-size:1.2rem; margin-bottom:0.5rem; color:#222;">Smart Fitness Watch</div>
+          <div class="product-price" style="font-size:1.1rem; font-weight:600; color:#28a745;">₹7,999</div>
+        </div>
       </div>
     </div>
-    <!-- Product 4 -->
-    <div class="card">
-      <div class="card-img-container">
-        <img src="https://images.unsplash.com/photo-1570665897274-1a75c2c0abdd?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Casual Sneakers" style="width:100%; height:100%; object-fit:cover; display:block;" />
+    <div class="product-card">
+      <div class="product-image-container" style="height:260px;">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Designer Sneakers" style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
-      <div class="card-body">
-        <div class="product-name">Casual Sneakers</div>
-        <div class="product-price">₹2,800</div>
+      <div class="product-info" style="padding:1rem; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div class="product-name" style="font-size:1.2rem; margin-bottom:0.5rem; color:#222;">Premium Leather Sneakers</div>
+          <div class="product-price" style="font-size:1.1rem; font-weight:600; color:#28a745;">₹9,499</div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-image-container" style="height:260px;">
+        <img src="https://images.unsplash.com/photo-1600438936921-372db91f0629?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Luxury Sunglasses" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <div class="product-info" style="padding:1rem; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div class="product-name" style="font-size:1.2rem; margin-bottom:0.5rem; color:#222;">Aviator Sunglasses</div>
+          <div class="product-price" style="font-size:1.1rem; font-weight:600; color:#28a745;">₹4,299</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Features -->
-<section id="features">
-  <h2>Why Choose Us</h2>
-  <div class="features-grid">
-    <div class="feature">
-      <h3>Premium Quality</h3>
-      <p>All products are crafted with the highest standards, ensuring durability and elegance.</p>
+<section id="features" style="padding:4rem 2rem;">
+  <h3 style="text-align:center; font-size:2rem; margin-bottom:3rem; color:#222;">Why Shop With Us</h3>
+  <div class="feature-list">
+    <div class="feature-item">
+      <div class="feature-icon">⚡️</div>
+      <div class="feature-title">Fast Delivery</div>
+      <div class="feature-desc">Experience swift and reliable shipping across India, ensuring your products arrive on time.</div>
     </div>
-    <div class="feature">
-      <h3>Fast Delivery</h3>
-      <p>Get your favorite collections delivered swiftly across India with reliable logistics partners.</p>
+    <div class="feature-item">
+      <div class="feature-icon">🔒</div>
+      <div class="feature-title">Secure Payments</div>
+      <div class="feature-desc">Shop confidently with our encrypted payment gateway supporting multiple payment options.</div>
     </div>
-    <div class="feature">
-      <h3>Authentic Designs</h3>
-      <p>Exclusive Indian-inspired designs that blend tradition with modern fashion trends.</p>
+    <div class="feature-item">
+      <div class="feature-icon">💎</div>
+      <div class="feature-title">Premium Quality</div>
+      <div class="feature-desc">All products are carefully selected to guarantee authenticity and premium craftsmanship.</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🎁</div>
+      <div class="feature-title">Exclusive Offers</div>
+      <div class="feature-desc">Join our mailing list to unlock special discounts and early access to new collections.</div>
     </div>
   </div>
 </section>
 
 <!-- About -->
-<section id="about">
-  <h2>About StylishMart</h2>
-  <div class="about-content">
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1614985344882-ace30ce8df2f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Our Workshop" style="width:100%; height:100%; object-fit:cover; display:block;" />
-    </div>
-    <div class="about-text">
-      <p>StylishMart is committed to bringing the finest Indian lifestyle products directly to your home. From handcrafted accessories to traditional apparel, our collections celebrate Indian craftsmanship fused with contemporary design. Our mission is to enhance your personal style with authentic, high-quality items that reflect India's rich cultural heritage.</p>
-    </div>
+<section id="about" style="padding:4rem 2rem; display:flex; flex-direction:column; align-items:center;">
+  <h3 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">About EliteCommerce</h3>
+  <div class="about-image-container" style="height:400px; width:100%; max-width:1200px; overflow:hidden; border-radius:8px; margin-bottom:2rem;">
+    <img src="https://images.unsplash.com/photo-1606808371800-9bf84c7ff207?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Us" style="width:100%; height:100%; object-fit:cover; display:block;">
+  </div>
+  <div class="about-text" style="max-width:800px; font-size:1.1rem; line-height:1.6; color:#555; text-align:center;">
+    At EliteCommerce, we are passionate about bringing you the finest luxury products sourced from the most trusted artisans and brands across India. Our mission is to redefine online shopping by delivering excellence, quality, and personalized service to elevate your lifestyle.
   </div>
 </section>
 
 <!-- Testimonials -->
-<section id="testimonials">
-  <h2>What Our Customers Say</h2>
+<section id="testimonials" style="padding:4rem 2rem; background-color:#f1f1f1;">
+  <h3 style="text-align:center; font-size:2rem; margin-bottom:3rem; color:#222;">What Our Customers Say</h3>
   <div class="testimonials-grid">
-    <div class="testimonial">
-      <p>"I love the handcrafted leather wallet I ordered. It’s exquisite and very durable. Highly recommended!"</p>
-      <div class="author">– Priya S.</div>
+    <div class="testimonial-card">
+      <div class="testimonial-img" style="width:80px; height:80px; border-radius:50%; overflow:hidden; margin-bottom:1rem;">
+        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a7f8f4?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 1" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <div class="testimonial-quote" style="font-style:italic; color:#555; margin-bottom:1rem;">"EliteCommerce provided me with top-quality products and exceptional service. Highly recommended!"</div>
+      <div class="testimonial-author" style="font-weight:600; font-size:1rem; color:#222;">Anjali M.</div>
     </div>
-    <div class="testimonial">
-      <p>"The traditional kurta set is beautiful and fits perfectly. Great quality and fast service."</p>
-      <div class="author">– Rahul M.</div>
+    <div class="testimonial-card">
+      <div class="testimonial-img" style="width:80px; height:80px; border-radius:50%; overflow:hidden; margin-bottom:1rem;">
+        <img src="https://images.unsplash.com/photo-1543286210-0436e4a7e4f7?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 2" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <div class="testimonial-quote" style="font-style:italic; color:#555; margin-bottom:1rem;">"Amazing collection and outstanding customer support. Will shop again."</div>
+      <div class="testimonial-author" style="font-weight:600; font-size:1rem; color:#222;">Rohit K.</div>
     </div>
-    <div class="testimonial">
-      <p>"Elegant earrings that add a touch of tradition to my daily wear. Absolutely loved it!"</p>
-      <div class="author">– Neha K.</div>
+    <div class="testimonial-card">
+      <div class="testimonial-img" style="width:80px; height:80px; border-radius:50%; overflow:hidden; margin-bottom:1rem;">
+        <img src="https://images.unsplash.com/photo-1520975867775-d5678b564244?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 3" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <div class="testimonial-quote" style="font-style:italic; color:#555; margin-bottom:1rem;">"High-quality products delivered promptly. Excellent shopping experience."</div>
+      <div class="testimonial-author" style="font-weight:600; font-size:1rem; color:#222;">Sneha P.</div>
     </div>
   </div>
 </section>
 
 <!-- Contact Form -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <form class="contact-form" onsubmit="return false;">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea rows="4" placeholder="Your Message" required></textarea>
+<section id="contact" style="padding:4rem 2rem;">
+  <h3 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">Get in Touch</h3>
+  <form id="contactForm" style="display:flex; flex-direction:column; gap:1rem;">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
     <button type="submit">Send Message</button>
   </form>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="footer-content">
-    <div class="footer-logo">StylishMart</div>
-    <p>&copy; 2023 StylishMart. All rights reserved.</p>
+  <div class="footer-container" style="max-width:1200px; margin:auto; display:flex; flex-direction:column; align-items:center; gap:1rem;">
+    <p>&copy; 2023 EliteCommerce. All rights reserved.</p>
+    <p>Contact: support@elitecommerce.in | +91 98765 43210</p>
+    <div style="display:flex; gap:1.5rem;">
+      <a href="#" style="color:#fff; text-decoration:none;">Privacy Policy</a>
+      <a href="#" style="color:#fff; text-decoration:none;">Terms of Service</a>
+    </div>
   </div>
 </footer>
 
 <script>
-  // No functionality needed as per instructions
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Thank you for reaching out! We will contact you soon.');
+    this.reset();
+  });
 </script>
 
 </body>
 </html>
-```
