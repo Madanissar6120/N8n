@@ -1,21 +1,25 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Indian Craft & Style</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Elegant Indian Fashion Shop</title>
 <style>
+  /* Reset and base styles */
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
+
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f9f9f9;
+    background-color: #fff;
   }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -25,472 +29,510 @@
   nav {
     position: sticky;
     top: 0;
-    background: #fff;
-    padding: 1rem 2rem;
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 100;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
   }
+
   nav .logo {
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 1.2rem;
     color: #d35400;
   }
+
   nav ul {
     display: flex;
-    list-style: none;
     gap: 1.5rem;
+    list-style: none;
   }
-  nav li {
-    cursor: pointer;
+
+  nav li a {
     font-weight: 500;
+    font-size: 1rem;
+    color: #444;
     transition: color 0.3s;
   }
-  nav li:hover {
+
+  nav li a:hover {
     color: #d35400;
+  }
+
+  /* Hero */
+  .hero {
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-content {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    background-color: #d35400;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #e67e22;
   }
 
   /* Sections */
-section {
-  width: 100%;
-  padding: 4rem 2rem;
-  box-sizing: border-box;
-}
-
-/* Hero */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 80vh;
-  position: relative;
-  overflow: hidden;
-  justify-content: center;
-  text-align: center;
-  background: #fff;
-}
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  line-height: 1.5;
-  color: #555;
-}
-.hero a.cta {
-  padding: 1rem 2rem;
-  background-color: #d35400;
-  color: #fff;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
-.hero a.cta:hover {
-  background-color: #e67e22;
-}
-.hero-image-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80vh;
-  z-index: -1;
-}
-.hero-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Products */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-}
-.product-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  height: 260px;
-}
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.product-image-container {
-  height: 130px;
-  width: 100%;
-  overflow: hidden;
-}
-.product-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.product-info {
-  padding: 0.75rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 130px;
-}
-.product-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-.product-price {
-  color: #e67e22;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-/* Features */
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-.feature-card {
-  background: #fff;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  flex: 1 1 250px;
-  max-width: 300px;
-  text-align: center;
-}
-.feature-card h3 {
-  margin-bottom: 1rem;
-  color: #2c3e50;
-}
-.feature-card p {
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-/* About */
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.about-content {
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  text-align: center;
-}
-.about-image-container {
-  height: 400px;
-  width: 100%;
-  overflow: hidden;
-}
-.about-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.about p {
-  max-width: 800px;
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Testimonials */
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.testimonial {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.testimonial img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  object-fit: cover;
-}
-.testimonial p {
-  font-style: italic;
-  color: #555;
-  margin-bottom: 1rem;
-}
-.testimonial h4 {
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-/* Contact Form */
-.contact {
-  max-width: 600px;
-  margin: 0 auto;
-}
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.contact input, .contact textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  width: 100%;
-}
-.contact button {
-  padding: 1rem;
-  background-color: #d35400;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.contact button:hover {
-  background-color: #e67e22;
-}
-
-/* Footer */
-footer {
-  background: #222;
-  color: #ccc;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.95rem;
-}
-footer p {
-  margin-bottom: 1rem;
-}
-footer .social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-footer .social-icons a {
-  color: #ccc;
-  font-size: 1.4rem;
-  transition: color 0.3s;
-}
-footer .social-icons a:hover {
-  color: #d35400;
-}
-
-/* Responsive Adjustments */
-@media(max-width: 768px){
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
+  section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  nav ul {
+
+  /* Products */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .card-img-container {
+    height: 260px;
+    overflow: hidden;
+  }
+
+  .card-img-container img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-  .about-content {
+
+  .card-content {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
-}
+
+  .product-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+    color: #d35400;
+    font-weight: 600;
+  }
+
+  /* Features */
+  .features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .feature-item {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .feature-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #444;
+  }
+
+  .feature-desc {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  /* About */
+  .about {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .about-img {
+    flex: 1 1 400px;
+    height: 400px;
+  }
+
+  .about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .about-text {
+    flex: 1 1 400px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .testimonial {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .testimonial-img {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .testimonial-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .testimonial-content {
+    flex: 1;
+  }
+
+  .testimonial-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+  }
+
+  .contact-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #d35400;
+    outline: none;
+  }
+
+  .contact-form button {
+    background-color: #d35400;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+  }
+
+  .contact-form button:hover {
+    background-color: #e67e22;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  footer .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+
+  footer .social-icons a:hover {
+    color: #d35400;
+  }
+
+  /* Utility */
+  @media(max-width: 768px) {
+    .about {
+      flex-direction: column;
+    }
+  }
 
 </style>
 </head>
 <body>
-
 <!-- Navbar -->
 <nav>
-  <div class="logo">IndianCraft</div>
+  <div class="logo">MyFashionStore</div>
   <ul>
-    <li onclick="scrollToSection('hero')">Home</li>
-    <li onclick="scrollToSection('products')">Products</li>
-    <li onclick="scrollToSection('features')">Features</li>
-    <li onclick="scrollToSection('about')">About</li>
-    <li onclick="scrollToSection('testimonials')">Testimonials</li>
-    <li onclick="scrollToSection('contact')">Contact</li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- Hero -->
-<section id="hero" class="hero">
-  <div class="hero-image-container">
-    <img src="https://images.unsplash.com/photo-1610702513290-764a1cf573b8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Handcraft crafts" />
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <img src="https://images.unsplash.com/photo-1640142617020-80b6f45dea80?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Indian Fashion" />
+  <div class="hero-content">
+    <h1>Discover Timeless Indian Elegance</h1>
+    <p>Shop the latest handcrafted elegance and vibrant traditional wear modernized for today.</p>
+    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'});">Explore Collections</button>
   </div>
-  <h1>Discover Unique Indian Handicrafts</h1>
-  <p>Handmade, authentic, exclusive products crafted by skilled artisans across India. Bring tradition into your home with premium quality.</p>
-  <a href="#products" class="cta">Shop Now</a>
 </section>
 
-<!-- Products -->
+<!-- Products Section -->
 <section id="products">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">Featured Products</h2>
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; font-weight:600; color:#222;">Our Exclusive Collection</h2>
   <div class="products">
-    <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1591893248087-7413d9475a2a?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Madhubani Painting" />
+    <div class="card">
+      <div class="card-img-container">
+        <img src="https://images.unsplash.com/photo-1578786018500-226da842706c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Saree" />
       </div>
-      <div class="product-info">
-        <div>
-          <div class="product-name">Madhubani Wall Art</div>
-          <div class="product-price">₹12,000</div>
-        </div>
+      <div class="card-content">
+        <div class="product-title">Royal Banarasi Saree</div>
+        <div class="product-price">₹12,499</div>
       </div>
     </div>
-    <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1613535751143-00b768a73d17?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Traditional Jewelry" />
+    <div class="card">
+      <div class="card-img-container">
+        <img src="https://images.unsplash.com/photo-1617521175226-8c7536680929?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Kurta Set" />
       </div>
-      <div class="product-info">
-        <div>
-          <div class="product-name">Kundan Silver Necklace</div>
-          <div class="product-price">₹8,500</div>
-        </div>
+      <div class="card-content">
+        <div class="product-title">Elegant Anarkali Kurta</div>
+        <div class="product-price">₹6,999</div>
       </div>
     </div>
-    <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1574034483989-eb09f2b3d0d3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Traditional Rug" />
+    <div class="card">
+      <div class="card-img-container">
+        <img src="https://images.unsplash.com/photo-1609989787092-3a95d92a4a2b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Lehenga" />
       </div>
-      <div class="product-info">
-        <div>
-          <div class="product-name">Handwoven Kashmiri Rug</div>
-          <div class="product-price">₹25,000</div>
-        </div>
+      <div class="card-content">
+        <div class="product-title">Vintage Lehenga Choli</div>
+        <div class="product-price">₹15,499</div>
       </div>
     </div>
-    <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1605744119966-33390f2b3369?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Decorative Brassware" />
+    <div class="card">
+      <div class="card-img-container">
+        <img src="https://images.unsplash.com/photo-1612259441864-7a67d333469f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Wedding Sherwani" />
       </div>
-      <div class="product-info">
-        <div>
-          <div class="product-name">Brass Decoratives</div>
-          <div class="product-price">₹3,200</div>
-        </div>
+      <div class="card-content">
+        <div class="product-title">Royal Sherwani</div>
+        <div class="product-price">₹22,999</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Features -->
+<!-- Features Section -->
 <section id="features">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">Why Choose Us</h2>
-  <div class="features">
-    <div class="feature-card">
-      <h3>Artisan Crafted</h3>
-      <p>All products handcrafted by skilled artisans ensuring authenticity and craftsmanship.</p>
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; font-weight:600; color:#222;">What We Offer</h2>
+  <div class="features-list">
+    <div class="feature-item">
+      <img src="https://images.unsplash.com/photo-1617758976219-1a0c8a4e82e0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Authentic Craftsmanship" />
+      <div class="feature-title">Authentic Craftsmanship</div>
+      <div class="feature-desc">Handmade detailed designs crafted by artisans with passion and precision.</div>
     </div>
-    <div class="feature-card">
-      <h3>Premium Quality</h3>
-      <p>Use of high-quality materials for durability and a luxurious feel in every product.</p>
+    <div class="feature-item">
+      <img src="https://images.unsplash.com/photo-1617785203869-59c4eaae6126?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Vibrant Colors" />
+      <div class="feature-title">Vibrant Colors</div>
+      <div class="feature-desc">Rich, lively hues inspired by traditional Indian palettes that brighten your wardrobe.</div>
     </div>
-    <div class="feature-card">
-      <h3>Authentic Designs</h3>
-      <p>Beautiful traditional patterns intertwined with modern aesthetics for versatile decor.</p>
+    <div class="feature-item">
+      <img src="https://images.unsplash.com/photo-1487501966589-472acfbd0942?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Premium Quality" />
+      <div class="feature-title">Premium Quality</div>
+      <div class="feature-desc">Using high-grade fabrics ensuring durability and luxurious feel with every wear.</div>
     </div>
   </div>
 </section>
 
-<!-- About -->
-<section id="about" class="about">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">About Indian Craft & Style</h2>
-  <div class="about-content">
-    <div class="about-image-container">
-      <img src="https://images.unsplash.com/photo-1616523170639-837b8b51be29?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Indian Handicrafts" />
+<!-- About Section -->
+<section id="about">
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; font-weight:600; color:#222;">About Our Boutique</h2>
+  <div class="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1590950557524-dbd548346bd4?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Boutique Interior" />
     </div>
-    <p>Indian Craft & Style celebrates the rich heritage of India by offering authentic handcrafted products. Our mission is to connect traditional artisans with global customers, promoting sustainable livelihood and Indian artistry. From vibrant textiles to intricate carvings, discover India’s cultural essence with us.</p>
+    <div class="about-text">
+      <p>At <strong>MyFashionStore</strong>, we curate the finest collection of traditional and contemporary Indian fashion. Our team collaborates with skilled artisans across India to bring you authentic, high-quality garments that celebrate our rich cultural heritage with a modern twist. Whether it’s for festivities, weddings, or everyday elegance, we have something special for every wardrobe.</p>
+    </div>
   </div>
 </section>
 
-<!-- Testimonials -->
+<!-- Testimonials Section -->
 <section id="testimonials">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">What Our Customers Say</h2>
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; font-weight:600; color:#222;">What Our Customers Say</h2>
   <div class="testimonials">
     <div class="testimonial">
-      <img src="https://images.unsplash.com/photo-1544723795-3fb7268f6f30?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 1"/>
-      <p>"Absolutely loved the handwoven rugs! Authentic Indian craftsmanship that truly makes my home special." </p>
-      <h4>Sudarshan P.</h4>
+      <div class="testimonial-img">
+        <img src="https://images.unsplash.com/photo-1552810193-738380b93e55?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer A" />
+      </div>
+      <div class="testimonial-content">
+        <div class="testimonial-name">Anjali P.</div>
+        <div class="testimonial-text">Absolutely loved the quality and craftsmanship! The saree was perfect for my sister’s wedding. Will shop again!</div>
+      </div>
     </div>
     <div class="testimonial">
-      <img src="https://images.unsplash.com/photo-1544723795-3fb7268f6f30?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 2"/>
-      <p>"Beautiful jewelry pieces! The Kundan necklace is a showstopper." </p>
-      <h4>Priya K.</h4>
-    </div>
-    <div class="testimonial">
-      <img src="https://images.unsplash.com/photo-1544723795-3fb7268f6f30?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 3"/>
-      <p>"The craftsmanship is impeccable and the delivery was prompt. Highly recommended!" </p>
-      <h4>Anil M.</h4>
+      <div class="testimonial-img">
+        <img src="https://images.unsplash.com/photo-1601076798201-afdb10652a03?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer B" />
+      </div>
+      <div class="testimonial-content">
+        <div class="testimonial-name">Rajesh K.</div>
+        <div class="testimonial-text">The lehenga was vibrant and beautifully made. Excellent service and swift delivery. Highly recommend!</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Contact Form -->
-<section id="contact" class="contact">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">Get in Touch</h2>
-  <form id="contactForm" onsubmit="return validateForm();">
-    <input type="text" id="name" placeholder="Your Name" required />
-    <input type="email" id="email" placeholder="Your Email" required />
-    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+<!-- Contact Section -->
+<section id="contact">
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; font-weight:600; color:#222;">Get in Touch</h2>
+  <form class="contact-form" onsubmit="return false;">
+    <label for="name">Name</label>
+    <input type="text" id="name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" rows="4" required></textarea>
+
     <button type="submit">Send Message</button>
   </form>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2023 Indian Craft & Style. All rights reserved.</p>
   <div class="social-icons">
     <a href="#" aria-label="Facebook" title="Facebook">🌐</a>
-    <a href="#" aria-label="Instagram" title="Instagram">🌐</a>
-    <a href="#" aria-label="Twitter" title="Twitter">🌐</a>
+    <a href="#" aria-label="Instagram" title="Instagram">📸</a>
+    <a href="#" aria-label="WhatsApp" title="WhatsApp">💬</a>
   </div>
+  <p>&copy; 2023 MyFashionStore. All rights reserved.</p>
 </footer>
 
 <script>
-  function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  }
-
-  function validateForm() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    if(!name || !email || !message){
-      alert('Please fill all fields');
-      return false;
-    }
-    alert('Thank you for reaching out! We will contact you soon.');
-    document.getElementById('contactForm').reset();
-    return false;
-  }
+  // Optional: Smooth scrolling fallback
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if(target) {
+        target.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
 </script>
-
 </body>
 </html>
+```
