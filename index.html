@@ -1,316 +1,374 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vastra - Premium Indian Apparel</title>
+<title>Elite Indian Fashion</title>
 <style>
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #333;
-    background-color: #fff;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
+    line-height: 1.6;
   }
 
   /* Navbar */
-  nav {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-  nav .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #d32f2f;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  nav ul li a {
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s;
-  }
-  nav ul li a:hover {
-    background-color: #f5f5f5;
-    border-radius: 4px;
-  }
-
-  /* Hero */
-  .hero {
-    height: 80vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-  }
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-  }
-  .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .btn-primary {
-    background-color: #d32f2f;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .btn-primary:hover {
-    background-color: #b31b1b;
-  }
-
-  /* Section containers */
-section {
-  padding: 4rem 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 999;
 }
 
-/* Products */
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #34495e;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e67e22;
+}
+
+/* Hero section */
+.hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 1200px;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #e67e22;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #d35400;
+}
+
+/* Products Section */
 .products {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.products h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
-.product-card {
-  background-color: #fff;
+
+.card {
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.3s, transform 0.3s;
 }
-.product-card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+.card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
-.product-image {
+
+.card-image {
   height: 260px;
   width: 100%;
 }
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.product-info {
+
+.card-info {
   padding: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .product-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #222;
-}
-.product-price {
   font-size: 1.1rem;
-  font-weight: 700;
-  color: #d32f2f;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #e67e22;
+  font-size: 1.2rem;
 }
 
 /* Features */
 .features {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.feature-item {
+  flex: 1 1 200px;
+  max-width: 250px;
+  background: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s;
+}
+
+.feature-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.feature-item h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* About Section */
+.about {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  position: relative;
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.about-image {
+  height: 400px;
+  width: 100%;
+  margin-top: 1rem;
+  max-width: 1000px;
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.testimonials h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.testimonials-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
-.feature {
-  flex: 1 1 250px;
-  max-width: 300px;
-  background-color: #fafafa;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.feature:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
-}
-.feature h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
-.feature p {
-  font-size: 1rem;
-  color: #555;
-}
 
-/* About */
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.about .about-text {
-  max-width: 700px;
-  margin-bottom: 2rem;
-}
-.about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
-.about p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: #555;
-}
-.about-image {
-  height: 400px;
-  width: 100%;
-  max-width: 1200px;
-}
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Testimonials */
-.testimonials {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
 .testimonial {
-  background-color: #fff;
-  padding: 2rem;
+  background: #f4f4f4;
+  padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 300px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 .testimonial p {
-  font-size: 1.2rem;
   font-style: italic;
   margin-bottom: 1rem;
-  color: #555;
-}
-.testimonial .author {
-  text-align: right;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #222;
 }
 
-/* Contact Form */
+.testimonial h4 {
+  font-weight: normal;
+  font-size: 1rem;
+  color: #34495e;
+}
+
+/* Contact */
 .contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
 }
+
 .contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #222;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2c3e50;
 }
-.contact-form {
-  max-width: 500px;
-  width: 100%;
+
+.contact form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.contact-form input,
-.contact-form textarea {
+
+.contact input, .contact textarea {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
   width: 100%;
 }
-.contact-form button {
-  background-color: #d32f2f;
-  color: #fff;
+
+.contact button {
   padding: 0.75rem;
+  background-color: #e67e22;
+  color: #fff;
   border: none;
   border-radius: 4px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.contact-form button:hover {
-  background-color: #b31b1b;
+
+.contact button:hover {
+  background-color: #d35400;
 }
 
 /* Footer */
 footer {
-  background-color: #222;
-  color: #ccc;
+  background-color: #2c3e50;
+  color: #fff;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
   text-align: center;
 }
+
 footer p {
-  margin: 0.5rem 0;
+  margin-bottom: 0.5rem;
 }
+
 footer a {
-  color: #d32f2f;
-  font-weight: 600;
-  transition: color 0.3s;
+  color: #ecf0f1;
+  text-decoration: underline;
 }
-footer a:hover {
-  color: #b31b1b;
+
+/* Responsive */
+@media(max-width: 768px){
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  nav a {
+    padding: 0.5rem 0;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .features {
+    padding: 2rem 1rem;
+  }
+  .about {
+    height: auto;
+  }
+  .about-image {
+    height: auto;
+  }
+  .testimonials-container {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
@@ -318,7 +376,7 @@ footer a:hover {
 
 <!-- Navbar -->
 <nav>
-  <div class="logo">Vastra</div>
+  <div class="logo">Elite Fashion</div>
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#products">Products</a></li>
@@ -331,134 +389,139 @@ footer a:hover {
 
 <!-- Hero -->
 <section class="hero" id="home">
-  <img src="https://images.unsplash.com/photo-1610163947311-91a0f8952b69?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Indian Sarees">
   <div class="hero-content">
-    <h1>Experience Premium Indian Attire</h1>
-    <p>Discover handcrafted sarees, kurtas, and accessories that blend tradition with modern style. Elevate your wardrobe today.</p>
-    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'});">Shop Now</button>
+    <h1>Discover Authentic Indian Fashion</h1>
+    <p>Unveil our exclusive collection of traditional to modern Indian wear designed for elegance and comfort.</p>
+    <button class="cta-button" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'});">Explore Collection</button>
+  </div>
+  <div style="position: absolute; inset:0; z-index:0;">
+    <img src="https://images.unsplash.com/photo-1593178456007-0e29227574fa?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Hero Image" style="width:100%; height:80vh; object-fit:cover; display:block;">
   </div>
 </section>
 
 <!-- Products -->
-<section id="products">
-  <h2 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">Our Exclusive Collection</h2>
-  <div class="products">
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1624713547977-7e4baebdf771?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Traditional Silk Saree" />
+<section id="products" class="products">
+  <h2>Our Exclusive Collection</h2>
+  <div class="products-grid">
+    <div class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Kanjivaram Saree" style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
-      <div class="product-info">
-        <div class="product-name">Traditional Silk Saree</div>
-        <div class="product-price">₹12,500</div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1601475733625-4ecb3ae7a906?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Cotton Kurta Set" />
-      </div>
-      <div class="product-info">
-        <div class="product-name">Cotton Kurta Set</div>
-        <div class="product-price">₹3,200</div>
+      <div class="card-info">
+        <div>
+          <div class="product-name">Kanjivaram Saree</div>
+          <div class="product-price">₹7,500</div>
+        </div>
       </div>
     </div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1612197392781-98847b7e0670?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Designer Lehenga" />
+    <div class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1606639605687-7a4f6fd11b5c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Lehenga Choli" style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
-      <div class="product-info">
-        <div class="product-name">Designer Lehenga</div>
-        <div class="product-price">₹25,000</div>
+      <div class="card-info">
+        <div>
+          <div class="product-name">Elegant Lehenga Choli</div>
+          <div class="product-price">₹12,000</div>
+        </div>
       </div>
     </div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1607323813700-115b7e8b4b5f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Handcrafted Jewelry" />
+    <div class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1542291026-7e631a3e4e60?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3ZhcmF8ZW58MHx8MHx8&auto=format&fit=crop" alt="Kurta Set" style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
-      <div class="product-info">
-        <div class="product-name">Handcrafted Jewelry</div>
-        <div class="product-price">₹8,500</div>
+      <div class="card-info">
+        <div>
+          <div class="product-name">Men's Silk Kurta Set</div>
+          <div class="product-price">₹3,200</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1576023402321-7e2148307a4c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVza2luZXxlbnwwfHwwfHw%3D" alt="Designer Dupatta" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="product-name">Embroidery Designer Dupatta</div>
+          <div class="product-price">₹1,800</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Features -->
-<section id="features">
-  <h2 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">Why Choose Vastra</h2>
-  <div class="features">
-    <div class="feature">
+<section id="features" class="features">
+  <h2>Amazing Features</h2>
+  <div class="feature-list">
+    <div class="feature-item">
       <h3>Authentic Craftsmanship</h3>
-      <p>Each piece is handcrafted by skilled artisans, preserving centuries-old traditions and delivering unmatched quality.</p>
+      <p>We source the finest traditional Indian textiles handcrafted by skilled artisans to bring you genuine heritage products.</p>
     </div>
-    <div class="feature">
-      <h3>Premium Materials</h3>
-      <p>We source only the finest fabrics and accessories to ensure durability, comfort, and elegance in every product.</p>
-    </div>
-    <div class="feature">
+    <div class="feature-item">
       <h3>Affordable Luxury</h3>
-      <p>Experience luxury that fits your budget with our meticulously curated collections at competitive prices.</p>
+      <p>Experience premium quality at prices that respect your budget, making luxury accessible to everyone.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Fast & Secure Delivery</h3>
+      <p>Timely delivery across India with secure packaging ensuring your order arrives in perfect condition.</p>
     </div>
   </div>
 </section>
 
 <!-- About -->
-<section id="about" style="background-color:#f9f9f9;">
-  <h2 style="text-align:center; font-size:2.5rem; margin-bottom:2rem; color:#222;">About Vastra</h2>
-  <div class="about">
-    <div class="about-text">
-      <p style="margin-bottom:1rem; font-size:1.2rem; color:#555;">Vastra is India’s premier online destination for authentic traditional and contemporary Indian apparel. Established in 2010, our mission is to bring the finest craftsmanship and rich heritage to your wardrobe. We work directly with artisans across India to deliver handcrafted sarees, kurtas, lehengas, and accessories that celebrate India’s vibrant culture with a modern touch.</p>
-    </div>
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1613895044202-8dd911138490?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Indian Traditional Wear" style="width:100%; height:100%; object-fit:cover; display:block;" />
-    </div>
+<section id="about" class="about">
+  <h2>About Elite Indian Fashion</h2>
+  <p>Founded with a passion for Indian culture and craftsmanship, Elite Indian Fashion is dedicated to bringing you authentic, beautifully crafted garments that celebrate tradition with a modern touch. Our curated collections feature sarees, lehengas, kurtas, and accessories created by talented artisans from across India.</p>
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1603769118229-18f8f79f7007?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Image" style="width:100%; height:400px; object-fit:cover; display:block;">
   </div>
 </section>
 
 <!-- Testimonials -->
-<section id="testimonials">
-  <h2 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">What Our Customers Say</h2>
-  <div class="testimonials">
+<section id="testimonials" class="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonials-container">
     <div class="testimonial">
-      <p>"Vastra’s sarees are just stunning! The quality and craftsmanship blew me away. Definitely my go-to for traditional wear."</p>
-      <div class="author">— Anjali M., Mumbai</div>
+      <p>"Absolutely loved the saree I purchased! The quality is amazing and the delivery was quick."</p>
+      <h4>- Priya K.</h4>
     </div>
     <div class="testimonial">
-      <p>"I ordered a kurta for my wedding, and it was perfect. The fabric felt so luxurious, and the fit was impeccable."</p>
-      <div class="author">— Rakesh K., Delhi</div>
+      <p>"The kurta set exceeded my expectations. Perfect fit and beautiful craftsmanship."</p>
+      <h4>- Rajesh P.</h4>
     </div>
     <div class="testimonial">
-      <p>"Excellent service and beautiful collection. I received so many compliments on my lehenga. Highly recommended!"</p>
-      <div class="author">— Priya S., Bengaluru</div>
+      <p>"Great shopping experience. Will definitely buy again from Elite Fashion."</p>
+      <h4>- Anjali S.</h4>
     </div>
   </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" style="background-color:#f9f9f9;">
-  <h2 style="text-align:center; font-size:2.5rem; margin-bottom:2rem; color:#222;">Get in Touch</h2>
-  <form class="contact-form" onsubmit="return validateForm();">
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form id="contactForm">
     <input type="text" id="name" placeholder="Your Name" required />
     <input type="email" id="email" placeholder="Your Email" required />
     <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
-    <button type="submit" class="btn-primary">Send Message</button>
+    <button type="submit">Send Message</button>
   </form>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2023 Vastra. All rights reserved.</p>
-  <p>
-    <a href="#home">Back to top</a>
-  </p>
+  <p>&copy; 2023 Elite Indian Fashion. All rights reserved.</p>
+  <div>
+    <a href="mailto:info@eliteindianfashion.com">info@eliteindianfashion.com</a> | <a href="tel:+911234567890">+91 12345 67890</a>
+  </div>
 </footer>
 
 <script>
-  function validateForm() {
-    alert('Thank you for reaching out! We will get back to you shortly.');
-    return false; // Prevent form from actual submission
-  }
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Thank you for reaching out! We will contact you soon.');
+    this.reset();
+  });
 </script>
-
 </body>
 </html>
-```
