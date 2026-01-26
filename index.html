@@ -2,491 +2,631 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SwiftShop E-Commerce</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Urban Threads - Premium E-Commerce</title>
 <style>
-  * {
+  /* Reset */
+  *, *::before, *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
-
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #fff;
-    font-size: 16px;
+    margin:0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    line-height: 1.5;
+    background:#fafafa;
   }
-
   a {
     text-decoration: none;
     color: inherit;
   }
+  img {
+    display:block;
+  }
 
   /* Navbar */
-  nav {
+  header {
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background: #fff;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 0.1);
+    z-index: 1000;
+  }
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    z-index: 999;
   }
-  nav .logo {
+  .logo {
+    font-weight: 900;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #2c3e50;
+    color: #111;
+    letter-spacing: 0.05em;
   }
-  nav ul {
-    list-style: none;
+  .nav-links {
     display: flex;
     gap: 1.5rem;
   }
-  nav ul li a {
-    font-weight: 500;
-    transition: color 0.3s;
+  .nav-links a {
+    font-weight: 600;
+    color: #555;
+    transition: color 0.3s ease;
   }
-  nav ul li a:hover {
-    color: #3498db;
+  .nav-links a:hover, .nav-links a:focus {
+    color: #007aff;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 
   /* Hero */
   .hero {
     height: 80vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
     position: relative;
   }
-  .hero img {
+  .hero-content {
+    max-width: 600px;
+    z-index: 10;
+  }
+  .hero h1 {
+    font-size: 2.75rem;
+    font-weight: 900;
+    margin: 0 0 1rem;
+    color: #111;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+  }
+  .cta-btn {
+    background-color: #007aff;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .cta-btn:hover, .cta-btn:focus {
+    background-color: #005ecb;
+  }
+  .hero-image-container {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 1.5rem;
+  }
+  .hero-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    border-radius: 8px;
-  }
-  .hero-content {
-    position: absolute;
-    text-align: center;
-    color: #fff;
-    max-width: 700px;
-    padding: 1rem;
-    background: rgba(44, 62, 80, 0.5);
-    border-radius: 8px;
-  }
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  .cta-button {
-    display: inline-block;
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 1rem 2rem;
-    margin-top: 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .cta-button:hover {
-    background-color: #c0392b;
-  }
-
-  /* Sections */
- section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
   }
 
   /* Products */
- .products {
+  section.products {
+    max-width: 1200px;
+    margin: 4rem auto 2rem;
+    padding: 0 1rem;
+  }
+  section.products h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #111;
+  }
+  .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
   }
-
- .card {
+  .product-card {
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: box-shadow 0.3s;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
-  .card:hover {
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  }
-  .card img {
-    width: 100%;
+  .product-image-container {
     height: 260px;
-    object-fit: cover;
-    display: block;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow: hidden;
   }
-  .card-body {
-    padding: 1rem;
+  .product-details {
+    padding: 1.25rem 1.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .product-name {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+    color: #222;
   }
-  .price {
-    font-size: 1.1rem;
-    color: #27ae60;
+  .product-price {
     font-weight: 600;
+    font-size: 1rem;
+    color: #007aff;
+  }
+  .product-card:hover, .product-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgb(0 0 0 / 0.12);
+    outline: none;
   }
 
   /* Features */
- .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+  section.features {
+    background: #007aff;
+    color: #fff;
+    padding: 4rem 1rem;
   }
-
- .feature-item {
-    background-color: #ecf0f1;
-    padding: 2rem;
-    border-radius: 8px;
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  }
+  .feature {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
   .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #2980b9;
+    font-size: 3rem;
+    line-height: 1;
   }
   .feature-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-weight: 800;
+    font-size: 1.25rem;
   }
   .feature-desc {
+    font-weight: 500;
     font-size: 1rem;
-    color: #555;
+    opacity: 0.85;
   }
 
   /* About */
- .about {
+  section.about {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    gap: 3rem;
   }
   .about-content {
-    max-width: 800px;
-    text-align: center;
+    flex: 1;
   }
-  .about h2 {
+  .about-content h2 {
     font-size: 2rem;
+    font-weight: 900;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #111;
   }
-  .about p {
-    font-size: 1.1rem;
-    color: #555;
+  .about-content p {
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #444;
+    max-width: 650px;
+    line-height: 1.45;
   }
-  .about-img {
+  .about-image-container {
     height: 400px;
-  }
-  .about-img img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 25px rgb(0 0 0 / 0.07);
   }
-
-  /* Testimonials */
- .testimonials {
-    background-color: #f8f9fa;
-    padding: 4rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  .testimonial {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .testimonial img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-  }
-  .testimonial p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: #555;
-  }
-  .testimonial-name {
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #2c3e50;
-  }
-
-  /* Contact Form */
- .contact {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .contact h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #2c3e50;
-  }
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  input, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-  }
-  button.submit-btn {
-    background-color: #27ae60;
-    color: #fff;
-    padding: 1rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  button.submit-btn:hover {
-    background-color: #1e8449;
-  }
-
-  /* Footer */
- footer {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  footer p {
-    font-size: 0.9rem;
-  }
-  footer .social-icons {
-    display: flex;
-    gap: 1rem;
-  }
-  footer .social-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-  }
-  footer .social-icons a:hover {
-    color: #3498db;
-  }
-
-  /* Responsive adjustments */
- @media(max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
+  @media(min-width: 768px) {
+    section.about {
+      flex-direction: row;
+      align-items: center;
+      gap: 4rem;
+    }
+    .about-image-container {
+      flex-basis: 50%;
+    }
+    .about-content {
+      flex-basis: 50%;
     }
   }
 
+  /* Testimonials */
+  section.testimonials {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem 4rem;
+  }
+  section.testimonials h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #111;
+  }
+  .testimonial-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  }
+  .testimonial-card {
+    background: #fff;
+    padding: 1.75rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.07);
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonial-text {
+    font-style: italic;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  .testimonial-author {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #222;
+  }
+
+  /* Contact */
+  section.contact {
+    background: #f5f7fa;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 3rem 1rem 4rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.05);
+  }
+  section.contact h2 {
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #111;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+  }
+  input, textarea {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #007aff;
+  }
+  textarea {
+    min-height: 120px;
+  }
+  button.submit-btn {
+    background-color: #007aff;
+    color: white;
+    font-weight: 700;
+    font-size: 1.15rem;
+    border: none;
+    padding: 1rem 0;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button.submit-btn:hover, button.submit-btn:focus {
+    background-color: #005ecb;
+  }
+
+  /* Footer */
+  footer {
+    background: #111;
+    color: #ccc;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive navbar */
+  @media (max-width: 767px) {
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      background: #fff;
+      height: calc(100vh - 60px);
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      width: 70vw;
+      max-width: 300px;
+      box-shadow: -3px 0 10px rgb(0 0 0 / 0.1);
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+    .nav-links.open {
+      right: 0;
+    }
+    .nav-links a {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .nav-toggle {
+      display: block;
+      color: #111;
+    }
+  }
 </style>
 </head>
 <body>
+<header>
+  <nav aria-label="Primary navigation">
+    <div class="logo" tabindex="0">Urban Threads</div>
+    <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation menu">&#9776;</button>
+    <div class="nav-links" id="primary-menu" role="menu">
+      <a href="#products" role="menuitem" tabindex="-1">Products</a>
+      <a href="#features" role="menuitem" tabindex="-1">Features</a>
+      <a href="#about" role="menuitem" tabindex="-1">About</a>
+      <a href="#testimonials" role="menuitem" tabindex="-1">Testimonials</a>
+      <a href="#contact" role="menuitem" tabindex="-1">Contact</a>
+    </div>
+  </nav>
+</header>
 
-<!-- Navbar -->
-<nav>
-  <div class="logo">SwiftShop</div>
-  <ul>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<main>
+  <section class="hero" aria-label="Full screen hero with call to action">
+    <div class="hero-content">
+      <h1>Elevate Your Style with Urban Threads</h1>
+      <p>Discover exclusive fashion apparel and accessories designed for comfort, quality, and modern elegance.</p>
+      <button class="cta-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" aria-label="Shop Now">Shop Now</button>
+    </div>
+    <div class="hero-image-container" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Fashionable person walking on city street wearing urban style clothing" style="width:100%; height:100%; object-fit:cover; display:block;" />
+    </div>
+  </section>
 
-<!-- Hero Section -->
-<section class="hero" id="hero">
-  <img src="https://images.unsplash.com/photo-1641705594667-86d9b5edb319?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Shopping" />
-  <div class="hero-content">
-    <h1>Discover Premium Style & Quality</h1>
-    <button class="cta-button" onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'});">Shop Now</button>
-  </div>
-</section>
+  <section class="products" id="products" aria-label="Featured products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <article class="product-card" tabindex="0" aria-labelledby="product1-name product1-price">
+        <div class="product-image-container">
+          <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Pair of premium Leather Sneakers on a display" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="product-details">
+          <h3 id="product1-name" class="product-name">Classic Leather Sneakers</h3>
+          <div id="product1-price" class="product-price">₹4,299</div>
+        </div>
+      </article>
 
-<!-- Products Section -->
-<section id="products">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#2c3e50;">Our Featured Collections</h2>
-  <div class="products">
-    <!-- Product Card 1 -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1590365014533-0e6d3aec7710?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Leather Sneakers" />
-      <div class="card-body">
-        <div class="product-name">Leather Sneakers</div>
-        <div class="price">₹4,199</div>
+      <article class="product-card" tabindex="0" aria-labelledby="product2-name product2-price">
+        <div class="product-image-container">
+          <img src="https://images.unsplash.com/photo-1538006132300-d9686d2fbc95?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Denim Jacket hanging on a hanger in soft natural light" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="product-details">
+          <h3 id="product2-name" class="product-name">Premium Indigo Denim Jacket</h3>
+          <div id="product2-price" class="product-price">₹3,490</div>
+        </div>
+      </article>
+
+      <article class="product-card" tabindex="0" aria-labelledby="product3-name product3-price">
+        <div class="product-image-container">
+          <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Smart fitness watch on a person's wrist" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="product-details">
+          <h3 id="product3-name" class="product-name">SmartFit Pro Fitness Watch</h3>
+          <div id="product3-price" class="product-price">₹8,799</div>
+        </div>
+      </article>
+
+      <article class="product-card" tabindex="0" aria-labelledby="product4-name product4-price">
+        <div class="product-image-container">
+          <img src="https://images.unsplash.com/photo-1512418490979-92798cec0f32?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Minimalist black leather backpack resting on concrete steps" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="product-details">
+          <h3 id="product4-name" class="product-name">Urban Minimalist Leather Backpack</h3>
+          <div id="product4-price" class="product-price">₹6,599</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="features" id="features" aria-label="Key features of our store">
+    <div class="features-container">
+      <div class="feature" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">🚚</div>
+        <h3 class="feature-title">Fast & Free Shipping</h3>
+        <p class="feature-desc">Get your orders delivered swiftly without any extra shipping charges across India.</p>
+      </div>
+      <div class="feature" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">🛡️</div>
+        <h3 class="feature-title">Secure Payments</h3>
+        <p class="feature-desc">Our platform offers 100% secure payment gateways ensuring your data stays safe.</p>
+      </div>
+      <div class="feature" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">🧵</div>
+        <h3 class="feature-title">Premium Quality</h3>
+        <p class="feature-desc">We partner only with trusted brands and artisans to bring you the best quality products.</p>
+      </div>
+      <div class="feature" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">💬</div>
+        <h3 class="feature-title">24/7 Customer Support</h3>
+        <p class="feature-desc">Our support team is always ready to assist you with your queries anytime, anywhere.</p>
       </div>
     </div>
-    <!-- Product Card 2 -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1624897728719-8d03458d4ea3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Denim Jacket" />
-      <div class="card-body">
-        <div class="product-name">Denim Jacket</div>
-        <div class="price">₹3,499</div>
-      </div>
-    </div>
-    <!-- Product Card 3 -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1623661070174-3905626b4b89?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Smart Fitness Watch" />
-      <div class="card-body">
-        <div class="product-name">Smart Fitness Watch</div>
-        <div class="price">₹6,299</div>
-      </div>
-    </div>
-    <!-- Product Card 4 -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1556566877-f5932a348d8b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Handbag" />
-      <div class="card-body">
-        <div class="product-name">Elegant Handbag</div>
-        <div class="price">₹2,799</div>
-      </div>
-    </div>
-    <!-- Product Card 5 -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1572436592802-464ddec86f52?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Casual Leather Belt" />
-      <div class="card-body">
-        <div class="product-name">Casual Leather Belt</div>
-        <div class="price">₹899</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Features Section -->
-<section id="features">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#2c3e50;">Why Choose SwiftShop</h2>
-  <div class="features-grid">
-    <div class="feature-item">
-      <div class="feature-icon">💎</div>
-      <div class="feature-title">Premium Quality</div>
-      <div class="feature-desc">We source only the finest materials for durable, stylish products you'll love.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">🚚</div>
-      <div class="feature-title">Fast Delivery</div>
-      <div class="feature-desc">Enjoy quick shipping across India with reliable courier partners.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">🔒</div>
-      <div class="feature-title">Secure Payments</div>
-      <div class="feature-desc">Your transactions are protected with top-grade encryption and trusted gateways.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">💬</div>
-      <div class="feature-title">Customer Support</div>
-      <div class="feature-desc">Our team is available 24/7 to assist you with your shopping experience.</div>
-    </div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about" style="background-color:#f4f4f4;">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#2c3e50;">About SwiftShop</h2>
-  <div class="about">
+  <section class="about" id="about" aria-label="About Urban Threads">
     <div class="about-content">
-      <p>SwiftShop is your premium destination for high-quality fashion and accessories. Established in 2020, our mission is to provide top-tier products with exceptional service across India. We curate the latest trends and ensure your shopping experience is seamless and satisfying.</p>
+      <h2>About Urban Threads</h2>
+      <p>Founded in 2015, Urban Threads has grown into India's premier online fashion destination, providing expertly curated collections that blend urban street style with timeless elegance. We believe in sustainable fashion and delivering impeccable customer experience that inspires confidence in every purchase.</p>
     </div>
-    <div class="about-img" style="height:400px;">
-      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About SwiftShop" />
+    <div class="about-image-container" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Fashion designer working on sketches in a bright studio" style="width:100%; height:100%; object-fit:cover; display:block;" />
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Testimonials -->
-<section id="testimonials">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#2c3e50;">What Our Customers Say</h2>
-  <div class="testimonials">
-    <!-- Testimonial 1 -->
-    <div class="testimonial">
-      <img src="https://images.unsplash.com/photo-1546529144-5793b766a4a7?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 1" />
-      <p>"SwiftShop offers amazing quality! My leather jacket was delivered on time and exceeded my expectations."</p>
-      <div class="testimonial-name">Amit R.</div>
+  <section class="testimonials" id="testimonials" aria-label="Customer testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <blockquote class="testimonial-card" tabindex="0">
+        <p class="testimonial-text">"Urban Threads offers exceptional style and fast shipping. The quality of their leather sneakers is outstanding, and I get compliments every time I wear them!"</p>
+        <footer class="testimonial-author">– Ananya Sharma, Mumbai</footer>
+      </blockquote>
+      <blockquote class="testimonial-card" tabindex="0">
+        <p class="testimonial-text">"The customer support team really impressed me. They guided me through choosing the perfect denim jacket and my order arrived right on time."</p>
+        <footer class="testimonial-author">– Rohit Kumar, Bengaluru</footer>
+      </blockquote>
+      <blockquote class="testimonial-card" tabindex="0">
+        <p class="testimonial-text">"Love the variety and premium quality. The SmartFit Pro Fitness Watch is a game changer for my workouts and daily wear."</p>
+        <footer class="testimonial-author">– Priya Singh, New Delhi</footer>
+      </blockquote>
     </div>
-    <!-- Testimonial 2 -->
-    <div class="testimonial">
-      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 2" />
-      <p>"Great shopping experience. The smartwatch is fantastic and the support team was very helpful."</p>
-      <div class="testimonial-name">Sneha M.</div>
-    </div>
-    <!-- Testimonial 3 -->
-    <div class="testimonial">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 3" />
-      <p>"Love the variety and quality of products. Shipping was quick and seamless."</p>
-      <div class="testimonial-name">Raj P.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" style="background-color:#f4f4f4;">
-  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#2c3e50;">Get In Touch</h2>
-  <form class="contact" onsubmit="return handleForm(event)">
-    <div class="form-group">
-      <label for="name">Full Name*</label>
-      <input type="text" id="name" required />
-    </div>
-    <div class="form-group">
-      <label for="email">Email Address*</label>
-      <input type="email" id="email" required />
-    </div>
-    <div class="form-group">
-      <label for="message">Your Message*</label>
-      <textarea id="message" rows="4" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">Send Message</button>
-  </form>
-</section>
+  <section class="contact" id="contact" aria-label="Contact form">
+    <h2>Get In Touch</h2>
+    <form id="contact-form" novalidate>
+      <label for="name">Name <span aria-hidden="true">*</span></label>
+      <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error" />
+      <span id="name-error" role="alert" style="color:#b00020; font-size:0.85rem; display:none;">Please enter your name</span>
 
-<!-- Footer -->
+      <label for="email">Email <span aria-hidden="true">*</span></label>
+      <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error" />
+      <span id="email-error" role="alert" style="color:#b00020; font-size:0.85rem; display:none;">Please enter a valid email</span>
+
+      <label for="message">Message <span aria-hidden="true">*</span></label>
+      <textarea id="message" name="message" required aria-required="true" aria-describedby="message-error"></textarea>
+      <span id="message-error" role="alert" style="color:#b00020; font-size:0.85rem; display:none;">Please enter your message</span>
+
+      <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
+    </form>
+  </section>
+</main>
+
 <footer>
-  <div>&copy; 2023 SwiftShop. All rights reserved.</div>
-  <div class="social-icons">
-    <a href="#" title="Facebook" aria-label="Facebook">🌐</a>
-    <a href="#" title="Instagram" aria-label="Instagram">📸</a>
-    <a href="#" title="Twitter" aria-label="Twitter">🐦</a>
-  </div>
+  &copy; 2024 Urban Threads. All rights reserved.
 </footer>
 
 <script>
-  function handleForm(e) {
-    e.preventDefault();
-    alert('Thank you for reaching out! We will get back to you soon.');
-    document.querySelector('.contact').reset();
-    return false;
+  // Mobile Nav Toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+
+    // Trap focus inside menu when open on small screens
+    if (navLinks.classList.contains('open')) {
+      // Set tabindex to 0 for links
+      navLinks.querySelectorAll('a').forEach(a => a.tabIndex = 0);
+    } else {
+      navLinks.querySelectorAll('a').forEach(a => a.tabIndex = -1);
+    }
+  });
+
+  // Close mobile nav when a link is clicked
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth < 768) {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+        navLinks.querySelectorAll('a').forEach(link => link.tabIndex = -1);
+      }
+    });
+  });
+
+  // Set initial tabindex - mobile nav links hidden by default
+  function setInitialNavTabindex() {
+    if (window.innerWidth < 768) {
+      navLinks.querySelectorAll('a').forEach(a => a.tabIndex = -1);
+    } else {
+      navLinks.querySelectorAll('a').forEach(a => a.tabIndex = 0);
+    }
   }
+  setInitialNavTabindex();
+  window.addEventListener('resize', setInitialNavTabindex);
+
+  // Contact form validation
+  const form = document.getElementById('contact-form');
+  const nameInput = form.elements['name'];
+  const emailInput = form.elements['email'];
+  const messageInput = form.elements['message'];
+
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const messageError = document.getElementById('message-error');
+
+  function validateEmail(email) {
+    // simple email regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  form.addEventListener('submit', (e) => {
+    let valid = true;
+
+    if (!nameInput.value.trim()) {
+      nameError.style.display = 'block';
+      valid = false;
+    } else {
+      nameError.style.display = 'none';
+    }
+
+    if (!validateEmail(emailInput.value.trim())) {
+      emailError.style.display = 'block';
+      valid = false;
+    } else {
+      emailError.style.display = 'none';
+    }
+
+    if (!messageInput.value.trim()) {
+      messageError.style.display = 'block';
+      valid = false;
+    } else {
+      messageError.style.display = 'none';
+    }
+
+    if (!valid) {
+      e.preventDefault();
+    } else {
+      e.preventDefault();
+      alert("Thank you for reaching out! We'll get back to you shortly.");
+      form.reset();
+    }
+  });
 </script>
 </body>
 </html>
