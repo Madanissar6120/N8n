@@ -3,150 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Business</title>
+    <title>E-Commerce Website</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            color: #333;
+            font-family: Arial, sans-serif;
         }
         header {
             position: sticky;
             top: 0;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
         }
         nav a {
             text-decoration: none;
             color: #333;
-            margin: 0 15px;
             font-weight: bold;
         }
         .hero {
-            height: 70vh;
-            overflow: hidden;
-        }
-        .hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .cta {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1585000264368-4d67f2a7f2fd?fm=jpg&w=1920&q=80&fit=crop');
+            background-size: cover;
+            color: white;
             text-align: center;
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
         }
-        .cta button {
-            padding: 10px 20px;
-            background: #ff5733;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
         }
-        .cta button:hover {
-            background: #e04e2c;
-        }
-        .container {
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             padding: 20px;
         }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
         .product-card {
-            border: 1px solid #ddd;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin: 15px;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
         }
         .product-card img {
             height: 260px;
             width: 100%;
             object-fit: cover;
+            display: block;
         }
-        .product-card .product-info {
-            padding: 15px;
-        }
-        .product-info h3 {
-            margin: 0;
-            font-size: 20px;
-        }
-        .product-info p {
-            margin: 5px 0;
-            color: #666;
-        }
-        .product-info .price {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        section {
-            margin: 40px 0;
-        }
-        footer {
-            background: #f1f1f1;
-            text-align: center;
+        .features {
             padding: 20px;
+            text-align: center;
         }
-        .about-section h2, .features h2, .testimonials h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
+        .features h2 {
+            margin-top: 0;
         }
-        .about-section img {
-            height: 320px;
+        .about, .testimonials {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .about img, .testimonials img {
+            height: 400px;
             width: 100%;
             object-fit: cover;
-        }
-        .testimonial {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-        .testimonial p {
-            font-size: 16px;
-            color: #555;
+            display: block;
         }
         .contact-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 500px;
-            margin: auto;
+            padding: 20px;
+            background-color: #fff;
         }
-        .contact-form input, 
-        .contact-form textarea {
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
             margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 16px;
         }
-
-        .contact-form button {
+        footer {
+            text-align: center;
             padding: 10px;
-            background: #ff5733;
+            background-color: #333;
             color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
         }
-
-        .contact-form button:hover {
-            background: #e04e2c;
+        @media (max-width: 600px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -154,92 +112,66 @@
 
 <header>
     <nav>
-        <div class="logo">E-Commerce</div>
-        <div>
-            <a href="#features">Features</a>
-            <a href="#about">About</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-        </div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 </header>
 
-<section class="hero">
-    <img src="https://images.unsplash.com/photo-1602673050803-b8b6c0b5a155?w=1200&auto=format&fit=crop&q=80" alt="Hero Image" loading="lazy">
-    <div class="cta">
-        <h1>Discover Amazing Products</h1>
-        <button>Shop Now</button>
+<section class="hero" id="hero">
+    <h1>Your Best E-Commerce Experience</h1>
+</section>
+
+<section class="products" id="products">
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1590491614121-503cc68f77bd?fm=jpg&w=800&q=80&fit=crop" alt="Product 1">
+        <h3>Product 1</h3>
+        <p>Price: ₹1,200</p>
+    </div>
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1606350921679-11300861016c?fm=jpg&w=800&q=80&fit=crop" alt="Product 2">
+        <h3>Product 2</h3>
+        <p>Price: ₹2,500</p>
+    </div>
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1521231923484-cf8826393e7f?fm=jpg&w=800&q=80&fit=crop" alt="Product 3">
+        <h3>Product 3</h3>
+        <p>Price: ₹1,800</p>
     </div>
 </section>
 
-<div class="container">
-    <section id="features" class="features">
-        <h2>Features</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1587980845655-279cd5de2063?w=1200&auto=format&fit=crop&q=80" alt="Product 1" loading="lazy">
-                <div class="product-info">
-                    <h3>Product 1</h3>
-                    <p>Amazing description of Product 1.</p>
-                    <p class="price">₹999</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1556955006-460e94a3eebd?w=1200&auto=format&fit=crop&q=80" alt="Product 2" loading="lazy">
-                <div class="product-info">
-                    <h3>Product 2</h3>
-                    <p>Amazing description of Product 2.</p>
-                    <p class="price">₹1499</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1585101892881-e797c6fc87da?w=1200&auto=format&fit=crop&q=80" alt="Product 3" loading="lazy">
-                <div class="product-info">
-                    <h3>Product 3</h3>
-                    <p>Amazing description of Product 3.</p>
-                    <p class="price">₹1999</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1586473763865-19e16a038fb5?w=1200&auto=format&fit=crop&q=80" alt="Product 4" loading="lazy">
-                <div class="product-info">
-                    <h3>Product 4</h3>
-                    <p>Amazing description of Product 4.</p>
-                    <p class="price">₹1299</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="features" id="features">
+    <h2>Our Features</h2>
+    <p>Fast Shipping, Great Support, Quality Products, and Easy Returns</p>
+</section>
 
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1200&auto=format&fit=crop&q=80" alt="About Us" loading="lazy">
-        <p>We are a premier e-commerce platform offering a wide range of products. Our mission is to provide quality products with exceptional service.</p>
-    </section>
+<section class="about" id="about">
+    <h2>About Us</h2>
+    <img src="https://images.unsplash.com/photo-1478743902265-510f50de7b79?fm=jpg&w=1200&q=80&fit=crop" alt="About Us">
+</section>
 
-    <section id="testimonials" class="testimonials">
-        <h2>Testimonials</h2>
-        <div class="testimonial">
-            <p>"Great products and fast delivery! Highly recommend."</p>
-        </div>
-        <div class="testimonial">
-            <p>"Amazing customer service. Will definitely buy again!"</p>
-        </div>
-    </section>
+<section class="testimonials" id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <img src="https://images.unsplash.com/photo-1581575930277-db85262128cf?fm=jpg&w=1200&q=80&fit=crop" alt="Testimonials">
+</section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-</div>
+<section class="contact-form" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send">
+    </form>
+</section>
 
 <footer>
-    <p>&copy; 2023 E-Commerce. All rights reserved.</p>
+    <p>© 2023 E-Commerce Website. All rights reserved.</p>
 </footer>
 
 </body>
