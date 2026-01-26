@@ -1,324 +1,327 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Trendy Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vastra - Premium Indian Apparel</title>
 <style>
   * {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
   }
+
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fafafa;
+    background-color: #fff;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 
   /* Navbar */
   nav {
     position: sticky;
     top: 0;
-    width: 100%;
-    background: #fff;
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     z-index: 999;
   }
   nav .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #222;
+    color: #d32f2f;
   }
   nav ul {
-    display: flex;
     list-style: none;
-  }
-  nav ul li {
-    margin-left: 2rem;
+    display: flex;
+    gap: 1.5rem;
   }
   nav ul li a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #222;
-    transition: color 0.3s;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
   }
   nav ul li a:hover {
-    color: #007BFF;
+    background-color: #f5f5f5;
+    border-radius: 4px;
   }
 
   /* Hero */
   .hero {
     height: 80vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    overflow: hidden;
   }
   .hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display:block;
+    display: block;
   }
   .hero-content {
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
     color: #fff;
-    max-width: 90%;
+    text-align: center;
+    padding: 1rem;
   }
-  .hero h1 {
+  .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
   }
-  .hero p {
+  .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .btn-primary {
-    padding: 1rem 2rem;
-    background-color: #007bff;
-    color:#fff;
-    border:none;
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border: none;
     border-radius: 4px;
-    cursor:pointer;
-    font-size: 1rem;
+    cursor: pointer;
     transition: background-color 0.3s;
   }
   .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #b31b1b;
   }
 
-  /* Products */
-  .section {
-    padding: 4rem 2rem;
-  }
-  .section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  .product-card {
-    background:#fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: box-shadow 0.3s, transform 0.3s;
-  }
-  .product-card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    transform: translateY(-4px);
-  }
-  .product-image-container {
-    height: 260px;
-    width: 100%;
-  }
-  .product-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display:block;
-  }
-  .product-details {
-    padding: 1rem;
-  }
-  .product-name {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color:#222;
-  }
-  .product-price {
-    font-size: 1.1rem;
-    color:#E91E63;
-    font-weight: 600;
-  }
+  /* Section containers */
+section {
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  /* Features */
-  .features {
-    background-color:#f1f1f1;
-  }
-  .features-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:2rem;
-  }
-  .feature-item {
-    flex:1 1 200px;
-    max-width:250px;
-    padding:1.5rem;
-    background:#fff;
-    border-radius:8px;
-    box-shadow:0 2px 4px rgba(0,0,0,0.1);
-    text-align: center;
-  }
-  .feature-item h3 {
-    margin-bottom:1rem;
-    font-size:1.2rem;
-    color:#222;
-  }
-  .feature-item p {
-    font-size:1rem;
-    color:#555;
-  }
+/* Products */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.product-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+}
+.product-image {
+  height: 260px;
+  width: 100%;
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product-info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+.product-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d32f2f;
+}
 
-  /* About Section */
-  .about {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding:4rem 2rem;
-    gap:2rem;
-  }
-  .about-text {
-    flex:1 1 400px;
-  }
-  .about-text h2 {
-    font-size:2rem;
-    margin-bottom:1rem;
-    font-weight:600;
-  }
-  .about-text p {
-    font-size:1.1rem;
-    color:#555;
-    line-height:1.6;
-  }
-  .about-image-container {
-    flex:1 1 400px;
-    height:400px;
-  }
-  .about-image-container img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
+/* Features */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.feature {
+  flex: 1 1 250px;
+  max-width: 300px;
+  background-color: #fafafa;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.feature:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.feature p {
+  font-size: 1rem;
+  color: #555;
+}
 
-  /* Testimonials */
-  .testimonials {
-    background-color:#fff;
-  }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap:2rem;
-  }
-  .testimonial-card {
-    background:#f9f9f9;
-    padding:1.5rem;
-    border-radius:8px;
-    box-shadow:0 2px 4px rgba(0,0,0,0.1);
-  }
-  .testimonial-name {
-    font-weight:600;
-    margin-bottom:0.5rem;
-    color:#222;
-  }
-  .testimonial-text {
-    font-style:italic;
-    font-size:1rem;
-    color:#555;
-  }
+/* About */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.about .about-text {
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.about p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+.about-image {
+  height: 400px;
+  width: 100%;
+  max-width: 1200px;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-  /* Contact */
-  .contact {
-    display: flex;
-    flex-direction:column;
-    max-width:600px;
-    margin:auto;
-  }
-  .contact h2 {
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:2rem;
-    font-weight:600;
-  }
-  .contact-form {
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-  }
-  .contact-form input, .contact-form textarea {
-    padding:1rem;
-    border:1px solid #ccc;
-    border-radius:4px;
-    font-size:1rem;
-    width:100%;
-  }
-  .contact-form button {
-    padding:1rem;
-    background:#007bff;
-    color:#fff;
-    border:none;
-    border-radius:4px;
-    font-size:1rem;
-    cursor:pointer;
-    transition:background 0.3s;
-  }
-  .contact-form button:hover {
-    background:#0056b3;
-  }
-  .contact-info {
-    margin-top:2rem;
-    text-align:center;
-    font-size:1.1rem;
-    color:#222;
-  }
+/* Testimonials */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.testimonial {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.testimonial p {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #555;
+}
+.testimonial .author {
+  text-align: right;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
 
-  /* Footer */
-  footer {
-    background:#222;
-    color:#fff;
-    padding:2rem;
-    text-align: center;
-  }
-  footer p {
-    margin:0.5rem 0;
-  }
-  /* Responsive adjustments */
-  @media(max-width:768px){
-    .about {
-      flex-direction:column;
-    }
-    nav {
-      flex-direction:column;
-      align-items: stretch;
-    }
-    nav ul {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    nav ul li {
-      margin: 0.5rem 0;
-    }
-  }
+/* Contact Form */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.contact-form {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+}
+.contact-form button {
+  background-color: #d32f2f;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.contact-form button:hover {
+  background-color: #b31b1b;
+}
 
+/* Footer */
+footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 2rem;
+  text-align: center;
+}
+footer p {
+  margin: 0.5rem 0;
+}
+footer a {
+  color: #d32f2f;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+footer a:hover {
+  color: #b31b1b;
+}
 </style>
 </head>
 <body>
+
 <!-- Navbar -->
 <nav>
-  <div class="logo">Trendy Store</div>
+  <div class="logo">Vastra</div>
   <ul>
     <li><a href="#home">Home</a></li>
-    <li><a href="#products">Shoes & Clothes</a></li>
+    <li><a href="#products">Products</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
@@ -326,146 +329,136 @@
   </ul>
 </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-  <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Fashionable Shoes" />
+<!-- Hero -->
+<section class="hero" id="home">
+  <img src="https://images.unsplash.com/photo-1610163947311-91a0f8952b69?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Indian Sarees">
   <div class="hero-content">
-    <h1>Discover the Latest Trends</h1>
-    <p>Elevate your style with premium shoes and clothes curated for every occasion. Shop now and redefine your wardrobe.</p>
-    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'});">Browse Products</button>
+    <h1>Experience Premium Indian Attire</h1>
+    <p>Discover handcrafted sarees, kurtas, and accessories that blend tradition with modern style. Elevate your wardrobe today.</p>
+    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'});">Shop Now</button>
   </div>
 </section>
 
-<!-- Products Section -->
-<section id="products" class="section">
-  <h2>Our Exclusive Collection</h2>
-  <div class="products-grid">
-    <!-- Product: Leather Sneakers -->
+<!-- Products -->
+<section id="products">
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">Our Exclusive Collection</h2>
+  <div class="products">
     <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1603782528701-16a2528bdda0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Leather Sneakers" />
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1624713547977-7e4baebdf771?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Traditional Silk Saree" />
       </div>
-      <div class="product-details">
-        <div class="product-name">Premium Leather Sneakers</div>
-        <div class="product-price">₹3,499</div>
+      <div class="product-info">
+        <div class="product-name">Traditional Silk Saree</div>
+        <div class="product-price">₹12,500</div>
       </div>
     </div>
-    <!-- Product: Classic Denim Jacket -->
     <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1620522979081-c9c1f544fd62?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Denim Jacket" />
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1601475733625-4ecb3ae7a906?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Cotton Kurta Set" />
       </div>
-      <div class="product-details">
-        <div class="product-name">Classic Denim Jacket</div>
-        <div class="product-price">₹2,599</div>
+      <div class="product-info">
+        <div class="product-name">Cotton Kurta Set</div>
+        <div class="product-price">₹3,200</div>
       </div>
     </div>
-    <!-- Product: Smart Fitness Watch -->
     <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1589696792389-eb9162fbd84e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Fitness Smart Watch" />
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1612197392781-98847b7e0670?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Designer Lehenga" />
       </div>
-      <div class="product-details">
-        <div class="product-name">Smart Fitness Watch</div>
-        <div class="product-price">₹5,999</div>
+      <div class="product-info">
+        <div class="product-name">Designer Lehenga</div>
+        <div class="product-price">₹25,000</div>
       </div>
     </div>
-    <!-- Product: Casual Sneakers -->
     <div class="product-card">
-      <div class="product-image-container">
-        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Casual Sneakers" />
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1607323813700-115b7e8b4b5f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Handcrafted Jewelry" />
       </div>
-      <div class="product-details">
-        <div class="product-name">Comfort Casual Sneakers</div>
-        <div class="product-price">₹1,999</div>
+      <div class="product-info">
+        <div class="product-name">Handcrafted Jewelry</div>
+        <div class="product-price">₹8,500</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Features Section -->
-<section id="features" class="features">
-  <h2>Why Choose Us</h2>
-  <div class="features-list">
-    <div class="feature-item">
-      <h3>Premium Quality</h3>
-      <p>Our products are crafted with the finest materials to ensure durability and style that lasts.</p>
+<!-- Features -->
+<section id="features">
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">Why Choose Vastra</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Authentic Craftsmanship</h3>
+      <p>Each piece is handcrafted by skilled artisans, preserving centuries-old traditions and delivering unmatched quality.</p>
     </div>
-    <div class="feature-item">
-      <h3>Fast Delivery</h3>
-      <p>Experience quick and reliable delivery across India with real-time tracking updates.</p>
+    <div class="feature">
+      <h3>Premium Materials</h3>
+      <p>We source only the finest fabrics and accessories to ensure durability, comfort, and elegance in every product.</p>
     </div>
-    <div class="feature-item">
-      <h3>Affordable Prices</h3>
-      <p>Enjoy competitive prices on all our products, making premium fashion accessible.</p>
-    </div>
-    <div class="feature-item">
-      <h3>Excellent Support</h3>
-      <p>Our dedicated customer service team is here to assist you 24/7 for any inquiries.</p>
+    <div class="feature">
+      <h3>Affordable Luxury</h3>
+      <p>Experience luxury that fits your budget with our meticulously curated collections at competitive prices.</p>
     </div>
   </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="about">
-  <div class="about-text">
-    <h2>About Trendy Store</h2>
-    <p>Founded with a passion for fashion, Trendy Store offers a curated selection of trendy shoes and clothes to elevate your style. Our mission is to provide quality products at affordable prices while delivering exceptional customer service. Whether you're looking for sporty sneakers or elegant outfits, our collection caters to all fashion enthusiasts in India.</p>
-  </div>
-  <div class="about-image-container">
-    <img src="https://images.unsplash.com/photo-1601249123516-094725b36d4f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Trendy Store" />
+<!-- About -->
+<section id="about" style="background-color:#f9f9f9;">
+  <h2 style="text-align:center; font-size:2.5rem; margin-bottom:2rem; color:#222;">About Vastra</h2>
+  <div class="about">
+    <div class="about-text">
+      <p style="margin-bottom:1rem; font-size:1.2rem; color:#555;">Vastra is India’s premier online destination for authentic traditional and contemporary Indian apparel. Established in 2010, our mission is to bring the finest craftsmanship and rich heritage to your wardrobe. We work directly with artisans across India to deliver handcrafted sarees, kurtas, lehengas, and accessories that celebrate India’s vibrant culture with a modern touch.</p>
+    </div>
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1613895044202-8dd911138490?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Indian Traditional Wear" style="width:100%; height:100%; object-fit:cover; display:block;" />
+    </div>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section id="testimonials" class="testimonials">
-  <h2 style="text-align:center; margin-bottom:2rem;">What Our Customers Say</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-name">Ravi K.</div>
-      <div class="testimonial-text">"Trendy Store has the best collection of sneakers. Delivery was quick and product quality superb."</div>
+<section id="testimonials">
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:2rem; color:#222;">What Our Customers Say</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>"Vastra’s sarees are just stunning! The quality and craftsmanship blew me away. Definitely my go-to for traditional wear."</p>
+      <div class="author">— Anjali M., Mumbai</div>
     </div>
-    <div class="testimonial-card">
-      <div class="testimonial-name">Sneha P.</div>
-      <div class="testimonial-text">"Loved the denim jacket! Fits perfectly and looks stunning. Highly recommend."</div>
+    <div class="testimonial">
+      <p>"I ordered a kurta for my wedding, and it was perfect. The fabric felt so luxurious, and the fit was impeccable."</p>
+      <div class="author">— Rakesh K., Delhi</div>
     </div>
-    <div class="testimonial-card">
-      <div class="testimonial-name">Arjun S.</div>
-      <div class="testimonial-text">"Excellent customer service and affordable prices. Will shop again!"</div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-name">Liza M.</div>
-      <div class="testimonial-text">"Great quality clothes and shoes. My go-to online store for fashion."</div>
+    <div class="testimonial">
+      <p>"Excellent service and beautiful collection. I received so many compliments on my lehenga. Highly recommended!"</p>
+      <div class="author">— Priya S., Bengaluru</div>
     </div>
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section">
-  <h2>Contact Us</h2>
-  <div class="contact">
-    <h2>Get in Touch</h2>
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out!');">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div class="contact-info">
-      <p>Phone: +91 9137002314</p>
-      <p>Email: issarmadan97@gmail.com</p>
-    </div>
-  </div>
+<!-- Contact -->
+<section id="contact" style="background-color:#f9f9f9;">
+  <h2 style="text-align:center; font-size:2.5rem; margin-bottom:2rem; color:#222;">Get in Touch</h2>
+  <form class="contact-form" onsubmit="return validateForm();">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn-primary">Send Message</button>
+  </form>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2023 Trendy Store. All rights reserved.</p>
-  <p>Contact us: +91 9137002314 | issarmadan97@gmail.com</p>
+  <p>&copy; 2023 Vastra. All rights reserved.</p>
+  <p>
+    <a href="#home">Back to top</a>
+  </p>
 </footer>
 
 <script>
-  // Smooth scroll if needed (already via scrollIntoView on button)
+  function validateForm() {
+    alert('Thank you for reaching out! We will get back to you shortly.');
+    return false; // Prevent form from actual submission
+  }
 </script>
+
 </body>
 </html>
+```
