@@ -2,327 +2,313 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Modern E-Commerce Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indian Craft & Style</title>
 <style>
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Navbar */
+  nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  nav .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #d35400;
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+  nav li {
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  nav li:hover {
+    color: #d35400;
+  }
+
+  /* Sections */
+section {
+  width: 100%;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
 }
-a {
-  text-decoration: none;
-  color: inherit;
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  background: #fff;
 }
-img {
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.5;
+  color: #555;
+}
+.hero a.cta {
+  padding: 1rem 2rem;
+  background-color: #d35400;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.hero a.cta:hover {
+  background-color: #e67e22;
+}
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  z-index: -1;
+}
+.hero-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Navbar */
-nav {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 999;
-}
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-nav ul li a {
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-nav ul li a:hover {
-  color: #007bff;
-}
-
-/* Hero */
-.hero {
-  height: 80vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2rem;
-  overflow: hidden;
-}
-.hero-content {
-  position: relative;
-  text-align: center;
-  color: #fff;
-  max-width: 700px;
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-.hero a.cta-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-.hero a.cta-button:hover {
-  background-color: #0056b3;
-}
 
 /* Products */
 .products {
-  padding: 4rem 0;
-  background-color: #f8f9fa;
-}
-.products h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-.product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
 .product-card {
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-}
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-.product-image {
   height: 260px;
 }
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.product-image-container {
+  height: 130px;
+  width: 100%;
+  overflow: hidden;
+}
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .product-info {
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: space-between;
+  height: 130px;
 }
 .product-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-.product-price {
-  color: #28a745;
   font-size: 1.1rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.product-price {
+  color: #e67e22;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 /* Features */
 .features {
-  padding: 4rem 2rem;
-}
-.features h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-.features-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 }
-.feature-item {
+.feature-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   flex: 1 1 250px;
   max-width: 300px;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: center;
-  transition: box-shadow 0.3s, transform 0.3s;
 }
-.feature-item:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  transform: translateY(-5px);
-}
-.feature-icon {
-  font-size: 3rem;
+.feature-card h3 {
   margin-bottom: 1rem;
-  color: #007bff;
+  color: #2c3e50;
 }
-.feature-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-.feature-desc {
-  font-size: 1rem;
+.feature-card p {
   color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 /* About */
 .about {
-  padding: 4rem 2rem;
-  background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.about h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-.about-section {
+.about-content {
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  max-width: 1200px;
-  width: 100%;
+  text-align: center;
 }
 .about-image-container {
   height: 400px;
   width: 100%;
+  overflow: hidden;
 }
-.about-image {
+.about-image-container img {
+  width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.about-text {
-  font-size: 1.2rem;
+.about p {
+  max-width: 800px;
+  font-size: 1.1rem;
+  color: #555;
   line-height: 1.6;
-  color: #333;
 }
 
 /* Testimonials */
 .testimonials {
-  padding: 4rem 2rem;
-}
-.testimonials h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-.testimonial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .testimonial {
   background: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.testimonial-img-container {
-  height: 80px;
-  width: 80px;
-  margin-bottom: 1rem;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.testimonial-img {
-  height: 100%;
-}
-.testimonial-text {
-  font-size: 1rem;
-  font-style: italic;
-  margin-bottom: 1rem;
   text-align: center;
 }
-.testimonial-author {
-  font-weight: 600;
-  font-size: 1.1rem;
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+.testimonial p {
+  font-style: italic;
   color: #555;
+  margin-bottom: 1rem;
+}
+.testimonial h4 {
+  font-weight: 600;
+  color: #2c3e50;
 }
 
-/* Contact */
+/* Contact Form */
 .contact {
-  padding: 4rem 2rem;
-  background-color: #f8f9fa;
-}
-.contact h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-.contact-form {
   max-width: 600px;
   margin: 0 auto;
+}
+.contact form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
-.contact-form input,
-.contact-form textarea {
-  padding: 1rem;
-  font-size: 1rem;
+.contact input, .contact textarea {
+  padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-size: 1rem;
   width: 100%;
 }
-.contact-form button {
+.contact button {
   padding: 1rem;
-  font-size: 1.2rem;
-  background-color: #007bff;
+  background-color: #d35400;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.contact-form button:hover {
-  background-color: #0056b3;
+.contact button:hover {
+  background-color: #e67e22;
 }
 
 /* Footer */
 footer {
-  background-color: #222;
-  color: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
+  background: #222;
+  color: #ccc;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.95rem;
 }
 footer p {
-  margin: 0.5rem 0;
+  margin-bottom: 1rem;
+}
+footer .social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+footer .social-icons a {
+  color: #ccc;
+  font-size: 1.4rem;
+  transition: color 0.3s;
+}
+footer .social-icons a:hover {
+  color: #d35400;
 }
 
-/* Responsive */
-@media(max-width:768px){
+/* Responsive Adjustments */
+@media(max-width: 768px){
   nav {
     flex-direction: column;
     align-items: flex-start;
@@ -331,187 +317,180 @@ footer p {
     flex-direction: column;
     width: 100%;
   }
-  nav ul li {
-    width: 100%;
-  }
-  nav ul li a {
-    padding: 0.75rem 0;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .about-section {
+  .about-content {
     flex-direction: column;
   }
 }
+
 </style>
 </head>
 <body>
+
+<!-- Navbar -->
 <nav>
-  <div class="logo">SwiftShop</div>
+  <div class="logo">IndianCraft</div>
   <ul>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li onclick="scrollToSection('hero')">Home</li>
+    <li onclick="scrollToSection('products')">Products</li>
+    <li onclick="scrollToSection('features')">Features</li>
+    <li onclick="scrollToSection('about')">About</li>
+    <li onclick="scrollToSection('testimonials')">Testimonials</li>
+    <li onclick="scrollToSection('contact')">Contact</li>
   </ul>
 </nav>
 
 <!-- Hero -->
-<section class="hero" style="background-color:#000;">
-  <div class="hero-content">
-    <h1>Discover Premium Indian Fashion & Accessories</h1>
-    <p>Elevate your style with our curated collection of authentic and stylish products sourced from India.</p>
-    <a href="#products" class="cta-button">Shop Now</a>
+<section id="hero" class="hero">
+  <div class="hero-image-container">
+    <img src="https://images.unsplash.com/photo-1610702513290-764a1cf573b8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Handcraft crafts" />
   </div>
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden; z-index:-1;">
-    <img src="https://images.unsplash.com/photo-1647085045307-0b631ab9308d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdl" alt="Hero" style="width:100%; height:100%; object-fit:cover; display:block;">
-  </div>
+  <h1>Discover Unique Indian Handicrafts</h1>
+  <p>Handmade, authentic, exclusive products crafted by skilled artisans across India. Bring tradition into your home with premium quality.</p>
+  <a href="#products" class="cta">Shop Now</a>
 </section>
 
 <!-- Products -->
-<section id="products" class="products">
-  <h2>Popular Products</h2>
-  <div class="product-grid container">
+<section id="products">
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">Featured Products</h2>
+  <div class="products">
     <div class="product-card">
-      <div class="product-image" style="height:260px;">
-        <img src="https://images.unsplash.com/photo-1628628984382-48fda3febe09?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Leather Handbag" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1591893248087-7413d9475a2a?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Madhubani Painting" />
       </div>
       <div class="product-info">
-        <div class="product-name">Handcrafted Leather Handbag</div>
-        <div class="product-price">₹3,499</div>
+        <div>
+          <div class="product-name">Madhubani Wall Art</div>
+          <div class="product-price">₹12,000</div>
+        </div>
       </div>
     </div>
     <div class="product-card">
-      <div class="product-image" style="height:260px;">
-        <img src="https://images.unsplash.com/photo-1614973789317-6aeb7be75f0f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Silk Saree" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1613535751143-00b768a73d17?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Traditional Jewelry" />
       </div>
       <div class="product-info">
-        <div class="product-name">Elegant Silk Saree</div>
-        <div class="product-price">₹2,999</div>
+        <div>
+          <div class="product-name">Kundan Silver Necklace</div>
+          <div class="product-price">₹8,500</div>
+        </div>
       </div>
     </div>
     <div class="product-card">
-      <div class="product-image" style="height:260px;">
-        <img src="https://images.unsplash.com/photo-1622575862366-9f29a69d1f02?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Ethnic Jewelry" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1574034483989-eb09f2b3d0d3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Traditional Rug" />
       </div>
       <div class="product-info">
-        <div class="product-name">Traditional Ethnic Jewelry Set</div>
-        <div class="product-price">₹1,850</div>
+        <div>
+          <div class="product-name">Handwoven Kashmiri Rug</div>
+          <div class="product-price">₹25,000</div>
+        </div>
       </div>
     </div>
     <div class="product-card">
-      <div class="product-image" style="height:260px;">
-        <img src="https://images.unsplash.com/photo-1561861811-1aff0720ee4f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Leather Shoes" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1605744119966-33390f2b3369?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Decorative Brassware" />
       </div>
       <div class="product-info">
-        <div class="product-name">Handcrafted Leather Shoes</div>
-        <div class="product-price">₹4,200</div>
+        <div>
+          <div class="product-name">Brass Decoratives</div>
+          <div class="product-price">₹3,200</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Features -->
-<section id="features" class="features">
-  <h2>Why Shop With Us</h2>
-  <div class="features-list container">
-    <div class="feature-item">
-      <div class="feature-icon">✨</div>
-      <div class="feature-title">Authentic Indian Artisanship</div>
-      <div class="feature-desc">Every product is crafted by skilled artisans from India, ensuring quality and tradition.</div>
+<section id="features">
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">Why Choose Us</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Artisan Crafted</h3>
+      <p>All products handcrafted by skilled artisans ensuring authenticity and craftsmanship.</p>
     </div>
-    <div class="feature-item">
-      <div class="feature-icon">🚚</div>
-      <div class="feature-title">Fast & Secure Delivery</div>
-      <div class="feature-desc">We ensure timely delivery with secure packaging right to your doorstep.</div>
+    <div class="feature-card">
+      <h3>Premium Quality</h3>
+      <p>Use of high-quality materials for durability and a luxurious feel in every product.</p>
     </div>
-    <div class="feature-item">
-      <div class="feature-icon">💳</div>
-      <div class="feature-title">Multiple Payment Options</div>
-      <div class="feature-desc">Easy and safe payments through various gateways including UPI, cards, and wallets.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">🔒</div>
-      <div class="feature-title">100% Authentic Guarantee</div>
-      <div class="feature-desc">Enjoy peace of mind with genuine products backed by our quality assurance.</div>
+    <div class="feature-card">
+      <h3>Authentic Designs</h3>
+      <p>Beautiful traditional patterns intertwined with modern aesthetics for versatile decor.</p>
     </div>
   </div>
 </section>
 
 <!-- About -->
 <section id="about" class="about">
-  <h2>About SwiftShop</h2>
-  <div class="about-section container">
-    <div class="about-image-container" style="height:400px;">
-      <img src="https://images.unsplash.com/photo-1603133872874-5b1f0712c007?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdl" alt="About SwiftShop" class="about-image" style="width:100%; height:100%; object-fit:cover; display:block;">
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">About Indian Craft & Style</h2>
+  <div class="about-content">
+    <div class="about-image-container">
+      <img src="https://images.unsplash.com/photo-1616523170639-837b8b51be29?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Indian Handicrafts" />
     </div>
-    <div class="about-text">
-      <p>SwiftShop is India's premier online marketplace dedicated to showcasing the finest handcrafted products, authentic fashion apparel, and accessories. Our mission is to empower local artisans by bringing their creations to a global audience, while providing our customers with genuine, high-quality items that celebrate India's rich cultural heritage.</p>
-    </div>
+    <p>Indian Craft & Style celebrates the rich heritage of India by offering authentic handcrafted products. Our mission is to connect traditional artisans with global customers, promoting sustainable livelihood and Indian artistry. From vibrant textiles to intricate carvings, discover India’s cultural essence with us.</p>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section id="testimonials" class="testimonials">
-  <h2>What Our Customers Say</h2>
-  <div class="testimonial-grid container">
+<section id="testimonials">
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">What Our Customers Say</h2>
+  <div class="testimonials">
     <div class="testimonial">
-      <div class="testimonial-img-container">
-        <img src="https://images.unsplash.com/photo-1544725176-0c7f60a9c28f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdl" alt="Customer 1" class="testimonial-img" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <div class="testimonial-text">"Absolutely loved the handcrafted saree I purchased. Authentic Indian craftsmanship at its best!"</div>
-      <div class="testimonial-author">- Priya K.</div>
+      <img src="https://images.unsplash.com/photo-1544723795-3fb7268f6f30?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 1"/>
+      <p>"Absolutely loved the handwoven rugs! Authentic Indian craftsmanship that truly makes my home special." </p>
+      <h4>Sudarshan P.</h4>
     </div>
     <div class="testimonial">
-      <div class="testimonial-img-container">
-        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdl" alt="Customer 2" class="testimonial-img" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <div class="testimonial-text">"Great quality shoes, perfect for traditional occasions. Highly recommended!"</div>
-      <div class="testimonial-author">- Rohit S.</div>
+      <img src="https://images.unsplash.com/photo-1544723795-3fb7268f6f30?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 2"/>
+      <p>"Beautiful jewelry pieces! The Kundan necklace is a showstopper." </p>
+      <h4>Priya K.</h4>
     </div>
     <div class="testimonial">
-      <div class="testimonial-img-container">
-        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdl" alt="Customer 3" class="testimonial-img" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <div class="testimonial-text">"Fast delivery and beautiful jewelry, I will shop again."</div>
-      <div class="testimonial-author">- Anjali R.</div>
+      <img src="https://images.unsplash.com/photo-1544723795-3fb7268f6f30?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Customer 3"/>
+      <p>"The craftsmanship is impeccable and the delivery was prompt. Highly recommended!" </p>
+      <h4>Anil M.</h4>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
+<!-- Contact Form -->
 <section id="contact" class="contact">
-  <h2>Contact Us</h2>
-  <form class="contact-form" style="width:100%; max-width:600px;">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <input type="tel" placeholder="Your Phone" required />
-    <textarea rows="4" placeholder="Your Message" required></textarea>
+  <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:#222;">Get in Touch</h2>
+  <form id="contactForm" onsubmit="return validateForm();">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
     <button type="submit">Send Message</button>
   </form>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2023 SwiftShop. All Rights Reserved.</p>
-  <p>Follow us on 
-    <a href="#" style="color:#fff; text-decoration:underline;">Instagram</a>, 
-    <a href="#" style="color:#fff; text-decoration:underline;">Facebook</a>, and 
-    <a href="#" style="color:#fff; text-decoration:underline;">Twitter</a>
-  </p>
+  <p>&copy; 2023 Indian Craft & Style. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook" title="Facebook">🌐</a>
+    <a href="#" aria-label="Instagram" title="Instagram">🌐</a>
+    <a href="#" aria-label="Twitter" title="Twitter">🌐</a>
+  </div>
 </footer>
 
 <script>
-  document.querySelector('.contact-form').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Thank you for reaching out! We will get back to you soon.');
-    this.reset();
-  });
+  function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  }
+
+  function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if(!name || !email || !message){
+      alert('Please fill all fields');
+      return false;
+    }
+    alert('Thank you for reaching out! We will contact you soon.');
+    document.getElementById('contactForm').reset();
+    return false;
+  }
 </script>
+
 </body>
 </html>
