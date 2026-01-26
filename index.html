@@ -2,461 +2,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>UrbanStyle E-Commerce</title>
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* Navbar */
-  nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    z-index: 999;
-  }
-
-  nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #222;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  nav li {
-    
-  }
-
-  nav a {
-    font-weight: 500;
-    color: #222;
-    transition: color 0.3s;
-  }
-
-  nav a:hover {
-    color: #007bff;
-  }
-
-  /* Sections common styles */
-section {
-  padding: 3rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Hero */
-.hero {
-  height: 80vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: #fff;
-  padding: 0 1rem;
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-.hero a.cta {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
-.hero a.cta:hover {
-  background-color: #0056b3;
-}
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-/* Products */
-.products {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-.product-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 340px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-.product-image {
-  height: 260px;
-}
-.product-details {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-.product-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #222;
-}
-.product-price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #007bff;
-}
-@media(max-width: 768px){
-  section {
-    padding: 2rem 1rem;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
-/* Features */
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-.feature {
-  flex: 1 1 250px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  transition: box-shadow 0.3s;
-}
-.feature:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.feature h3 {
-  margin-bottom: 1rem;
-  color: #222;
-}
-.feature p {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* About */
-.about img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 1.5rem;
-}
-.about p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Testimonials */
-.testimonials {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.testimonial {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.testimonial p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-.testimonial .author {
-  font-weight: 600;
-  color: #222;
-  font-size: 1rem;
-  text-align: right;
-}
-
-/* Contact */
-.contact {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.contact label {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-.contact input, .contact textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  resize: vertical;
-}
-.contact button {
-  margin-top: 1.5rem;
-  padding: 0.75rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.contact button:hover {
-  background-color: #0056b3;
-}
-
-/* Footer */
-footer {
-  background-color: #222;
-  color: #f1f1f1;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-footer p {
-  text-align: center;
-}
-footer a {
-  color: #f1f1f1;
-  transition: color 0.3s;
-}
-footer a:hover {
-  color: #007bff;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        nav {
+            background: #333;
+            color: white;
+            position: sticky;
+            top: 0;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            height: 80vh;
+            position: relative;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .cta-button {
+            background: #ff5722;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        .product-card {
+            width: 300px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            height: 260px;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .features {
+            padding: 20px;
+            text-align: center;
+            background: #f7f7f7;
+        }
+        .about {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .about img {
+            height: 400px;
+            width: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .about-content {
+            max-width: 600px;
+            margin-left: 20px;
+        }
+        .testimonials {
+            background: #fafafa;
+            padding: 20px;
+            text-align: center;
+        }
+        .contact-form {
+            padding: 20px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        @media (max-width: 768px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+            .about {
+                flex-direction: column;
+            }
+            .about img {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<nav>
-  <div class="logo">UrbanStyle</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#products">Shop</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- Hero Section -->
-<section id="home" class="hero">
-  <img src="https://images.unsplash.com/photo-1524492440092-094e86bc286f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Stylish Urban Outfit" style="width:100%; height:100%; object-fit:cover; display:block;">
-  <div class="hero-content">
-    <h1>Elevate Your Style</h1>
-    <p>Discover latest streetwear for every urban vibe. Quality, comfort, and style combined.</p>
-    <a href="#products" class="cta">Shop Now</a>
-  </div>
-</section>
-
-<!-- Products Section -->
-<section id="products">
-  <h2 style="text-align:center; margin-bottom:2rem;">Trending Products</h2>
-  <div class="products">
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1628609559289-4c7db47e112f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGdyZWVuJTIwY3VzdG9tZXIlMHx8MHww&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Leather Sneakers" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <div class="product-details">
-        <div>
-          <div class="product-name">Leather Sneakers</div>
-          <div class="product-price">₹3,499</div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero" id="home">
+        <img src="https://images.unsplash.com/photo-1600679932663-dee989ff1d1a?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Hero Image">
+        <div class="hero-content">
+            <h1>Discover Our Exclusive Collection</h1>
+            <button class="cta-button">Shop Now</button>
         </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8DenimJ3MlMjBJY2Hwwf8&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Denim Jacket" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <div class="product-details">
-        <div>
-          <div class="product-name">Classic Denim Jacket</div>
-          <div class="product-price">₹2,799</div>
+    </section>
+    
+    <section class="products" id="products">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1498605203837-8ac5f1eb8a43?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Handcrafted Leather Bag">
+            </div>
+            <div class="product-info">
+                <h3>Handcrafted Leather Bag</h3>
+                <p>₹5,999</p>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1576446066796-2f92360923e3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hcnQlMjBGaXJzdCUyMFdpbmR8MHww&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Smart Fitness Watch" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <div class="product-details">
-        <div>
-          <div class="product-name">Smart Fitness Watch</div>
-          <div class="product-price">₹4,199</div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1524795881724-0c93a37e2d50?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Stylish Sunglasses">
+            </div>
+            <div class="product-info">
+                <h3>Stylish Sunglasses</h3>
+                <p>₹2,499</p>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VjY2Vzc2l2ZSUyMHdhdGVyfDB8MHww&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Casual Shorts" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <div class="product-details">
-        <div>
-          <div class="product-name">Casual Wear Shorts</div>
-          <div class="product-price">₹1,899</div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1543006407-1c1c8d123219?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Trendy Denim Jacket">
+            </div>
+            <div class="product-info">
+                <h3>Trendy Denim Jacket</h3>
+                <p>₹3,500</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Features -->
-<section id="features">
-  <h2 style="text-align:center; margin-bottom:2rem;">Why Choose UrbanStyle</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>Premium Quality</h3>
-      <p>We source only the best materials to ensure durability, comfort, and style in every product.</p>
-    </div>
-    <div class="feature">
-      <h3>Fast Delivery</h3>
-      <p>Get your streetwear at your doorstep quickly with our reliable logistics partners across India.</p>
-    </div>
-    <div class="feature">
-      <h3>Secure Payments</h3>
-      <p>Shop with confidence using trusted payment gateways for safe and secure transactions.</p>
-    </div>
-  </div>
-</section>
+    <section class="features">
+        <h2>Why Choose Us?</h2>
+        <p>High-quality products, exceptional customer service, and a commitment to sustainability.</p>
+    </section>
 
-<!-- About -->
-<section id="about">
-  <h2 style="text-align:center; margin-bottom:2rem;">About UrbanStyle</h2>
-  <img src="https://images.unsplash.com/photo-1527998498425-0b1f9e2a035f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2h1cmslMjBtYW5hZ2V8MHww&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Urban Fashion" style="width:100%; height:400px; object-fit:cover; display:block;">
-  <p style="margin-top:1.5rem; font-size:1.2rem; line-height:1.6; color:#555; text-align:center;">
-    UrbanStyle is India's premier streetwear ecommerce platform, dedicated to providing urban fashion lovers with the trendiest and high-quality apparel. Our mission is to inspire confidence and creativity through style that speaks your identity.
-  </p>
-</section>
+    <section class="about" id="about">
+        <img src="https://images.unsplash.com/photo-1583007986289-808c0a5311c9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Us">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>We are dedicated to providing high-quality, sustainable products that elevate your lifestyle.</p>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <p>"Amazing quality and exceptional service! Highly recommend!" - Anjali</p>
+        <p>"Absolutely love my purchase! Can't wait to shop again!" - Rohit</p>
+    </section>
 
-<!-- Testimonials -->
-<section id="testimonials">
-  <h2 style="text-align:center; margin-bottom:2rem;">What Our Customers Say</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      <p>"UrbanStyle's sneakers are just amazing! They fit perfectly and look super stylish. Highly recommended!"</p>
-      <div class="author">- Rahul S.</div>
-    </div>
-    <div class="testimonial">
-      <p>"The denim jacket is my favorite. Bright quality and trendy design. Shop was seamless."</p>
-      <div class="author">- Priya K.</div>
-    </div>
-    <div class="testimonial">
-      <p>"Fast delivery and great service. Love shopping here for my streetwear needs."</p>
-      <div class="author">- Arjun P.</div>
-    </div>
-  </div>
-</section>
+    <section class="contact-form" id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required style="padding: 10px; width: calc(100% - 22px); margin-bottom: 10px;">
+            <input type="email" placeholder="Your Email" required style="padding: 10px; width: calc(100% - 22px); margin-bottom: 10px;">
+            <textarea placeholder="Your Message" required style="padding: 10px; width: calc(100% - 22px); margin-bottom: 10px;"></textarea>
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+    </section>
 
-<!-- Contact Form -->
-<section id="contact">
-  <h2 style="text-align:center; margin-bottom:2rem;">Get in Touch</h2>
-  <form class="contact" onsubmit="return false;">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" placeholder="Your Name" required />
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required />
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2023 UrbanStyle. All rights reserved.</p>
-  <p>
-    <a href="#home">Back to Top</a>
-  </p>
-  <p>
-    Follow us: 
-    <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
-  </p>
-</footer>
-
-<script>
-  // Basic script for form submission (placeholder)
-  document.querySelector('.contact form').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Thank you for reaching out! We will get back to you soon.');
-    this.reset();
-  });
-</script>
-
+    <footer>
+        <p>&copy; 2023 E-Commerce Website. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
 ```
