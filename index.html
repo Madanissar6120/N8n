@@ -1,29 +1,28 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Website</title>
+    <title>Trendy Store</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
         }
         header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
         }
         nav a {
             text-decoration: none;
@@ -31,80 +30,63 @@
             font-weight: bold;
         }
         .hero {
-            height: 650px;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1585000264368-4d67f2a7f2fd?fm=jpg&w=1920&q=80&fit=crop');
-            background-size: cover;
-            color: white;
-            text-align: center;
+            position: relative;
         }
-        .hero h1 {
-            font-size: 48px;
-            margin: 0;
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
-        .products {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            padding: 20px;
+        .content {
+            padding: 2rem;
         }
-        .product-card {
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            margin: 15px;
-            border-radius: 8px;
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .card {
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s;
-        }
-        .product-card:hover {
-            transform: scale(1.05);
-        }
-        .product-card img {
-            height: 260px;
-            width: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .features {
-            padding: 20px;
             text-align: center;
+            padding: 1rem;
         }
-        .features h2 {
-            margin-top: 0;
-        }
-        .about, .testimonials {
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        .about img, .testimonials img {
-            height: 400px;
+        .card img {
             width: 100%;
+            height: 280px;
             object-fit: cover;
-            display: block;
-        }
-        .contact-form {
-            padding: 20px;
-            background-color: #fff;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 8px;
         }
         footer {
+            background-color: #f8f8f8;
             text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
+            padding: 1rem;
         }
-        @media (max-width: 600px) {
-            .products {
-                flex-direction: column;
-                align-items: center;
-            }
+        .testimonials, .about {
+            margin: 2rem 0;
+        }
+        .testimonials h2, .about h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .testimonial {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        .testimonial img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
         }
     </style>
 </head>
@@ -112,67 +94,62 @@
 
 <header>
     <nav>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<section class="hero" id="hero">
-    <h1>Your Best E-Commerce Experience</h1>
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1599051949513-192d74b19c0b?fm=jpg&q=60&w=1600&auto=format&fit=crop" alt="Hero Image" loading="lazy">
 </section>
 
-<section class="products" id="products">
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1590491614121-503cc68f77bd?fm=jpg&w=800&q=80&fit=crop" alt="Product 1">
-        <h3>Product 1</h3>
-        <p>Price: ₹1,200</p>
-    </div>
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1606350921679-11300861016c?fm=jpg&w=800&q=80&fit=crop" alt="Product 2">
-        <h3>Product 2</h3>
-        <p>Price: ₹2,500</p>
-    </div>
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1521231923484-cf8826393e7f?fm=jpg&w=800&q=80&fit=crop" alt="Product 3">
-        <h3>Product 3</h3>
-        <p>Price: ₹1,800</p>
-    </div>
-</section>
+<div class="content">
+    <section id="about" class="about">
+        <h2>About Trendy Store</h2>
+        <p>Welcome to Trendy Store! Your one-stop shop for the latest in shoes and clothes.</p>
+    </section>
 
-<section class="features" id="features">
-    <h2>Our Features</h2>
-    <p>Fast Shipping, Great Support, Quality Products, and Easy Returns</p>
-</section>
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1614180755186-2062c43e3530?fm=jpg&q=60&w=1600&auto=format&fit=crop" alt="Product 1" loading="lazy">
+                <h3>Shoes</h3>
+                <p>Price: ₹2,000</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1574169208506-36be9b4bf79f?fm=jpg&q=60&w=1600&auto=format&fit=crop" alt="Product 2" loading="lazy">
+                <h3>Clothes</h3>
+                <p>Price: ₹1,500</p>
+            </div>
+        </div>
+    </section>
 
-<section class="about" id="about">
-    <h2>About Us</h2>
-    <img src="https://images.unsplash.com/photo-1478743902265-510f50de7b79?fm=jpg&w=1200&q=80&fit=crop" alt="About Us">
-</section>
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <img src="https://images.unsplash.com/photo-1502767089022-2596b4a4b4e2?fm=jpg&q=60&w=1600&auto=format&fit=crop" alt="Customer 1" loading="lazy">
+            <p>"Amazing service and quality products!" - Priya</p>
+        </div>
+        <div class="testimonial">
+            <img src="https://images.unsplash.com/photo-1524812377082-b5931a8d09b0?fm=jpg&q=60&w=1600&auto=format&fit=crop" alt="Customer 2" loading="lazy">
+            <p>"I love shopping here!" - Ravi</p>
+        </div>
+    </section>
 
-<section class="testimonials" id="testimonials">
-    <h2>What Our Customers Say</h2>
-    <img src="https://images.unsplash.com/photo-1581575930277-db85262128cf?fm=jpg&w=1200&q=80&fit=crop" alt="Testimonials">
-</section>
-
-<section class="contact-form" id="contact">
-    <h2>Contact Us</h2>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <input type="submit" value="Send">
-    </form>
-</section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:issarmadan97@gmail.com">issarmadan97@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919137002314">+91 91370 02314</a></p>
+    </section>
+</div>
 
 <footer>
-    <p>© 2023 E-Commerce Website. All rights reserved.</p>
+    <p>&copy; 2023 Trendy Store. All Rights Reserved.</p>
 </footer>
 
 </body>
 </html>
+```
