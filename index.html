@@ -2,551 +2,470 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Indian E-commerce platform offering quality products and reliable services across India. Shop now or get a free consultation." />
-<meta name="keywords" content="India, E-commerce, Online Shopping, Products, Services, Affordable, Best Deals" />
-<title>Indian E-commerce Platform</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trendy Store</title>
 <style>
-/* CSS Reset & Normalize */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-  font-family: 'Inter', sans-serif;
-}
-body {
-  background-color: #fafafa;
-  color: #202020;
-  line-height: 1.6;
-}
+  * {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+  }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+  }
 
-/* Images loading animation & error handling */
-img {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  max-width: 100%;
-}
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+  /* Navbar */
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+  nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  nav ul li {
+    margin-left: 2rem;
+  }
+  nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #222;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover {
+    color: #007BFF;
+  }
 
-/* Reset for anchor tags */
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  /* Hero */
+  .hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+  .hero-content {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    max-width: 90%;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  .btn-primary {
+    padding: 1rem 2rem;
+    background-color: #007bff;
+    color:#fff;
+    border:none;
+    border-radius: 4px;
+    cursor:pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
 
-/* Utility classes */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+  /* Products */
+  .section {
+    padding: 4rem 2rem;
+  }
+  .section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .product-card {
+    background:#fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .product-card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-4px);
+  }
+  .product-image-container {
+    height: 260px;
+    width: 100%;
+  }
+  .product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+  .product-details {
+    padding: 1rem;
+  }
+  .product-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color:#222;
+  }
+  .product-price {
+    font-size: 1.1rem;
+    color:#E91E63;
+    font-weight: 600;
+  }
 
-/* Smooth scroll behavior already in html */
+  /* Features */
+  .features {
+    background-color:#f1f1f1;
+  }
+  .features-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:2rem;
+  }
+  .feature-item {
+    flex:1 1 200px;
+    max-width:250px;
+    padding:1.5rem;
+    background:#fff;
+    border-radius:8px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .feature-item h3 {
+    margin-bottom:1rem;
+    font-size:1.2rem;
+    color:#222;
+  }
+  .feature-item p {
+    font-size:1rem;
+    color:#555;
+  }
 
-h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
-}
+  /* About Section */
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:4rem 2rem;
+    gap:2rem;
+  }
+  .about-text {
+    flex:1 1 400px;
+  }
+  .about-text h2 {
+    font-size:2rem;
+    margin-bottom:1rem;
+    font-weight:600;
+  }
+  .about-text p {
+    font-size:1.1rem;
+    color:#555;
+    line-height:1.6;
+  }
+  .about-image-container {
+    flex:1 1 400px;
+    height:400px;
+  }
+  .about-image-container img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
 
-a.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  color: #fff;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-a.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+  /* Testimonials */
+  .testimonials {
+    background-color:#fff;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:2rem;
+  }
+  .testimonial-card {
+    background:#f9f9f9;
+    padding:1.5rem;
+    border-radius:8px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+  }
+  .testimonial-name {
+    font-weight:600;
+    margin-bottom:0.5rem;
+    color:#222;
+  }
+  .testimonial-text {
+    font-style:italic;
+    font-size:1rem;
+    color:#555;
+  }
 
-/* Sticky Navbar */
-nav {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  padding: 1rem 0;
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-}
-nav a {
-  font-weight: 600;
-  color: #202020;
-  transition: color 0.3s ease;
-}
-nav a:hover {
-  color: #6a11cb;
-}
+  /* Contact */
+  .contact {
+    display: flex;
+    flex-direction:column;
+    max-width:600px;
+    margin:auto;
+  }
+  .contact h2 {
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:2rem;
+    font-weight:600;
+  }
+  .contact-form {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+  .contact-form input, .contact-form textarea {
+    padding:1rem;
+    border:1px solid #ccc;
+    border-radius:4px;
+    font-size:1rem;
+    width:100%;
+  }
+  .contact-form button {
+    padding:1rem;
+    background:#007bff;
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:background 0.3s;
+  }
+  .contact-form button:hover {
+    background:#0056b3;
+  }
+  .contact-info {
+    margin-top:2rem;
+    text-align:center;
+    font-size:1.1rem;
+    color:#222;
+  }
 
-/* Sections padding */
-section {
-  padding: 4rem 2rem;
-}
+  /* Footer */
+  footer {
+    background:#222;
+    color:#fff;
+    padding:2rem;
+    text-align: center;
+  }
+  footer p {
+    margin:0.5rem 0;
+  }
+  /* Responsive adjustments */
+  @media(max-width:768px){
+    .about {
+      flex-direction:column;
+    }
+    nav {
+      flex-direction:column;
+      align-items: stretch;
+    }
+    nav ul {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    nav ul li {
+      margin: 0.5rem 0;
+    }
+  }
 
-/* Hero styles */
-.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  text-align: center;
-  color: #fff;
-}
-.hero-background {
-  position: absolute;
-  top:0; left:0; right:0; bottom:0;
-  z-index: -1;
-}
-.hero-background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-gradient {
-  position: absolute;
-  top:0; left:0; right:0; bottom:0;
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
-}
-.hero-content {
-  max-width: 800px;
-  padding: 2rem;
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-.hero a.button {
-  font-size: 1.1rem;
-}
-
-/* Card styles for services/products */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 2rem;
-}
-.card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-.card img {
-  width: 100%;
-  height: 200px;
-}
-
-/* Features with icons */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 2rem;
-}
-.feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-.feature-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-.feature-icon {
-  font-size: 2rem;
-  color: #2575fc;
-}
-
-/* Testimonials carousel */
-.testimonials {
-  position: relative;
-  overflow: hidden;
-}
-.testimonial-slide {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.testimonial-slide.active {
-  display: flex;
-  opacity: 1;
-}
-.testimonial-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-.testimonial-text {
-  max-width: 600px;
-  text-align: center;
-  font-style: italic;
-  padding: 0 1rem;
-}
-.testimonial-name {
-  margin-top: 1rem;
-  font-weight: 600;
-  color: #202020;
-}
-
-/* Pricing styles */
-.pricing-cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 2rem;
-}
-.pricing-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-.pricing-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-.pricing-header {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 700;
-}
-.pricing-price {
-  font-size: 2.5rem;
-  color: #6a11cb;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Gallery grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 2rem;
-}
-
-/* Footer styles */
-footer {
-  background-color: #202020;
-  color: #fff;
-  padding: 3rem 2rem;
-}
-.footer-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-.social-icons {
-  display: flex;
-  gap: 1.5rem;
-}
-.social-icons a {
-  color: #fff;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-}
-.social-icons a:hover {
-  color: #6a11cb;
-}
-
-/* Responsive */
-@media(max-width:768px){
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  nav ul { flex-direction: column; gap: 1rem; align-items: center; }
-}
 </style>
 </head>
 <body>
 <!-- Navbar -->
 <nav>
+  <div class="logo">Trendy Store</div>
   <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Shoes & Clothes</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- Hero Section -->
-<section id="hero" class="hero">
-  <div class="hero-background">
-    <img src="https://images.unsplash.com/photo-1607252808040-665cd1166bac?w=1920&q=80&fit=crop&auto=format" alt="E-commerce shop display" loading="lazy" style="width:100%; height:auto; object-fit:cover;">
-  </div>
-  <div class="hero-gradient"></div>
+<section id="home" class="hero">
+  <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Fashionable Shoes" />
   <div class="hero-content">
-    <h1>Discover Quality Products & Reliable Services in India</h1>
-    <p>Shop from the best brands, get customized solutions, and experience seamless online shopping tailored for India.</p>
-    <a href="#contact" class="button">Get Started Today</a>
+    <h1>Discover the Latest Trends</h1>
+    <p>Elevate your style with premium shoes and clothes curated for every occasion. Shop now and redefine your wardrobe.</p>
+    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'});">Browse Products</button>
   </div>
 </section>
 
-<!-- Services Section -->
-<section id="services">
-  <h2 style="text-align:center; margin-bottom:2rem;">Our Key Offerings</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88cdb?w=800&q=80&fit=crop&auto=format" alt="Electronics Gadgets" loading="lazy" style="height:250px;">
-      <div style="padding:1rem;">
-        <h3 style="margin-bottom:0.5rem;">Electronics & Gadgets</h3>
-        <p>Latest smartphones, accessories, and smart home devices curated for the Indian market.</p>
-        <p style="margin-top:1rem; font-weight:600;">Starting at ₹3,499</p>
-        <a href="#contact" class="button" style="margin-top:1rem;">Shop Now</a>
+<!-- Products Section -->
+<section id="products" class="section">
+  <h2>Our Exclusive Collection</h2>
+  <div class="products-grid">
+    <!-- Product: Leather Sneakers -->
+    <div class="product-card">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1603782528701-16a2528bdda0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Leather Sneakers" />
+      </div>
+      <div class="product-details">
+        <div class="product-name">Premium Leather Sneakers</div>
+        <div class="product-price">₹3,499</div>
       </div>
     </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1588132487954-2a9fc64c65f0?w=800&q=80&fit=crop&auto=format" alt="Fashion & Apparel" loading="lazy" style="height:250px;">
-      <div style="padding:1rem;">
-        <h3 style="margin-bottom:0.5rem;">Fashion & Apparel</h3>
-        <p>Trendy clothing, footwear, and accessories designed for the Indian style and climate.</p>
-        <p style="margin-top:1rem; font-weight:600;">Starting at ₹499</p>
-        <a href="#contact" class="button" style="margin-top:1rem;">Shop Now</a>
+    <!-- Product: Classic Denim Jacket -->
+    <div class="product-card">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1620522979081-c9c1f544fd62?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Denim Jacket" />
+      </div>
+      <div class="product-details">
+        <div class="product-name">Classic Denim Jacket</div>
+        <div class="product-price">₹2,599</div>
       </div>
     </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1607022276504-678ed196e539?w=800&q=80&fit=crop&auto=format" alt="Home & Kitchen" loading="lazy" style="height:250px;">
-      <div style="padding:1rem;">
-        <h3 style="margin-bottom:0.5rem;">Home & Kitchen</h3>
-        <p>Essential appliances, decor, and kitchenware crafted for Indian households.</p>
-        <p style="margin-top:1rem; font-weight:600;">Starting at ₹599</p>
-        <a href="#contact" class="button" style="margin-top:1rem;">Shop Now</a>
+    <!-- Product: Smart Fitness Watch -->
+    <div class="product-card">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1589696792389-eb9162fbd84e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Fitness Smart Watch" />
+      </div>
+      <div class="product-details">
+        <div class="product-name">Smart Fitness Watch</div>
+        <div class="product-price">₹5,999</div>
+      </div>
+    </div>
+    <!-- Product: Casual Sneakers -->
+    <div class="product-card">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Casual Sneakers" />
+      </div>
+      <div class="product-details">
+        <div class="product-name">Comfort Casual Sneakers</div>
+        <div class="product-price">₹1,999</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Features Section -->
-<section id="features">
-  <h2 style="text-align:center; margin-bottom:2rem;">Why Choose Us</h2>
-  <div class="features-grid">
+<section id="features" class="features">
+  <h2>Why Choose Us</h2>
+  <div class="features-list">
     <div class="feature-item">
-      <div class="feature-icon">💳</div>
-      <div>
-        <h3 style="margin-bottom:0.5rem;">Secure Payments</h3>
-        <p>Multiple Indian-friendly payment options including UPI, wallets, and cash on delivery.</p>
-      </div>
+      <h3>Premium Quality</h3>
+      <p>Our products are crafted with the finest materials to ensure durability and style that lasts.</p>
     </div>
     <div class="feature-item">
-      <div class="feature-icon">🚚</div>
-      <div>
-        <h3 style="margin-bottom:0.5rem;">Fast Delivery</h3>
-        <p>Reliable courier services ensuring quick delivery across all major Indian cities.</p>
-      </div>
+      <h3>Fast Delivery</h3>
+      <p>Experience quick and reliable delivery across India with real-time tracking updates.</p>
     </div>
     <div class="feature-item">
-      <div class="feature-icon">✅</div>
-      <div>
-        <h3 style="margin-bottom:0.5rem;">Authentic Products</h3>
-        <p>Only genuine and quality-verified items sourced from trusted brands and vendors.</p>
-      </div>
+      <h3>Affordable Prices</h3>
+      <p>Enjoy competitive prices on all our products, making premium fashion accessible.</p>
     </div>
     <div class="feature-item">
-      <div class="feature-icon">🌎</div>
-      <div>
-        <h3 style="margin-bottom:0.5rem;">Customer Support</h3>
-        <p>Dedicated 24/7 support in multiple Indian languages for all your queries.</p>
-      </div>
+      <h3>Excellent Support</h3>
+      <p>Our dedicated customer service team is here to assist you 24/7 for any inquiries.</p>
     </div>
   </div>
 </section>
 
 <!-- About Section -->
-<section id="about" style="background-color:#f9f9f9;">
-  <h2 style="text-align:center; margin-bottom:2rem;">About Us</h2>
-  <div style="display:flex; flex-wrap:wrap; align-items:center; gap:2rem; max-width:1200px; margin:0 auto;">
-    <div style="flex:1; min-width:300px;">
-      <img src="https://images.unsplash.com/photo-1621169969126-7990b529e0a5?w=600&q=80&fit=crop&auto=format" alt="Team photo" loading="lazy" style="width:100%; height:auto; border-radius:8px;">
-    </div>
-    <div style="flex:2; min-width:300px;">
-      <h3 style="margin-bottom:1rem;">Our Mission</h3>
-      <p>We are committed to bringing India's best quality products and personalized services right to your doorstep. Our platform seamlessly integrates local vendors and brands to ensure affordability, authenticity, and reliability. With years of experience in e-commerce, we understand your needs and strive for customer satisfaction at every step.</p>
-    </div>
+<section id="about" class="about">
+  <div class="about-text">
+    <h2>About Trendy Store</h2>
+    <p>Founded with a passion for fashion, Trendy Store offers a curated selection of trendy shoes and clothes to elevate your style. Our mission is to provide quality products at affordable prices while delivering exceptional customer service. Whether you're looking for sporty sneakers or elegant outfits, our collection caters to all fashion enthusiasts in India.</p>
+  </div>
+  <div class="about-image-container">
+    <img src="https://images.unsplash.com/photo-1601249123516-094725b36d4f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Trendy Store" />
   </div>
 </section>
 
-<!-- Testimonials Carousel -->
-<section id="testimonials">
+<!-- Testimonials -->
+<section id="testimonials" class="testimonials">
   <h2 style="text-align:center; margin-bottom:2rem;">What Our Customers Say</h2>
-  <div class="testimonials" style="max-width:800px; margin:0 auto; position:relative;">
-    <div class="testimonial-slide active">
-      <img src="https://images.unsplash.com/photo-1544725176-1596b2c4f0b7?w=80&q=80&fit=crop&auto=format" alt="Customer 1" loading="lazy" class="testimonial-img" />
-      <div class="testimonial-text">"Excellent products and prompt delivery! Highly recommended for reliable online shopping in India." - Ritu, Delhi</div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-name">Ravi K.</div>
+      <div class="testimonial-text">"Trendy Store has the best collection of sneakers. Delivery was quick and product quality superb."</div>
     </div>
-    <div class="testimonial-slide">
-      <img src="https://images.unsplash.com/photo-1561295234-11592d671109?w=80&q=80&fit=crop&auto=format" alt="Customer 2" loading="lazy" class="testimonial-img" />
-      <div class="testimonial-text">"Great customer support and authentic items. I love shopping here." - Sanjay, Mumbai</div>
+    <div class="testimonial-card">
+      <div class="testimonial-name">Sneha P.</div>
+      <div class="testimonial-text">"Loved the denim jacket! Fits perfectly and looks stunning. Highly recommend."</div>
     </div>
-    <div class="testimonial-slide">
-      <img src="https://images.unsplash.com/photo-1623037953850-30df8656000e?w=80&q=80&fit=crop&auto=format" alt="Customer 3" loading="lazy" class="testimonial-img" />
-      <div class="testimonial-text">"Affordable prices and wide selection of products. My go-to store!" - Priya, Bangalore</div>
+    <div class="testimonial-card">
+      <div class="testimonial-name">Arjun S.</div>
+      <div class="testimonial-text">"Excellent customer service and affordable prices. Will shop again!"</div>
     </div>
-  </div>
-</section>
-
-<!-- Pricing Section -->
-<section id="pricing">
-  <h2 style="text-align:center; margin-bottom:2rem;">Pricing Plans</h2>
-  <div class="pricing-cols" style="max-width:1200px; margin:0 auto; gap:2rem;">
-    <div class="pricing-card">
-      <div class="pricing-header">Basic</div>
-      <div class="pricing-price">₹5,000</div>
-      <ul style="list-style:none; margin-top:1rem;">
-        <li>&#9679; Access to basic features</li>
-        <li>&#9679; Support via email</li>
-        <li>&#9679; No additional GST</li>
-      </ul>
-      <p style="margin-top:1rem; font-weight:600;">+ 18% GST</p>
-      <a href="#contact" class="button" style="margin-top:1.5rem;">Buy Now</a>
+    <div class="testimonial-card">
+      <div class="testimonial-name">Liza M.</div>
+      <div class="testimonial-text">"Great quality clothes and shoes. My go-to online store for fashion."</div>
     </div>
-    <div class="pricing-card">
-      <div class="pricing-header">Standard</div>
-      <div class="pricing-price">₹15,000</div>
-      <ul style="list-style:none; margin-top:1rem;">
-        <li>&#9679; All Basic features</li>
-        <li>&#9679; Priority support</li>
-        <li>&#9679; GST included</li>
-      </ul>
-      <p style="margin-top:1rem; font-weight:600;">+ 18% GST</p>
-      <a href="#contact" class="button" style="margin-top:1.5rem;">Buy Now</a>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-header">Premium</div>
-      <div class="pricing-price">₹1,00,000</div>
-      <ul style="list-style:none; margin-top:1rem;">
-        <li>&#9679; All Standard features</li>
-        <li>&#9679; Dedicated support</li>
-        <li>&#9679; Custom solutions</li>
-      </ul>
-      <p style="margin-top:1rem; font-weight:600;">+ 18% GST</p>
-      <a href="#contact" class="button" style="margin-top:1.5rem;">Buy Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery">
-  <h2 style="text-align:center; margin-bottom:2rem;">Gallery</h2>
-  <div class="gallery-grid">
-    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80&fit=crop&auto=format" alt="Product showcase" loading="lazy" style="height:400px;">
-    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200&q=80&fit=crop&auto=format" alt="Happy customers" loading="lazy" style="height:400px;">
-    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88cdb?w=1200&q=80&fit=crop&auto=format" alt="Warehouse logistics" loading="lazy" style="height:400px;">
   </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" style="background-color:#f9f9f9;">
-  <h2 style="text-align:center; margin-bottom:2rem;">Contact Us</h2>
-  <div style="max-width:800px; margin:0 auto; display:flex; flex-wrap:wrap; gap:2rem;">
-    <div style="flex:1; min-width:250px;">
-      <h3>Get in Touch</h3>
-      <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-      <p><strong>Email:</strong> email@example.com</p>
-      <p><strong>Address:</strong> 123, Tech Park, Bengaluru, Karnataka, India</p>
-      <div class="social-icons" style="margin-top:1rem;">
-        <a href="#" aria-label="Facebook" title="Facebook">🌐</a>
-        <a href="#" aria-label="Instagram" title="Instagram">📸</a>
-        <a href="#" aria-label="LinkedIn" title="LinkedIn">🔗</a>
-        <a href="#" aria-label="Twitter" title="Twitter">🐦</a>
-      </div>
-    </div>
-    <div style="flex:1; min-width:250px;">
-      <h3>Send a Message</h3>
-      <form id="contactForm" style="display:flex; flex-direction:column; gap:1rem;">
-        <input type="text" placeholder="Your Name" required style="padding:0.75rem; border:1px solid #ccc; border-radius:8px;">
-        <input type="email" placeholder="Your Email" required style="padding:0.75rem; border:1px solid #ccc; border-radius:8px;">
-        <input type="tel" placeholder="Your Phone" required style="padding:0.75rem; border:1px solid #ccc; border-radius:8px;">
-        <textarea rows="4" placeholder="Your Message" required style="padding:0.75rem; border:1px solid #ccc; border-radius:8px;"></textarea>
-        <button type="submit" class="button" style="align-self:flex-start; margin-top:1rem;">Send Message</button>
-      </form>
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out!');">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="contact-info">
+      <p>Phone: +91 9137002314</p>
+      <p>Email: issarmadan97@gmail.com</p>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="footer-info container" style="display:flex; flex-wrap:wrap; justify-content:space-between;">
-    <div>
-      <h3>Indian E-commerce</h3>
-      <p>Bringing India’s best products and services to your doorstep.</p>
-    </div>
-    <div>
-      <h3>Contact</h3>
-      <p>Phone: +91-XXXXXXXXXX</p>
-      <p>Email: email@example.com</p>
-      <p>Address: 123, Tech Park, Bengaluru, Karnataka</p>
-    </div>
-  </div>
-  <div style="text-align:center; margin-top:2rem; font-size:0.9rem;">
-    &copy; 2023 Indian E-commerce | <a href="#" style="color:#fff;">Privacy Policy</a> | <a href="#" style="color:#fff;">Terms of Service</a>
-  </div>
+  <p>&copy; 2023 Trendy Store. All rights reserved.</p>
+  <p>Contact us: +91 9137002314 | issarmadan97@gmail.com</p>
 </footer>
 
-<!-- JavaScript for Testimonials Carousel & Contact Form -->
 <script>
-  // Testimonials Carousel
-  const slides = document.querySelectorAll('.testimonial-slide');
-  let currentSlide = 0;
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-  }
-  setInterval(() => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }, 4000);
-
-  // Contact Form Submission (simulate)
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Thank you! Your message has been received.');
-    this.reset();
-  });
+  // Smooth scroll if needed (already via scrollIntoView on button)
 </script>
 </body>
 </html>
