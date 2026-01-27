@@ -1,128 +1,224 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop Website</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  .navbar {
-    position: sticky;
-    top: 0;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-  }
-  .hero {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f4f4;
-  }
-  .product-container {
-    height: 260px;
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .product {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-  }
-  .product img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .features {
-    padding: 20px;
-    text-align: center;
-  }
-  .about {
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f4f4;
-  }
-  .testimonials {
-    padding: 20px;
-    text-align: center;
-  }
-  .contact-form {
-    padding: 20px;
-    text-align: center;
-    background-color: #f4f4f4;
-  }
-  .footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cta {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .product-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 260px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .product-info {
+            padding: 10px;
+        }
+
+        .product-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-price {
+            color: #27ae60;
+        }
+
+        .features {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .features p {
+            margin: 0;
+        }
+
+        .about {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testimonials {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f9f9f9;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="navbar">Shop Website</div>
-  
-  <section class="hero">
-    <img src="https://images.unsplash.com/photo-1558999133-8fa0de739721?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Hero Image">
-  </section>
-  
-  <div class="product-container">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1567473654246-b6725136e6ef?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 1">
-      <h3>Classic Leather Boots</h3>
-      <p>₹2,999</p>
+    <nav>
+        <div class="container">
+            <h1>E-Commerce</h1>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1579004598569-2c5d7246eeae?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Hero Image" class="hero-img">
+        <a href="#" class="cta">Shop Now</a>
+    </section>
+
+    <div class="container">
+        <h1>Our Products</h1>
+
+        <div class="products">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1536626606800-db4f3dcc1174?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 1" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Leather Sneakers</h2>
+                    <p class="product-price">₹ 1499</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1520720963679-1d3dba4c7e0c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 2" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Denim Jacket</h2>
+                    <p class="product-price">₹ 2499</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1606786879722-94af739ec4f9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 3" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Smart Fitness Watch</h2>
+                    <p class="product-price">₹ 1999</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="features">
+            <h1>Features</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
+
+        <section class="about">
+            <img src="https://images.unsplash.com/photo-1602001890921-6f494f994207?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Image" class="about-img">
+        </section>
+
+        <section class="testimonials">
+            <h1>Testimonials</h1>
+            <p>"Great products and excellent service!"</p>
+        </section>
+
+        <section class="contact">
+            <h1>Contact Us</h1>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Message"></textarea>
+                <button>Submit</button>
+            </form>
+        </section>
     </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1564815506777-20c3a6eab247?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 2">
-      <h3>Stylish Sunglasses</h3>
-      <p>₹899</p>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1571362902704-f39925326d11?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 3">
-      <h3>Modern Smartwatch</h3>
-      <p>₹4,499</p>
-    </div>
-  </div>
-  
-  <section class="features">
-    <h2>Key Features</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque varius lectus vel neque commodo.</p>
-  </section>
-  
-  <section class="about">
-    <img src="https://images.unsplash.com/photo-1531123897720-1f7ae5682a4d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Image">
-  </section>
-  
-  <section class="testimonials">
-    <h2>Testimonials</h2>
-    <p>"Amazing products and great service! Will definitely shop again."</p>
-    <p>- Happy Customer</p>
-  </section>
-  
-  <section class="contact-form">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </section>
-  
-  <div class="footer">© 2022 Shop Website. All Rights Reserved.</div>
+
+    <footer class="footer">
+        <p>&copy; 2023 E-Commerce | Designed by Your Name</p>
+    </footer>
+
+    <script>
+        // Any inline JS if needed
+    </script>
 </body>
+
 </html>
 ```
