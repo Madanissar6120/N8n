@@ -4,141 +4,90 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce Website</title>
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
         }
 
         nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
             position: sticky;
             top: 0;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
             z-index: 1000;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
         .hero {
             height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
         }
 
-        .hero-img {
+        .hero img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .cta {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
         }
 
         .products {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px 0;
+            gap: 20px;
+            padding: 20px;
         }
 
-        .product-card {
+        .product {
             width: 300px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
-        .product-card:hover {
+        .product:hover {
             transform: translateY(-5px);
         }
 
-        .product-img {
-            height: 260px;
-            width: 100%;
-            object-fit: cover;
-            display: block;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        .product-info {
-            padding: 10px;
-        }
-
-        .product-title {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .product-price {
-            color: #27ae60;
-        }
-
-        .features {
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .features p {
-            margin: 0;
-        }
-
-        .about {
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff;
-        }
-
-        .about-img {
+        .product img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .testimonials {
+        .features {
             text-align: center;
-            padding: 20px 0;
-            background-color: #f9f9f9;
+            padding: 20px;
         }
 
-        .contact {
-            text-align: center;
-            padding: 20px 0;
+        .about {
+            height: 400px;
+            position: relative;
         }
 
-        .footer {
+        .about img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        footer {
             background-color: #333;
-            color: #fff;
+            color: white;
             text-align: center;
             padding: 10px 0;
         }
@@ -147,77 +96,67 @@
 
 <body>
     <nav>
-        <div class="container">
-            <h1>E-Commerce</h1>
-        </div>
+        <h1>Our Store</h1>
     </nav>
 
     <section class="hero">
-        <img src="https://images.unsplash.com/photo-1579004598569-2c5d7246eeae?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Hero Image" class="hero-img">
-        <a href="#" class="cta">Shop Now</a>
+        <img src="https://images.unsplash.com/photo-1587751533380-fd58df102445?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Hero Image">
+        <div>
+            <h2>Welcome to Our Store</h2>
+            <p>Discover the best products you'll love.</p>
+            <button>Shop Now</button>
+        </div>
     </section>
 
-    <div class="container">
-        <h1>Our Products</h1>
-
-        <div class="products">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1536626606800-db4f3dcc1174?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 1" class="product-img">
-                <div class="product-info">
-                    <h2 class="product-title">Leather Sneakers</h2>
-                    <p class="product-price">₹ 1499</p>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1520720963679-1d3dba4c7e0c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 2" class="product-img">
-                <div class="product-info">
-                    <h2 class="product-title">Denim Jacket</h2>
-                    <p class="product-price">₹ 2499</p>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1606786879722-94af739ec4f9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 3" class="product-img">
-                <div class="product-info">
-                    <h2 class="product-title">Smart Fitness Watch</h2>
-                    <p class="product-price">₹ 1999</p>
-                </div>
-            </div>
+    <section class="products">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1589803805032-61df95882f49?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 1">
+            <h3>Leather Sneakers</h3>
+            <p>₹2,499</p>
         </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1542839352-2ec7d575ad66?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 2">
+            <h3>Denim Jacket</h3>
+            <p>₹1,899</p>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1600754362580-6e6e25305349?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 3">
+            <h3>Smart Fitness Watch</h3>
+            <p>₹3,999</p>
+        </div>
+    </section>
 
-        <section class="features">
-            <h1>Features</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </section>
+    <section class="features">
+        <h2>Key Features</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac ipsum sit amet diam vestibulum molestie.</p>
+    </section>
 
-        <section class="about">
-            <img src="https://images.unsplash.com/photo-1602001890921-6f494f994207?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Image" class="about-img">
-        </section>
+    <section class="about">
+        <img src="https://images.unsplash.com/photo-1593720213424-bf7dece81c33?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Us">
+        <div>
+            <h2>About Us</h2>
+            <p>Learn more about our story and mission.</p>
+        </div>
+    </section>
 
-        <section class="testimonials">
-            <h1>Testimonials</h1>
-            <p>"Great products and excellent service!"</p>
-        </section>
+    <section class="testimonials">
+        <h2>Testimonials</h2>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id sodales elit, non sollicitudin dolor."</p>
+    </section>
 
-        <section class="contact">
-            <h1>Contact Us</h1>
-            <form>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Message"></textarea>
-                <button>Submit</button>
-            </form>
-        </section>
-    </div>
+    <section class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" rows="4" required></textarea>
+            <button>Submit</button>
+        </form>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; 2023 E-Commerce | Designed by Your Name</p>
+    <footer>
+        <p>&copy; 2022 Our Store. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        // Any inline JS if needed
-    </script>
 </body>
 
 </html>
