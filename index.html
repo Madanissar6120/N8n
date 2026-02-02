@@ -1,68 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxora - Premium E-commerce</title>
-    <!-- Favicon as data URI to keep it a single HTML file -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' font-size='80' text-anchor='middle' dominant-baseline='central'%3E💎%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <title>Ansh Infotech Pvt. Limited - Innovating Your Digital Future</title>
+    <meta name="description" content="Ansh Infotech Pvt. Limited offers cutting-edge IT solutions, software development, cloud services, and digital transformation for businesses worldwide.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Reset & Base Styles */
         :root {
-            --primary-color: #6C63FF;
-            --secondary-color: #55E6C1;
-            --text-color-dark: #333;
-            --text-color-light: #f4f4f4;
-            --bg-light: #f8f8f8;
-            --bg-dark: #222;
-            --card-bg: #fff;
-            --border-radius: 8px;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --primary-color: #4a55e2; /* A modern blue */
+            --secondary-color: #6c757d;
+            --background-light: #f8f9fa;
+            --background-dark: #343a40;
+            --text-color-light: #343a40;
+            --text-color-dark: #f8f9fa;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 96px;
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color-light);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         *, *::before, *::after {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
-            color: var(--text-color-dark);
-            background-color: var(--bg-light);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-color-light);
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; }
+
+        p {
+            margin-bottom: 1em;
         }
 
         a {
             color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #5a54e0; /* Slightly darker primary color */
+            text-decoration: underline;
         }
-
-        ul {
-            list-style: none;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.2;
-            color: var(--text-color-dark);
-        }
-
-        h1 { font-size: 2.8rem; }
-        h2 { font-size: 2.2rem; }
-        h3 { font-size: 1.8rem; }
-        p { margin-bottom: 1rem; }
 
         .container {
             max-width: 1200px;
@@ -78,147 +80,213 @@
             text-align: center;
         }
 
-        .button {
+        /* Buttons */
+        .btn {
             display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background-color: var(--primary-color);
-            color: var(--text-color-light);
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
+            padding: 12px 24px;
+            border-radius: 8px;
             font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
         }
 
-        .button:hover {
-            background-color: #5a54e0; /* A slightly darker primary color */
-            transform: translateY(-2px);
-        }
-
-        .button-secondary {
-            background-color: #eee;
+        .btn-primary {
+            background-color: var(--primary-color);
             color: var(--text-color-dark);
         }
 
-        .button-secondary:hover {
-            background-color: #ddd;
+        .btn-primary:hover {
+            background-color: #3b45c2; /* Darker shade of primary */
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            text-decoration: none;
         }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            z-index: 1000;
+            width: 100%;
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 1rem var(--spacing-sm);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            box-shadow: 0 2px 4px var(--shadow-light);
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: var(--spacing-sm) var(--spacing-sm);
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
+            font-size: 1.6em;
             font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .navbar-links {
+            display: none; /* Hidden on mobile */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-links li {
+            display: inline-block;
+            margin-left: var(--spacing-md);
+        }
+
+        .navbar-links a {
+            color: var(--text-color-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
             color: var(--primary-color);
             text-decoration: none;
         }
 
-        .nav-links {
+        .menu-toggle {
+            display: block; /* Visible on mobile */
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: var(--text-color-light);
+            padding: 0;
+            line-height: 1;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1001;
             display: flex;
-            gap: 2rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto; /* Ensure content is scrollable if tall */
         }
 
-        .nav-links a {
-            font-weight: 500;
-            color: var(--text-color-dark);
+        .mobile-menu-overlay.active {
+            transform: translateX(0);
         }
 
-        .nav-links a:hover {
+        .mobile-menu-overlay .close-btn {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            background: none;
+            border: none;
+            font-size: 2.5em;
+            cursor: pointer;
+            color: var(--text-color-light);
+        }
+
+        .mobile-menu-overlay .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-menu-overlay .mobile-nav-links li {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .mobile-menu-overlay .mobile-nav-links a {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--text-color-light);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-overlay .mobile-nav-links a:hover {
             color: var(--primary-color);
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger .bar {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color-dark);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
         /* Hero Section */
-        .hero {
+        .hero-section {
             position: relative;
-            color: var(--text-color-light);
+            color: var(--text-color-dark);
+            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            overflow: hidden; /* Ensure image doesn't bleed */
+            height: 80vh; /* This dictates the height of the hero content block */
         }
 
         .hero-image-container {
-            height: 80vh; /* Fixed height for hero image container */
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-        }
-        
-        .hero-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            height: 80vh; /* Fixed height for the image container */
+            z-index: -1; /* Place image behind content */
         }
 
         .hero-content {
-            position: absolute;
+            position: relative;
             z-index: 1;
+            padding: var(--spacing-md);
             max-width: 800px;
-            padding: var(--spacing-sm);
             background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
-            border-radius: var(--border-radius);
+            border-radius: 12px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-color-light);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-color-dark);
         }
 
-        .hero p {
-            font-size: 1.3rem;
+        .hero-content p {
+            font-size: 1.2em;
             margin-bottom: var(--spacing-md);
-            color: var(--text-color-light);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            color: rgba(255, 255, 255, 0.9);
         }
-        
-        /* Products Section */
+
+        .hero-content .btn {
+            margin: var(--spacing-xs);
+        }
+
+        /* Products/Services Section */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr; /* Single column on mobile */
             gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
         }
 
         .product-card {
             background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 4px 10px var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -226,157 +294,154 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
         .product-image-container {
-            height: 260px; /* Fixed height for product image container */
             width: 100%;
-        }
-        
-        .product-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .product-info {
-            padding: var(--spacing-sm);
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color-dark);
-        }
-
-        .product-info .price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            margin-top: auto; /* Pushes price to bottom, above button */
-        }
-        .product-info .button {
-            width: 100%;
-            padding: 0.6rem 1rem;
-            font-size: 0.95rem;
-        }
-
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-
-        .feature-item {
-            background-color: var(--card-bg);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
-            text-align: center;
-        }
-        .feature-item h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-        .feature-item p {
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-        .about-content p {
-            max-width: 700px;
-            margin: 0 auto 1rem auto;
-            text-align: center;
-        }
-
-        .about-image-container {
-            height: 400px; /* Fixed height for about image container */
-            width: 100%;
-            border-radius: var(--border-radius);
+            height: 260px; /* Fixed height for product images */
             overflow: hidden;
-            box-shadow: var(--shadow-light);
-        }
-        
-        .about-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
         }
 
-        /* Testimonials Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-
-        .testimonial-card {
-            background-color: var(--card-bg);
+        .product-card-content {
             padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
-            font-style: italic;
-            color: #555;
-            text-align: center;
+            flex-grow: 1; /* Allows content to expand */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .testimonial-card .author {
-            font-weight: 600;
-            margin-top: 1rem;
-            color: var(--text-color-dark);
-            font-style: normal;
+        .product-card-content h3 {
+            font-size: 1.3em;
+            margin-bottom: var(--spacing-xs);
         }
 
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: var(--spacing-md) auto 0 auto;
+        .product-card-content p {
+            font-size: 0.95em;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: auto; /* Pushes price to the bottom */
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .feature-item {
             background-color: var(--card-bg);
             padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2em;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .feature-item p {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column; /* Stack on mobile */
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-image-container {
+            width: 100%;
+            height: 400px; /* Fixed height for about image */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px var(--shadow-light);
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .about-text h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .testimonial-title {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-medium);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--spacing-md);
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-color-dark);
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--text-color-light);
         }
 
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-family: inherit;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
             transition: border-color 0.3s ease;
         }
 
@@ -384,7 +449,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(74, 85, 226, 0.2);
         }
 
         .form-group textarea {
@@ -392,324 +457,385 @@
             resize: vertical;
         }
 
-        .contact-form .button {
+        .contact-form .btn-primary {
             width: 100%;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--bg-dark);
-            color: var(--text-color-light);
-            padding: var(--spacing-md) var(--spacing-sm);
+            background-color: var(--background-dark);
+            color: var(--text-color-dark);
+            padding: var(--spacing-lg) 0;
+            font-size: 0.9em;
             text-align: center;
-            font-size: 0.9rem;
-            margin-top: var(--spacing-lg);
         }
 
         .footer p {
-            margin-bottom: 0;
+            margin-bottom: var(--spacing-xs);
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.5rem; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.1rem; }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin-top: var(--spacing-sm);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px; /* Adjust based on navbar height */
-                left: 0;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                padding: 1rem 0;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-                border-bottom-left-radius: var(--border-radius);
-                border-bottom-right-radius: var(--border-radius);
-            }
+        .footer-links li {
+            margin: 0 var(--spacing-sm) var(--spacing-xs) var(--spacing-sm);
+        }
 
-            .nav-links.active {
-                display: flex;
-            }
+        .footer-links a {
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
 
-            .nav-links a {
-                padding: 0.8rem var(--spacing-sm);
-                width: 100%;
-                text-align: center;
-            }
+        .footer-links a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
 
-            .hamburger {
-                display: flex;
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 2.5em; }
+            h3 { font-size: 1.8em; }
+
+            .navbar-links {
+                display: flex; /* Visible on larger screens */
             }
 
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
+            .menu-toggle {
+                display: none; /* Hidden on larger screens */
             }
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
+
+            .hero-content h1 {
+                font-size: 4em;
             }
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
+
+            .hero-content p {
+                font-size: 1.4em;
             }
 
             .products-grid, .features-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
             }
 
             .about-content {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row; /* Side-by-side on larger screens */
+                text-align: left;
+            }
+
+            .about-image-container {
+                width: 50%;
+            }
+
+            .about-text {
+                padding: 0 var(--spacing-md);
             }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 0.95rem; }
-            .button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0; /* Remove horizontal padding for wide screens */
             }
-            .product-info h3 { font-size: 1.1rem; }
-            .product-info .price { font-size: 1.2rem; }
-        }
 
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr); /* Four columns on large screens */
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">Luxora</a>
-            <div class="nav-links" id="navLinks">
-                <a href="#hero">Home</a>
-                <a href="#products">Products</a>
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </div>
-    </nav>
 
-    <header id="hero" class="hero">
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1542838132-92ae9dd7a474?w=800&auto=format&fit=crop" alt="Abstract shopping bags in a modern setting, representing diverse products." style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
-        <div class="hero-content">
-            <h1>Elevate Your Lifestyle with Luxora</h1>
-            <p>Discover handpicked premium products that blend elegance, quality, and innovation, delivered right to your doorstep.</p>
-            <a href="#products" class="button">Shop Now</a>
+    <header class="navbar">
+        <div class="container">
+            <a href="#hero" class="navbar-brand">Ansh Infotech</a>
+            <nav>
+                <ul class="navbar-links">
+                    <li><a href="#products">Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">&#9776;</button>
+            </nav>
         </div>
     </header>
 
-    <section id="products" class="section-padding">
-        <div class="container text-center">
-            <h2>Our Premium Collection</h2>
-            <p>Explore our carefully curated selection of high-quality items designed to enhance your everyday.</p>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <button class="close-btn" aria-label="Close menu" onclick="toggleMobileMenu()">&#x2715;</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#products" onclick="toggleMobileMenu()">Services</a></li>
+            <li><a href="#features" onclick="toggleMobileMenu()">Features</a></li>
+            <li><a href="#about" onclick="toggleMobileMenu()">About Us</a></li>
+            <li><a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1620283030383-71f00845a331?w=800&auto=format&fit=crop"
+                     alt="Futuristic digital data flowing on screens"
+                     style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div class="hero-content">
+                <h1>Innovating Your Digital Future</h1>
+                <p>Ansh Infotech Pvt. Limited delivers cutting-edge IT solutions, empowering businesses to thrive in the digital age.</p>
+                <div>
+                    <a href="#contact" class="btn btn-primary">Get Started Today</a>
+                    <a href="#products" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products/Services Section -->
+        <section id="products" class="section-padding container">
+            <h2 class="text-center">Our Comprehensive Services</h2>
+            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
+                From bespoke software to robust cloud infrastructure, we provide end-to-end solutions tailored to your unique business needs.
+            </p>
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1607519659039-387b32252a5c?w=800&auto=format&fit=crop" alt="Elegant metallic watch on a wooden surface." style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <img src="https://images.unsplash.com/photo-1542831371-d50d6c4491de?w=800&auto=format&fit=crop"
+                             alt="Person typing code on a laptop screen"
+                             style="width:100%; height:100%; object-fit:cover; display:block;">
                     </div>
-                    <div class="product-info">
-                        <h3>Titanium Smartwatch X1</h3>
-                        <p class="price">₹ 18,999</p>
-                        <a href="#" class="button">Add to Cart</a>
+                    <div class="product-card-content">
+                        <h3>Custom Software Development</h3>
+                        <p>Tailored applications built to streamline your operations and enhance user experience. From concept to deployment.</p>
+                        <span class="product-price">Starts at &#8377;1,50,000</span>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1596700517743-3e110c733355?w=800&auto=format&fit=crop" alt="Premium leather wallet with cards visible." style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <img src="https://images.unsplash.com/photo-1587440001099-0d173c66f574?w=800&auto=format&fit=crop"
+                             alt="Server room with blinking lights and network cables"
+                             style="width:100%; height:100%; object-fit:cover; display:block;"
+                             loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>Handcrafted Leather Wallet</h3>
-                        <p class="price">₹ 2,499</p>
-                        <a href="#" class="button">Add to Cart</a>
+                    <div class="product-card-content">
+                        <h3>Cloud Migration & DevOps</h3>
+                        <p>Seamless transition to cloud platforms (AWS, Azure, GCP) and implementation of DevOps practices for efficiency.</p>
+                        <span class="product-price">Starts at &#8377;1,20,000</span>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1620790111100-3432130e5270?w=800&auto=format&fit=crop" alt="Stylish dark blue denim jacket on a hanger." style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <img src="https://images.unsplash.com/photo-1517694454-e0b8e7ef58c0?w=800&auto=format&fit=crop"
+                             alt="Close-up of a keyboard with code on a monitor in the background"
+                             style="width:100%; height:100%; object-fit:cover; display:block;"
+                             loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>Vintage Indigo Denim Jacket</h3>
-                        <p class="price">₹ 4,799</p>
-                        <a href="#" class="button">Add to Cart</a>
+                    <div class="product-card-content">
+                        <h3>Enterprise Application Integration</h3>
+                        <p>Connect disparate systems and applications to create a unified, efficient business ecosystem.</p>
+                        <span class="product-price">Starts at &#8377;95,000</span>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1521575107036-bc09c3ce385b?w=800&auto=format&fit=crop" alt="Minimalist ceramic coffee mug on a wooden table." style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1579547621458-1d7010419273?w=800&auto=format&fit=crop"
+                             alt="Abstract digital network lines and spheres"
+                             style="width:100%; height:100%; object-fit:cover; display:block;"
+                             loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>Artisan Ceramic Mug Set</h3>
-                        <p class="price">₹ 1,299</p>
-                        <a href="#" class="button">Add to Cart</a>
+                    <div class="product-card-content">
+                        <h3>AI & Machine Learning Solutions</h3>
+                        <p>Leverage the power of AI to automate tasks, gain insights, and make data-driven decisions.</p>
+                        <span class="product-price">Starts at &#8377;1,80,000</span>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1588636412170-c089280e2196?w=800&auto=format&fit=crop" alt="Smart speaker device emitting soft glow." style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1550069049-7b3b4d4b1a4a?w=800&auto=format&fit=crop"
+                             alt="A row of illuminated server racks in a dark data center"
+                             style="width:100%; height:100%; object-fit:cover; display:block;"
+                             loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>Aura Smart Home Speaker</h3>
-                        <p class="price">₹ 7,999</p>
-                        <a href="#" class="button">Add to Cart</a>
+                    <div class="product-card-content">
+                        <h3>Cybersecurity Consulting</h3>
+                        <p>Protect your digital assets with comprehensive security audits, threat detection, and mitigation strategies.</p>
+                        <span class="product-price">Starts at &#8377;80,000/month</span>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1563853177701-d852a3b2a2e1?w=800&auto=format&fit=crop" alt="Pair of sleek, modern running shoes." style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1593642532744-d377ab50e089?w=800&auto=format&fit=crop"
+                             alt="Laptop on a desk showing a web dashboard"
+                             style="width:100%; height:100%; object-fit:cover; display:block;"
+                             loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>Dynamic Comfort Running Shoes</h3>
-                        <p class="price">₹ 5,999</p>
-                        <a href="#" class="button">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1618365922312-3b03666d9c6c?w=800&auto=format&fit=crop" alt="Stylish modern sunglasses on a light background." style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Polarized Aviator Sunglasses</h3>
-                        <p class="price">₹ 3,299</p>
-                        <a href="#" class="button">Add to Cart</a>
-                    </div>
-                </div>
-                 <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1582260656811-1a3e8e2b8e21?w=800&auto=format&fit=crop" alt="Minimalist black backpack against a wall." style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Urban Essential Backpack Pro</h3>
-                        <p class="price">₹ 6,499</p>
-                        <a href="#" class="button">Add to Cart</a>
+                    <div class="product-card-content">
+                        <h3>Managed IT Services</h3>
+                        <p>Proactive monitoring, maintenance, and support for your IT infrastructure, ensuring maximum uptime.</p>
+                        <span class="product-price">Starts at &#8377;75,000/month</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features" class="section-padding" style="background-color: var(--bg-dark); color: var(--text-color-light);">
-        <div class="container text-center">
-            <h2 style="color: var(--text-color-light);">Why Choose Luxora?</h2>
-            <p style="color: #ccc;">Experience unparalleled quality and service with every purchase.</p>
+        <!-- Features Section -->
+        <section id="features" class="section-padding container">
+            <h2 class="text-center">Why Choose Ansh Infotech?</h2>
+            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
+                We are committed to delivering excellence through innovation, expertise, and a client-centric approach.
+            </p>
             <div class="features-grid">
-                <div class="feature-item" style="background-color: #333; color: var(--text-color-light);">
-                    <h3 style="color: var(--secondary-color);">Curated Quality</h3>
-                    <p>Every product is handpicked and rigorously tested for the highest standards of quality and durability.</p>
+                <div class="feature-item">
+                    <h3>Expert Team</h3>
+                    <p>Our highly skilled professionals bring years of experience and deep domain knowledge to every project.</p>
                 </div>
-                <div class="feature-item" style="background-color: #333; color: var(--text-color-light);">
-                    <h3 style="color: var(--secondary-color);">Secure Payments</h3>
-                    <p>Shop with confidence using our encrypted and secure payment gateways for all transactions.</p>
+                <div class="feature-item">
+                    <h3>Innovative Solutions</h3>
+                    <p>We leverage the latest technologies and methodologies to develop forward-thinking solutions.</p>
                 </div>
-                <div class="feature-item" style="background-color: #333; color: var(--text-color-light);">
-                    <h3 style="color: var(--secondary-color);">Fast Shipping</h3>
-                    <p>Enjoy expedited delivery across India, ensuring your premium products reach you quickly and safely.</p>
+                <div class="feature-item">
+                    <h3>Client-Centric Approach</h3>
+                    <p>Your success is our priority. We work closely with you to understand and meet your specific needs.</p>
                 </div>
-                <div class="feature-item" style="background-color: #333; color: var(--text-color-light);">
-                    <h3 style="color: var(--secondary-color);">Dedicated Support</h3>
-                    <p>Our customer service team is always ready to assist you with any queries or concerns.</p>
+                <div class="feature-item">
+                    <h3>Proven Track Record</h3>
+                    <p>Delivering successful projects across various industries with a strong reputation for reliability.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="section-padding">
-        <div class="container text-center">
-            <h2>About Luxora</h2>
+        <!-- About Section -->
+        <section id="about" class="section-padding container">
+            <h2 class="text-center">About Ansh Infotech Pvt. Limited</h2>
+            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
+                Founded on the principles of innovation and integrity, Ansh Infotech is dedicated to transforming businesses through technology.
+            </p>
             <div class="about-content">
-                <p>Luxora began with a simple vision: to bring exceptional quality and design to discerning customers. We believe that everyday items should not only be functional but also a source of joy and inspiration. Our team travels extensively to discover unique artisans and innovative brands, ensuring that every item in our collection tells a story of craftsmanship and passion.</p>
-                <p>From smart tech to timeless fashion, Luxora is your destination for products that truly stand out. We are committed to fostering a community that values quality, sustainability, and ethical sourcing. Join us on our journey to redefine premium living.</p>
                 <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop" alt="Group of diverse professionals collaborating in a modern office space." style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1552581691-d5f9d1d1b1f8?w=800&auto=format&fit=crop"
+                         alt="Team collaborating in a modern office environment"
+                         style="width:100%; height:100%; object-fit:cover; display:block;"
+                         loading="lazy">
+                </div>
+                <div class="about-text">
+                    <p>Ansh Infotech Pvt. Limited was established with a vision to be a leader in providing robust and scalable IT solutions. We believe in harnessing the power of technology to solve complex business challenges, drive growth, and create sustainable value for our clients.</p>
+                    <p>Our journey began with a small team of passionate technologists, and today, we are a thriving enterprise serving clients across diverse sectors. We pride ourselves on our agile development methodologies, commitment to quality, and a culture of continuous learning and improvement.</p>
+                    <p>Whether it's building a sophisticated enterprise system, migrating to the cloud, or securing your digital infrastructure, Ansh Infotech is your trusted partner for digital transformation.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="testimonials" class="section-padding" style="background-color: var(--bg-light);">
-        <div class="container text-center">
-            <h2>What Our Customers Say</h2>
-            <p>Hear from those who've experienced the Luxora difference.</p>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section-padding container" style="background-color: var(--background-light);">
+            <h2 class="text-center">What Our Clients Say</h2>
+            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
+                Our commitment to excellence is reflected in the satisfaction and success of our clients.
+            </p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"The Smartwatch X1 from Luxora is a game-changer! Sleek design, incredible features, and outstanding battery life. Truly premium."</p>
-                    <span class="author">- Rajesh K., Bengaluru</span>
+                    <p>"Ansh Infotech transformed our legacy systems into a modern, efficient platform. Their team's expertise and dedication were exceptional throughout the project."</p>
+                    <div class="testimonial-author">- Rajesh Kumar</div>
+                    <div class="testimonial-title">CEO, Innovate Solutions</div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"I've never owned a wallet this well-crafted. The leather feels amazing, and it's incredibly practical. Luxora delivers on its promise of quality."</p>
-                    <span class="author">- Priya S., Mumbai</span>
+                    <p>"The cloud migration services provided by Ansh Infotech were seamless and incredibly professional. We experienced zero downtime and significant cost savings."</p>
+                    <div class="testimonial-author">- Priya Sharma</div>
+                    <div class="testimonial-title">CTO, Tech Horizons</div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"Their customer service is top-notch. I had a query about my order, and they resolved it quickly and efficiently. Highly recommend Luxora for their service and products."</p>
-                    <span class="author">- Amit M., Delhi</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The ceramic mug set is simply beautiful. It adds a touch of elegance to my morning coffee ritual. Excellent packaging and quick delivery too!"</p>
-                    <span class="author">- Neha R., Chennai</span>
+                    <p>"We rely on Ansh Infotech for our managed IT services, and they consistently exceed expectations. Their proactive support keeps our operations running smoothly."</p>
+                    <div class="testimonial-author">- Sanjay Mehta</div>
+                    <div class="testimonial-title">Operations Head, Global Ventures</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="section-padding">
-        <div class="container text-center">
-            <h2>Get In Touch</h2>
-            <p>Have questions or need assistance? Reach out to us anytime!</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
-                </div>
-                <button type="submit" class="button">Send Message</button>
-            </form>
-        </div>
-    </section>
+        <!-- Contact Form Section -->
+        <section id="contact" class="section-padding container">
+            <h2 class="text-center">Get in Touch With Us</h2>
+            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
+                Have a project in mind or a question? Reach out to our experts and let's discuss how we can help your business grow.
+            </p>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Luxora. All rights reserved. Crafted with care in India.</p>
+            <p>&copy; 2023 Ansh Infotech Pvt. Limited. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenuOverlay');
+            mobileMenu.classList.toggle('active');
+            // Optional: to prevent scrolling when menu is open
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
 
-            hamburger.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
+        // Optional: Close menu on escape key
+        document.addEventListener('keydown', function(event) {
+            const mobileMenu = document.getElementById('mobileMenuOverlay');
+            if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
 
-            // Close nav when a link is clicked (for mobile)
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        hamburger.classList.remove('active');
-                    }
-                });
+        // Optional: Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                // Check if it's a valid ID before trying to scroll
+                if (targetId && targetId !== '#') {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
