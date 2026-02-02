@@ -3,751 +3,899 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EleganceCart - Your Premium Online Store</title>
+    <title>Elegance Threads - Modern Fashion & Accessories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset & Variables */
         :root {
-            --primary-color: #0d6efd; /* A strong blue */
-            --primary-dark: #0a58ca;
-            --accent-color: #6c757d; /* A soft grey for secondary text */
-            --background-light: #f8f9fa; /* Light grey background */
-            --text-color: #212529; /* Dark grey for text */
-            --border-color: #dee2e6;
-            --card-bg: #ffffff;
-            --shadow-light: rgba(0, 0, 0, 0.08);
-            --shadow-medium: rgba(0, 0, 0, 0.15);
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2.5rem;
-            --spacing-xl: 4rem;
-            --border-radius: 0.5rem;
+            --primary-color: #5B21B6; /* Deep Purple */
+            --primary-dark: #4C1D95;
+            --secondary-color: #FACC15; /* Amber */
+            --text-color: #1F2937; /* Dark Gray */
+            --light-text-color: #4B5563; /* Medium Gray */
+            --white-color: #FFFFFF;
+            --light-gray: #F3F4F6;
+            --border-color: #E5E7EB;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             color: var(--text-color);
-            background-color: var(--background-light);
+            line-height: 1.6;
+            background-color: var(--light-gray);
             -webkit-font-smoothing: antialiased;
-            scroll-behavior: smooth;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-md);
+            padding: 0 1.5rem;
         }
 
-        .section-padding {
-            padding: var(--spacing-xl) 0;
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .pt-24 { padding-top: 6rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mt-8 { margin-top: 2rem; }
+        .gap-6 { gap: 1.5rem; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+        @media (min-width: 640px) {
+            .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (min-width: 768px) {
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        .heading {
-            font-size: 2.5rem;
-            margin-bottom: var(--spacing-lg);
+        /* Headings */
+        h1, h2, h3, h4 {
+            font-weight: 700;
             color: var(--text-color);
-            text-align: center;
+            margin-bottom: 1rem;
         }
-        @media (max-width: 768px) {
-             .heading {
-                font-size: 2rem;
-             }
+        h1 { font-size: 3rem; line-height: 1.2; }
+        h2 { font-size: 2.25rem; line-height: 1.25; }
+        h3 { font-size: 1.875rem; line-height: 1.25; }
+        h4 { font-size: 1.5rem; line-height: 1.25; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--light-text-color);
         }
 
+        /* Buttons */
         .btn {
-            display: inline-block;
-            padding: var(--spacing-sm) var(--spacing-md);
-            background-color: var(--primary-color);
-            color: var(--card-bg);
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-decoration: none;
+            border: none;
         }
-
-        .btn:hover {
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        .btn-primary:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            text-decoration: none;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+        .btn-secondary:hover {
+            background-color: #EAB308;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
         }
 
         /* Navbar */
         .navbar {
-            background-color: var(--card-bg);
-            padding: var(--spacing-sm) 0;
-            box-shadow: 0 2px 10px var(--shadow-light);
+            background-color: var(--white-color);
+            box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
-
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
-
         .navbar-brand {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
         }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: var(--spacing-md);
+        .navbar-menu {
+            display: none; /* Hidden by default for mobile */
+            gap: 1.5rem;
         }
-
-        .nav-links a {
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
+        .navbar-menu a {
+            color: var(--light-text-color);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+            padding: 0.5rem 0;
+            position: relative;
         }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
+        .navbar-menu a:hover {
+            color: var(--primary-color);
+        }
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.2s ease-in-out;
+        }
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+        .hamburger-menu {
+            display: block; /* Visible for mobile */
             cursor: pointer;
-            gap: 5px;
+            font-size: 1.8rem;
+            color: var(--text-color);
         }
 
-        .hamburger .bar {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color);
-            border-radius: 3px;
-            transition: all 0.3s ease;
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+        .mobile-menu-content {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Start off-screen */
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background-color: var(--white-color);
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            z-index: 1000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .mobile-menu-content.open {
+            right: 0; /* Slide in */
+        }
+        .mobile-menu-content .close-btn {
+            align-self: flex-end;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .mobile-menu-content nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .mobile-menu-content nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .mobile-menu-content nav a:last-child {
+            border-bottom: none;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%; /* Position below navbar */
-                left: 0;
-                width: 100%;
-                background-color: var(--card-bg);
-                box-shadow: 0 8px 16px var(--shadow-light);
-                padding: var(--spacing-md) 0;
-                text-align: center;
-                gap: var(--spacing-sm);
+        @media (min-width: 768px) {
+            .navbar-menu {
+                display: flex; /* Visible for larger screens */
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .navbar-nav-item {
-                padding: var(--spacing-sm) 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
+            .hamburger-menu {
+                display: none; /* Hidden for larger screens */
             }
         }
-
 
         /* Hero Section */
-        #hero {
-            background-color: var(--background-light); /* Fallback */
-            min-height: 80vh; /* Ensure hero section has sufficient height */
+        .hero {
+            position: relative;
             display: flex;
-            flex-direction: column; /* Stack image and content */
             align-items: center;
             justify-content: center;
-            position: relative; /* For hero-content adjustment */
-        }
-
-        .hero-image-wrapper {
-            width: 100%;
-            height: 80vh; /* Fixed height for the image container as per rules */
-            overflow: hidden; /* Ensure image doesn't overflow */
-        }
-
-        /* Hero content styling */
-        .hero-content {
             text-align: center;
-            padding: var(--spacing-lg) var(--spacing-md);
+            color: var(--white-color);
+        }
+        .hero-image-container {
+            height: 80vh; /* Fixed height for hero image container */
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .hero-content {
+            z-index: 10;
+            padding: 2rem;
             max-width: 800px;
-            margin-top: calc(-1 * var(--spacing-xl)); /* Pull content up visually to connect with image */
-            position: relative; /* Stacks correctly */
-            z-index: 10; /* Ensure content is above any potential background overlap */
+            position: relative; /* To make sure text is on top of overlay */
         }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            color: var(--text-color);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.1;
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--white-color);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
-
-        #hero p {
+        .hero-content p {
             font-size: 1.25rem;
-            color: var(--accent-color);
-            margin-bottom: var(--spacing-lg);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 2.5rem;
+            color: var(--white-color);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
-
-        @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-            #hero p {
-                font-size: 1rem;
-            }
-            .hero-image-wrapper {
-                height: 60vh; /* Adjust hero image height for smaller screens */
-            }
-            #hero {
-                min-height: auto;
-                padding-bottom: var(--spacing-xl); /* Add space below content for mobile */
-            }
-            .hero-content {
-                margin-top: calc(-1 * var(--spacing-lg)); /* Adjust for smaller screens */
-            }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+            z-index: -1;
         }
-
 
         /* Products Section */
-        #products .product-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
         }
-
+        @media (min-width: 640px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 768px) {
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(4, 1fr); }
+        }
         .product-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
+            background-color: var(--white-color);
+            border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 4px 15px var(--shadow-light);
+            box-shadow: var(--shadow-md);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             cursor: pointer;
         }
-
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow-medium);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
-
-        .product-image-wrapper {
-            height: 260px; /* Fixed height for product image container as per rules */
+        .product-image-container {
+            height: 260px; /* Fixed height for product images */
+            width: 100%;
             overflow: hidden;
         }
-
         .product-content {
-            padding: var(--spacing-md);
+            padding: 1.5rem;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: auto; /* Pushes price to bottom if content varies */
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2.5rem;
+        }
+        @media (min-width: 640px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 768px) {
+            .features-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .feature-item {
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .feature-icon {
+            font-size: 3rem; /* Using large font for icon */
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        @media (min-width: 768px) {
+            .about-section {
+                flex-direction: row;
+                align-items: center;
+            }
+            .about-section > div {
+                flex: 1;
+            }
+        }
+        .about-image-container {
+            height: 400px; /* Fixed height for about image */
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-content {
+            padding: 1rem 0;
+        }
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-content p {
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+        @media (min-width: 640px) {
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .testimonial-card {
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-md);
+            text-align: left;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-
-        .product-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: var(--spacing-xs);
-            color: var(--text-color);
-        }
-
-        .product-content p {
-            font-size: 1rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-top: var(--spacing-sm);
-        }
-
-        .product-content .btn {
-            width: 100%;
-            margin-top: var(--spacing-md);
-        }
-
-        /* Features Section */
-        #features .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-            text-align: center;
-        }
-
-        .feature-item {
-            background-color: var(--card-bg);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px var(--shadow-medium);
-        }
-
-        .feature-item svg {
-            width: 50px;
-            height: 50px;
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .feature-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-color);
-        }
-
-        .feature-item p {
-            color: var(--accent-color);
-        }
-
-        /* About Section */
-        #about .about-content {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            align-items: center;
-            gap: var(--spacing-xl);
-        }
-
-        .about-image-wrapper {
-            flex: 1 1 400px; /* Flex-grow, flex-shrink, base-width */
-            height: 400px; /* Fixed height for about image container as per rules */
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 20px var(--shadow-light);
-        }
-
-        .about-text {
-            flex: 1 1 400px;
-            padding: var(--spacing-md) 0;
-        }
-
-        .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--text-color);
-        }
-
-        .about-text p {
-            margin-bottom: var(--spacing-sm);
-            color: var(--accent-color);
-        }
-
-        @media (max-width: 992px) {
-            #about .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .about-image-wrapper {
-                width: 100%;
-                height: 300px; /* Adjust height for smaller screens */
-            }
-            .about-text {
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
-
-
-        /* Testimonials Section */
-        #testimonials .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .testimonial-card {
-            background-color: var(--card-bg);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px var(--shadow-medium);
-        }
-
-        .testimonial-card p {
+        .testimonial-text {
             font-style: italic;
-            margin-bottom: var(--spacing-md);
-            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            color: var(--light-text-color);
         }
-
-        .testimonial-card .author {
+        .testimonial-author {
             font-weight: 600;
             color: var(--text-color);
+            margin-bottom: 0.25rem;
+        }
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
         }
 
-        /* Contact Section */
-        #contact .contact-form {
-            max-width: 600px;
+        /* Contact Form Section */
+        .contact-form-container {
+            background-color: var(--white-color);
+            padding: 3rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
             margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px var(--shadow-light);
         }
-
-        .contact-form .form-group {
-            margin-bottom: var(--spacing-md);
+        .form-group {
+            margin-bottom: 1.5rem;
         }
-
-        .contact-form label {
+        .form-group label {
             display: block;
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 0.5rem;
             font-weight: 500;
             color: var(--text-color);
         }
-
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: var(--spacing-sm);
+            padding: 0.75rem 1rem;
             border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
+            border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             color: var(--text-color);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
-
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(91, 33, 182, 0.2); /* primary-color with opacity */
         }
-
-        .contact-form textarea {
-            resize: vertical;
+        .form-group textarea {
             min-height: 120px;
-        }
-
-        .contact-form .btn {
-            width: 100%;
-            padding: var(--spacing-md);
-            font-size: 1.1rem;
+            resize: vertical;
         }
 
         /* Footer */
         .footer {
             background-color: var(--text-color);
-            color: var(--background-light);
-            padding: var(--spacing-lg) 0;
-            font-size: 0.9rem;
-            text-align: center;
+            color: var(--light-gray);
+            padding: 3rem 0;
+            font-size: 0.95rem;
         }
-
         .footer .container {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-md);
+            gap: 2rem;
         }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-md);
+        @media (min-width: 768px) {
+            .footer .container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
         }
-
-        .footer-links a {
-            color: var(--background-light);
-            transition: color 0.3s ease;
+        .footer-section {
+            flex: 1;
         }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
+        .footer-section h4 {
+            color: var(--white-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .footer-section p, .footer-section a {
+            color: var(--light-gray);
             text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s ease;
+        }
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--light-text-color);
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+
+    <header class="navbar">
         <div class="container">
-            <a href="#" class="navbar-brand">EleganceCart</a>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li class="navbar-nav-item"><a href="#products">Shop</a></li>
-                <li class="navbar-nav-item"><a href="#features">Features</a></li>
-                <li class="navbar-nav-item"><a href="#about">About</a></li>
-                <li class="navbar-nav-item"><a href="#testimonials">Testimonials</a></li>
-                <li class="navbar-nav-item"><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="#" class="navbar-brand">Elegance Threads</a>
+            <nav class="navbar-menu" id="navbarMenu">
+                <a href="#hero">Home</a>
+                <a href="#products">Products</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="hamburger-menu" id="hamburgerMenu">&#9776;</div>
         </div>
-    </nav>
+    </header>
 
-    <section id="hero">
-        <div class="hero-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1555529891-b3b0d2d2a4a7?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                 alt="Modern E-commerce store front with various products"
-                 style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-content" id="mobileMenuContent">
+            <div class="close-btn" id="closeMobileMenu">&times;</div>
+            <nav>
+                <a href="#hero" onclick="closeMobileMenu()">Home</a>
+                <a href="#products" onclick="closeMobileMenu()">Products</a>
+                <a href="#features" onclick="closeMobileMenu()">Features</a>
+                <a href="#about" onclick="closeMobileMenu()">About</a>
+                <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
+                <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+            </nav>
         </div>
-        <div class="hero-content">
-            <h1>Discover Elegance, Shop Smart</h1>
-            <p>Your one-stop destination for premium electronics, fashion, and lifestyle products delivered right to your doorstep.</p>
-            <a href="#products" class="btn">Explore Our Products</a>
-        </div>
-    </section>
+    </div>
 
-    <section id="products" class="section-padding container">
-        <h2 class="heading">Our Curated Collection</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06aed5?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                         alt="Premium ANC Headphones"
-                         style="width:100%; height:100%; object-fit:cover; display:block;">
-                </div>
-                <div class="product-content">
-                    <h3>Premium ANC Headphones</h3>
-                    <p>₹9,999</p>
-                    <a href="#" class="btn">Add to Cart</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1523275335689-d3fe2fa27725?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                         alt="Smart Fitness Watch Pro"
-                         style="width:100%; height:100%; object-fit:cover; display:block;">
-                </div>
-                <div class="product-content">
-                    <h3>Smart Fitness Watch Pro</h3>
-                    <p>₹4,999</p>
-                    <a href="#" class="btn">Add to Cart</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1510557885375-7b565b967a58?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                         alt="Vintage DSLR Camera"
-                         style="width:100%; height:100%; object-fit:cover; display:block;">
-                </div>
-                <div class="product-content">
-                    <h3>Vintage DSLR Camera</h3>
-                    <p>₹22,499</p>
-                    <a href="#" class="btn">Add to Cart</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1542291026-7fe29a685c96?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                         alt="Urban Stride Sneakers"
-                         style="width:100%; height:100%; object-fit:cover; display:block;">
-                </div>
-                <div class="product-content">
-                    <h3>Urban Stride Sneakers</h3>
-                    <p>₹3,499</p>
-                    <a href="#" class="btn">Add to Cart</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1593642632735-0ee700ed9239?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                         alt="Ergonomic Office Laptop"
-                         style="width:100%; height:100%; object-fit:cover; display:block;">
-                </div>
-                <div class="product-content">
-                    <h3>Ergonomic Office Laptop</h3>
-                    <p>₹64,999</p>
-                    <a href="#" class="btn">Add to Cart</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1521443424167-a0659616053f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                         alt="Traveler's Utility Backpack"
-                         style="width:100%; height:100%; object-fit:cover; display:block;">
-                </div>
-                <div class="product-content">
-                    <h3>Traveler's Utility Backpack</h3>
-                    <p>₹2,799</p>
-                    <a href="#" class="btn">Add to Cart</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="section-padding container">
-        <h2 class="heading">Why Choose EleganceCart?</h2>
-        <div class="feature-grid">
-            <div class="feature-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5B7.5C3.75 14.3284 4.42843 15 5.25 15H17.25C18.0716 15 18.75 14.3284 18.75 13.5V6.75C18.75 5.92157 18.0716 5.25 17.25 5.25H5.25C4.42843 5.25 3.75 5.92157 3.75 6.75V13.5ZM3.75 13.5V19.5C3.75 20.3284 4.42843 21 5.25 21H17.25C18.0716 21 18.75 20.3284 18.75 19.5V13.5M10.5 15H13.5M10.5 10.5H13.5"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25L15.75 6.75M12 5.25L12 6.75M8.25 5.25L8.25 6.75"/>
-                </svg>
-                <h3>Seamless Shopping Experience</h3>
-                <p>Enjoy an intuitive and smooth browsing experience with our user-friendly interface.</p>
-            </div>
-            <div class="feature-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15L15 9.75M21 12C21 17.25 17.25 21 12 21C6.75 21 3 17.25 3 12C3 6.75 6.75 3 12 3C17.25 3 21 6.75 21 12Z"/>
-                </svg>
-                <h3>Secure Payment Gateways</h3>
-                <p>Shop with confidence using our encrypted and secure payment processing systems.</p>
-            </div>
-            <div class="feature-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75V18.75M12 6.75C11.6667 6.75 10 7.5 9 8.25M12 6.75C12.3333 6.75 14 7.5 15 8.25M12 6.75L12 3M21 12C21 17.25 17.25 21 12 21C6.75 21 3 17.25 3 12C3 6.75 6.75 3 12 3C17.25 3 21 6.75 21 12ZM16.5 12H7.5"/>
-                </svg>
-                <h3>Nationwide Fast Delivery</h3>
-                <p>Receive your orders quickly and efficiently, no matter where you are in the country.</p>
-            </div>
-            <div class="feature-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 12C8.25 14.0711 9.92886 15.75 12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92886 14.0711 8.25 12 8.25C9.92886 8.25 8.25 9.92886 8.25 12Z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18V21M12 3V6"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H21M3 12H6"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.9706 16.9706L19.0911 19.0911M4.90892 4.90892L7.02944 7.02944"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.9706 7.02944L19.0911 4.90892M4.90892 19.0911L7.02944 16.9706"/>
-                </svg>
-                <h3>24/7 Customer Support</h3>
-                <p>Our dedicated support team is always ready to assist you with any queries.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section-padding container">
-        <h2 class="heading">About EleganceCart</h2>
-        <div class="about-content">
-            <div class="about-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1542744173-827cb60e3cc5?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
-                     alt="Our dedicated team working in an office"
+    <main>
+        <section id="hero" class="hero" style="min-height: 80vh;">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1549298457-3dc617e94e77?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                     alt="Stylish woman walking in city with shopping bags"
                      style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
-            <div class="about-text">
-                <h2>Our Story, Our Vision</h2>
-                <p>EleganceCart was founded with a simple yet powerful vision: to bring a curated selection of high-quality products directly to our customers. We believe in the seamless fusion of style, technology, and affordability.</p>
-                <p>From the latest tech gadgets to timeless fashion accessories, every item in our catalog is hand-picked to ensure it meets our stringent standards for quality, design, and value. Our mission is to enhance your daily life with products that inspire and delight.</p>
-                <p>We are more than just an e-commerce platform; we are a community built on trust, quality, and exceptional customer service. Join us on our journey to redefine online shopping.</p>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Discover Your Signature Style</h1>
+                <p>Curated fashion, exquisite accessories, and timeless elegance for the modern individual.</p>
+                <a href="#products" class="btn btn-primary">Shop Our Latest Collection</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="testimonials" class="section-padding container">
-        <h2 class="heading">What Our Customers Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"EleganceCart has completely changed my online shopping experience. The product quality is top-notch, and the delivery was incredibly fast. Highly recommended!"</p>
-                <div class="author">- Priya Sharma</div>
-            </div>
-            <div class="testimonial-card">
-                <p>"I bought a smartwatch from here, and I'm absolutely thrilled with it. The website is easy to navigate, and customer support was very helpful with my queries."</p>
-                <div class="author">- Rahul Verma</div>
-            </div>
-            <div class="testimonial-card">
-                <p>"Fantastic collection of unique products! I always find something I love. The pricing is fair, and the checkout process is smooth and secure."</p>
-                <div class="author">- Sneha Kapoor</div>
-            </div>
-            <div class="testimonial-card">
-                <p>"From sleek headphones to stylish accessories, EleganceCart never disappoints. Their commitment to quality and customer satisfaction is evident."</p>
-                <div class="author">- Aman Singh</div>
-            </div>
-        </div>
-    </section>
+        <section id="products" class="py-16">
+            <div class="container">
+                <h2 class="text-center mb-4">Our Exclusive Collection</h2>
+                <p class="text-center mb-8" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Explore a diverse range of high-quality apparel and accessories, meticulously selected to elevate your everyday and special occasions.
+                </p>
 
-    <section id="contact" class="section-padding container">
-        <h2 class="heading">Get in Touch</h2>
-        <div class="contact-form">
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1558769137-d2e537e29683?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Classic Denim Jacket"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Classic Denim Jacket</h3>
+                            <p class="product-price">₹ 2,999</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1533722250269-808801d0a51c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Premium Leather Messenger Bag"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Premium Leather Messenger Bag</h3>
+                            <p class="product-price">₹ 7,499</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1543269824-cb64c8d5093f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Elegant Silk Scarf"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Elegant Silk Scarf</h3>
+                            <p class="product-price">₹ 1,499</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1598460677114-61c0d832c912?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Minimalist Quartz Wristwatch"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Minimalist Quartz Wristwatch</h3>
+                            <p class="product-price">₹ 4,800</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1542272828-569b917d5260?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Comfort Fit Cotton T-Shirt"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Comfort Fit Cotton T-Shirt</h3>
+                            <p class="product-price">₹ 899</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1525791784949-c0c59828e833?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Vintage Aviator Sunglasses"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Vintage Aviator Sunglasses</h3>
+                            <p class="product-price">₹ 2,199</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523419992019-20f4b304005c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Handcrafted Silver Pendant"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Handcrafted Silver Pendant</h3>
+                            <p class="product-price">₹ 3,500</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1549448834-3158c7e0086c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                                 alt="Classic Black Loafers"
+                                 style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Classic Black Loafers</h3>
+                            <p class="product-price">₹ 3,799</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+            </div>
+        </section>
+
+        <section id="features" class="py-16 bg-white">
+            <div class="container">
+                <h2 class="text-center mb-4">Why Choose Elegance Threads?</h2>
+                <p class="text-center mb-8" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                    We are dedicated to providing an unparalleled shopping experience with quality, style, and convenience at its core.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <h3>Premium Quality</h3>
+                        <p>Every item is carefully sourced and crafted from the finest materials to ensure lasting durability and comfort.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🚚</span>
+                        <h3>Fast & Reliable Delivery</h3>
+                        <p>Experience swift and secure delivery services, bringing your chosen fashion right to your doorstep, nationwide.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔄</span>
+                        <h3>Hassle-Free Returns</h3>
+                        <p>Shop with confidence knowing that returns and exchanges are simple and customer-friendly.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <h3>Secure Payments</h3>
+                        <p>Your transactions are safe with our encrypted payment gateways, protecting your financial information.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📞</span>
+                        <h3>Dedicated Support</h3>
+                        <p>Our customer service team is always ready to assist you with any queries or concerns.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💖</span>
+                        <h3>Exclusive Designs</h3>
+                        <p>Discover unique styles and limited-edition pieces that set you apart from the crowd.</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+            </div>
+        </section>
+
+        <section id="about" class="py-16">
+            <div class="container">
+                <div class="about-section">
+                    <div class="about-image-container">
+                        <img src="https://images.unsplash.com/photo-1505322744-88463c6c8052?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+                             alt="Interior of a chic fashion boutique"
+                             style="width:100%; height:100%; object-fit:cover; display:block;">
+                    </div>
+                    <div class="about-content">
+                        <h2>Our Story</h2>
+                        <p>
+                            Elegance Threads was born from a passion for timeless style and quality craftsmanship. Founded in 2020, our journey began with a simple vision: to make sophisticated fashion accessible to everyone, ensuring each piece tells a story of elegance and individuality.
+                        </p>
+                        <p>
+                            We meticulously curate our collection, working with artisans and designers who share our commitment to ethical practices and superior materials. From everyday essentials to statement pieces, we believe that true style is a reflection of authenticity and confidence.
+                        </p>
+                        <p>
+                            Join us in celebrating fashion that empowers, inspires, and endures. At Elegance Threads, we're more than just a brand – we're a community dedicated to the art of dressing well.
+                        </p>
+                        <a href="#contact" class="btn btn-outline">Learn More About Us</a>
+                    </div>
                 </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 bg-white">
+            <div class="container">
+                <h2 class="text-center mb-4">What Our Customers Say</h2>
+                <p class="text-center mb-8" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Hear directly from those who have experienced the Elegance Threads difference. Their satisfaction is our greatest reward.
+                </p>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I absolutely love my new denim jacket from Elegance Threads! The quality is outstanding, and it fits perfectly. Their customer service was also incredibly helpful."</p>
+                        <div>
+                            <p class="testimonial-author">Aisha Sharma</p>
+                            <p class="testimonial-role">Fashion Enthusiast</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The silk scarf I ordered exceeded my expectations. It's so soft and the print is vibrant. It arrived quickly and was beautifully packaged."</p>
+                        <div>
+                            <p class="testimonial-author">Rohan Mehra</p>
+                            <p class="testimonial-role">Style Blogger</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Elegance Threads has become my go-to for unique accessories. Their wristwatch collection is superb, blending modern design with classic appeal. Highly recommend!"</p>
+                        <div>
+                            <p class="testimonial-author">Priya Singh</p>
+                            <p class="testimonial-role">Marketing Professional</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Fantastic experience from start to finish. The website is easy to navigate, and the product descriptions are accurate. My leather bag is truly premium."</p>
+                        <div>
+                            <p class="testimonial-author">Vijay Kumar</p>
+                            <p class="testimonial-role">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I was searching for a specific type of pendant, and Elegance Threads had the perfect handcrafted piece. The detail is exquisite, and it feels very special."</p>
+                        <div>
+                            <p class="testimonial-author">Sneha Reddy</p>
+                            <p class="testimonial-role">Graphic Designer</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Their selection of comfortable yet stylish t-shirts is impressive. I've bought several and they hold up wonderfully after many washes. Great value for money!"</p>
+                        <div>
+                            <p class="testimonial-author">Ankit Patel</p>
+                            <p class="testimonial-role">Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16">
+            <div class="container">
+                <h2 class="text-center mb-4">Get In Touch</h2>
+                <p class="text-center mb-8" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Have questions or need assistance? Reach out to us anytime, and our friendly team will be happy to help.
+                </p>
+
+                <div class="contact-form-container">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 EleganceCart. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">FAQs</a></li>
-            </ul>
+            <div class="footer-section">
+                <h4>Elegance Threads</h4>
+                <p>Your destination for modern fashion and accessories. We blend quality, style, and comfort to elevate your wardrobe.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#hero">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: info@elegancethreads.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Address: 123 Fashion Lane, Mumbai, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 Elegance Threads. All rights reserved.
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileMenuContent = document.getElementById('mobileMenuContent');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+            const navLinks = mobileMenuContent.querySelectorAll('nav a');
 
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active');
+            hamburgerMenu.addEventListener('click', function() {
+                mobileMenuOverlay.style.display = 'block';
+                setTimeout(() => {
+                    mobileMenuContent.classList.add('open');
+                }, 10); // Small delay for transition to work
             });
 
-            // Close nav links when a link is clicked (for smooth scrolling)
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        hamburger.classList.remove('active');
-                    }
-                });
+            closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+            mobileMenuOverlay.addEventListener('click', function(event) {
+                if (event.target === mobileMenuOverlay) {
+                    closeMobileMenuFn();
+                }
             });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenuFn);
+            });
+
+            function closeMobileMenuFn() {
+                mobileMenuContent.classList.remove('open');
+                setTimeout(() => {
+                    mobileMenuOverlay.style.display = 'none';
+                }, 300); // Match transition duration
+            }
         });
     </script>
 </body>
