@@ -1,148 +1,927 @@
-```html
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madan Trendyshop</title>
+    <title>StyleSphere - Your Modern E-commerce Destination</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Base Styles & Reset */
+        :root {
+            --primary-color: #6a00ff; /* A vibrant purple */
+            --primary-light: #8e44ff;
+            --secondary-color: #0d1117; /* Dark background similar to Replit/v0 */
+            --accent-color: #fca311; /* A contrasting accent for buttons */
+            --text-color: #e4e4e7; /* Light text for dark backgrounds */
+            --text-color-dark: #333; /* Dark text for light backgrounds */
+            --bg-light: #ffffff; /* Light background for sections */
+            --bg-dark: #161b22; /* Dark background for sections */
+            --border-color: #2e3034;
+            --card-bg: #1f2329;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 96px;
+            --border-radius: 8px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 4rem; }
+            h2 { font-size: 3.5rem; }
+            h3 { font-size: 2.5rem; }
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section-padding {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--bg-light);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navbar */
         .navbar {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
             position: sticky;
             top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(22, 27, 34, 0.95); /* Semi-transparent dark background */
+            backdrop-filter: blur(8px);
             z-index: 1000;
+            padding: var(--spacing-sm) 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.05em;
+        }
+
+        .navbar-brand:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-links {
+            display: none; /* Hidden by default on mobile */
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(22, 27, 34, 0.98);
+            padding: var(--spacing-md) 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: flex; /* Visible on mobile */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .nav-links a {
+                padding: var(--spacing-xs) var(--spacing-md);
+            }
+
+            .hamburger {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
         .hero {
-            height: 80vh;
+            position: relative;
+            width: 100%;
+            height: 80vh; /* Fixed height for hero image container */
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--bg-light);
+            text-align: center;
         }
 
-        .hero img {
+        .hero-image-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80vh; /* Fixed height as per rules */
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative; /* To ensure it's above the overlay */
+            z-index: 3;
+            max-width: 800px;
+            padding: var(--spacing-md);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--bg-light);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-lg);
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-buttons .btn {
+            margin: var(--spacing-xs);
+        }
+
+        @media (min-width: 768px) {
+            .hero-content h1 {
+                font-size: 5rem;
+            }
+            .hero-content p {
+                font-size: 1.5rem;
+            }
+        }
+
+
+        /* Products Section */
         .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
+            background-color: var(--bg-dark);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
         .product-card {
-            max-width: 300px;
-            border-radius: 8px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
-        .features,
-        .about,
-        .testimonials,
-        .contact,
+        .product-image-wrapper {
+            height: 260px; /* Fixed height for product image container */
+            overflow: hidden;
+        }
+
+        .product-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: var(--spacing-md);
+            flex-grow: 1; /* Allows info to take available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+
+        .product-info p {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-sm);
+            flex-grow: 1; /* Pushes price to bottom if text is short */
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-top: var(--spacing-sm);
+        }
+
+        .product-card .btn {
+            width: 100%;
+            margin-top: var(--spacing-md);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-light);
+            color: var(--text-color-dark);
+        }
+
+        .features h2 {
+            color: var(--text-color-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .feature-item {
+            background-color: #f8f8f8;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        .feature-item p {
+            color: var(--text-color-dark);
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-dark);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .about-image-wrapper {
+            flex: 1;
+            max-width: 600px;
+            height: 400px; /* Fixed height for about image container */
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            .about-image-wrapper {
+                order: 2; /* Image on right */
+            }
+            .about-text {
+                order: 1; /* Text on left */
+            }
+            .about-content.reverse .about-image-wrapper {
+                order: 1;
+            }
+            .about-content.reverse .about-text {
+                order: 2;
+            }
+        }
+
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--bg-light);
+            color: var(--text-color-dark);
+        }
+
+        .testimonials h2 {
+            color: var(--text-color-dark);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .testimonial-card {
+            background-color: #f8f8f8;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text-color-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        .testimonial-rating {
+            color: #fbc02d; /* Star color */
+            margin-bottom: var(--spacing-xs);
+        }
+
+
+        /* Contact Form Section */
+        .contact {
+            background-color: var(--bg-dark);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: var(--spacing-lg) auto 0 auto;
+            background-color: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(106, 0, 255, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: var(--spacing-md);
+        }
+
+        /* Footer */
         .footer {
-            padding: 20px;
+            background-color: var(--secondary-color);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (min-width: 768px) {
+            .footer .container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .footer-links {
+                margin-bottom: 0;
+            }
         }
     </style>
 </head>
-
 <body>
+
     <nav class="navbar">
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About</a>
-        <a href="#">Testimonials</a>
-        <a href="#">Contact</a>
+        <div class="container">
+            <a href="#hero" class="navbar-brand">StyleSphere</a>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#products">Products</a>
+                <a href="#features">Features</a>
+                <a href="#about">About Us</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <section class="hero">
-        <img src="https://images.unsplash.com/photo-1533016527204-c28559e0d538?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Hero Image">
-    </section>
-
-    <section class="products">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1568323692198-69fd1e346827?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 1">
-            <h3>Stylish Leather Handbag</h3>
-            <p>₹3,499</p>
+    <header id="hero" class="hero">
+        <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1556983578-8386345091e0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Fashion model posing" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1533730095351-e58f780b793e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 2">
-            <h3>Elegant Wrist Watch</h3>
-            <p>₹2,999</p>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Discover Your Signature Style.</h1>
+            <p>Explore our curated collection of contemporary fashion and accessories, crafted for the modern individual.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
         </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1602522928421-570acd6f0f8f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Product 3">
-            <h3>Classic Sunglasses</h3>
-            <p>₹1,499</p>
-        </div>
-    </section>
+    </header>
 
-    <section class="features">
-        <h2>Key Features</h2>
-        <p>Discover what makes Madan Trendyshop the best choice for all your fashion needs.</p>
-    </section>
+    <main>
+        <section id="products" class="products section-padding">
+            <div class="container text-center">
+                <h2>Our Latest Collection</h2>
+                <p style="color: var(--text-color); max-width: 700px; margin: 0 auto var(--spacing-lg) auto;">
+                    Step into the world of StyleSphere, where every piece tells a story of elegance and quality. Find your perfect match today.
+                </p>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1549298375-300465228511?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Classic White Sneakers" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Classic White Sneakers</h3>
+                                <p>Timeless design meets ultimate comfort. Perfect for any casual outing.</p>
+                            </div>
+                            <span class="product-price">₹4,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
 
-    <section class="about">
-        <img src="https://images.unsplash.com/photo-1594643114141-6d2dc8c6f2cb?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="About Image"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        <h2>About Us</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet vulputate orci.</p>
-    </section>
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1627063493864-754f9a0665f9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Elegant Chronograph Watch" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Elegant Chronograph Watch</h3>
+                                <p>Sophistication on your wrist. Precision engineering with a modern aesthetic.</p>
+                            </div>
+                            <span class="product-price">₹12,499</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
 
-    <section class="testimonials">
-        <h2>Testimonials</h2>
-        <p>"Madan Trendyshop completely changed the way I shop for accessories. Highly recommended!"</p>
-        <p>- Happy Customer</p>
-    </section>
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1596707246141-ee4c538466b0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Premium Cotton T-Shirt" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Premium Cotton T-Shirt</h3>
+                                <p>Unmatched softness and fit. A staple for every wardrobe, crafted for comfort.</p>
+                            </div>
+                            <span class="product-price">₹1,799</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
 
-    <section class="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1538332159518-8f85f4b4e941?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Versatile Leather Backpack" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Versatile Leather Backpack</h3>
+                                <p>Stylish and functional. Carry your essentials with confidence and flair.</p>
+                            </div>
+                            <span class="product-price">₹8,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1588806553835-17cecf1c0b39?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Classic Aviator Sunglasses" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Classic Aviator Sunglasses</h3>
+                                <p>Protect your eyes in style. A timeless accessory for every season.</p>
+                            </div>
+                            <span class="product-price">₹3,499</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1520607162513-777e5d210514?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Wireless Noise-Cancelling Headphones" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Wireless ANC Headphones</h3>
+                                <p>Immersive audio experience. Enjoy your music without distractions.</p>
+                            </div>
+                            <span class="product-price">₹15,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features section-padding">
+            <div class="container text-center">
+                <h2>Why Choose StyleSphere?</h2>
+                <p style="color: var(--text-color-dark); max-width: 700px; margin: 0 auto var(--spacing-lg) auto;">
+                    We are dedicated to providing an unparalleled shopping experience with quality products and exceptional service.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Premium Quality</h3>
+                        <p>Hand-picked materials and meticulous craftsmanship ensure lasting durability and style.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Exclusive Designs</h3>
+                        <p>Discover unique pieces that reflect the latest trends and timeless elegance.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Secure Payments</h3>
+                        <p>Shop with confidence using our secure and encrypted payment gateways.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Fast Shipping</h3>
+                        <p>Experience swift and reliable delivery right to your doorstep, across India.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Easy Returns</h3>
+                        <p>Not satisfied? Our hassle-free return policy makes exchanges simple.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>24/7 Support</h3>
+                        <p>Our dedicated customer service team is always ready to assist you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <h2 class="text-center">About StyleSphere</h2>
+                <p class="text-center" style="max-width: 700px; margin: 0 auto var(--spacing-lg) auto;">
+                    At StyleSphere, we believe in the power of personal expression through fashion. Learn about our journey and commitment to excellence.
+                </p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Story & Vision</h3>
+                        <p>
+                            StyleSphere was founded with a passion for bringing high-quality, fashionable and functional products to customers nationwide. We started as a small dream to create an online space where style meets substance, and where every purchase feels like a discovery.
+                        </p>
+                        <p>
+                            Our vision is to be the leading e-commerce platform recognized for its diverse collection, exceptional customer service, and unwavering commitment to quality. We constantly seek out emerging trends and timeless classics to ensure our catalog reflects the best of global fashion.
+                        </p>
+                        <a href="#contact" class="btn btn-primary">Connect With Us</a>
+                    </div>
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1552588390-e224e2c0e353?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" alt="Team discussing fashion trends" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials section-padding">
+            <div class="container text-center">
+                <h2>What Our Customers Say</h2>
+                <p style="color: var(--text-color-dark); max-width: 700px; margin: 0 auto var(--spacing-lg) auto;">
+                    Don't just take our word for it. Hear from the happy customers who love their StyleSphere experience.
+                </p>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p>"StyleSphere has truly revolutionized my wardrobe! The quality of their products is exceptional, and the delivery was incredibly fast. I'm hooked!"</p>
+                        </div>
+                        <span class="testimonial-author">- Aarti Sharma</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p>"I was searching for unique accessories and found the perfect watch here. The site is easy to navigate, and customer service was very helpful."</p>
+                        </div>
+                        <span class="testimonial-author">- Rohan Kapoor</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p>"From sneakers to t-shirts, every item I've bought from StyleSphere has exceeded my expectations. Fantastic collection and great value!"</p>
+                        </div>
+                        <span class="testimonial-author">- Priya Singh</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p>"The best online shopping experience I've had in a long time. The product descriptions are accurate, and the images are true to life. Highly recommend!"</p>
+                        </div>
+                        <span class="testimonial-author">- Vivek Reddy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section-padding">
+            <div class="container text-center">
+                <h2>Get in Touch</h2>
+                <p style="color: var(--text-color); max-width: 700px; margin: 0 auto var(--spacing-lg) auto;">
+                    Have questions or need assistance? Reach out to us anytime. We're here to help!
+                </p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="How can we assist you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
-        <p>&copy; 2022 Madan Trendyshop. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2023 StyleSphere. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns & Refunds</a>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const navItems = navLinks.querySelectorAll('a');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Close mobile menu when a nav link is clicked
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            });
+
+            // Close mobile menu if clicked outside
+            document.addEventListener('click', (event) => {
+                const isClickInsideNav = navLinks.contains(event.target) || hamburger.contains(event.target);
+                if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-```
