@@ -3,290 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansh Infotech Pvt. Limited - Innovating Your Digital Future</title>
-    <meta name="description" content="Ansh Infotech Pvt. Limited offers cutting-edge IT solutions, software development, cloud services, and digital transformation for businesses worldwide.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ansh Infotech Pvt. Limited - Your Digital Transformation Partner</title>
     <style>
+        /* CSS Variables */
         :root {
-            --primary-color: #4a55e2; /* A modern blue */
+            --primary-color: #007bff;
             --secondary-color: #6c757d;
+            --accent-color: #28a745;
             --background-light: #f8f9fa;
             --background-dark: #343a40;
-            --text-color-light: #343a40;
-            --text-color-dark: #f8f9fa;
-            --border-color: #e0e0e0;
-            --card-bg: #ffffff;
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 48px;
-            --spacing-xl: 96px;
+            --text-dark: #212529;
+            --text-light: #f8f9fa;
+            --card-background: #ffffff;
+            --border-color: #e9ecef;
+            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --header-height: 70px;
         }
 
-        /* Base styles */
+        /* Base Styles */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-family-sans);
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: var(--text-color-light);
+            color: var(--text-dark);
             background-color: var(--background-light);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
         }
 
         *, *::before, *::after {
             box-sizing: border-box;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--text-color-light);
-            margin-top: 0;
-            font-weight: 700;
-        }
-
-        h1 { font-size: 2.5em; }
-        h2 { font-size: 2em; }
-        h3 { font-size: 1.5em; }
-
-        p {
-            margin-bottom: 1em;
-        }
-
         a {
             color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--accent-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        p { font-size: 1rem; margin-bottom: 1em; }
+
+        /* Typography overrides for desktop */
+        @media (min-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 2rem; }
+            p { font-size: 1.1rem; }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-sm);
-        }
-
-        .section-padding {
-            padding: var(--spacing-lg) 0;
+            padding: 2rem 1rem;
         }
 
         .text-center {
             text-align: center;
         }
 
-        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
             font-weight: 600;
-            font-size: 1em;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
             border: none;
+            font-size: 1rem;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--text-color-dark);
+            color: var(--text-light);
         }
 
         .btn-primary:hover {
-            background-color: #3b45c2; /* Darker shade of primary */
-            text-decoration: none;
+            background-color: #0056b3;
         }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            background-color: var(--secondary-color);
+            color: var(--text-light);
         }
 
         .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--text-color-dark);
-            text-decoration: none;
+            background-color: #5a6268;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 4rem 0;
         }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            width: 100%;
+            z-index: 1000;
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 4px var(--shadow-light);
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            box-shadow: var(--shadow-light);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
         }
 
-        .navbar .container {
+        .navbar-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--spacing-sm) var(--spacing-sm);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .navbar-brand {
-            font-size: 1.6em;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-dark);
         }
 
-        .navbar-links {
-            display: none; /* Hidden on mobile */
+        .nav-links {
+            display: none; /* Hidden by default on mobile */
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
-        .navbar-links li {
-            display: inline-block;
-            margin-left: var(--spacing-md);
+        .nav-links li {
+            margin-left: 2rem;
         }
 
-        .navbar-links a {
-            color: var(--text-color-light);
+        .nav-links a {
+            color: var(--text-dark);
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 1rem;
+            position: relative;
         }
 
-        .navbar-links a:hover {
-            color: var(--primary-color);
-            text-decoration: none;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
         .menu-toggle {
             display: block; /* Visible on mobile */
+            font-size: 2rem;
             background: none;
             border: none;
-            font-size: 1.8em;
+            color: var(--text-dark);
             cursor: pointer;
-            color: var(--text-color-light);
-            padding: 0;
-            line-height: 1;
         }
 
-        /* Mobile Menu Overlay */
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-            overflow-y: auto; /* Ensure content is scrollable if tall */
-        }
-
-        .mobile-menu-overlay.active {
-            transform: translateX(0);
-        }
-
-        .mobile-menu-overlay .close-btn {
-            position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-md);
-            background: none;
-            border: none;
-            font-size: 2.5em;
-            cursor: pointer;
-            color: var(--text-color-light);
-        }
-
-        .mobile-menu-overlay .mobile-nav-links {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        .mobile-menu-overlay .mobile-nav-links li {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .mobile-menu-overlay .mobile-nav-links a {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: var(--text-color-light);
-            transition: color 0.3s ease;
-        }
-
-        .mobile-menu-overlay .mobile-nav-links a:hover {
-            color: var(--primary-color);
+        /* Desktop Nav */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex; /* Show on desktop */
+            }
+            .menu-toggle {
+                display: none; /* Hide on desktop */
+            }
         }
 
         /* Hero Section */
-        .hero-section {
+        .hero {
             position: relative;
-            color: var(--text-color-dark);
+            color: var(--text-light);
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 80vh; /* This dictates the height of the hero content block */
+            min-height: calc(100vh - var(--header-height)); /* Full screen minus header */
+            padding: 2rem 1rem;
+            overflow: hidden;
         }
 
         .hero-image-container {
+            height: 80vh; /* CRITICAL RULE */
+            width: 100%;
+            overflow: hidden;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 80vh; /* Fixed height for the image container */
             z-index: -1; /* Place image behind content */
+            background: #e0e0e0; /* Loading background */
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            padding: var(--spacing-md);
             max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
-            border-radius: 12px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for text readability */
+            border-radius: 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
         }
 
-        .hero-content h1 {
-            font-size: 3em;
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-color-dark);
-        }
-
-        .hero-content p {
-            font-size: 1.2em;
-            margin-bottom: var(--spacing-md);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .hero-content .btn {
-            margin: var(--spacing-xs);
+        .hero .btn {
+            margin: 0.5rem;
         }
 
         /* Products/Services Section */
         .products-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Single column on mobile */
-            gap: var(--spacing-md);
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        @media (min-width: 480px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         .product-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
+            background-color: var(--card-background);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-light);
             overflow: hidden;
-            box-shadow: 0 4px 10px var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -294,162 +283,251 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--shadow-medium);
+            box-shadow: var(--shadow-hover);
         }
 
         .product-image-container {
+            height: 260px; /* CRITICAL RULE */
             width: 100%;
-            height: 260px; /* Fixed height for product images */
             overflow: hidden;
+            position: relative;
+            background: #f5f5f5; /* Loading background */
         }
 
-        .product-card-content {
-            padding: var(--spacing-md);
-            flex-grow: 1; /* Allows content to expand */
+        .product-content {
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product-card-content h3 {
-            font-size: 1.3em;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .product-card-content p {
-            font-size: 0.95em;
-            color: var(--secondary-color);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .product-price {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: auto; /* Pushes price to the bottom */
-        }
-
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-        }
-
-        .feature-item {
-            background-color: var(--card-bg);
-            padding: var(--spacing-md);
-            border-radius: 12px;
-            box-shadow: 0 2px 8px var(--shadow-light);
-            text-align: center;
-        }
-
-        .feature-item h3 {
-            font-size: 1.2em;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .feature-item p {
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-direction: column; /* Stack on mobile */
-            gap: var(--spacing-lg);
-            align-items: center;
-        }
-
-        .about-image-container {
-            width: 100%;
-            height: 400px; /* Fixed height for about image */
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px var(--shadow-light);
-        }
-
-        .about-text {
-            flex: 1;
-            padding: 0 var(--spacing-sm);
-        }
-
-        .about-text h2 {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* Testimonials Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-        }
-
-        .testimonial-card {
-            background-color: var(--card-bg);
-            padding: var(--spacing-md);
-            border-radius: 12px;
-            box-shadow: 0 2px 8px var(--shadow-light);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: var(--spacing-sm);
             flex-grow: 1;
         }
 
-        .testimonial-author {
+        .product-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-content p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .features h2, .features p {
+            color: var(--text-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        @media (min-width: 480px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .feature-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-light);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .feature-item .icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .features-main-image-container {
+            height: 350px; /* Custom height for features section image */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #e0e0e0; /* Loading background */
+            margin-bottom: 3rem;
+            border-radius: 0.75rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--card-background);
+            padding: 4rem 0;
+        }
+
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-content-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text {
+            padding-right: 1rem;
+        }
+
+        .about-image-container {
+            height: 400px; /* CRITICAL RULE */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5; /* Loading background */
+            border-radius: 0.75rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--background-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-light);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-style: italic;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .testimonial-card .author {
             font-weight: 600;
             color: var(--primary-color);
+            font-size: 1rem;
         }
 
-        .testimonial-title {
-            font-size: 0.9em;
-            color: var(--secondary-color);
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
         }
 
-        /* Contact Form Section */
+        .contact-section h2, .contact-section p {
+            color: var(--text-light);
+        }
+
         .contact-form {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: var(--spacing-lg);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow-medium);
+            margin: 2rem auto 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 0.75rem;
         }
 
         .form-group {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--text-color-light);
+            color: var(--text-light);
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
+        .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1em;
-            transition: border-color 0.3s ease;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.375rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            font-family: var(--font-family-sans);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(74, 85, 226, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .form-group textarea {
@@ -457,384 +535,353 @@
             resize: vertical;
         }
 
-        .contact-form .btn-primary {
-            width: 100%;
-        }
-
         /* Footer */
         .footer {
-            background-color: var(--background-dark);
-            color: var(--text-color-dark);
-            padding: var(--spacing-lg) 0;
-            font-size: 0.9em;
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 3rem 0;
+            font-size: 0.9rem;
             text-align: center;
         }
 
-        .footer p {
-            margin-bottom: var(--spacing-xs);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .footer-links {
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+                text-align: left;
+            }
+        }
+
+        .footer-column h4 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
             list-style: none;
             padding: 0;
-            margin-top: var(--spacing-sm);
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            margin: 0;
         }
 
-        .footer-links li {
-            margin: 0 var(--spacing-sm) var(--spacing-xs) var(--spacing-sm);
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
         }
 
-        .footer-links a {
-            color: var(--text-color-dark);
+        .footer-column ul li a {
+            color: #adb5bd;
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
+        .footer-column ul li a:hover {
             color: var(--primary-color);
-            text-decoration: none;
         }
 
-        /* Responsive adjustments */
+        .social-links {
+            display: flex;
+            justify-content: center; /* Center on mobile */
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
         @media (min-width: 768px) {
-            h1 { font-size: 3.5em; }
-            h2 { font-size: 2.5em; }
-            h3 { font-size: 1.8em; }
-
-            .navbar-links {
-                display: flex; /* Visible on larger screens */
-            }
-
-            .menu-toggle {
-                display: none; /* Hidden on larger screens */
-            }
-
-            .hero-content h1 {
-                font-size: 4em;
-            }
-
-            .hero-content p {
-                font-size: 1.4em;
-            }
-
-            .products-grid, .features-grid, .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
-            }
-
-            .about-content {
-                flex-direction: row; /* Side-by-side on larger screens */
-                text-align: left;
-            }
-
-            .about-image-container {
-                width: 50%;
-            }
-
-            .about-text {
-                padding: 0 var(--spacing-md);
+            .social-links {
+                justify-content: flex-start; /* Align left on desktop */
             }
         }
 
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0; /* Remove horizontal padding for wide screens */
-            }
+        .social-links a {
+            color: #adb5bd;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
 
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
-            }
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
 
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr); /* Four columns on large screens */
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
-            }
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #495057;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="container">
-            <a href="#hero" class="navbar-brand">Ansh Infotech</a>
-            <nav>
-                <ul class="navbar-links">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="#hero" class="navbar-brand">Ansh Infotech</a>
+                <ul class="nav-links">
                     <li><a href="#products">Services</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">&#9776;</button>
-            </nav>
-        </div>
+                <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+            </div>
+        </nav>
     </header>
 
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <button class="close-btn" aria-label="Close menu" onclick="toggleMobileMenu()">&#x2715;</button>
-        <ul class="mobile-nav-links">
-            <li><a href="#products" onclick="toggleMobileMenu()">Services</a></li>
-            <li><a href="#features" onclick="toggleMobileMenu()">Features</a></li>
-            <li><a href="#about" onclick="toggleMobileMenu()">About Us</a></li>
-            <li><a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a></li>
-            <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
-        </ul>
-    </div>
-
     <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
+        <section id="hero" class="hero">
             <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1620283030383-71f00845a331?w=800&auto=format&fit=crop"
-                     alt="Futuristic digital data flowing on screens"
-                     style="width:100%; height:100%; object-fit:cover; display:block;">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with laptops and natural light, representing a tech business" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
             <div class="hero-content">
-                <h1>Innovating Your Digital Future</h1>
-                <p>Ansh Infotech Pvt. Limited delivers cutting-edge IT solutions, empowering businesses to thrive in the digital age.</p>
+                <h1>Innovate. Transform. Excel.</h1>
+                <p>Your Digital Journey Starts Here with Ansh Infotech Pvt. Limited in Ludhiana.</p>
                 <div>
-                    <a href="#contact" class="btn btn-primary">Get Started Today</a>
-                    <a href="#products" class="btn btn-secondary">Our Services</a>
+                    <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+                    <a href="#products" class="btn btn-secondary">Explore Our Services</a>
                 </div>
             </div>
         </section>
 
-        <!-- Products/Services Section -->
-        <section id="products" class="section-padding container">
-            <h2 class="text-center">Our Comprehensive Services</h2>
-            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
-                From bespoke software to robust cloud infrastructure, we provide end-to-end solutions tailored to your unique business needs.
-            </p>
+        <section id="products" class="container text-center">
+            <h2>Our Core Services</h2>
+            <p>At Ansh Infotech, we provide cutting-edge IT solutions to empower businesses in Ludhiana and beyond.</p>
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1542831371-d50d6c4491de?w=800&auto=format&fit=crop"
-                             alt="Person typing code on a laptop screen"
-                             style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Cloud infrastructure concept with digital connections" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card-content">
+                    <div class="product-content">
+                        <h3>Cloud Migration & Management</h3>
+                        <p>Seamlessly transition your business to scalable cloud platforms and optimize your operations.</p>
+                        <div class="product-price">₹45,000</div>
+                        <a href="#contact" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Software development on multiple screens with code editor" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-content">
                         <h3>Custom Software Development</h3>
-                        <p>Tailored applications built to streamline your operations and enhance user experience. From concept to deployment.</p>
-                        <span class="product-price">Starts at &#8377;1,50,000</span>
+                        <p>Tailored software solutions designed to meet your unique business requirements and drive efficiency.</p>
+                        <div class="product-price">₹38,000</div>
+                        <a href="#contact" class="btn btn-primary">Get a Quote</a>
                     </div>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1587440001099-0d173c66f574?w=800&auto=format&fit=crop"
-                             alt="Server room with blinking lights and network cables"
-                             style="width:100%; height:100%; object-fit:cover; display:block;"
-                             loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1518770660435-406a030682fc?w=1200&q=80" alt="Close-up of a circuit board representing cybersecurity and IT infrastructure" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card-content">
-                        <h3>Cloud Migration & DevOps</h3>
-                        <p>Seamless transition to cloud platforms (AWS, Azure, GCP) and implementation of DevOps practices for efficiency.</p>
-                        <span class="product-price">Starts at &#8377;1,20,000</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1517694454-e0b8e7ef58c0?w=800&auto=format&fit=crop"
-                             alt="Close-up of a keyboard with code on a monitor in the background"
-                             style="width:100%; height:100%; object-fit:cover; display:block;"
-                             loading="lazy">
-                    </div>
-                    <div class="product-card-content">
-                        <h3>Enterprise Application Integration</h3>
-                        <p>Connect disparate systems and applications to create a unified, efficient business ecosystem.</p>
-                        <span class="product-price">Starts at &#8377;95,000</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1579547621458-1d7010419273?w=800&auto=format&fit=crop"
-                             alt="Abstract digital network lines and spheres"
-                             style="width:100%; height:100%; object-fit:cover; display:block;"
-                             loading="lazy">
-                    </div>
-                    <div class="product-card-content">
-                        <h3>AI & Machine Learning Solutions</h3>
-                        <p>Leverage the power of AI to automate tasks, gain insights, and make data-driven decisions.</p>
-                        <span class="product-price">Starts at &#8377;1,80,000</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1550069049-7b3b4d4b1a4a?w=800&auto=format&fit=crop"
-                             alt="A row of illuminated server racks in a dark data center"
-                             style="width:100%; height:100%; object-fit:cover; display:block;"
-                             loading="lazy">
-                    </div>
-                    <div class="product-card-content">
+                    <div class="product-content">
                         <h3>Cybersecurity Consulting</h3>
-                        <p>Protect your digital assets with comprehensive security audits, threat detection, and mitigation strategies.</p>
-                        <span class="product-price">Starts at &#8377;80,000/month</span>
+                        <p>Protect your digital assets with robust security strategies and advanced threat detection services.</p>
+                        <div class="product-price">₹25,000<small>/mo</small></div>
+                        <a href="#contact" class="btn btn-primary">Secure Your Business</a>
                     </div>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1593642532744-d377ab50e089?w=800&auto=format&fit=crop"
-                             alt="Laptop on a desk showing a web dashboard"
-                             style="width:100%; height:100%; object-fit:cover; display:block;"
-                             loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c899fd32f5a2?w=1200&q=80" alt="Team members collaborating on laptops in a modern office, signifying IT services" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card-content">
-                        <h3>Managed IT Services</h3>
-                        <p>Proactive monitoring, maintenance, and support for your IT infrastructure, ensuring maximum uptime.</p>
-                        <span class="product-price">Starts at &#8377;75,000/month</span>
+                    <div class="product-content">
+                        <h3>IT Infrastructure Management</h3>
+                        <p>Reliable management and optimization of your IT infrastructure for peak performance and stability.</p>
+                        <div class="product-price">₹32,000</div>
+                        <a href="#contact" class="btn btn-primary">Manage Your IT</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section id="features" class="section-padding container">
-            <h2 class="text-center">Why Choose Ansh Infotech?</h2>
-            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
-                We are committed to delivering excellence through innovation, expertise, and a client-centric approach.
-            </p>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <h3>Expert Team</h3>
-                    <p>Our highly skilled professionals bring years of experience and deep domain knowledge to every project.</p>
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose Ansh Infotech?</h2>
+                <p>Experience the difference with a partner committed to your digital success.</p>
+                
+                <div class="features-main-image-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Digital abstract background with data streams and connections, representing technology and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-                <div class="feature-item">
-                    <h3>Innovative Solutions</h3>
-                    <p>We leverage the latest technologies and methodologies to develop forward-thinking solutions.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Client-Centric Approach</h3>
-                    <p>Your success is our priority. We work closely with you to understand and meet your specific needs.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Proven Track Record</h3>
-                    <p>Delivering successful projects across various industries with a strong reputation for reliability.</p>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon">💡</div>
+                        <h3>Innovation Driven</h3>
+                        <p>Staying ahead with the latest technologies to provide you with cutting-edge solutions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🛠️</div>
+                        <h3>Expert Team</h3>
+                        <p>Our dedicated professionals bring deep industry knowledge and technical expertise to every project.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">📈</div>
+                        <h3>Scalable Solutions</h3>
+                        <p>Services designed to grow seamlessly with your business needs and future demands.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🤝</div>
+                        <h3>24/7 Support</h3>
+                        <p>Reliable technical assistance and proactive support, whenever you need it, around the clock.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="section-padding container">
-            <h2 class="text-center">About Ansh Infotech Pvt. Limited</h2>
-            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
-                Founded on the principles of innovation and integrity, Ansh Infotech is dedicated to transforming businesses through technology.
-            </p>
-            <div class="about-content">
-                <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1552581691-d5f9d1d1b1f8?w=800&auto=format&fit=crop"
-                         alt="Team collaborating in a modern office environment"
-                         style="width:100%; height:100%; object-fit:cover; display:block;"
-                         loading="lazy">
-                </div>
+        <section id="about" class="about-section container">
+            <div class="about-content-grid">
                 <div class="about-text">
-                    <p>Ansh Infotech Pvt. Limited was established with a vision to be a leader in providing robust and scalable IT solutions. We believe in harnessing the power of technology to solve complex business challenges, drive growth, and create sustainable value for our clients.</p>
-                    <p>Our journey began with a small team of passionate technologists, and today, we are a thriving enterprise serving clients across diverse sectors. We pride ourselves on our agile development methodologies, commitment to quality, and a culture of continuous learning and improvement.</p>
-                    <p>Whether it's building a sophisticated enterprise system, migrating to the cloud, or securing your digital infrastructure, Ansh Infotech is your trusted partner for digital transformation.</p>
+                    <h2>About Ansh Infotech Pvt. Limited</h2>
+                    <p>Founded in Ludhiana, Ansh Infotech Pvt. Limited is a leading IT solutions provider dedicated to empowering businesses through technology. With a passion for innovation and a commitment to excellence, we specialize in delivering bespoke software development, robust cloud solutions, and comprehensive cybersecurity services.</p>
+                    <p>Our mission is to transform your digital landscape, optimize your operations, and drive sustainable growth. We believe in building long-term partnerships with our clients, understanding their unique challenges, and providing strategic IT guidance that yields tangible results. Join us on a journey to unlock your full digital potential.</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us Today</a>
+                </div>
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team collaborating on project in a modern meeting room, representing teamwork and business strategy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="section-padding container" style="background-color: var(--background-light);">
-            <h2 class="text-center">What Our Clients Say</h2>
-            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
-                Our commitment to excellence is reflected in the satisfaction and success of our clients.
-            </p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"Ansh Infotech transformed our legacy systems into a modern, efficient platform. Their team's expertise and dedication were exceptional throughout the project."</p>
-                    <div class="testimonial-author">- Rajesh Kumar</div>
-                    <div class="testimonial-title">CEO, Innovate Solutions</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The cloud migration services provided by Ansh Infotech were seamless and incredibly professional. We experienced zero downtime and significant cost savings."</p>
-                    <div class="testimonial-author">- Priya Sharma</div>
-                    <div class="testimonial-title">CTO, Tech Horizons</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"We rely on Ansh Infotech for our managed IT services, and they consistently exceed expectations. Their proactive support keeps our operations running smoothly."</p>
-                    <div class="testimonial-author">- Sanjay Mehta</div>
-                    <div class="testimonial-title">Operations Head, Global Ventures</div>
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses who have experienced digital transformation with Ansh Infotech.</p>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <blockquote>Ansh Infotech completely revolutionized our cloud infrastructure. Their team was professional, knowledgeable, and delivered beyond our expectations. Highly recommended for any business looking to scale!</blockquote>
+                        <div class="author">- Rajesh Kumar, CEO of InnovateX Solutions</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>The custom software developed by Ansh Infotech has streamlined our workflow significantly. It's user-friendly and perfectly tailored to our needs. Fantastic support throughout the project!</blockquote>
+                        <div class="author">- Priya Sharma, Operations Manager at Global Exports</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>We faced complex cybersecurity challenges, and Ansh Infotech provided us with robust and effective solutions. Their expertise gave us peace of mind. A truly reliable partner.</blockquote>
+                        <div class="author">- Sanjay Dutt, IT Director at TechConnect Systems</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Form Section -->
-        <section id="contact" class="section-padding container">
-            <h2 class="text-center">Get in Touch With Us</h2>
-            <p class="text-center" style="margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto; color: var(--secondary-color);">
-                Have a project in mind or a question? Reach out to our experts and let's discuss how we can help your business grow.
-            </p>
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get In Touch With Us</h2>
+                <p>Have a project in mind or need expert IT advice? We're here to help!</p>
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Ansh Infotech</h4>
+                <p>Innovating and transforming businesses with cutting-edge IT solutions from Ludhiana.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">F</a>
+                    <a href="#" aria-label="Twitter">T</a>
+                    <a href="#" aria-label="LinkedIn">L</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Cloud Solutions</a></li>
+                    <li><a href="#">Software Development</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">IT Management</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Info</h4>
+                <p>Ansh Infotech Pvt. Limited<br>
+                123, Model Town, Ludhiana,<br>
+                Punjab 141002, India</p>
+                <p>Email: info@anshinfotech.com<br>
+                Phone: +91-98765-43210</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2023 Ansh Infotech Pvt. Limited. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#products">Services</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
         </div>
     </footer>
 
     <script>
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenuOverlay');
-            mobileMenu.classList.toggle('active');
-            // Optional: to prevent scrolling when menu is open
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        }
+        // Simple JS for mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
 
-        // Optional: Close menu on escape key
-        document.addEventListener('keydown', function(event) {
-            const mobileMenu = document.getElementById('mobileMenuOverlay');
-            if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                toggleMobileMenu();
-            }
-        });
+            menuToggle.addEventListener('click', function() {
+                // Toggle the display of nav links
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column'; // Stack links vertically
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = 'var(--header-height)';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                    navLinks.style.boxShadow = 'var(--shadow-hover)';
+                    navLinks.style.padding = '1rem 0';
+                }
+            });
 
-        // Optional: Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                // Check if it's a valid ID before trying to scroll
-                if (targetId && targetId !== '#') {
-                    e.preventDefault();
-                    document.querySelector(targetId).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            // Close nav when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) { // Only close on mobile
+                        navLinks.style.display = 'none';
+                    }
+                });
+            });
+
+            // Handle resize to reset nav for desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'row';
+                    navLinks.style.position = 'static';
+                    navLinks.style.backgroundColor = 'transparent';
+                    navLinks.style.boxShadow = 'none';
+                    navLinks.style.padding = '0';
+                } else {
+                    navLinks.style.display = 'none'; // Re-hide on resize to mobile
                 }
             });
         });
