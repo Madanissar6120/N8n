@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Modern Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Aura Market - Your Premium Retail Experience</title>
     <style>
         :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --accent-color: #28a745;
-            --background-light: #f8f9fa;
-            --background-dark: #343a40;
-            --text-color: #212529;
-            --text-light: #ffffff;
-            --card-background: #ffffff;
-            --border-color: #dee2e6;
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
-            --navbar-blur-bg: rgba(255, 255, 255, 0.8);
-            --navbar-height: 70px;
+            --primary-color: #2e7bff; /* A vibrant blue */
+            --secondary-color: #0d1a26; /* Dark slate for text */
+            --text-color: #333;
+            --light-text-color: #666;
+            --background-color: #ffffff;
+            --light-gray: #f8f8f8;
+            --border-color: #eee;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --hover-shadow-color: rgba(0, 0, 0, 0.15);
         }
 
+        /* Basic Reset & Box Sizing */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -29,65 +25,84 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--background-light);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            background-color: var(--background-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-weight: 700;
             line-height: 1.2;
+            color: var(--secondary-color);
+            margin-bottom: 0.8em;
         }
 
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-        p { font-size: 1rem; margin-bottom: 1rem; }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.75rem; }
-            h3 { font-size: 1.25rem; }
+        h1 {
+            font-size: 2.5rem; /* Mobile */
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
-            h3 { font-size: 1.1rem; }
-            p { font-size: 0.95rem; }
+        h2 {
+            font-size: 1.8rem; /* Mobile */
         }
 
-        /* Buttons */
+        h3 {
+            font-size: 1.4rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1em;
+            color: var(--light-text-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Layout & Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
         .btn {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: capitalize;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            font-size: 1rem;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--text-light);
+            color: #fff;
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
+            background-color: #2565cc; /* Darker primary */
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 4px 10px var(--shadow-color);
         }
 
         .btn-secondary {
@@ -98,135 +113,80 @@
 
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--text-light);
+            color: #fff;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* Container & Spacing */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-padding {
-            padding: 6rem 0;
-        }
-
-        .text-center {
-            text-align: center;
+            box-shadow: 0 4px 10px var(--shadow-color);
         }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
-            background-color: var(--navbar-blur-bg);
+            background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border-color);
             padding: 1rem 0;
-            height: var(--navbar-height);
-            display: flex;
-            align-items: center;
         }
 
-        .navbar .container {
+        .navbar-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .navbar-brand {
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-color);
-            text-decoration: none;
+            color: var(--secondary-color);
         }
 
-        .nav-links {
-            list-style: none;
+        .navbar-nav {
             display: flex;
-            gap: 2.5rem;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
+        .navbar-nav a {
             font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--secondary-color);
+            padding: 0.5rem 0;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
         }
 
-        .hamburger {
+        .navbar-nav a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggle {
             display: none;
-            flex-direction: column;
+            font-size: 2rem;
+            background: none;
+            border: none;
             cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: var(--navbar-height);
-                left: 0;
-                width: 100%;
-                background-color: var(--navbar-blur-bg);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                padding: 1rem 2rem;
-                border-top: 1px solid rgba(0, 0, 0, 0.05);
-                box-shadow: var(--shadow-light);
-                gap: 1.5rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            /* Hamburger animation */
-            .hamburger.active span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            .hamburger.active span:nth-child(2) {
-                opacity: 1;
-            }
-            .hamburger.active span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
+            color: var(--secondary-color);
         }
 
         /* Hero Section */
         .hero {
             position: relative;
-            height: 80vh; /* Controlled by .hero-image-container */
+            background-color: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-light);
             text-align: center;
-            padding: 0 2rem;
-            overflow: hidden; /* Ensure image container manages overflow */
+            color: #fff; /* Text color over the dark image, but should be styled for contrast */
         }
 
         .hero-image-container {
@@ -234,57 +194,50 @@
             width: 100%;
             overflow: hidden;
             position: relative;
+            background: #e0e0e0; /* Background color for loading state */
         }
 
         .hero-content {
             position: absolute;
             z-index: 10;
             max-width: 800px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: rgba(0, 0, 0, 0.45); /* Semi-transparent background for text */
+            color: #fff;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
         }
 
         .hero-content p {
-            font-size: 1.25rem;
+            color: #f0f0f0;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
-            opacity: 1.9;
         }
 
-        .hero-buttons .btn {
-            margin: 0 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            .hero-content p { font-size: 1.1rem; }
-            .hero-buttons .btn {
-                display: block;
-                margin: 1rem auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 { font-size: 2.2rem; }
-            .hero-content p { font-size: 1rem; }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Products Section */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
             margin-top: 3rem;
         }
 
         .product-card {
-            background-color: var(--card-background);
+            background-color: var(--background-color);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-light);
+            box-shadow: 0 4px 15px var(--shadow-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -292,7 +245,7 @@
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 8px 25px var(--hover-shadow-color);
         }
 
         .product-image-container {
@@ -300,106 +253,101 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f5f5f5; /* For loading state */
+            background: #f5f5f5;
         }
 
         .product-info {
             padding: 1.5rem;
-            flex-grow: 1;
+            flex-grow: 1; /* Allow content to grow */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
-        }
-
-        .product-info p {
-            font-size: 0.95rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
             color: var(--secondary-color);
-            margin-bottom: 1rem;
         }
 
         .product-price {
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            text-align: center;
         }
 
         /* Features Section */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 3rem;
+            align-items: center;
             margin-top: 3rem;
         }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--card-background);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        .features-text-content {
+            order: 2; /* Text below image on mobile */
         }
 
-        .feature-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+        .features-img-wrapper {
+            height: 350px; /* Fixed height for feature image */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #e9e9e9; /* Background for loading state */
+            border-radius: 12px;
+            order: 1; /* Image above text on mobile */
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-            background-color: var(--primary-color); /* Placeholder for icon */
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-light);
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        .feature-item h3 {
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
+            font-size: 1.5rem;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
+        .feature-item h3 {
+            margin-bottom: 0.3em;
+            font-size: 1.2rem;
+        }
         .feature-item p {
             font-size: 0.95rem;
-            color: var(--secondary-color);
+            margin-bottom: 0;
         }
 
         /* About Section */
         .about-content {
-            display: flex;
-            gap: 4rem;
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 3rem;
             align-items: center;
-            flex-wrap: wrap;
             margin-top: 3rem;
         }
-
+        
         .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-text h2 {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: var(--secondary-color);
-        }
-
-        .about-image-wrapper {
-            flex: 1;
-            min-width: 300px;
+            order: 2; /* Text below image on mobile */
         }
 
         .about-image-container {
@@ -407,71 +355,57 @@
             width: 100%;
             overflow: hidden;
             position: relative;
+            background: #e0e0e0;
             border-radius: 12px;
-            box-shadow: var(--shadow-light);
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .about-text, .about-image-wrapper {
-                min-width: unset;
-                width: 100%;
-            }
+            order: 1; /* Image above text on mobile */
         }
 
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
         .testimonial-card {
-            background-color: var(--card-background);
+            background-color: var(--light-gray);
             border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 2rem;
+            box-shadow: 0 4px 15px var(--shadow-color);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-height: 220px; /* Ensure cards have a consistent min height */
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .testimonial-quote {
+        .testimonial-card p {
             font-style: italic;
             margin-bottom: 1.5rem;
             color: var(--text-color);
-            line-height: 1.7;
         }
 
         .testimonial-author {
             font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 1rem;
+            color: var(--secondary-color);
+            margin-top: auto; /* Push author to bottom */
         }
 
-        .testimonial-source {
+        .testimonial-author span {
+            display: block;
             font-size: 0.9rem;
-            color: var(--secondary-color);
+            color: var(--light-text-color);
+            font-weight: 400;
         }
 
         /* Contact Section */
         .contact-form {
-            max-width: 600px;
-            margin: 3rem auto 0;
-            background-color: var(--card-background);
+            background-color: var(--light-gray);
             padding: 3rem;
             border-radius: 12px;
-            box-shadow: var(--shadow-light);
+            max-width: 600px;
+            margin: 3rem auto 0;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
 
         .form-group {
@@ -480,29 +414,30 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
         }
 
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
+            padding: 0.8rem 1rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            font-family: 'Inter', sans-serif;
+            font-family: inherit;
             font-size: 1rem;
             color: var(--text-color);
+            background-color: var(--background-color);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: var(--primary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(46, 123, 255, 0.2);
         }
 
         .form-group textarea {
@@ -518,140 +453,225 @@
 
         /* Footer */
         .footer {
-            background-color: var(--background-dark);
-            color: var(--text-light);
+            background-color: var(--secondary-color);
+            color: #f0f0f0;
             padding: 4rem 0 2rem;
-            text-align: center;
+            font-size: 0.9rem;
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 2rem;
-            text-align: left;
         }
 
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 1.5rem;
+        .footer-brand {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
         }
 
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
-        .footer-column p, .footer-column a {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.75rem;
+        .footer-nav, .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-nav li, .social-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-nav a, .social-links a {
+            color: #ccc;
             transition: color 0.3s ease;
         }
 
-        .footer-column a:hover {
+        .footer-nav a:hover, .social-links a:hover {
             color: var(--primary-color);
         }
-
+        
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
         }
 
-        .social-link {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+        .social-links li {
+            margin-bottom: 0;
+        }
+
+        .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 1.2rem;
+            color: #fff;
         }
 
-        .social-link:hover {
+        .social-links a:hover {
             background-color: var(--primary-color);
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
             margin-top: 3rem;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
+            padding-top: 2rem;
             text-align: center;
+            color: #ccc;
         }
 
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .footer-column {
-                min-width: 100%;
-            }
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        /* Image-specific CSS per rules */
+        /* Image specific styles - CRITICAL */
         .hero-image-container img,
         .product-image-container img,
-        .about-image-container img {
-             /* Styles from requirements for img tag */
-            width:100%; 
-            height:100%; 
-            object-fit:cover; 
-            display:block; 
-            border:none;
-            /* Ensure no conflicting styles as per rule */
-            opacity: 1; /* Explicitly set to 1 */
-            filter: none; /* Explicitly set to none */
-            z-index: auto; /* Default z-index */
+        .about-image-container img,
+        .features-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
         }
 
-        /* Ensure parent containers fixed height per rules */
-        .hero-image-container { height: 80vh; width: 100%; overflow: hidden; position: relative; }
-        .product-image-container { height: 260px; width: 100%; overflow: hidden; position: relative; background: #f5f5f5; }
-        .about-image-container { height: 400px; width: 100%; overflow: hidden; position: relative; }
-
-        /* General spacing on mobile */
-        @media (max-width: 480px) {
+        /* Media Queries */
+        /* Tablet breakpoint (768px) */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .navbar-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border-top: 1px solid var(--border-color);
+                padding: 1rem 1.5rem;
+                box-shadow: 0 8px 16px var(--shadow-color);
+            }
+            .navbar-nav.active {
+                display: flex;
+            }
+            .navbar-nav li {
+                margin: 0.5rem 0;
+            }
+            .navbar-toggle {
+                display: block;
+            }
+            .hero-content {
+                padding: 1.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .products-grid, .testimonials-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+            .features-grid, .about-content {
+                grid-template-columns: 1fr;
+            }
+            .features-text-content, .about-text {
+                order: 2; /* Text below image */
+            }
+            .features-img-wrapper, .about-image-container {
+                order: 1; /* Image above text */
+            }
             .section-padding {
-                padding: 4rem 0;
+                padding: 3rem 0;
+            }
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+        }
+
+        /* Mobile breakpoint (480px) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
             }
             .container {
                 padding: 0 1rem;
             }
-            .products-grid, .features-grid, .testimonials-grid {
-                gap: 1.5rem;
+            .navbar-brand {
+                font-size: 1.5rem;
             }
-            .product-card, .feature-item, .testimonial-card, .contact-form {
-                padding: 1.5rem;
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .btn {
+                padding: 0.7rem 1.5rem;
+                width: 100%;
+            }
+            .products-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-info {
+                padding: 1rem;
+            }
+            .feature-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.8rem;
+            }
+            .feature-icon {
+                margin-bottom: 0.5rem;
+            }
+            .contact-form {
+                padding: 2rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-section h4 {
+                margin-top: 1.5rem;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .navbar-nav {
+                padding: 1rem 1rem;
             }
         }
-
     </style>
 </head>
 <body>
-
+    <!-- Navbar -->
     <header class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">The Modern Shop</a>
+        <div class="container navbar-content">
+            <a href="#" class="navbar-brand">Aura Market</a>
             <nav>
-                <ul class="nav-links" id="navLinks">
+                <button class="navbar-toggle" aria-label="Toggle navigation">☰</button>
+                <ul class="navbar-nav">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#products">Products</a></li>
                     <li><a href="#features">Features</a></li>
@@ -660,22 +680,18 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero" class="hero">
             <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with a laptop and coffee, representing a thriving business" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern shop interior with various products on display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
             <div class="hero-content">
-                <h1>Elevate Your Everyday Essentials</h1>
-                <p>Discover a curated collection of modern products designed for your lifestyle. Quality, innovation, and style, delivered to your doorstep.</p>
+                <h1>Discover Quality, Designed for You.</h1>
+                <p>Explore our curated collection of lifestyle essentials and innovative gadgets.</p>
                 <div class="hero-buttons">
                     <a href="#products" class="btn btn-primary">Shop Now</a>
                     <a href="#about" class="btn btn-secondary">Learn More</a>
@@ -683,157 +699,218 @@
             </div>
         </section>
 
+        <!-- Products/Services Section -->
         <section id="products" class="section-padding">
             <div class="container text-center">
                 <h2>Our Premium Collection</h2>
-                <p class="lead">Explore our diverse range of high-quality products, meticulously selected to meet your needs.</p>
+                <p>Hand-picked for quality, style, and innovation. Find your next favorite item.</p>
+
                 <div class="products-grid">
+                    <!-- Product 1 -->
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek silver wristwatch on a stand" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
                         <div class="product-info">
                             <div>
-                                <h3>Chronos Smartwatch X</h3>
-                                <p>Stay connected and track your fitness with our cutting-edge smartwatch.</p>
+                                <h3>Smart Fitness Tracker Pro</h3>
+                                <p>Track your health and activity with cutting-edge precision.</p>
                             </div>
                             <span class="product-price">₹12,499</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
 
+                    <!-- Product 2 -->
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Minimalist wireless headphones in grey" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Classic silver chronograph watch on a wooden surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
                         <div class="product-info">
                             <div>
-                                <h3>Aura Wireless Headphones</h3>
-                                <p>Immerse yourself in rich, clear audio with superior comfort.</p>
+                                <h3>Elegant Chronograph Watch</h3>
+                                <p>Timeless design meeting modern craftsmanship.</p>
                             </div>
-                            <span class="product-price">₹7,999</span>
+                            <span class="product-price">₹8,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
 
+                    <!-- Product 3 -->
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Stylish leather wallet and keys" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Wireless noise-cancelling earbuds in a charging case" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
                         <div class="product-info">
                             <div>
-                                <h3>Artisan Leather Wallet</h3>
-                                <p>Handcrafted with premium leather for elegance and durability.</p>
+                                <h3>Premium Noise-Cancelling Earbuds</h3>
+                                <p>Immerse yourself in crystal-clear audio, anywhere.</p>
                             </div>
-                            <span class="product-price">₹1,999</span>
+                            <span class="product-price">₹7,250</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
 
+                    <!-- Product 4 -->
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Portable Bluetooth speaker with ambient lighting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Stylish leather wallet with cards showing" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
                         <div class="product-info">
                             <div>
-                                <h3>Echo Mini Bluetooth Speaker</h3>
-                                <p>Powerful sound in a compact design, perfect for on-the-go.</p>
+                                <h3>Handcrafted Leather Wallet</h3>
+                                <p>Sophistication and durability for your everyday essentials.</p>
                             </div>
-                            <span class="product-price">₹3,499</span>
+                            <span class="product-price">₹3,199</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Portable Bluetooth speaker with ambient lighting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Compact Bluetooth Speaker</h3>
+                                <p>Powerful sound in a travel-friendly design.</p>
+                            </div>
+                            <span class="product-price">₹4,800</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Minimalist desk lamp with adjustable arm" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Modern Adjustable Desk Lamp</h3>
+                                <p>Illuminate your workspace with style and efficiency.</p>
+                            </div>
+                            <span class="product-price">₹1,850</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="section-padding">
-            <div class="container text-center">
-                <h2>Why Choose The Modern Shop?</h2>
-                <p class="lead">We're dedicated to providing an unparalleled shopping experience.</p>
+        <!-- Features Section -->
+        <section id="features" class="section-padding" style="background-color: var(--light-gray);">
+            <div class="container">
                 <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">✔</div>
-                        <h3>Quality Assured</h3>
-                        <p>Every product is rigorously tested for the highest standards of quality and performance.</p>
+                    <div class="features-text-content">
+                        <h2 class="text-center">Why Choose Aura Market?</h2>
+                        <p class="text-center" style="margin-bottom: 3rem;">Experience the difference with our commitment to excellence.</p>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h3>Curated Quality</h3>
+                                <p>Every item is hand-selected for its superior quality and craftsmanship.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">★</div>
+                            <div>
+                                <h3>Exceptional Design</h3>
+                                <p>We offer products that blend aesthetic appeal with practical functionality.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div>
+                                <h3>Fast & Secure Delivery</h3>
+                                <p>Enjoy swift shipping and secure transactions from cart to doorstep.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✉</div>
+                            <div>
+                                <h3>Dedicated Support</h3>
+                                <p>Our customer service team is here to assist you every step of the way.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Fast Delivery</h3>
-                        <p>Swift and reliable delivery services across India, getting your products to you sooner.</p>
+                    <div class="features-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Abstract image of light lines, representing innovation and speed" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">💎</div>
-                        <h3>Exclusive Selection</h3>
-                        <p>A unique collection of modern and innovative products you won't find anywhere else.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🤝</div>
-                        <h3>Dedicated Support</h3>
-                        <p>Our friendly customer service team is always ready to assist you.</p>
-                    </div>
-                </div>
-                <!-- The prompt included a 'Features' image ID. We use the 'about-image-container' class for its fixed height requirement. -->
-                <div class="about-image-container" style="margin-top: 5rem;">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Modern office meeting with collaborative design work" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="section-padding">
             <div class="container">
                 <div class="about-content">
+                    <div class="about-image-container">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office space" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
                     <div class="about-text">
-                        <h2>About The Modern Shop</h2>
-                        <p>At The Modern Shop, we believe in curating more than just products – we offer experiences. Founded with a passion for quality and innovation, we strive to bring you a handpicked selection of items that seamlessly blend into your modern lifestyle. From cutting-edge electronics to artisan-crafted accessories, each item in our collection is chosen for its superior design, functionality, and enduring appeal.</p>
-                        <p>Our commitment extends beyond just selling; we aim to foster a community of discerning shoppers who appreciate thoughtful design and lasting value. We're an Indian-based company, proud to serve our customers with dedication and a personal touch.</p>
+                        <h2>About Aura Market</h2>
+                        <p>Aura Market was founded with a vision to bring a curated selection of high-quality products directly to discerning customers. We believe that everyday items can be extraordinary, blending exceptional design with practical utility.</p>
+                        <p>Our journey began with a passion for discovering unique and innovative products that enhance daily life. We meticulously source from trusted artisans and leading brands worldwide, ensuring that every item in our collection meets our stringent standards for quality, sustainability, and aesthetic appeal.</p>
+                        <p>We are more than just a shop; we are a community dedicated to thoughtful consumption and a lifestyle enriched by well-chosen goods. Join us in exploring a world where quality and design converge.</p>
                         <a href="#contact" class="btn btn-primary">Get in Touch</a>
                     </div>
-                    <div class="about-image-wrapper">
-                        <div class="about-image-container">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section-padding" style="background-color: var(--light-gray);">
+            <div class="container text-center">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from those who have experienced the Aura Market difference.</p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Absolutely love my new Smart Fitness Tracker from Aura Market! It's stylish, functional, and the battery life is incredible. The delivery was super fast too."</p>
+                        <div class="testimonial-author">
+                            Priya Sharma
+                            <span>Bengaluru, India</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The Elegant Chronograph Watch I bought is simply stunning. It feels premium and I've received so many compliments. Aura Market's collection is truly top-notch."</p>
+                        <div class="testimonial-author">
+                            Rahul Singh
+                            <span>Mumbai, India</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Fantastic experience! The customer service was helpful, and the Handcrafted Leather Wallet exceeded my expectations in quality. Definitely my new go-to for unique gifts."</p>
+                        <div class="testimonial-author">
+                            Ananya Das
+                            <span>Delhi, India</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="section-padding" style="background-color: var(--background-light);">
-            <div class="container text-center">
-                <h2>What Our Customers Say</h2>
-                <p class="lead">Hear from our delighted patrons who've experienced the quality of The Modern Shop.</p>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"The Chronos Smartwatch X exceeded all my expectations! The design is sleek, and the features are incredibly useful. Customer service was also top-notch. Highly recommend The Modern Shop for quality electronics."</p>
-                        <span class="testimonial-author">Priya Sharma</span>
-                        <span class="testimonial-source">Mumbai, India</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"I purchased the Aura Wireless Headphones, and the sound quality is phenomenal. They're comfortable for long listening sessions, and the battery life is impressive. A truly premium product."</p>
-                        <span class="testimonial-author">Arjun Singh</span>
-                        <span class="testimonial-source">Delhi, India</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"The Artisan Leather Wallet is simply beautiful. The craftsmanship is evident, and it feels incredibly durable. It's the perfect blend of style and practicality. Very happy with my purchase!"</p>
-                        <span class="testimonial-author">Meera Patel</span>
-                        <span class="testimonial-source">Bengaluru, India</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Contact Section -->
         <section id="contact" class="section-padding">
             <div class="container text-center">
-                <h2>Get in Touch With Us</h2>
-                <p class="lead">Have questions or need assistance? Reach out to our friendly team.</p>
+                <h2>Contact Us</h2>
+                <p>Have a question or need assistance? We'd love to hear from you.</p>
+
                 <form class="contact-form">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="your@email.com" required>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" placeholder="How can we help you?" required></textarea>
+                        <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
@@ -841,56 +918,72 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
-            <div class="footer-column">
-                <h4>The Modern Shop</h4>
-                <p>Curating quality and style for your modern lifestyle. Discover excellence.</p>
+            <div class="footer-section">
+                <a href="#" class="footer-brand">Aura Market</a>
+                <p>Curating quality and style for your everyday life.</p>
             </div>
-            <div class="footer-column">
+            <div class="footer-section">
                 <h4>Quick Links</h4>
-                <a href="#hero">Home</a>
-                <a href="#products">Products</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
+                <ul class="footer-nav">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-            <div class="footer-column">
+            <div class="footer-section">
                 <h4>Support</h4>
-                <a href="#">FAQs</a>
-                <a href="#">Shipping & Returns</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <ul class="footer-nav">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
             </div>
-            <div class="footer-column">
+            <div class="footer-section">
                 <h4>Connect With Us</h4>
-                <p>Follow us on social media for updates and offers.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Facebook">F</a> <!-- Placeholder for social icons -->
-                    <a href="#" class="social-link" aria-label="Twitter">T</a>
-                    <a href="#" class="social-link" aria-label="Instagram">I</a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">L</a>
-                </div>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook">F</a></li> <!-- Simple text 'F' for Facebook, etc. to avoid complex image rules for icons -->
+                    <li><a href="#" aria-label="Twitter">T</a></li>
+                    <li><a href="#" aria-label="Instagram">I</a></li>
+                </ul>
             </div>
         </div>
-        <div class="container footer-bottom">
-            &copy; 2023 The Modern Shop. All rights reserved. Prices are in Indian Rupees (₹).
+        <div class="footer-bottom">
+            <p>&copy; 2023 Aura Market. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const navbarNav = document.querySelector('.navbar-nav');
+            const navLinks = document.querySelectorAll('.navbar-nav a');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+            navbarToggle.addEventListener('click', () => {
+                navbarNav.classList.toggle('active');
+            });
 
-        // Close mobile nav when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
+            // Close nav when a link is clicked (for mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarNav.classList.contains('active')) {
+                        navbarNav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
     </script>
