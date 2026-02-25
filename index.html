@@ -3,290 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AuraBloom - Elevate Your Everyday</title>
+    <title>Apex Store - Premium E-commerce</title>
     <style>
         :root {
-            --primary-color: #6a0dad; /* Deep Purple */
-            --secondary-color: #ff6f61; /* Coral Red */
-            --accent-color: #4CAF50; /* Green for buttons/highlights */
+            --primary-color: #007bff; /* Blue */
+            --accent-color: #0056b3; /* Darker blue */
             --text-color: #333;
-            --light-text-color: #f8f8f8;
-            --bg-color: #ffffff;
-            --card-bg: #fdfdfd;
+            --light-text-color: #666;
+            --background-color: #ffffff;
+            --light-background: #f8f9fa;
             --border-color: #e0e0e0;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-            --header-height: 70px;
+            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --navbar-bg: rgba(255, 255, 255, 0.8);
+            --max-width: 1200px;
         }
 
-        /* Base Styles & Reset */
-        *, *::before, *::after {
+        /* Base Reset & Typography */
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html {
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Inter', sans-serif; /* A modern sans-serif font */
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 0.8em;
-            color: var(--text-color);
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem;
         }
 
         h1 {
-            font-size: 3rem; /* ~48px */
+            font-size: 2.5rem; /* Mobile */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
         }
 
         h2 {
-            font-size: 2.2rem; /* ~35px */
-        }
-
-        h3 {
-            font-size: 1.6rem; /* ~25px */
-        }
-
-        p {
-            font-size: 1.1rem; /* ~17.6px */
-            margin-bottom: 1em;
-        }
-
-        .text-center {
+            font-size: 2rem; /* Mobile */
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
             text-align: center;
         }
 
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        h3 {
+            font-size: 1.5rem; /* Mobile */
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
         }
 
-        .section-padding {
-            padding: 80px 0;
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--light-text-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 28px;
+            padding: 0.8rem 1.5rem;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 500;
+            text-align: center;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
-            border: none;
+            white-space: nowrap;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--light-text-color);
-            box-shadow: 0 4px 15px rgba(106, 13, 173, 0.4);
+            color: #fff;
+            border: 1px solid var(--primary-color);
         }
 
         .btn-primary:hover {
-            background-color: #5a099f; /* Slightly darker primary */
-            box-shadow: 0 6px 20px rgba(106, 13, 173, 0.6);
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            border: 1px solid var(--primary-color);
         }
 
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--light-text-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
         }
 
         /* Navbar */
         .navbar {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
             width: 100%;
-            height: var(--header-height);
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--navbar-bg);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 1rem;
         }
 
-        .navbar-content {
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
         }
 
-        .logo {
+        .navbar-brand {
             font-size: 1.8rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--primary-color);
-            letter-spacing: -0.5px;
         }
 
         .nav-links {
+            display: none; /* Hidden on mobile */
             list-style: none;
+        }
+
+        .nav-links.active {
             display: flex;
-            gap: 30px;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-light);
+            padding: 1rem 0;
+            align-items: center;
         }
 
-        .nav-links li a {
-            color: var(--text-color);
+        .nav-links li {
+            margin: 0.5rem 0;
+        }
+
+        .nav-links a {
             font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
         }
 
-        .nav-links li a:hover {
-            color: var(--primary-color);
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: #fff;
         }
 
         .hamburger {
-            display: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
-
-        /* Mobile Nav Menu */
-        .mobile-nav-menu {
-            display: none;
-            position: fixed;
-            top: var(--header-height);
-            left: 0;
-            width: 100%;
-            height: calc(100vh - var(--header-height));
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 999;
+            display: flex; /* Visible on mobile */
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            opacity: 1;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            justify-content: space-between;
+            width: 24px;
+            height: 20px;
+            cursor: pointer;
         }
 
-        .mobile-nav-menu.active {
-            display: flex;
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .mobile-nav-menu a {
-            font-size: 1.8rem;
-            color: var(--text-color);
-            padding: 10px 0;
-            width: 80%;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .mobile-nav-menu a:last-child {
-            border-bottom: none;
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
-        .hero-section {
-            padding-top: var(--header-height); /* Offset for sticky navbar */
-            height: calc(100vh - var(--header-height));
+        .hero {
+            position: relative;
+            text-align: center;
+            color: #fff;
             display: flex;
             align-items: center;
-            position: relative;
-            color: var(--light-text-color);
-            text-align: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 2rem 1rem;
         }
 
         .hero-image-container {
-            height: 100%; /* Take full available height */
+            height: 80vh;
             width: 100%;
             overflow: hidden;
             position: absolute;
             top: 0;
             left: 0;
-            background: #e0e0e0; /* Fallback background */
-            z-index: -1; /* Send image behind content */
+            z-index: -1;
+            background: #e0e0e0; /* Loading state background */
         }
 
         .hero-content {
-            position: relative;
+            position: relative; /* Ensure content is above the image */
             z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text readability */
+            max-width: 900px;
+            padding: 1rem;
+            background-color: rgba(0,0,0,0.4); /* Dark overlay for text readability */
             border-radius: 12px;
         }
 
         .hero-content h1 {
-            font-size: 3.8rem;
-            color: var(--light-text-color);
-            margin-bottom: 0.5em;
+            font-size: 3rem; /* Desktop */
+            color: #fff;
+            margin-bottom: 1.5rem;
         }
 
         .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 2em;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
         }
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .hero-actions .btn {
+            margin: 0.5rem;
         }
 
         /* Products Section */
-        .products-grid {
+        .products {
+            padding: 4rem 1rem;
+            text-align: center;
+            background-color: var(--background-color);
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .product-card {
-            background-color: var(--card-bg);
+            background-color: #fff;
             border-radius: 12px;
-            box-shadow: 0 6px 20px var(--shadow-color);
+            box-shadow: var(--shadow-light);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
 
         .product-image-container {
@@ -294,141 +275,152 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f5f5f5; /* Fallback background */
-            border-bottom: 1px solid var(--border-color);
+            background: #f5f5f5; /* Loading state background */
         }
 
         .product-info {
-            padding: 25px;
+            padding: 1.5rem;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
         }
 
         .product-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.6em;
-            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
         .product-info p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 1em;
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+            margin-bottom: 1rem;
             flex-grow: 1;
         }
 
         .product-price {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--secondary-color);
-            margin-bottom: 1.2em;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
         }
 
         /* Features Section */
+        .features {
+            padding: 4rem 1rem;
+            background-color: var(--light-background);
+            text-align: center;
+        }
+
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: 1fr; /* Mobile: single column */
+            gap: 2rem;
+            margin-top: 2.5rem;
+            align-items: center;
+        }
+
+        .feature-item-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .feature-item {
-            background-color: var(--card-bg);
-            padding: 30px;
+            background-color: #fff;
+            padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            box-shadow: var(--shadow-light);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
         }
 
-        .feature-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: var(--primary-color); /* Background for the "icon" itself */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px auto;
-            position: relative;
-            overflow: hidden;
+        .feature-item .icon {
+            font-size: 3rem; /* Larger icon size */
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block; /* Ensure text/emoji icons are centered */
         }
-
-        .feature-icon-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%; /* Make the image fit the circle */
-            border: none;
-            display: block;
-        }
-
 
         .feature-item h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5em;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
         }
 
-        .feature-item p {
-            font-size: 1rem;
-            color: #666;
+        .feature-section-image-container {
+            height: 400px; /* Fixed height for feature section image */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #e0e0e0; /* Loading state background */
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
         }
 
         /* About Section */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
+        .about {
+            padding: 4rem 1rem;
+            background-color: var(--background-color);
+        }
+
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile: single column */
+            gap: 2rem;
             align-items: center;
-            gap: 40px;
-            margin-top: 40px;
+            margin-top: 2.5rem;
         }
 
         .about-text {
-            flex: 1;
-            min-width: 300px;
+            text-align: left;
         }
 
         .about-text h2 {
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1.5em;
+            text-align: left;
+            margin-bottom: 1rem;
         }
 
         .about-image-container {
-            flex: 1;
-            min-width: 300px;
             height: 400px;
+            width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e0e0e0; /* Fallback background */
+            background: #e0e0e0; /* Loading state background */
             border-radius: 12px;
-            box-shadow: 0 8px 25px var(--shadow-color);
+            box-shadow: var(--shadow-light);
         }
 
         /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 1rem;
+            background-color: var(--light-background);
+            text-align: center;
+        }
+
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .testimonial-card {
-            background-color: var(--card-bg);
-            padding: 30px;
+            background-color: #fff;
+            padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -436,587 +428,494 @@
 
         .testimonial-card p {
             font-style: italic;
-            color: #555;
-            margin-bottom: 1.5em;
+            margin-bottom: 1.5rem;
+            color: var(--light-text-color);
+            font-size: 1.05rem;
+            flex-grow: 1;
         }
 
-        .customer-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: auto;
-        }
-
-        .customer-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            background-color: var(--border-color); /* Placeholder background */
-        }
-        .customer-avatar img {
-            border-radius: 50%; /* Ensure the image itself is circular */
-        }
-
-        .customer-name {
-            font-weight: 700;
+        .testimonial-card .author {
+            font-weight: 600;
             color: var(--primary-color);
-        }
-
-        .customer-title {
-            font-size: 0.9rem;
-            color: #777;
+            margin-top: 1rem;
+            font-size: 1.1rem;
         }
 
         /* Contact Section */
-        .contact-form-wrapper {
-            max-width: 700px;
-            margin: 40px auto 0 auto;
-            background-color: var(--card-bg);
-            padding: 40px;
+        .contact {
+            padding: 4rem 1rem;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2.5rem auto 0 auto;
+            background-color: #fff;
+            padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 6px 20px var(--shadow-color);
+            box-shadow: var(--shadow-light);
+            text-align: left;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
             color: var(--text-color);
         }
 
-        .form-group input,
+        .form-group input[type="text"],
+        .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: 14px;
+            padding: 0.9rem 1rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 1rem;
             color: var(--text-color);
-            background-color: #f9f9f9;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--light-background);
+            transition: border-color 0.3s ease;
         }
 
-        .form-group input:focus,
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.2);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
 
         .form-group textarea {
-            min-height: 120px;
             resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn-primary {
+            width: 100%;
+            padding: 1rem;
         }
 
         /* Footer */
         .footer {
-            background-color: #222;
-            color: rgba(255, 255, 255, 0.8);
-            padding: 60px 0 30px 0;
+            background-color: var(--text-color);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 {
-            color: var(--light-text-color);
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-col ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: color 0.3s ease;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
+        .footer-section ul li a:hover {
+            color: #fff;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.7);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
         .social-links a:hover {
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
+            color: var(--primary-color);
         }
 
         .footer-bottom {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.4rem; }
-            p { font-size: 1rem; }
+        /* Media Queries */
+        @media (min-width: 480px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            h3 { font-size: 1.6rem; }
 
-            .navbar .nav-links {
-                display: none;
-            }
-            .navbar .hamburger {
-                display: block;
-            }
-
-            .hero-section {
-                height: 70vh;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .btn {
-                width: 80%;
-                margin: 0 auto;
-            }
-
-            .products-grid,
-            .features-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-            .about-image-container {
-                height: 300px;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.2rem; }
-            p { font-size: 0.95rem; }
-
-            .hero-section {
-                height: 60vh;
-            }
-            .hero-content {
-                padding: 15px;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .btn {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
-
-            .section-padding {
-                padding: 60px 0;
-            }
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 1.8rem; }
 
             .navbar {
-                padding: 0 15px;
+                padding: 1rem 2rem;
             }
-            .logo {
+
+            .nav-links {
+                display: flex; /* Visible on desktop */
+                flex-direction: row;
+                position: static;
+                width: auto;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .nav-links li {
+                margin: 0 1rem;
+            }
+
+            .hamburger {
+                display: none; /* Hidden on desktop */
+            }
+
+            .hero-content h1 {
+                font-size: 4.5rem;
+            }
+
+            .hero-content p {
                 font-size: 1.5rem;
             }
 
-            .contact-form-wrapper {
-                padding: 30px;
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .features-grid {
+                grid-template-columns: 2fr 1fr; /* Desktop: text on left, image on right */
+            }
+
+            .feature-item-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content-grid {
+                grid-template-columns: 1fr 1fr; /* Desktop: text on left, image on right */
+                text-align: left;
+            }
+
+            .about-text h2 {
+                text-align: left;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h1 { font-size: 4rem; }
+            h2 { font-size: 2.8rem; }
+            h3 { font-size: 2rem; }
+
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: 3fr 2fr; /* Adjust ratio for larger screens */
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
     <header class="navbar">
-        <div class="container navbar-content">
-            <a href="#" class="logo">AuraBloom</a>
+        <div class="container">
+            <a href="#" class="navbar-brand">Apex Store</a>
             <nav>
+                <button class="hamburger" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <ul class="nav-links">
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#hero" onclick="document.querySelector('.nav-links').classList.remove('active')">Home</a></li>
+                    <li><a href="#products" onclick="document.querySelector('.nav-links').classList.remove('active')">Products</a></li>
+                    <li><a href="#features" onclick="document.querySelector('.nav-links').classList.remove('active')">Features</a></li>
+                    <li><a href="#about" onclick="document.querySelector('.nav-links').classList.remove('active')">About Us</a></li>
+                    <li><a href="#testimonials" onclick="document.querySelector('.nav-links').classList.remove('active')">Testimonials</a></li>
+                    <li><a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('active')">Contact</a></li>
                 </ul>
             </nav>
-            <div class="hamburger" id="hamburger-menu">&#9776;</div>
-        </div>
-        <div class="mobile-nav-menu" id="mobile-nav-menu">
-            <a href="#products">Products</a>
-            <a href="#features">Features</a>
-            <a href="#about">About Us</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-section" id="home">
+        <section id="hero" class="hero">
             <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
-                     alt="Modern business office workspace with natural light and plants, symbolizing growth and innovation."
-                     style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with collaborative workspace, representing a dynamic business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
-            <div class="container hero-content">
-                <h1>Elevate Your Everyday with AuraBloom</h1>
-                <p>Discover a curated collection of modern essentials designed to inspire and enhance your lifestyle.</p>
-                <div class="hero-buttons">
+            <div class="hero-content">
+                <h1>Discover Innovation. Shop Smart.</h1>
+                <p>Your one-stop destination for cutting-edge electronics and home essentials.</p>
+                <div class="hero-actions">
                     <a href="#products" class="btn btn-primary">Shop Now</a>
                     <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
         </section>
 
-        <!-- Products Section -->
-        <section class="section-padding" id="products">
-            <div class="container text-center">
-                <h2>Our Latest Bloom</h2>
-                <p>Explore our exquisite range of products crafted for quality and style.</p>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
-                                 alt="Artisan Crafted Ceramic Mug in earthy tones, perfect for morning coffee."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Artisan Crafted Ceramic Mug</h3>
-                            <p>Hand-finished ceramic mug, perfect for your daily brew. Dishwasher safe.</p>
-                            <span class="product-price">₹999</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
-                                 alt="Sleek silver wireless noise-cancelling headphones on a minimalist background."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Wireless Noise-Cancelling Headphones</h3>
-                            <p>Immerse yourself in rich audio with superior comfort and active noise cancellation.</p>
-                            <span class="product-price">₹7,499</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
-                                 alt="Minimalist design leather wallet, handcrafted with premium material."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Minimalist Leather Wallet</h3>
-                            <p>Compact and elegant, crafted from genuine leather for durability and style.</p>
-                            <span class="product-price">₹1,899</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
-                                 alt="Colorful smart home LED strip lighting illuminating a modern living space."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Smart Home LED Strip Lighting</h3>
-                            <p>Personalize your ambiance with millions of colors and smart control via app.</p>
-                            <span class="product-price">₹2,499</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
-                                 alt="Soft premium organic cotton t-shirt folded neatly on a light surface."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Premium Organic Cotton T-Shirt</h3>
-                            <p>Experience ultimate comfort with our soft, breathable organic cotton tee.</p>
-                            <span class="product-price">₹1,299</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
-                                 alt="Stainless steel smart water bottle displaying temperature and hydration stats."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Stainless Steel Smart Water Bottle</h3>
-                            <p>Stay hydrated and track your intake with this insulated, smart water bottle.</p>
-                            <span class="product-price">₹3,499</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="section-padding" id="features" style="background-color: #f8f8f8;">
-            <div class="container text-center">
-                <h2>Why Choose AuraBloom?</h2>
-                <p>We're dedicated to bringing you quality, innovation, and an unparalleled shopping experience.</p>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                            <!-- Using the features image provided as a prominent section visual or "icon" -->
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
-                                 alt="Icon representing high-quality products."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>Every product is meticulously selected for superior craftsmanship and durability.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
-                                 alt="Icon representing fast and reliable delivery."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <h3>Fast & Reliable Delivery</h3>
-                        <p>Enjoy swift and secure delivery right to your doorstep, nationwide.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
-                                 alt="Icon representing excellent customer support."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <h3>Exceptional Support</h3>
-                        <p>Our dedicated team is here to assist you with any queries or needs.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
-                                 alt="Icon representing secure payment options."
-                                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <h3>Secure Payments</h3>
-                        <p>Shop with confidence using our secure and diverse payment gateway options.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="section-padding" id="about">
+        <section id="products" class="products">
             <div class="container">
-                <div class="about-content">
+                <h2>Our Latest Products</h2>
+                <p>Explore a curated selection of premium electronics and smart devices.</p>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Stylish premium wireless earbuds in a charging case" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Wireless Earbuds</h3>
+                            <p>Experience crystal-clear audio and seamless connectivity for your daily hustle.</p>
+                            <span class="product-price">₹2,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Elegant smartwatch with a digital display showing time and fitness metrics" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Smartwatch Pro X</h3>
+                            <p>Track your fitness, notifications, and stay connected with advanced features.</p>
+                            <span class="product-price">₹12,499</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek, ergonomic office chair designed for maximum comfort and productivity" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Ergonomic Office Chair</h3>
+                            <p>Designed for ultimate comfort and support, enhancing your productivity.</p>
+                            <span class="product-price">₹7,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Portable Bluetooth speaker delivering high-quality sound outdoors" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Portable Bluetooth Speaker</h3>
+                            <p>Powerful sound on-the-go with long-lasting battery life and robust design.</p>
+                            <span class="product-price">₹4,500</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Large ultra-HD smart television displaying a vibrant nature scene" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Ultra-HD Smart TV</h3>
+                            <p>Immerse yourself in stunning visuals with our latest 4K smart television.</p>
+                            <span class="product-price">₹45,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Sleek noise-cancelling headphones for an immersive audio experience" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Noise-Cancelling Headphones</h3>
+                            <p>Enjoy unparalleled sound clarity and comfort with active noise cancellation.</p>
+                            <span class="product-price">₹8,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose Apex Store?</h2>
+                <p>We're dedicated to providing an exceptional shopping experience.</p>
+                <div class="features-grid">
+                    <div class="feature-item-grid">
+                        <div class="feature-item">
+                            <span class="icon">🚀</span>
+                            <h3>Lightning-Fast Shipping</h3>
+                            <p>Get your products delivered quickly and efficiently to your doorstep.</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">🔒</span>
+                            <h3>Secure & Easy Payments</h3>
+                            <p>Shop with confidence using our secure and hassle-free payment gateways.</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">📞</span>
+                            <h3>24/7 Customer Support</h3>
+                            <p>Our dedicated team is always here to assist you with any queries.</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">✨</span>
+                            <h3>Uncompromised Quality</h3>
+                            <p>We source only the best products, ensuring durability and performance.</p>
+                        </div>
+                    </div>
+                    <div class="feature-section-image-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Close-up of a person typing on a laptop, illustrating efficient work or customer service" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content-grid">
                     <div class="about-text">
-                        <h2>Our Story: Crafting Elegance Since 2023</h2>
-                        <p>AuraBloom was founded with a simple vision: to bring joy and beauty into everyday living through thoughtfully designed products. We believe that the objects you interact with daily should not only be functional but also inspire a sense of calm and sophistication.</p>
-                        <p>From the initial concept to the final touch, we pour passion into every detail, sourcing ethical materials and partnering with skilled artisans. Our commitment to sustainability and customer satisfaction drives us forward, ensuring that every AuraBloom purchase is a step towards a more beautiful, conscious life.</p>
-                        <a href="#contact" class="btn btn-primary">Connect With Us</a>
+                        <h2>About Apex Store</h2>
+                        <p>Established in 2020, Apex Store quickly became a leading online retailer for modern electronics and lifestyle products. Our mission is to bring the latest technology and quality goods directly to your home with unparalleled service and value.</p>
+                        <p>We believe in a future where technology enhances everyday life, and we are committed to curating a selection of products that are not only innovative but also reliable and accessible. From smart home devices to personal gadgets, Apex Store is your trusted partner in smart living.</p>
+                        <a href="#contact" class="btn btn-primary">Contact Us</a>
                     </div>
                     <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
-                             alt="Professional business team collaborating in a modern office space, symbolizing teamwork and innovation."
-                             style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Group of diverse professionals collaborating in a modern office space" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="section-padding" id="testimonials" style="background-color: #f8f8f8;">
-            <div class="container text-center">
+        <section id="testimonials" class="testimonials">
+            <div class="container">
                 <h2>What Our Customers Say</h2>
-                <p>Hear from the wonderful people who've experienced the AuraBloom difference.</p>
+                <p>Hear from delighted customers who love their Apex Store experience.</p>
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
-                        <p>"The ceramic mug I bought is simply beautiful and feels so good in my hand. It's now my favorite part of my morning routine. AuraBloom truly delivers on quality!"</p>
-                        <div class="customer-info">
-                            <div class="customer-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1200&q=80"
-                                     alt="Profile picture of Priya Sharma, a satisfied customer."
-                                     style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                            </div>
-                            <div>
-                                <div class="customer-name">Priya Sharma</div>
-                                <div class="customer-title">Mumbai</div>
-                            </div>
-                        </div>
+                        <p>"The Apex Store delivered my Smartwatch Pro X incredibly fast! The product quality exceeded my expectations. Their customer support was also very helpful when I had a question about setup. Highly recommend!"</p>
+                        <span class="author">— Priya Sharma</span>
                     </div>
                     <div class="testimonial-card">
-                        <p>"I'm incredibly impressed with the wireless headphones. The sound quality is amazing, and the noise-cancellation is perfect for my daily commute. Highly recommend!"</p>
-                        <div class="customer-info">
-                            <div class="customer-avatar">
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&q=80"
-                                     alt="Profile picture of Rohan Patel, a satisfied customer."
-                                     style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                            </div>
-                            <div>
-                                <div class="customer-name">Rohan Patel</div>
-                                <div class="customer-title">Bengaluru</div>
-                            </div>
-                        </div>
+                        <p>"I recently bought the Premium Wireless Earbuds, and they are fantastic. The sound is clear, and they fit perfectly. Apex Store has become my go-to for electronics. Excellent service and great products."</p>
+                        <span class="author">— Rohan Singh</span>
                     </div>
                     <div class="testimonial-card">
-                        <p>"The AuraBloom team provides excellent customer service. I had a query about my order, and they were quick, helpful, and very professional. A delightful shopping experience!"</p>
-                        <div class="customer-info">
-                            <div class="customer-avatar">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80"
-                                     alt="Profile picture of Ananya Singh, a satisfied customer."
-                                     style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                            </div>
-                            <div>
-                                <div class="customer-name">Ananya Singh</div>
-                                <div class="customer-title">Delhi</div>
-                            </div>
-                        </div>
+                        <p>"Fantastic range of products and an even better shopping experience. The Ultra-HD Smart TV I purchased is a game-changer for our living room. Smooth transaction from start to finish. Keep up the great work!"</p>
+                        <span class="author">— Aisha Khan</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="section-padding" id="contact">
-            <div class="container text-center">
-                <h2>Get in Touch with AuraBloom</h2>
-                <p>Have questions, feedback, or just want to say hello? We'd love to hear from you!</p>
-                <div class="contact-form-wrapper">
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="johndoe@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Have questions? We'd love to hear from you.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>AuraBloom</h4>
-                    <p>Elevating your everyday with carefully curated products designed for modern living.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect With Us</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">F</a>
-                        <a href="#" aria-label="Instagram">I</a>
-                        <a href="#" aria-label="Twitter">T</a>
-                        <a href="#" aria-label="LinkedIn">L</a>
-                    </div>
+        <div class="container footer-content">
+            <div class="footer-section footer-about">
+                <h3>Apex Store</h3>
+                <p>Your destination for cutting-edge electronics and home essentials. Innovate your life with us.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Twitter">TW</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 AuraBloom. All rights reserved.</p>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Support</a></li>
+                </ul>
             </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Apex Store. All rights reserved.
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger-menu');
-            const mobileMenu = document.getElementById('mobile-nav-menu');
-            const navLinks = mobileMenu.querySelectorAll('a');
+        // Simple JS for mobile navigation toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-            hamburger.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-                if (mobileMenu.classList.contains('active')) {
-                    hamburger.innerHTML = '&#x2715;'; // Change to 'X' icon
-                } else {
-                    hamburger.innerHTML = '&#9776;'; // Change back to hamburger icon
-                }
-            });
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-            // Close mobile menu when a link is clicked
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
-                    hamburger.innerHTML = '&#9776;';
-                });
+        // Close nav on link click (for mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
             });
         });
     </script>
