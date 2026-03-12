@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateFlow Solutions - Your Partner in Digital Transformation</title>
+    <title>NexusMart - Your Premium E-commerce Destination</title>
     <style>
         :root {
-            --primary-color: #007bff; /* Blue */
-            --secondary-color: #6c757d; /* Gray */
-            --accent-color: #28a745; /* Green */
-            --background-light: #f8f9fa; /* Light Gray */
-            --background-white: #ffffff; /* White */
-            --text-dark: #343a40; /* Dark Gray */
-            --text-light: #ffffff; /* White */
-            --border-color: #e9ecef; /* Lighter Gray */
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --transition-speed: 0.3s ease;
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --text-color: #333;
+            --light-text-color: #f8f9fa;
+            --background-color: #ffffff;
+            --light-background-color: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.15);
+            --header-height: 70px;
         }
 
-        /* Base Reset & Typography */
+        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,162 +28,157 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-light);
+            color: var(--text-color);
+            background-color: var(--background-color);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
+            color: var(--text-color);
             line-height: 1.2;
             margin-bottom: 0.5em;
-            color: var(--text-dark);
         }
 
         h1 { font-size: 3rem; }
         h2 { font-size: 2rem; }
         h3 { font-size: 1.5rem; }
-        p { font-size: 1rem; margin-bottom: 1em; }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: color var(--transition-speed);
-        }
-
-        a:hover {
-            color: var(--primary-color);
-            filter: brightness(1.2);
-        }
+        p { font-size: 1rem; }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 20px;
         }
 
         .section-padding {
-            padding: 6rem 0;
+            padding: 80px 0;
         }
 
         .text-center {
             text-align: center;
         }
 
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+        }
+
+        .button-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+        }
+
+        .button-primary:hover {
+            background-color: #0056b3;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .button-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            transition: all 0.3s ease;
         }
 
         .navbar-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            height: var(--header-height);
         }
 
-        .navbar-brand {
-            font-size: 1.75rem;
+        .navbar-logo {
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-dark);
-            white-space: nowrap;
+            color: var(--primary-color);
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
+            gap: 30px;
             list-style: none;
-            margin-left: auto;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
         }
 
         .nav-links a {
-            color: var(--text-dark);
-            font-weight: 600;
-            padding: 0.5rem 0;
-            position: relative;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width var(--transition-speed);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.25rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            text-align: center;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            box-shadow: var(--shadow-light);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-color);
-            filter: brightness(1.1);
-            box-shadow: var(--shadow-medium);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: var(--background-white);
+        .nav-links a:hover {
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            box-shadow: var(--shadow-light);
+            text-decoration: none;
         }
 
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            box-shadow: var(--shadow-medium);
-            transform: translateY(-2px);
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            justify-content: space-between;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
-        .hero-section {
+        .hero {
             position: relative;
-            background-color: var(--background-dark); /* Fallback */
+            height: 80vh; /* Controlled by .hero-image-container */
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--light-text-color);
             text-align: center;
+            overflow: hidden; /* Ensure image doesn't spill */
         }
 
         .hero-image-container {
@@ -190,58 +186,67 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e0e0e0; /* Placeholder background */
+            background: #f5f5f5; /* Placeholder background */
+        }
+        .hero-image-container img {
+            width:100%; height:100%; object-fit:cover; display:block; border:none;
         }
 
         .hero-content {
             position: absolute;
-            z-index: 10;
-            color: var(--text-light);
+            z-index: 2;
             max-width: 800px;
-            padding: 2rem;
-            border-radius: 1rem;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for text readability */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            border-radius: 12px;
         }
 
-        .hero-content h1 {
+        .hero h1 {
             font-size: 3.5rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-text-color);
         }
-        .hero-content p {
+
+        .hero p {
             font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+            margin-bottom: 2rem;
+            color: var(--light-text-color);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
         }
 
         /* Products Section */
-        .products-grid {
+        .products {
+            background-color: var(--light-background-color);
+        }
+
+        .products .section-header {
+            margin-bottom: 60px;
+        }
+
+        .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: 30px;
         }
 
         .product-card {
-            background-color: var(--background-white);
-            border-radius: 1rem;
+            background-color: var(--background-color);
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow-light);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-hover);
         }
 
         .product-image-container {
@@ -251,285 +256,388 @@
             position: relative;
             background: #f5f5f5;
         }
+        .product-image-container img {
+            width:100%; height:100%; object-fit:cover; display:block; border:none;
+        }
 
         .product-info {
-            padding: 1.5rem;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
             flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            flex-grow: 1; /* Allows title to take available space */
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 10px;
+        }
+
+        .product-card .button {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--background-color);
+        }
+
+        .features .section-header {
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light-background-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-item .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            /* Using a simple icon placeholder as we can't use actual icons */
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            color: var(--secondary-color);
+        }
+
+        /* Image for features section (using about-image-container structure as a reference) */
+        .features-image-wrapper {
+            max-width: 800px;
+            margin: 60px auto 0;
+            width: 100%;
+        }
+        .features-image-container {
+             height: 400px; /* Adapting from .about-image-container */
+             width: 100%;
+             overflow: hidden;
+             position: relative;
+             background: #f5f5f5;
+             border-radius: 12px;
+             box-shadow: var(--shadow-medium);
+        }
+        .features-image-container img {
+            width:100%; height:100%; object-fit:cover; display:block; border:none;
+        }
+
+
+        /* About Section */
+        .about {
+            background-color: var(--light-background-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: var(--secondary-color);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image-container {
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+        }
+        .about-image-container img {
+            width:100%; height:100%; object-fit:cover; display:block; border:none;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--background-color);
+        }
+
+        .testimonials .section-header {
+            margin-bottom: 60px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-background-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .product-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .product-price {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 1rem;
-        }
-        
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .feature-item {
-            background-color: var(--background-white);
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-light);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .feature-item:hover {
+        .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-hover);
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: block; /* Ensure the text icon is properly blocked */
-            line-height: 1;
-        }
-        
-        /* About Section */
-        .about-content-wrapper {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-            flex-direction: row; /* Default desktop layout */
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 50%;
-        }
-
-        .about-image-container {
-            flex: 1;
-            height: 400px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-medium);
-            background: #e0e0e0; /* Placeholder background */
-        }
-
-        /* Testimonials Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .testimonial-card {
-            background-color: var(--background-white);
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-light);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .testimonial-card p {
+        .testimonial-quote {
+            font-size: 1.1rem;
             font-style: italic;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+            color: var(--text-color);
+            margin-bottom: 20px;
         }
 
         .testimonial-author {
             font-weight: 600;
             color: var(--primary-color);
-            margin-top: auto; /* Push author to bottom */
+            margin-top: auto; /* Pushes author to bottom */
         }
 
         .testimonial-author span {
             display: block;
-            font-weight: normal;
             font-size: 0.9rem;
             color: var(--secondary-color);
+            font-weight: 400;
         }
 
-        /* Contact Form */
-        .contact-form-wrapper {
-            background-color: var(--background-white);
-            padding: 3rem;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-medium);
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-background-color);
+        }
+
+        .contact .section-header {
+            margin-bottom: 60px;
+        }
+
+        .contact-form {
             max-width: 600px;
             margin: 0 auto;
+            background-color: var(--background-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
         }
 
-        .contact-form label {
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
         }
 
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
+            padding: 12px 15px;
             border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
+            border-radius: 8px;
             font-size: 1rem;
-            font-family: inherit;
-            transition: border-color var(--transition-speed);
+            color: var(--text-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus {
-            outline: none;
+        .form-group input:focus,
+        .form-group textarea:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
         }
 
-        .contact-form textarea {
+        .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
 
-        .contact-form button {
+        .contact-form .button {
             width: 100%;
-            margin-top: 1rem;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--text-dark);
-            color: var(--text-light);
-            padding: 4rem 0 2rem;
-            font-size: 0.9rem;
-            line-height: 1.8;
+            background-color: #222;
+            color: var(--light-text-color);
+            padding: 60px 0 30px;
+            font-size: 0.95rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
             color: var(--primary-color);
         }
 
-        .footer-section ul {
+        .footer-column ul {
             list-style: none;
         }
 
-        .footer-section ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: color var(--transition-speed);
+        .footer-column ul li {
+            margin-bottom: 10px;
         }
 
-        .footer-section ul li a:hover {
-            color: var(--text-light);
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--light-text-color);
+            text-decoration: none;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 15px;
+            margin-top: 15px;
         }
 
         .social-links a {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 1.5rem;
-            transition: color var(--transition-speed);
+            font-size: 1.5rem; /* Placeholder icon size */
+            transition: color 0.3s ease;
         }
 
         .social-links a:hover {
-            color: var(--text-light);
+            color: var(--light-text-color);
         }
 
-        .copyright {
+        .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
+            padding-top: 30px;
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Responsive Design */
+        /* Mobile specific styles */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.75rem; }
+            h2 { font-size: 1.8rem; }
             h3 { font-size: 1.3rem; }
             p { font-size: 0.95rem; }
 
-            .section-padding {
-                padding: 4rem 0;
-            }
-
             .navbar-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .navbar-brand {
-                margin-bottom: 1rem;
+                height: auto;
+                min-height: var(--header-height);
+                flex-wrap: wrap;
             }
             .nav-links {
+                display: none;
                 flex-direction: column;
-                align-items: flex-start;
-                margin-left: 0;
                 width: 100%;
+                gap: 15px;
+                padding-top: 15px;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
             }
-            .nav-links li {
-                margin: 0.5rem 0;
+            .nav-links.active {
+                display: flex;
             }
-            .nav-links a {
-                padding: 0.25rem 0;
+            .nav-toggle {
+                display: flex;
             }
-            .hero-content h1 {
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
-            .hero-content p {
+            .hero p {
                 font-size: 1rem;
             }
-            .btn-group {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .btn {
-                width: 100%;
-                padding: 0.8rem 1.5rem;
-            }
-
-            .about-content-wrapper {
+            .hero-buttons {
                 flex-direction: column;
             }
-            .about-text, .about-image-container {
-                min-width: unset;
+            .button {
                 width: 100%;
             }
 
-            .product-card, .feature-item, .testimonial-card {
-                margin-bottom: 1.5rem;
-            }
-
-            .footer-grid {
+            .product-grid {
                 grid-template-columns: 1fr;
             }
-            .footer-section {
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image {
+                width: 100%;
+                margin-top: 30px;
+            }
+            .about-image-container {
+                height: 300px;
+            }
+            .features-image-container {
+                height: 300px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
                 text-align: center;
+            }
+            .footer-column ul {
+                padding-left: 0;
             }
             .social-links {
                 justify-content: center;
@@ -538,115 +646,159 @@
 
         @media (max-width: 480px) {
             h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
+            h2 { font-size: 1.6rem; }
             h3 { font-size: 1.2rem; }
             p { font-size: 0.9rem; }
 
-            .container {
-                padding: 0 1rem;
-            }
             .section-padding {
-                padding: 3rem 0;
+                padding: 60px 0;
             }
-            .hero-image-container {
-                height: 60vh;
+            .hero-content {
+                padding: 15px;
             }
-            .hero-content h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
-            .hero-content p {
+            .hero p {
                 font-size: 0.9rem;
             }
-            .contact-form-wrapper {
-                padding: 2rem 1.5rem;
+            .navbar-logo {
+                font-size: 1.5rem;
             }
         }
+
+        /* Generic placeholders for icons (since actual icon libraries are not allowed) */
+        .icon-truck::before { content: "🚚"; }
+        .icon-shield::before { content: "🛡️"; }
+        .icon-support::before { content: "📞"; }
+        .icon-star::before { content: "⭐"; }
+        .icon-facebook::before { content: "📘"; }
+        .icon-twitter::before { content: "🐦"; }
+        .icon-linkedin::before { content: "💼"; }
+        .icon-instagram::before { content: "📸"; }
+
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar">
+    <header class="navbar">
         <div class="container navbar-content">
-            <a href="#" class="navbar-brand">InnovateFlow Solutions</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="home" class="hero-section">
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office with team collaboration" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            <div class="hero-content">
-                <h1>Unlock Your Business Potential with InnovateFlow</h1>
-                <p>Leading the digital transformation with cutting-edge AI, robust cloud solutions, and bespoke software development.</p>
-                <div class="btn-group">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                    <a href="#products" class="btn btn-secondary">Explore Products</a>
-                </div>
+            <a href="#" class="navbar-logo">NexusMart</a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Products/Services Section -->
-    <section id="products" class="section-padding" style="background-color: var(--background-white);">
-        <div class="container">
-            <h2 class="text-center">Our Innovative Solutions</h2>
-            <p class="text-center" style="margin-bottom: 3.5rem;">Empowering your business with scalable, intelligent, and secure technology.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with glowing screens and comfortable seating, symbolizing productivity and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+        <div class="hero-content">
+            <h1>Experience the Future of E-commerce</h1>
+            <p>Discover innovative products and exceptional services tailored for your modern lifestyle. Quality and convenience delivered.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="button button-primary">Explore Products</a>
+                <a href="#about" class="button button-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
 
-            <div class="products-grid">
+    <!-- Products/Services Section -->
+    <section id="products" class="products section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Latest Innovations</h2>
+                <p>Browse our curated selection of high-quality products designed to enhance your daily life.</p>
+            </div>
+            <div class="product-grid">
                 <!-- Product Card 1 -->
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Laptop showing data analytics dashboard" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with a vibrant display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <h3>AI Insight Engine</h3>
-                        <p>Leverage advanced artificial intelligence to gain actionable insights from your data and drive strategic decisions.</p>
-                        <p class="product-price">Starting from ₹45,000/month</p>
+                        <h3>Smart Fitness Tracker Pro</h3>
+                        <p>Monitor your health and track your workouts with precision. Waterproof design and long-lasting battery.</p>
+                        <div class="product-price">₹ 12,499</div>
+                        <a href="#" class="button button-primary">Add to Cart</a>
                     </div>
                 </div>
 
                 <!-- Product Card 2 -->
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Hands typing on a keyboard, working on cloud infrastructure" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium wireless over-ear headphones in a stylish grey color" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <h3>Secure Cloud Migrate</h3>
-                        <p>Seamlessly transition your infrastructure to the cloud with our expert-led, secure, and efficient migration services.</p>
-                        <p class="product-price">Starting from ₹25,000</p>
+                        <h3>Noise-Cancelling Headphones</h3>
+                        <p>Immersive audio experience with superior noise cancellation. Perfect for travel and focused work.</p>
+                        <div class="product-price">₹ 18,999</div>
+                        <a href="#" class="button button-primary">Add to Cart</a>
                     </div>
                 </div>
 
                 <!-- Product Card 3 -->
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Person working on software development on a laptop" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Minimalist desk lamp with adjustable arm and warm glow" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <h3>Bespoke Software Dev</h3>
-                        <p>Get custom applications tailored precisely to your unique business needs, built for performance and scalability.</p>
-                        <p class="product-price">Starting from ₹50,000</p>
+                        <h3>Modern Smart Desk Lamp</h3>
+                        <p>Adjustable brightness and color temperature. Control via app or voice. Enhances productivity.</p>
+                        <div class="product-price">₹ 4,999</div>
+                        <a href="#" class="button button-primary">Add to Cart</a>
                     </div>
                 </div>
 
                 <!-- Product Card 4 -->
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Abstract data flow and optimization diagram" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-resolution portable projector displaying a vibrant image" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <h3>Data Optimization Suite</h3>
-                        <p>Optimize your data management and performance with our comprehensive toolkit designed for efficiency and integrity.</p>
-                        <p class="product-price">Starting from ₹30,000/month</p>
+                        <h3>Compact HD Projector</h3>
+                        <p>Transform any room into a home theater. Crisp visuals and powerful sound in a portable design.</p>
+                        <div class="product-price">₹ 29,999</div>
+                        <a href="#" class="button button-primary">Add to Cart</a>
+                    </div>
+                </div>
+
+                 <!-- Product Card 5 -->
+                 <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Ergonomic office chair with breathable mesh and lumbar support" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ergonomic Office Chair Elite</h3>
+                        <p>Designed for ultimate comfort and support during long working hours. Fully adjustable features.</p>
+                        <div class="product-price">₹ 15,900</div>
+                        <a href="#" class="button button-primary">Add to Cart</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Wireless charging pad for multiple devices on a clean surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Universal Wireless Charger</h3>
+                        <p>Charge all your devices simultaneously with this sleek and efficient wireless charging pad.</p>
+                        <div class="product-price">₹ 3,499</div>
+                        <a href="#" class="button button-primary">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -654,108 +806,107 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section-padding">
+    <section id="features" class="features section-padding">
         <div class="container">
-            <h2 class="text-center">Why Choose InnovateFlow?</h2>
-            <p class="text-center" style="margin-bottom: 3.5rem;">We empower your success with technology that makes a real impact.</p>
-            
+            <div class="section-header text-center">
+                <h2>Why Choose NexusMart?</h2>
+                <p>We're dedicated to delivering an unparalleled shopping experience.</p>
+            </div>
             <div class="features-grid">
-                <!-- Feature 1 -->
                 <div class="feature-item">
-                    <span class="feature-icon">✨</span>
-                    <h3>Cutting-Edge AI</h3>
-                    <p>Leverage advanced artificial intelligence for smarter decisions and automated workflows.</p>
+                    <div class="icon icon-truck"></div>
+                    <h3>Fast & Secure Delivery</h3>
+                    <p>Receive your orders quickly and safely with our optimized logistics network.</p>
                 </div>
-
-                <!-- Feature 2 -->
                 <div class="feature-item">
-                    <span class="feature-icon">☁️</span>
-                    <h3>Scalable Cloud Solutions</h3>
-                    <p>Future-proof your business with robust, scalable, and secure cloud infrastructure.</p>
+                    <div class="icon icon-shield"></div>
+                    <h3>Quality Assurance</h3>
+                    <p>Every product is rigorously tested to meet our high standards of quality and durability.</p>
                 </div>
-
-                <!-- Feature 3 -->
                 <div class="feature-item">
-                    <span class="feature-icon">🤝</span>
-                    <h3>Expert Consulting</h3>
-                    <p>Our team of seasoned professionals guides you every step of the way to achieve your goals.</p>
+                    <div class="icon icon-support"></div>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Our dedicated support team is always ready to assist you with any queries or concerns.</p>
                 </div>
-
-                <!-- Feature 4 -->
                 <div class="feature-item">
-                    <span class="feature-icon">📞</span>
-                    <h3>24/7 Premium Support</h3>
-                    <p>Dedicated round-the-clock support to ensure your operations run smoothly without interruption.</p>
+                    <div class="icon icon-star"></div>
+                    <h3>Hassle-Free Returns</h3>
+                    <p>Not satisfied? Our easy return policy ensures a smooth and customer-friendly process.</p>
+                </div>
+            </div>
+            <div class="features-image-wrapper">
+                <div class="features-image-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="A person typing on a laptop with hands visible, signifying work and digital interaction." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding" style="background-color: var(--background-white);">
+    <section id="about" class="about section-padding">
         <div class="container">
-            <div class="about-content-wrapper">
+            <div class="about-content">
                 <div class="about-text">
-                    <h2>About InnovateFlow Solutions</h2>
-                    <p>At InnovateFlow, we are dedicated to pioneering digital transformation for businesses of all sizes. Founded with a vision to make advanced technology accessible and impactful, our team comprises industry veterans and innovative thinkers passionate about solving complex challenges.</p>
-                    <p>We believe in a collaborative approach, working closely with our clients to understand their unique needs and deliver solutions that not only meet but exceed expectations. From intricate AI models to robust cloud migrations and custom software, we build the future of your business, together.</p>
-                    <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Join Our Journey</a>
+                    <h2>About NexusMart</h2>
+                    <p>NexusMart was founded with a vision to redefine online shopping. We believe in providing access to innovative, high-quality products that seamlessly integrate into your modern lifestyle. Our mission is to offer a curated selection backed by exceptional customer service and a commitment to satisfaction.</p>
+                    <p>From smart gadgets to ergonomic solutions, every item in our catalog is chosen for its performance, design, and value. We are more than just an e-commerce platform; we are your trusted partner in discovering the next big thing.</p>
+                    <a href="#contact" class="button button-primary">Contact Us</a>
                 </div>
-                <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office space" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                <div class="about-image">
+                    <div class="about-image-container">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team of professionals collaborating in a modern office environment, demonstrating teamwork and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding">
+    <section id="testimonials" class="testimonials section-padding">
         <div class="container">
-            <h2 class="text-center">What Our Clients Say</h2>
-            <p class="text-center" style="margin-bottom: 3.5rem;">Hear directly from the businesses we've helped empower.</p>
-
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
+            <div class="section-header text-center">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from the satisfied individuals who choose NexusMart for their needs.</p>
+            </div>
+            <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p>"InnovateFlow transformed our data strategy. The AI Insight Engine is a game-changer, providing us with clarity and direction we never had before. Highly recommended!"</p>
-                    <div class="testimonial-author">Priya Sharma<span>CEO, Nexa Corp.</span></div>
+                    <p class="testimonial-quote">"NexusMart has truly revolutionized my online shopping experience. The product quality is exceptional, and their delivery is incredibly fast. I highly recommend them for anyone looking for premium gadgets."</p>
+                    <div class="testimonial-author">Ravi Kumar <span>Tech Enthusiast</span></div>
                 </div>
-
-                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
-                    <p>"Their Secure Cloud Migrate service was flawless. Minimal downtime and excellent support throughout the entire process. InnovateFlow made a complex task seem easy."</p>
-                    <div class="testimonial-author">Rohan Singh<span>CTO, OmniTech</span></div>
+                    <p class="testimonial-quote">"I was searching for an ergonomic chair for months, and NexusMart had the perfect one. The customer service was top-notch, guiding me through the selection process. Fantastic experience!"</p>
+                    <div class="testimonial-author">Priya Sharma <span>Office Professional</span></div>
                 </div>
-
-                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
-                    <p>"Truly bespoke solutions! InnovateFlow built exactly what we needed for our unique workflow, on time and within budget. Their team is professional and incredibly skilled."</p>
-                    <div class="testimonial-author">Aisha Khan<span>Founder, BrightPath</span></div>
+                    <p class="testimonial-quote">"The noise-cancelling headphones I bought from NexusMart exceeded my expectations. The sound clarity is amazing, and they're so comfortable. Definitely my go-to store now!"</p>
+                    <div class="testimonial-author">Amit Patel <span>Music Lover</span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contact" class="section-padding" style="background-color: var(--background-white);">
+    <section id="contact" class="contact section-padding">
         <div class="container">
-            <h2 class="text-center">Get In Touch</h2>
-            <p class="text-center" style="margin-bottom: 3.5rem;">Have questions or ready to start a project? We'd love to hear from you!</p>
-
-            <div class="contact-form-wrapper">
-                <form class="contact-form">
+            <div class="section-header text-center">
+                <h2>Get In Touch</h2>
+                <p>Have questions or need assistance? Reach out to us anytime!</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your Name" required>
-
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-
+                    <input type="email" id="email" name="email" placeholder="your@example.com" required>
+                </div>
+                <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
-
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
+                    <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="button button-primary">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -763,49 +914,72 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>InnovateFlow Solutions</h4>
-                    <p>Your partner in digital transformation. Innovating for a brighter future.</p>
+                <div class="footer-column">
+                    <h4>NexusMart</h4>
+                    <p>Your destination for premium tech and lifestyle products.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">in</a> <!-- Using text for social icons due to img rules -->
-                        <a href="#" aria-label="Twitter">t</a>
-                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" class="icon-facebook" aria-label="Facebook"></a>
+                        <a href="#" class="icon-twitter" aria-label="Twitter"></a>
+                        <a href="#" class="icon-linkedin" aria-label="LinkedIn"></a>
+                        <a href="#" class="icon-instagram" aria-label="Instagram"></a>
                     </div>
                 </div>
-
-                <div class="footer-section">
+                <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#products">Products</a></li>
-                        <li><a href="#features">Features</a></li>
                         <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-section">
-                    <h4>Services</h4>
+                <div class="footer-column">
+                    <h4>Support</h4>
                     <ul>
-                        <li><a href="#products">AI Insight Engine</a></li>
-                        <li><a href="#products">Cloud Migration</a></li>
-                        <li><a href="#products">Custom Software</a></li>
-                        <li><a href="#products">Data Optimization</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <p>123 Digital Drive, Bengaluru, India</p>
-                    <p>Email: info@innovateflow.com</p>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <p>123 Digital Avenue, Tech City, 560001, India</p>
+                    <p>Email: info@nexusmart.in</p>
                     <p>Phone: +91 98765 43210</p>
                 </div>
             </div>
-
-            <div class="copyright">
-                <p>&copy; 2023 InnovateFlow Solutions. All rights reserved.</p>
+            <div class="footer-bottom">
+                &copy; 2023 NexusMart. All rights reserved.
             </div>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile nav if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
