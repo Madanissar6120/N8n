@@ -3,790 +3,717 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexGen Store - Premium E-commerce</title>
+    <title>Elegance Emporium - Your Style, Your Story</title>
     <style>
+        /* CSS RESET & VARIABLES */
         :root {
-            --primary-color: #4a90e2; /* Blue */
-            --secondary-color: #50e3c2; /* Teal */
-            --accent-color: #ff6b6b; /* Reddish */
-            --text-color: #333;
-            --light-text-color: #666;
-            --background-color: #f8f9fa;
-            --card-bg: #fff;
-            --border-color: #e0e0e0;
-            --shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
-            --shadow-hover: rgba(0, 0, 0, 0.12) 0px 8px 24px;
-            --navbar-bg: rgba(255, 255, 255, 0.8);
-            --max-width: 1200px;
+            --primary-color: #6C63FF; /* A vibrant purple */
+            --secondary-color: #0F172A; /* Dark blue for text/background */
+            --accent-color: #1E293B; /* Slightly lighter dark blue */
+            --text-color: #334155; /* Grayish text */
+            --light-text-color: #F8FAFC; /* Off-white for dark backgrounds */
+            --bg-color-light: #F1F5F9; /* Light gray background */
+            --bg-color-white: #FFFFFF;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --font-family: 'Inter', sans-serif; /* Generic sans-serif for no external font loading */
+            --header-font-family: 'Montserrat', sans-serif; /* Generic sans-serif for no external font loading */
         }
 
-        /* Base Styles */
+        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            color: var(--text-color);
-            background-color: var(--background-color);
+            font-family: var(--font-family);
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color-light);
             scroll-behavior: smooth;
         }
-
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--header-font-family);
+            color: var(--secondary-color);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+        h1 { font-size: 2.2rem; } /* Mobile default */
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.4rem; }
+        p { font-size: 0.95rem; margin-bottom: 1em; } /* Mobile default */
         a {
             color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
         a:hover {
             color: var(--accent-color);
         }
-
-        button {
-            cursor: pointer;
-            border: none;
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .section-padding {
+            padding: 4rem 1.5rem;
+        }
+        .text-center { text-align: center; }
+        .btn {
+            display: inline-block;
             padding: 0.8rem 1.8rem;
             border-radius: 8px;
-            font-size: 1rem;
             font-weight: 600;
+            text-align: center;
+            cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1rem;
+            border: none;
         }
-
         .btn-primary {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--light-text-color);
         }
-
         .btn-primary:hover {
-            background-color: #3a7bd5;
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
+            background-color: #5A54D9; /* A slightly darker primary */
+            color: var(--light-text-color);
         }
-
         .btn-secondary {
             background-color: transparent;
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
-            padding: 0.7rem 1.7rem;
         }
-
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: white;
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
+            color: var(--light-text-color);
         }
-
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        .btn-sm {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
         }
-
-        section {
-            padding: 5rem 0;
+        .card {
+            background-color: var(--bg-color-white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 3rem;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
-
-        h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1rem; }
-        h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 1rem; }
-        h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
-        h4 { font-size: 1.2rem; margin-bottom: 0.6rem; }
-        p { font-size: 1rem; margin-bottom: 1rem; color: var(--light-text-color); }
 
         /* Navbar */
         .navbar {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
             width: 100%;
-            background-color: var(--navbar-bg);
+            background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border-bottom: 1px solid var(--border-color);
             z-index: 1000;
-            box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-            padding: 1rem 0;
         }
-
-        .navbar-content {
+        .navbar-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
         .navbar-logo {
-            font-size: 1.8rem;
             font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        .navbar-logo span {
             color: var(--primary-color);
         }
-
         .nav-links {
-            display: flex;
+            display: none; /* Hidden on mobile */
             list-style: none;
         }
-
         .nav-links li {
-            margin-left: 2.5rem;
+            margin-left: 2rem;
         }
-
         .nav-links a {
-            color: var(--text-color);
+            color: var(--secondary-color);
             font-weight: 500;
-            position: relative;
-            padding-bottom: 5px;
         }
-
-        .nav-links a::after {
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .nav-toggle {
+            display: block; /* Visible on mobile */
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--secondary-color);
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            line-height: 0; /* Remove extra line height from button */
+        }
+        /* Hamburger icon styling */
+        .nav-toggle-icon {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+        .nav-toggle-icon::before,
+        .nav-toggle-icon::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            left: 0;
-            bottom: 0;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
             width: 100%;
+            height: 100%;
+            background-color: var(--secondary-color);
+            transition: transform 0.3s ease;
         }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            padding: 5px;
-            border-radius: 5px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color);
-            transition: all 0.3s ease;
-        }
+        .nav-toggle-icon::before { top: -8px; }
+        .nav-toggle-icon::after { top: 8px; }
 
         /* Hero Section */
         .hero {
             position: relative;
-            height: 80vh; /* Set by container */
+            color: var(--light-text-color);
+            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding-top: 6rem; /* Adjust for fixed navbar */
+            height: 80vh; /* Fixed height container */
         }
-
         .hero-image-container {
-            height: 80vh;
+            height: 80vh; /* CRITICAL - Fixed height */
             width: 100%;
             overflow: hidden;
-            position: relative;
-            background: #f0f0f0; /* Added background for loading state */
+            position: absolute; /* Image takes up full container */
+            top: 0;
+            left: 0;
+            background: #e0e0e0; /* Background color for loading state */
+            z-index: 0;
         }
-
         .hero-content {
-            position: absolute;
-            z-index: 10;
-            color: white; /* Ensure text is visible over image */
+            position: relative;
+            z-index: 1;
+            padding: 1.5rem;
             max-width: 800px;
-            padding: 2rem;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Text shadow for readability */
+            background-color: rgba(0, 0, 0, 0.4); /* Subtle overlay for text readability */
+            border-radius: 12px;
         }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: white;
+        .hero h1 {
+            font-size: 2.8rem; /* Mobile */
+            margin-bottom: 1rem;
+            color: var(--light-text-color);
         }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
+        .hero p {
+            font-size: 1.1rem; /* Mobile */
+            margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.9);
         }
-
-        .hero-buttons {
+        .hero .btn-group {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Products Section */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .product-image-container {
-            height: 260px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #f5f5f5;
-        }
-
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1; /* Allow info to take remaining space */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-info h3 {
-            font-size: 1.4rem;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .product-info p {
-            font-size: 0.95rem;
-            color: var(--light-text-color);
-            margin-bottom: 1rem;
-            flex-grow: 1; /* Allow description to take space */
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-card .btn-primary {
-            width: 100%;
-            margin-top: auto; /* Push button to bottom */
-        }
-
-        /* Features Section */
-        .features {
-            background-color: var(--card-bg);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-top: 3rem;
         }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 12px;
-            background-color: var(--background-color);
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .product-card .product-image-container {
+            height: 260px; /* CRITICAL - Fixed height */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5; /* Background color for loading state */
         }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+        .product-card-content {
+            padding: 1.5rem;
         }
-
-        .feature-item .icon {
-            font-size: 3rem;
+        .product-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        .product-card .price {
+            font-size: 1.2rem;
+            font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
-
-        .feature-item h3 {
-            font-size: 1.35rem;
+        .product-card .description {
+            font-size: 0.9rem;
             color: var(--text-color);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .product-card .btn {
+            width: 100%;
         }
 
-        .feature-item p {
-            font-size: 0.95rem;
-            color: var(--light-text-color);
-        }
-
-        /* Specific image container for features section banner */
+        /* Features Section */
         .features-banner-container {
-            height: 350px; /* Fixed height for feature banner */
+            height: 250px; /* CRITICAL - Fixed height for this image container */
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e9ecef; /* Added background for loading state */
-            margin-bottom: 3rem;
+            background: #b0b0b0; /* Loading state */
+            margin-top: 3rem; /* Spacing from section heading */
+            margin-bottom: 3rem; /* Spacing below the banner image */
             border-radius: 12px;
+            box-shadow: var(--shadow-md);
         }
-
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            background-color: var(--bg-color-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .feature-item .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .feature-item h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
 
         /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 3rem;
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
             align-items: center;
         }
-
+        .about-image {
+            flex: 1;
+            min-width: 0; /* Important for flex items with images */
+        }
         .about-image-container {
-            height: 400px;
+            height: 400px; /* CRITICAL - Fixed height */
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e9ecef; /* Added background for loading state */
+            background: #d0d0d0; /* Loading state */
             border-radius: 12px;
+            box-shadow: var(--shadow-md);
         }
-
-        .about-text h2 {
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
+        .about-content {
+            flex: 1;
+            padding: 1.5rem 0;
         }
-
-        .about-text p {
+        .about-content h2 {
             margin-bottom: 1rem;
-            color: var(--light-text-color);
         }
 
         /* Testimonials Section */
         .testimonials {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--bg-color-white);
         }
-
-        .testimonials .section-heading h2 {
-            color: white;
-        }
-
-        .testimonials-grid {
+        .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
+            margin-top: 3rem;
         }
-
         .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 2.5rem;
+            padding: 2rem;
+            background-color: var(--bg-color-light);
             border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
         }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.25);
-        }
-
         .testimonial-card p {
-            font-size: 1.1rem;
             font-style: italic;
             margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            color: var(--secondary-color);
         }
-
-        .testimonial-author {
+        .testimonial-card .author {
             font-weight: 600;
-            color: white;
+            color: var(--primary-color);
             font-size: 1.1rem;
-        }
-
-        .testimonial-author span {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Contact Section */
         .contact-form {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 3rem;
+            margin: 3rem auto 0;
+            padding: 2rem;
+            background-color: var(--bg-color-white);
             border-radius: 12px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
         }
-
-        .contact-form h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--text-color);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+        .contact-form label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-color);
+            font-weight: 600;
+            color: var(--secondary-color);
         }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
             width: 100%;
-            padding: 0.9rem 1.2rem;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
+            font-family: var(--font-family);
             font-size: 1rem;
-            font-family: inherit;
+            color: var(--secondary-color);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
         }
-
-        .form-group textarea {
+        .contact-form textarea {
             min-height: 120px;
             resize: vertical;
         }
-
-        .contact-form button {
+        .contact-form .btn {
             width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
+            margin-top: 1rem;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--text-color);
-            color: white;
-            padding: 4rem 0 2rem;
-            font-size: 0.9rem;
+            background-color: var(--secondary-color);
+            color: var(--light-text-color);
+            padding: 3rem 1.5rem;
+            text-align: center;
         }
-
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+            text-align: left;
         }
-
-        .footer-col h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            color: var(--secondary-color);
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-text-color);
+            display: block;
+            margin-bottom: 1rem;
         }
-
-        .footer-col ul {
+        .footer-logo span {
+            color: var(--primary-color);
+        }
+        .footer-column h4 {
+            color: var(--light-text-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-column ul {
             list-style: none;
         }
-
-        .footer-col ul li {
+        .footer-column ul li {
             margin-bottom: 0.8rem;
         }
-
-        .footer-col ul li a {
+        .footer-column ul li a {
             color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
         }
-
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
         }
-
-        .footer-socials {
+        .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
+            justify-content: flex-start;
         }
-
-        .footer-socials a {
-            color: white;
+        .social-links a {
+            color: var(--light-text-color);
             font-size: 1.5rem;
+            transition: color 0.3s ease;
         }
-
-        .footer-socials a:hover {
-            color: var(--secondary-color);
+        .social-links a:hover {
+            color: var(--primary-color);
         }
-
         .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.7);
         }
 
+        /* Responsive Styles */
+        @media (min-width: 480px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
 
-        /* Image-specific styles as required */
-        .hero-image-container img,
-        .product-image-container img,
-        .features-banner-container img,
-        .about-image-container img {
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.2rem; }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            h3 { font-size: 1.6rem; }
+            p { font-size: 1.1rem; }
+
+            .navbar-container {
+                padding: 1rem 2rem;
+            }
+            .nav-links {
+                display: flex; /* Visible on tablet/desktop */
+            }
+            .nav-toggle {
+                display: none; /* Hidden on tablet/desktop */
+            }
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .hero-content {
+                padding: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .product-card .btn {
+                width: auto;
+            }
+
+            .features h2 {
+                font-size: 2.5rem;
+            }
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .about-section {
+                flex-direction: row;
+                text-align: left;
+            }
+            .about-image {
+                padding-right: 2rem;
+            }
+            .about-content {
+                padding-left: 2rem;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+                text-align: left;
+            }
+            .social-links {
+                justify-content: flex-start;
+            }
+            .footer-column.about-col {
+                grid-column: span 2;
+            }
+        }
+
+        /* Mobile Nav Specifics */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Hidden off-screen */
+            width: 280px;
+            height: 100%;
+            background-color: var(--bg-color-white);
+            box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            padding: 2rem;
+        }
+        .mobile-nav-menu.open {
+            right: 0; /* Slide in */
+        }
+        .mobile-nav-menu ul {
+            list-style: none;
+            padding-top: 3rem;
+        }
+        .mobile-nav-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+        .mobile-nav-menu ul li a {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: 500;
             display: block;
+        }
+        .mobile-nav-menu ul li a:hover {
+            color: var(--primary-color);
+        }
+        .mobile-nav-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--secondary-color);
+            background: none;
             border: none;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.3rem; }
-
-            .navbar-content {
-                flex-wrap: wrap;
-            }
-
-            .nav-links {
-                display: none; /* Hidden by default on mobile */
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                background-color: var(--navbar-bg);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                padding: 1rem 0;
-                border-top: 1px solid rgba(0, 0, 0, 0.1);
-                margin-top: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 0.8rem 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 80%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-text {
-                order: 2; /* Put text below image on mobile */
-            }
-
-            .about-image-container {
-                height: 300px; /* Adjust height for mobile */
-                order: 1;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-socials {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.6rem; }
-            h3 { font-size: 1.2rem; }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            section {
-                padding: 3rem 0;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .hero-image-container {
-                height: 70vh;
-            }
-
-            .product-info {
-                padding: 1rem;
-            }
-
-            .features-banner-container {
-                height: 250px;
-            }
-
-            .testimonial-card {
-                padding: 1.8rem;
-            }
-
-            .contact-form {
-                padding: 2rem;
-            }
         }
     </style>
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="container navbar-content">
-            <a href="#" class="navbar-logo">NexGen Store</a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="nav-links">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">Elegance<span>Emporium</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+                <span class="nav-toggle-icon"></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+        <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+        <ul>
+            <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+            <li><a href="#products" class="mobile-nav-link">Products</a></li>
+            <li><a href="#features" class="mobile-nav-link">Features</a></li>
+            <li><a href="#about" class="mobile-nav-link">About Us</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
     <!-- Hero Section -->
-    <header class="hero" id="hero">
+    <section id="hero" class="hero">
         <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
-                 alt="Modern business office with computers and employees, representing innovative technology."
-                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with collaborative design and natural light" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
         </div>
         <div class="hero-content">
-            <h1>Elevate Your Lifestyle with NexGen Innovation</h1>
-            <p>Discover cutting-edge electronics, smart gadgets, and stylish accessories designed for the modern world. Unbox the future today.</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn-primary">Shop Now</a>
-                <a href="#about" class="btn-secondary">Learn More</a>
+            <h1>Discover Your Next Style Statement</h1>
+            <p>Elegance Emporium brings you curated fashion and lifestyle products crafted for the modern individual. Explore our exquisite collection.</p>
+            <div class="btn-group">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- Products Section -->
-    <section id="products">
+    <section id="products" class="section-padding">
         <div class="container">
-            <div class="section-heading">
-                <h2>Our Bestsellers</h2>
-                <p>Explore a curated selection of our most popular and highly-rated products.</p>
-            </div>
+            <h2 class="text-center">Our Latest Collection</h2>
+            <p class="text-center">Hand-picked items that blend style, comfort, and innovation.</p>
+
             <div class="products-grid">
-                <div class="product-card">
+                <div class="card product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
-                             alt="Sleek black wireless earbuds in a charging case."
-                             style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek Modern Smartwatch with black strap" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>NexGen Pro Wireless Earbuds</h3>
-                        <p>Immersive audio experience with noise cancellation and ergonomic fit for all-day comfort.</p>
-                        <span class="product-price">₹4,999</span>
-                        <button class="btn-primary">Add to Cart</button>
+                    <div class="product-card-content">
+                        <h3>AuraFit Pro Smartwatch</h3>
+                        <p class="price">₹12,499</p>
+                        <p class="description">Track your fitness, monitor health, and stay connected with our premium AuraFit Pro Smartwatch. Elegant design meets powerful technology.</p>
+                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
                     </div>
                 </div>
-                <div class="product-card">
+
+                <div class="card product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
-                             alt="Modern silver smart watch displaying time and fitness metrics."
-                             style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-fidelity over-ear headphones in grey" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>Vitality Smart Fitness Watch</h3>
-                        <p>Track your health and fitness goals with precision, featuring heart rate monitoring and GPS.</p>
-                        <span class="product-price">₹8,500</span>
-                        <button class="btn-primary">Add to Cart</button>
+                    <div class="product-card-content">
+                        <h3>SonicFlow Wireless Headphones</h3>
+                        <p class="price">₹8,999</p>
+                        <p class="description">Immerse yourself in crystal-clear audio with deep bass. SonicFlow headphones offer unparalleled comfort and sound quality for music lovers.</p>
+                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
                     </div>
                 </div>
-                <div class="product-card">
+
+                <div class="card product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
-                             alt="Stylish silver metal over-ear headphones."
-                             style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant Silver Pendant Necklace on a white background" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>Aura Noise-Cancelling Headphones</h3>
-                        <p>Experience crystal-clear sound and unparalleled comfort for long listening sessions.</p>
-                        <span class="product-price">₹12,499</span>
-                        <button class="btn-primary">Add to Cart</button>
+                    <div class="product-card-content">
+                        <h3>Celeste Silver Pendant</h3>
+                        <p class="price">₹2,850</p>
+                        <p class="description">A delicate sterling silver pendant designed to add a touch of understated elegance to any outfit. Perfect for everyday wear or special occasions.</p>
+                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
                     </div>
                 </div>
-                <div class="product-card">
+
+                <div class="card product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
-                             alt="Compact portable projector displaying a vibrant image."
-                             style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium Leather Wallet with multiple compartments" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-info">
-                        <h3>PocketCinema Mini Projector</h3>
-                        <p>Transform any room into a cinematic experience with this ultra-portable projector.</p>
-                        <span class="product-price">₹18,999</span>
-                        <button class="btn-primary">Add to Cart</button>
-                    </div>
-                </div>
-                 <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
-                             alt="Elegant sleek black smartphone with a vibrant screen."
-                             style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Zenith X5G Smartphone</h3>
-                        <p>Powerful performance, stunning display, and an advanced camera system for everyday excellence.</p>
-                        <span class="product-price">₹35,000</span>
-                        <button class="btn-primary">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
-                             alt="High-quality black drone with visible propellers."
-                             style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Horizon Aerial Drone 4K</h3>
-                        <p>Capture breathtaking aerial footage with this easy-to-fly, high-definition camera drone.</p>
-                        <span class="product-price">₹25,000</span>
-                        <button class="btn-primary">Add to Cart</button>
+                    <div class="product-card-content">
+                        <h3>Voyager Leather Wallet</h3>
+                        <p class="price">₹1,750</p>
+                        <p class="description">Crafted from genuine full-grain leather, the Voyager wallet combines timeless style with practical functionality for your daily essentials.</p>
+                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -794,195 +721,179 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
+    <section id="features" class="section-padding">
         <div class="container">
-            <div class="section-heading">
-                <h2>Why Choose NexGen?</h2>
-                <p>Experience the difference with our commitment to quality, innovation, and customer satisfaction.</p>
-            </div>
+            <h2 class="text-center">Why Choose Elegance Emporium?</h2>
+            <p class="text-center">We are committed to providing an exceptional shopping experience with unparalleled quality.</p>
             <div class="features-banner-container">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
-                     alt="Innovative technological interface displaying data and network connections."
-                     style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Abstract geometric pattern representing efficiency and modern technology" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
             </div>
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="icon">⚡</div>
-                    <h3>Blazing Fast Performance</h3>
-                    <p>Our products are engineered for speed and efficiency, delivering seamless user experiences.</p>
+                <div class="feature-item card">
+                    <span class="icon">✨</span>
+                    <h3>Curated Selection</h3>
+                    <p>Every product is hand-picked for its design, quality, and uniqueness, ensuring you find something truly special.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">✨</div>
-                    <h3>Innovative Design</h3>
-                    <p>Sleek, modern, and intuitive designs that seamlessly blend into your lifestyle.</p>
+                <div class="feature-item card">
+                    <span class="icon">🚀</span>
+                    <h3>Fast & Reliable Delivery</h3>
+                    <p>Experience swift and secure delivery services across India, bringing your desired products to your doorstep without delay.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">🔒</div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Built with robust security features and durable materials for long-lasting peace of mind.</p>
+                <div class="feature-item card">
+                    <span class="icon">💎</span>
+                    <h3>Premium Quality</h3>
+                    <p>We partner with trusted brands and artisans to guarantee the highest standards of craftsmanship and durability.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">🌱</div>
-                    <h3>Eco-Friendly Initiatives</h3>
-                    <p>Committed to sustainable practices, from manufacturing to packaging, for a greener future.</p>
+                <div class="feature-item card">
+                    <span class="icon">🤝</span>
+                    <h3>Dedicated Support</h3>
+                    <p>Our friendly customer support team is always ready to assist you, ensuring a smooth and satisfying shopping journey.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="about-content">
+    <section id="about" class="section-padding">
+        <div class="container about-section">
+            <div class="about-image">
                 <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
-                         alt="Team members collaborating in a modern office environment."
-                         style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-                <div class="about-text">
-                    <h2>About NexGen Store</h2>
-                    <p>Founded in 2020, NexGen Store emerged with a vision to bring cutting-edge technology and modern lifestyle products closer to you. We believe in innovation that simplifies and enhances daily life.</p>
-                    <p>Our team meticulously curates each product, ensuring it meets our high standards of quality, performance, and design. From smart wearables to home electronics, every item in our catalog is chosen to inspire and empower our customers.</p>
-                    <p>We are more than just an e-commerce platform; we are a community driven by a passion for discovery and the pursuit of excellence. Join the NexGen family and step into the future.</p>
-                    <a href="#contact" class="btn-primary">Get in Touch</a>
-                </div>
+            </div>
+            <div class="about-content">
+                <h2>About Elegance Emporium</h2>
+                <p>Founded with a vision to redefine online shopping, Elegance Emporium is more than just a store – it's a destination for discovering exceptional products. We believe in the power of well-designed, high-quality items to enhance everyday life and express individual style.</p>
+                <p>Our journey began with a simple idea: to bring together a diverse range of products, from cutting-edge electronics to timeless fashion accessories, all under one roof. We focus on curating a collection that reflects contemporary trends while upholding values of craftsmanship and sustainability.</p>
+                <p>Join us in our mission to make elegance accessible and empower you to tell your unique story through our carefully selected offerings.</p>
+                <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="section-padding testimonials">
         <div class="container">
-            <div class="section-heading">
-                <h2>What Our Customers Say</h2>
-            </div>
-            <div class="testimonials-grid">
+            <h2 class="text-center">What Our Customers Say</h2>
+            <p class="text-center">Hear from satisfied shoppers who love the Elegance Emporium experience.</p>
+            <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p>"I've never been more impressed with an online store. The NexGen Pro Wireless Earbuds are a game-changer – incredible sound and comfort. Fast delivery too!"</p>
-                    <div class="testimonial-author">Anjali Sharma<span>Mumbai, India</span></div>
+                    <p>"The AuraFit Smartwatch exceeded my expectations! Stylish, functional, and the battery life is incredible. Elegance Emporium delivered it so quickly too!"</p>
+                    <p class="author">- Priya Sharma, Mumbai</p>
                 </div>
                 <div class="testimonial-card">
-                    <p>"The Vitality Smart Fitness Watch is exactly what I needed. Stylish, accurate, and motivates me daily. NexGen Store has truly innovative products!"</p>
-                    <div class="testimonial-author">Rahul Singh<span>Bengaluru, India</span></div>
+                    <p>"I absolutely adore my Celeste Silver Pendant. It's truly a piece of art, and the quality is exceptional. Highly recommend shopping here for unique finds."</p>
+                    <p class="author">- Rahul Verma, Delhi</p>
                 </div>
                 <div class="testimonial-card">
-                    <p>"Excellent customer service and top-notch products. My PocketCinema Mini Projector arrived quickly and exceeded all expectations. Highly recommend NexGen!"</p>
-                    <div class="testimonial-author">Priya Patel<span>Delhi, India</span></div>
+                    <p>"Fantastic customer service and amazing products. The SonicFlow headphones are a game-changer for my daily commute. Will definitely be a returning customer!"</p>
+                    <p class="author">- Sanjana Rao, Bengaluru</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="section-padding">
         <div class="container">
-            <div class="contact-form">
-                <h2>Contact Us</h2>
-                <p style="text-align: center; margin-bottom: 2rem;">Have a question or need support? Send us a message!</p>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
-            </div>
+            <h2 class="text-center">Get In Touch</h2>
+            <p class="text-center">Have a question or need assistance? Fill out the form below and we'll get back to you.</p>
+
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h4>NexGen Store</h4>
-                    <p>Your destination for cutting-edge electronics and smart lifestyle products.</p>
+            <div class="footer-grid">
+                <div class="footer-column about-col">
+                    <a href="#" class="footer-logo">Elegance<span>Emporium</span></a>
+                    <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.8);">Your premier destination for high-quality fashion, electronics, and lifestyle products. We curate the best to bring elegance to your everyday.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="LinkedIn">LI</a>
+                    </div>
                 </div>
-                <div class="footer-col">
+                <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#products">Our Products</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#products">Shop All</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#features">Why Us</a></li>
+                        <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="footer-column">
                     <h4>Customer Service</h4>
                     <ul>
-                        <li><a href="#contact">Contact Support</a></li>
-                        <li><a href="#">FAQs</a></li>
                         <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#contact">Support</a></li>
                     </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect With Us</h4>
-                    <div class="footer-socials">
-                        <a href="#" aria-label="Facebook">F</a> <!-- Placeholder for social icon -->
-                        <a href="#" aria-label="Twitter">T</a> <!-- Placeholder for social icon -->
-                        <a href="#" aria-label="Instagram">I</a> <!-- Placeholder for social icon -->
-                        <a href="#" aria-label="LinkedIn">L</a> <!-- Placeholder for social icon -->
-                    </div>
-                    <p style="margin-top:1rem;">Email: info@nexgenstore.com</p>
-                    <p>Phone: +91 98765 43210</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2024 NexGen Store. All rights reserved.
+                &copy; 2023 Elegance Emporium. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.getElementById('nav-links');
-            const navbar = document.querySelector('.navbar');
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const mobileNavMenu = document.getElementById('mobileNavMenu');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-            mobileMenu.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-            });
+        function toggleMobileNav() {
+            mobileNavMenu.classList.toggle('open');
+            mobileNavOverlay.style.display = mobileNavMenu.classList.contains('open') ? 'block' : 'none';
+            document.body.style.overflow = mobileNavMenu.classList.contains('open') ? 'hidden' : ''; // Prevent scroll
+        }
 
-            // Close menu when a link is clicked (for single-page navigation)
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                    }
+        navToggle.addEventListener('click', toggleMobileNav);
+        mobileNavClose.addEventListener('click', toggleMobileNav);
+        mobileNavOverlay.addEventListener('click', toggleMobileNav);
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Prevent default anchor behavior and use smooth scroll
+                e.preventDefault();
+                if (mobileNavMenu.classList.contains('open')) {
+                    toggleMobileNav(); // Close menu on link click
+                }
+                document.querySelector(link.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
+        });
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+        // Smooth scrolling for all anchor links (desktop nav)
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-
-                    if (targetElement) {
-                        const navbarHeight = navbar.offsetHeight;
-                        const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - (navbarHeight + 20); // Adjust for fixed navbar
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
     </script>
-
 </body>
 </html>
