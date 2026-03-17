@@ -1,36 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EleganceHub - Premium E-commerce</title>
+    <title>Apex Store - Elevate Your Everyday</title>
     <style>
         /* CSS Variables */
         :root {
-            --primary-color: #3B82F6; /* Blue-500 */
-            --primary-dark: #2563EB;  /* Blue-600 */
-            --accent-color: #F97316;  /* Orange-500 */
-            --text-color: #333;
-            --text-light: #555;
-            --background-color: #ffffff;
-            --light-bg: #f8f8f8;
-            --border-color: #e0e0e0;
-            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.15);
-            --nav-height: 70px;
+            --primary-color: #0d1117; /* Dark background */
+            --accent-color: #007bff; /* Blue for highlights/buttons */
+            --text-color: #e6edf3; /* Light text for dark bg */
+            --light-text-color: #a8b3bd; /* Slightly dimmer light text */
+            --background-color: #0a0e14; /* Even darker background */
+            --card-bg: #161b22; /* Card background */
+            --border-color: #30363d; /* Subtle border */
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --navbar-bg: rgba(13, 17, 23, 0.8); /* Semi-transparent for blur */
+
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --h1-font-size: 3rem;
+            --h2-font-size: 2rem;
+            --h3-font-size: 1.5rem;
+            --p-font-size: 1rem;
+            --spacing-unit: 1rem;
         }
 
-        /* Base Styles */
-        * {
+        /* Base Reset */
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif; /* A modern sans-serif fallback */
-            color: var(--text-color);
+            font-family: var(--font-family-sans);
             background-color: var(--background-color);
+            color: var(--text-color);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -39,112 +48,105 @@
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 0.8em;
+            color: var(--text-color);
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
         }
 
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-        p { font-size: 1rem; margin-bottom: 1em; }
+        h1 { font-size: var(--h1-font-size); }
+        h2 { font-size: var(--h2-font-size); }
+        h3 { font-size: var(--h3-font-size); }
+        p { font-size: var(--p-font-size); margin-bottom: var(--spacing-unit); color: var(--light-text-color); }
 
-        /* Links */
         a {
-            color: var(--primary-color);
+            color: var(--accent-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--primary-dark);
+            color: #66b3ff; /* Lighter blue on hover */
         }
 
-        /* Buttons */
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-padding {
+            padding: calc(var(--spacing-unit) * 4) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
         .btn {
             display: inline-block;
-            padding: 0.8em 1.8em;
-            border-radius: 8px;
+            padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
+            border-radius: 6px;
             font-weight: 600;
-            text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             border: none;
+            text-align: center;
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
-            color: #fff;
-            box-shadow: var(--shadow-light);
+            background-color: var(--accent-color);
+            color: var(--text-color);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark);
-            box-shadow: var(--shadow-hover);
+            background-color: #0069d9;
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
         }
 
         .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: #fff;
+            background-color: rgba(0, 123, 255, 0.1);
             transform: translateY(-2px);
         }
 
-        /* Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .section-padding {
-            padding: 5rem 0;
-        }
-
-        /* Image Container CSS (CRITICAL) */
+        /* Image Containers - CRITICAL */
         .hero-image-container { 
             height: 80vh; 
             width: 100%; 
             overflow: hidden; 
             position: relative; 
-            background: #e0e0e0; /* light gray for loading */
+            background: var(--primary-color); /* Fallback/loading bg */
         }
         .product-image-container { 
             height: 260px; 
             width: 100%; 
             overflow: hidden; 
             position: relative; 
-            background: #f5f5f5; /* light gray for loading */
+            background: #f5f5f5; /* Light fallback for products */
         }
         .about-image-container { 
             height: 400px; 
             width: 100%; 
             overflow: hidden; 
             position: relative; 
-            background: #e0e0e0; /* light gray for loading */
+            background: var(--primary-color); /* Fallback/loading bg */
         }
-        .testimonial-avatar-container {
-            height: 60px; /* fixed height for avatar */
-            width: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0; /* light gray for loading */
-            flex-shrink: 0; /* Prevent avatar from shrinking */
-        }
-        .feature-icon-container {
-            height: 60px; /* fixed height for icon */
-            width: 60px;
-            border-radius: 8px; /* Slightly rounded square */
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0; /* light gray for loading */
-            flex-shrink: 0;
+        .feature-image-container { /* Custom for features, small square */
+            height: 80px; 
+            width: 80px; 
+            overflow: hidden; 
+            position: relative; 
+            background: var(--card-bg); /* Fallback */
+            border-radius: 8px; /* Slightly rounded */
+            margin-bottom: var(--spacing-unit);
+            display: flex; /* For centering the img if needed, but obj-fit covers */
+            justify-content: center;
+            align-items: center;
         }
 
 
@@ -153,220 +155,198 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--navbar-bg);
             backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            height: var(--nav-height);
-            display: flex;
-            align-items: center;
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            padding: calc(var(--spacing-unit) * 1) var(--spacing-unit);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .navbar .container {
+        .navbar-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
+            font-size: var(--h3-font-size);
             font-weight: 800;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
             color: var(--text-color);
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: calc(var(--spacing-unit) * 1.5);
+        }
+
+        .navbar-nav a {
+            color: var(--light-text-color);
             font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
+        .navbar-nav a:hover {
+            color: var(--accent-color);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
+        .nav-toggle {
             display: none;
-            flex-direction: column;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
             cursor: pointer;
-            gap: 5px;
-            padding: 5px;
+            padding: 0.5rem;
         }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-
 
         /* Hero Section */
-        .hero-section {
-            position: relative;
+        .hero {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            color: #fff;
-            height: calc(100vh - var(--nav-height)); /* Full viewport height minus nav height */
-            margin-top: calc(-1 * var(--nav-height)); /* Offset for sticky nav */
-            padding-top: var(--nav-height); /* Padding to bring content down */
+            height: 80vh; /* Matches image container height */
+            position: relative; 
         }
-
+        
+        .hero .hero-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Ensure it fills the hero container */
+            height: 100%; /* Ensure it fills the hero container */
+        }
+        
         .hero-content {
-            position: absolute; /* Place content on top of the image */
+            position: relative; /* To be above the image */
             z-index: 1;
-            max-width: 900px;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-            border-radius: 12px;
+            padding: var(--spacing-unit);
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) * 1.5);
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: var(--h1-font-size);
+            color: var(--text-color);
+            text-shadow: 0 4px 8px var(--shadow-color);
         }
 
         .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: calc(var(--p-font-size) * 1.25);
+            color: var(--light-text-color);
+            text-shadow: 0 2px 4px var(--shadow-color);
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: var(--spacing-unit);
             justify-content: center;
         }
-
 
         /* Products Section */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: calc(var(--spacing-unit) * 2);
+            padding-top: calc(var(--spacing-unit) * 2);
         }
 
         .product-card {
-            background-color: var(--background-color);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
         }
 
-        .product-info {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+        .product-card-content {
+            padding: calc(var(--spacing-unit) * 1.5);
         }
 
-        .product-info h3 {
-            font-size: 1.35rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
+        .product-card h3 {
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            font-size: var(--h3-font-size);
         }
 
-        .product-info p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            flex-grow: 1;
-            margin-bottom: 1rem;
+        .product-card p {
+            font-size: calc(var(--p-font-size) * 0.9);
+            color: var(--light-text-color);
+            margin-bottom: var(--spacing-unit);
         }
 
         .product-price {
-            font-size: 1.4rem;
+            font-size: calc(var(--p-font-size) * 1.3);
             font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-unit);
+            display: block;
         }
 
         /* Features Section */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+            padding-top: calc(var(--spacing-unit) * 2);
         }
 
         .feature-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--light-bg);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: calc(var(--spacing-unit) * 2);
+            text-align: center;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
         .feature-item h3 {
-            margin-top: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary-color);
-        }
-        
-        .feature-item .feature-icon-container {
-            margin-bottom: 1rem;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
         }
 
+        .feature-item p {
+            font-size: calc(var(--p-font-size) * 0.95);
+        }
 
         /* About Section */
         .about-content {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: calc(var(--spacing-unit) * 4);
+            flex-wrap: wrap; /* For responsiveness */
+            padding-top: calc(var(--spacing-unit) * 2);
         }
 
         .about-text {
             flex: 1;
+            min-width: 300px;
         }
 
         .about-image {
             flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-color);
         }
-        
-        .about-text h2 {
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            color: var(--text-light);
+        .about-image .about-image-container {
+            width: 100%;
         }
 
 
@@ -374,529 +354,512 @@
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: calc(var(--spacing-unit) * 2);
+            padding-top: calc(var(--spacing-unit) * 2);
         }
 
         .testimonial-card {
-            background-color: var(--background-color);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            border-radius: 8px;
+            padding: calc(var(--spacing-unit) * 2);
+            box-shadow: 0 2px 8px var(--shadow-color);
         }
 
-        .testimonial-quote {
+        .testimonial-card p {
             font-style: italic;
-            color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: var(--spacing-unit);
+            color: var(--text-color);
         }
 
         .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: auto; /* Push author to bottom if card height varies */
-        }
-
-        .author-info strong {
-            display: block;
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
-
-        .author-info span {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
 
         /* Contact Form */
-        .contact-form {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: var(--light-bg);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            border: 1px solid var(--border-color);
-        }
-
-        .contact-form h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.6rem;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 1em;
+        .contact-form-container {
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            font-size: 1rem;
+            padding: calc(var(--spacing-unit) * 3);
+            max-width: 600px;
+            margin: calc(var(--spacing-unit) * 2) auto 0 auto;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            font-weight: 600;
             color: var(--text-color);
-            background-color: var(--background-color);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-form .btn {
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
             width: 100%;
-            padding: 1.2em;
-            font-size: 1.1rem;
+            padding: calc(var(--spacing-unit) * 0.75);
+            margin-bottom: var(--spacing-unit);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            font-family: var(--font-family-sans);
+            font-size: var(--p-font-size);
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+
+        .contact-form button {
+            width: 100%;
         }
 
         /* Footer */
         .footer {
-            background-color: #1a1a1a;
-            color: #ccc;
-            padding: 4rem 0;
+            background-color: var(--primary-color);
+            padding: calc(var(--spacing-unit) * 4) 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text-color);
             text-align: center;
-            font-size: 0.9rem;
+            margin-top: calc(var(--spacing-unit) * 4);
         }
 
-        .footer .container {
+        .footer-content {
             display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: calc(var(--spacing-unit) * 2);
+            text-align: left;
+            margin-bottom: calc(var(--spacing-unit) * 2);
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            font-size: var(--p-font-size);
+            color: var(--text-color);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .footer-col ul {
             list-style: none;
         }
 
-        .footer-links a {
-            color: #ccc;
-            font-weight: 500;
+        .footer-col ul li {
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
         }
 
-        .footer-links a:hover {
-            color: var(--primary-color);
+        .footer-col ul li a {
+            color: var(--light-text-color);
         }
 
-        .social-links {
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-socials {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit);
         }
 
-        .social-links a {
-            color: #ccc;
+        .footer-socials a {
+            color: var(--light-text-color);
             font-size: 1.2rem;
-            transition: color 0.3s ease;
         }
 
-        .social-links a:hover {
-            color: var(--primary-color);
+        .footer-socials a:hover {
+            color: var(--accent-color);
         }
 
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            font-size: 0.85rem;
+        .footer-copyright {
+            margin-top: calc(var(--spacing-unit) * 2);
+            font-size: calc(var(--p-font-size) * 0.85);
+            color: var(--light-text-color);
         }
-
-
-        /* Mobile Responsiveness */
+        
+        /* Mobile Navigation */
+        .navbar-nav.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--navbar-bg);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-unit);
+            box-shadow: 0 8px 16px var(--shadow-color);
+        }
+        .navbar-nav.active li {
+            text-align: center;
+            margin: calc(var(--spacing-unit) * 0.5) 0;
+        }
+        
+        /* Media Queries */
+        /* Tablet breakpoint */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.3rem; }
-            p { font-size: 0.95rem; }
-
-            .navbar {
-                padding: 0.8rem 0;
+            :root {
+                --h1-font-size: 2.5rem;
+                --h2-font-size: 1.8rem;
+                --h3-font-size: 1.3rem;
             }
 
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: var(--nav-height);
-                left: 0;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-                padding: 1.5rem 0;
-                align-items: center;
-                gap: 1.5rem;
+            .navbar-nav {
+                display: none; /* Hide default nav items */
             }
 
-            .nav-links.active {
-                display: flex;
+            .nav-toggle {
+                display: block; /* Show toggle button */
             }
 
-            .menu-toggle {
-                display: flex;
+            .hero-content {
+                gap: var(--spacing-unit);
             }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
             .hero-buttons {
                 flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 80%;
+                gap: calc(var(--spacing-unit) * 0.75);
+                max-width: 250px;
                 margin: 0 auto;
+            }
+            .btn {
+                width: 100%;
             }
 
             .about-content {
                 flex-direction: column;
-                text-align: center;
+                gap: calc(var(--spacing-unit) * 2);
             }
-
-            .about-image-container {
-                height: 300px; /* Adjust height for mobile */
+            .about-image {
                 width: 100%;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
             }
         }
 
+        /* Mobile breakpoint */
         @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.6rem; }
-            h3 { font-size: 1.2rem; }
-            p { font-size: 0.9rem; }
+            :root {
+                --h1-font-size: 2rem;
+                --h2-font-size: 1.5rem;
+                --h3-font-size: 1.2rem;
+                --p-font-size: 0.9rem;
+            }
 
-            .container {
-                padding: 0 1rem;
+            .section-padding {
+                padding: calc(var(--spacing-unit) * 2) 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
             }
             
-            .section-padding {
-                padding: 3rem 0;
-            }
-
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: var(--h1-font-size);
             }
 
             .hero-content p {
-                font-size: 1rem;
+                font-size: var(--p-font-size);
             }
 
-            .hero-buttons .btn {
-                width: 90%;
+            .products-grid, .features-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
             }
 
-            .contact-form {
-                padding: 2rem;
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-col {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .footer-socials {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">EleganceHub</a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="nav-menu">
-                <li><a href="#home">Home</a></li>
+        <div class="navbar-content container">
+            <a href="#" class="navbar-brand">Apex Store</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="navbar-nav">
                 <li><a href="#products">Products</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <header class="hero">
         <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with clean desks and natural light, representing a professional business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office workspace with computers and coffee" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
         </div>
-        <div class="hero-content">
-            <h1>Experience Unrivaled Quality & Style</h1>
-            <p>Discover a curated collection of premium products designed to elevate your everyday life. Elegance starts here.</p>
+        <div class="hero-content container">
+            <h1>Elevate Your Everyday with Apex Store</h1>
+            <p>Discover cutting-edge electronics and smart gadgets designed for performance, style, and seamless integration into your life.</p>
             <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">Shop Our Collection</a>
+                <a href="#products" class="btn btn-primary">Shop Now</a>
                 <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Products Section -->
-    <section id="products" class="section-padding">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3.5rem;">Our Latest Collections</h2>
-            <div class="products-grid">
-                <!-- Product Card 1 -->
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant minimalist smart watch with black strap on a dark surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Apex Smart Watch Pro</h3>
-                        <p>Track your fitness and stay connected with our advanced smartwatch, featuring a sleek design and long-lasting battery.</p>
-                        <span class="product-price">₹14,999</span>
-                        <button class="btn btn-primary">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product Card 2 -->
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-fidelity wireless over-ear headphones in a modern design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Harmony Noise-Cancelling Headphones</h3>
-                        <p>Immerse yourself in pure audio bliss with our premium wireless headphones. Exceptional sound, ultimate comfort.</p>
-                        <span class="product-price">₹9,499</span>
-                        <button class="btn btn-primary">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product Card 3 -->
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Slim, portable power bank for charging mobile devices, presented on a minimalist background" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Ultra-Fast Portable Power Bank</h3>
-                        <p>Never run out of charge with our sleek and powerful portable charger. Fast charging for all your devices.</p>
-                        <span class="product-price">₹2,999</span>
-                        <button class="btn btn-primary">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product Card 4 -->
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Stylish pair of black leather smart shoes with subtle detailing" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Elevate Leather Loafers</h3>
-                        <p>Step out in sophisticated comfort. Handcrafted leather loafers designed for modern elegance.</p>
-                        <span class="product-price">₹7,500</span>
-                        <button class="btn btn-primary">Add to Cart</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="section-padding" style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3.5rem;">Why Choose EleganceHub?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon-container">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing teamwork and strategic planning, symbolizing 'Expert Curation'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Expert Curation</h3>
-                    <p>Every product is handpicked by our experts for its quality, design, and innovation, ensuring you get only the best.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon-container">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing growth and progress, symbolizing 'Uncompromising Quality'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Uncompromising Quality</h3>
-                    <p>We partner with leading brands and artisans to deliver products crafted from premium materials with meticulous attention to detail.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon-container">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing customer satisfaction and support, symbolizing 'Seamless Shopping Experience'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Seamless Shopping Experience</h3>
-                    <p>Enjoy easy navigation, secure payments, and fast delivery right to your doorstep, making your shopping journey a pleasure.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon-container">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing global reach and community, symbolizing 'Dedicated Support'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Dedicated Support</h3>
-                    <p>Our customer service team is always here to assist you, ensuring a satisfying experience from browsing to post-purchase.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-padding">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Story: Crafting Elegance for You</h2>
-                    <p>At EleganceHub, we believe that true luxury lies in thoughtful design, impeccable quality, and effortless experience. Founded in 2023, our mission has been to bring together a collection of premium products that not only serve a purpose but also inspire and delight.</p>
-                    <p>We meticulously source each item, from innovative tech gadgets to timeless lifestyle accessories, ensuring it meets our high standards for craftsmanship and aesthetic appeal. Our passion is to empower you to live a life of refined taste and convenience.</p>
-                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                </div>
-                <div class="about-image">
-                    <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse group of professionals collaborating in a modern office space, symbolizing team and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding" style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3.5rem;">What Our Customers Say</h2>
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"EleganceHub has completely transformed my shopping experience. The quality of products is outstanding, and their customer service is truly exceptional. Highly recommend!"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Abstract image of headphones, repurposed as an avatar for customer review" style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius:50%;" loading="lazy">
+    <main>
+        <section id="products" class="section-padding">
+            <div class="container text-center">
+                <h2>Our Premium Products</h2>
+                <p>Explore a curated selection of smart devices and accessories built for the modern lifestyle.</p>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek smartwatch with digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="author-info">
-                            <strong>Priya Sharma</strong>
-                            <span>Mumbai, India</span>
+                        <div class="product-card-content">
+                            <h3>ZenFlow Smartwatch</h3>
+                            <p>Track your fitness, monitor health, and stay connected with style.</p>
+                            <span class="product-price">₹14,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
-                </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"I purchased the Apex Smart Watch Pro, and I'm incredibly impressed. It looks stylish and functions flawlessly. EleganceHub is now my go-to for premium gadgets."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Abstract image of a smart watch, repurposed as an avatar for customer review" style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius:50%;" loading="lazy">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Over-ear headphones in a studio setting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="author-info">
-                            <strong>Amit Kumar</strong>
-                            <span>Bengaluru, India</span>
+                        <div class="product-card-content">
+                            <h3>Aura Wireless Earbuds</h3>
+                            <p>Immersive audio, crystal-clear calls, and all-day comfort for your music.</p>
+                            <span class="product-price">₹7,499</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
-                </div>
 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"The delivery was swift, and the product packaging was exquisite. It felt like receiving a gift. EleganceHub truly delivers on its promise of elegance and quality."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Abstract image of headphones, repurposed as an avatar for customer review" style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius:50%;" loading="lazy">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-155099569-f06b4e7235a9?w=1200&q=80" alt="Ergonomic mechanical keyboard with colorful backlighting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="author-info">
-                            <strong>Sarah Khan</strong>
-                            <span>Delhi, India</span>
+                        <div class="product-card-content">
+                            <h3>Quantum Mechanical Keyboard</h3>
+                            <p>Precision typing, customizable RGB, and a durable build for serious work or play.</p>
+                            <span class="product-price">₹8,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1593305841443-fd3c467a690e?w=1200&q=80" alt="Gaming mouse with multiple buttons and glowing lights" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>Velocity Pro Gaming Mouse</h3>
+                            <p>Ultra-responsive, programmable buttons, and ergonomic design for competitive gaming.</p>
+                            <span class="product-price">₹3,299</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1588665042299-bb6e4f3a7776?w=1200&q=80" alt="Tablet with stylus and blank screen on a table" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>Luminar 10-inch Tablet</h3>
+                            <p>Vibrant display, powerful processor, and stylus support for creativity on the go.</p>
+                            <span class="product-price">₹28,500</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1563901618698-c115160b73c4?w=1200&q=80" alt="Portable power bank charging a smartphone" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>ApexCharge 20000mAh Power Bank</h3>
+                            <p>Never run out of battery. Fast charging, high capacity, and universal compatibility.</p>
+                            <span class="product-price">₹1,899</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-padding">
-        <div class="container">
-            <div class="contact-form">
-                <h2>Get in Touch with Us</h2>
-                <form>
-                    <div class="form-group">
+        <section id="features" class="section-padding">
+            <div class="container text-center">
+                <h2>Why Choose Apex Store?</h2>
+                <p>Experience the difference with our commitment to quality, innovation, and customer satisfaction.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-image-container" style="margin: 0 auto 1rem auto;">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Office workers collaborating around a table" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <h3>Unrivaled Quality</h3>
+                        <p>We source only the best materials and components to ensure lasting performance and reliability.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image-container" style="margin: 0 auto 1rem auto;">
+                            <img src="https://images.unsplash.com/photo-1517430030787-8f74220b33c0?w=1200&q=80" alt="Abstract gears or cogs representing innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <h3>Cutting-Edge Innovation</h3>
+                        <p>Stay ahead with products that integrate the latest technology and smart functionalities.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image-container" style="margin: 0 auto 1rem auto;">
+                            <img src="https://images.unsplash.com/photo-1516321303107-e85d852a514d?w=1200&q=80" alt="People shaking hands over a desk representing customer service" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <h3>Dedicated Support</h3>
+                        <p>Our expert customer service team is always ready to assist you with any queries or issues.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image-container" style="margin: 0 auto 1rem auto;">
+                            <img src="https://images.unsplash.com/photo-155099569-f06b4e7235a9?w=1200&q=80" alt="Keyboard representing seamless integration" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <h3>Seamless Experience</h3>
+                        <p>From browsing to unboxing, enjoy a smooth and enjoyable shopping journey with us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container">
+                <h2 class="text-center">About Apex Store</h2>
+                <p class="text-center">Our journey to bring you the best in technology.</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Vision for a Connected Future</h3>
+                        <p>Founded with a passion for innovation and a commitment to quality, Apex Store aims to be your trusted partner in navigating the ever-evolving world of technology. We believe that technology should enhance life, not complicate it.</p>
+                        <p>From smartwatches that keep you on track to audio gear that immerses you, every product in our catalog is carefully selected and rigorously tested to ensure it meets our high standards for performance, durability, and user experience. We are more than just a retailer; we are a community of tech enthusiasts dedicated to empowering you with tools that truly make a difference.</p>
+                        <a href="#contact" class="btn btn-primary">Join Our Community</a>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-image-container">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team collaborating in a modern office, representing Apex Store's commitment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section-padding">
+            <div class="container text-center">
+                <h2>What Our Customers Say</h2>
+                <p>Real feedback from real users who love their Apex Store products.</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"The ZenFlow Smartwatch is a game-changer! It's stylish, functional, and the battery life is incredible. Apex Store's service was also top-notch."</p>
+                        <span class="testimonial-author">- Priya Sharma, Bengaluru</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I've tried many earbuds, but the Aura Wireless Earbuds from Apex Store are by far the best. The sound quality is amazing, and they fit perfectly for my workouts."</p>
+                        <span class="testimonial-author">- Rahul Singh, Mumbai</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Fantastic experience with Apex Store. My new Quantum Mechanical Keyboard arrived quickly, and it's transformed my work setup. Highly recommend!"</p>
+                        <span class="testimonial-author">- Ananya Gupta, Delhi</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="container text-center">
+                <h2>Get in Touch</h2>
+                <p>Have questions, feedback, or need support? We're here to help!</p>
+                <div class="contact-form-container">
+                    <form class="contact-form">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Your message..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
 
-    <!-- Footer -->
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Your message..."></textarea>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
-            <div class="footer-top">
-                <div class="navbar-brand" style="color: #fff;">EleganceHub</div>
-                <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Discover unparalleled quality and timeless design. Your destination for premium lifestyle products.</p>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Apex Store</h4>
+                    <p>Elevating your everyday with premium electronics.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                    </div>
+                </div>
             </div>
-            <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2023 EleganceHub. All rights reserved.
+            <div class="footer-copyright">
+                &copy; 2023 Apex Store. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
-        // Navbar toggle for mobile
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navbarNav = document.querySelector('.navbar-nav');
 
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('active'); // Optional: for burger icon animation
-        });
+            navToggle.addEventListener('click', () => {
+                navbarNav.classList.toggle('active');
+            });
 
-        // Close nav menu when a link is clicked (for single page navigation)
-        document.querySelectorAll('#nav-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
+            // Close mobile nav when a link is clicked
+            navbarNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarNav.classList.contains('active')) {
+                        navbarNav.classList.remove('active');
+                    }
+                });
             });
         });
     </script>
