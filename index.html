@@ -1,662 +1,664 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegance Emporium - Your Style, Your Story</title>
+    <title>EleganceHub - Premium E-commerce</title>
     <style>
-        /* CSS RESET & VARIABLES */
+        /* CSS Variables */
         :root {
-            --primary-color: #6C63FF; /* A vibrant purple */
-            --secondary-color: #0F172A; /* Dark blue for text/background */
-            --accent-color: #1E293B; /* Slightly lighter dark blue */
-            --text-color: #334155; /* Grayish text */
-            --light-text-color: #F8FAFC; /* Off-white for dark backgrounds */
-            --bg-color-light: #F1F5F9; /* Light gray background */
-            --bg-color-white: #FFFFFF;
-            --border-color: #E2E8F0;
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --font-family: 'Inter', sans-serif; /* Generic sans-serif for no external font loading */
-            --header-font-family: 'Montserrat', sans-serif; /* Generic sans-serif for no external font loading */
+            --primary-color: #3B82F6; /* Blue-500 */
+            --primary-dark: #2563EB;  /* Blue-600 */
+            --accent-color: #F97316;  /* Orange-500 */
+            --text-color: #333;
+            --text-light: #555;
+            --background-color: #ffffff;
+            --light-bg: #f8f8f8;
+            --border-color: #e0e0e0;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.15);
+            --nav-height: 70px;
         }
 
-        /* Base styles */
+        /* Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
-            font-family: var(--font-family);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif; /* A modern sans-serif fallback */
             color: var(--text-color);
-            background-color: var(--bg-color-light);
-            scroll-behavior: smooth;
+            background-color: var(--background-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
+        /* Typography */
         h1, h2, h3, h4, h5, h6 {
-            font-family: var(--header-font-family);
-            color: var(--secondary-color);
-            margin-bottom: 0.8em;
+            font-weight: 700;
             line-height: 1.2;
+            margin-bottom: 0.8em;
         }
-        h1 { font-size: 2.2rem; } /* Mobile default */
-        h2 { font-size: 1.8rem; }
-        h3 { font-size: 1.4rem; }
-        p { font-size: 0.95rem; margin-bottom: 1em; } /* Mobile default */
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        p { font-size: 1rem; margin-bottom: 1em; }
+
+        /* Links */
         a {
             color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         a:hover {
-            color: var(--accent-color);
+            color: var(--primary-dark);
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem;
-        }
-        .section-padding {
-            padding: 4rem 1.5rem;
-        }
-        .text-center { text-align: center; }
+
+        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 0.8rem 1.8rem;
+            padding: 0.8em 1.8em;
             border-radius: 8px;
             font-weight: 600;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
             border: none;
         }
+
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--light-text-color);
+            color: #fff;
+            box-shadow: var(--shadow-light);
         }
+
         .btn-primary:hover {
-            background-color: #5A54D9; /* A slightly darker primary */
-            color: var(--light-text-color);
+            background-color: var(--primary-dark);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
         }
+
         .btn-secondary {
             background-color: transparent;
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
         }
+
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--light-text-color);
+            color: #fff;
+            transform: translateY(-2px);
         }
-        .btn-sm {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem;
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
-        .card {
-            background-color: var(--bg-color-white);
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* Image Container CSS (CRITICAL) */
+        .hero-image-container { 
+            height: 80vh; 
+            width: 100%; 
+            overflow: hidden; 
+            position: relative; 
+            background: #e0e0e0; /* light gray for loading */
+        }
+        .product-image-container { 
+            height: 260px; 
+            width: 100%; 
+            overflow: hidden; 
+            position: relative; 
+            background: #f5f5f5; /* light gray for loading */
+        }
+        .about-image-container { 
+            height: 400px; 
+            width: 100%; 
+            overflow: hidden; 
+            position: relative; 
+            background: #e0e0e0; /* light gray for loading */
+        }
+        .testimonial-avatar-container {
+            height: 60px; /* fixed height for avatar */
+            width: 60px;
+            border-radius: 50%;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            background: #e0e0e0; /* light gray for loading */
+            flex-shrink: 0; /* Prevent avatar from shrinking */
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+        .feature-icon-container {
+            height: 60px; /* fixed height for icon */
+            width: 60px;
+            border-radius: 8px; /* Slightly rounded square */
+            overflow: hidden;
+            position: relative;
+            background: #e0e0e0; /* light gray for loading */
+            flex-shrink: 0;
         }
+
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            width: 100%;
+            z-index: 1000;
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
         }
-        .navbar-container {
+
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-        .navbar-logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-        .navbar-logo span {
-            color: var(--primary-color);
-        }
-        .nav-links {
-            display: none; /* Hidden on mobile */
-            list-style: none;
-        }
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        .nav-links a {
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        .nav-toggle {
-            display: block; /* Visible on mobile */
+
+        .navbar-brand {
             font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--secondary-color);
-            background: none;
-            border: none;
-            padding: 0.5rem;
-            line-height: 0; /* Remove extra line height from button */
+            font-weight: 800;
+            color: var(--primary-color);
         }
-        /* Hamburger icon styling */
-        .nav-toggle-icon {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: var(--secondary-color);
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 500;
             position: relative;
-            transition: background-color 0.3s ease;
+            padding: 0.5rem 0;
         }
-        .nav-toggle-icon::before,
-        .nav-toggle-icon::after {
+
+        .nav-links a::after {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: var(--secondary-color);
-            transition: transform 0.3s ease;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
         }
-        .nav-toggle-icon::before { top: -8px; }
-        .nav-toggle-icon::after { top: 8px; }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
 
         /* Hero Section */
-        .hero {
+        .hero-section {
             position: relative;
-            color: var(--light-text-color);
-            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 80vh; /* Fixed height container */
+            text-align: center;
+            color: #fff;
+            height: calc(100vh - var(--nav-height)); /* Full viewport height minus nav height */
+            margin-top: calc(-1 * var(--nav-height)); /* Offset for sticky nav */
+            padding-top: var(--nav-height); /* Padding to bring content down */
         }
-        .hero-image-container {
-            height: 80vh; /* CRITICAL - Fixed height */
-            width: 100%;
-            overflow: hidden;
-            position: absolute; /* Image takes up full container */
-            top: 0;
-            left: 0;
-            background: #e0e0e0; /* Background color for loading state */
-            z-index: 0;
-        }
+
         .hero-content {
-            position: relative;
+            position: absolute; /* Place content on top of the image */
             z-index: 1;
-            padding: 1.5rem;
-            max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.4); /* Subtle overlay for text readability */
+            max-width: 900px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
             border-radius: 12px;
         }
-        .hero h1 {
-            font-size: 2.8rem; /* Mobile */
+
+        .hero-content h1 {
+            font-size: 4rem;
             margin-bottom: 1rem;
-            color: var(--light-text-color);
         }
-        .hero p {
-            font-size: 1.1rem; /* Mobile */
+
+        .hero-content p {
+            font-size: 1.25rem;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
         }
-        .hero .btn-group {
+
+        .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            flex-wrap: wrap;
         }
+
 
         /* Products Section */
         .products-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
-        .product-card .product-image-container {
-            height: 260px; /* CRITICAL - Fixed height */
-            width: 100%;
+
+        .product-card {
+            background-color: var(--background-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
             overflow: hidden;
-            position: relative;
-            background: #f5f5f5; /* Background color for loading state */
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
         }
-        .product-card-content {
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-info {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
-        .product-card h3 {
-            margin-top: 0;
+
+        .product-info h3 {
+            font-size: 1.35rem;
             margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            color: var(--text-color);
         }
-        .product-card .price {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
+
+        .product-info p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            flex-grow: 1;
             margin-bottom: 1rem;
         }
-        .product-card .description {
-            font-size: 0.9rem;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-        }
-        .product-card .btn {
-            width: 100%;
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
         }
 
         /* Features Section */
-        .features-banner-container {
-            height: 250px; /* CRITICAL - Fixed height for this image container */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #b0b0b0; /* Loading state */
-            margin-top: 3rem; /* Spacing from section heading */
-            margin-bottom: 3rem; /* Spacing below the banner image */
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-        }
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
+
         .feature-item {
-            background-color: var(--bg-color-white);
-            border-radius: 12px;
-            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            padding: 2rem;
+            background-color: var(--light-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
         }
+
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-hover);
         }
-        .feature-item .icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: block;
-        }
+
         .feature-item h3 {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
         }
-        .feature-item p {
+        
+        .feature-item .feature-icon-container {
+            margin-bottom: 1rem;
+        }
+
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+        }
+
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--background-color);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: auto; /* Push author to bottom if card height varies */
+        }
+
+        .author-info strong {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .author-info span {
             font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
             color: var(--text-color);
         }
 
-        /* About Section */
-        .about-section {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-        }
-        .about-image {
-            flex: 1;
-            min-width: 0; /* Important for flex items with images */
-        }
-        .about-image-container {
-            height: 400px; /* CRITICAL - Fixed height */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
             width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #d0d0d0; /* Loading state */
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-        }
-        .about-content {
-            flex: 1;
-            padding: 1.5rem 0;
-        }
-        .about-content h2 {
-            margin-bottom: 1rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--bg-color-white);
-        }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .testimonial-card {
-            padding: 2rem;
-            background-color: var(--bg-color-light);
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-        }
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            color: var(--secondary-color);
-        }
-        .testimonial-card .author {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        /* Contact Section */
-        .contact-form {
-            max-width: 600px;
-            margin: 3rem auto 0;
-            padding: 2rem;
-            background-color: var(--bg-color-white);
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-        }
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1.5rem;
+            padding: 1em;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            font-family: var(--font-family);
             font-size: 1rem;
-            color: var(--secondary-color);
+            color: var(--text-color);
+            background-color: var(--background-color);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus {
+
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
-        .contact-form textarea {
-            min-height: 120px;
+
+        .form-group textarea {
             resize: vertical;
+            min-height: 120px;
         }
+
         .contact-form .btn {
             width: 100%;
-            margin-top: 1rem;
+            padding: 1.2em;
+            font-size: 1.1rem;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-            padding: 3rem 1.5rem;
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 4rem 0;
             text-align: center;
+            font-size: 0.9rem;
         }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            text-align: left;
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
-        .footer-logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--light-text-color);
-            display: block;
-            margin-bottom: 1rem;
-        }
-        .footer-logo span {
-            color: var(--primary-color);
-        }
-        .footer-column h4 {
-            color: var(--light-text-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        .footer-column ul {
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
             list-style: none;
         }
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
+
+        .footer-links a {
+            color: #ccc;
+            font-weight: 500;
         }
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
-        }
-        .footer-column ul li a:hover {
+
+        .footer-links a:hover {
             color: var(--primary-color);
         }
+
         .social-links {
             display: flex;
-            gap: 1rem;
+            justify-content: center;
+            gap: 2rem;
             margin-top: 1rem;
-            justify-content: flex-start;
         }
+
         .social-links a {
-            color: var(--light-text-color);
-            font-size: 1.5rem;
+            color: #ccc;
+            font-size: 1.2rem;
             transition: color 0.3s ease;
         }
+
         .social-links a:hover {
             color: var(--primary-color);
         }
+
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
             margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Responsive Styles */
-        @media (min-width: 480px) {
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.5rem; }
-            p { font-size: 1rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.3rem; }
+            p { font-size: 0.95rem; }
 
-            .hero h1 { font-size: 3.5rem; }
-            .hero p { font-size: 1.2rem; }
+            .navbar {
+                padding: 0.8rem 0;
+            }
 
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                padding: 1.5rem 0;
+                align-items: center;
+                gap: 1.5rem;
             }
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            .nav-links.active {
+                display: flex;
             }
-            .testimonial-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image-container {
+                height: 300px; /* Adjust height for mobile */
+                width: 100%;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
-        @media (min-width: 768px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.2rem; }
-            h3 { font-size: 1.6rem; }
-            p { font-size: 1.1rem; }
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            h3 { font-size: 1.2rem; }
+            p { font-size: 0.9rem; }
 
-            .navbar-container {
-                padding: 1rem 2rem;
+            .container {
+                padding: 0 1rem;
             }
-            .nav-links {
-                display: flex; /* Visible on tablet/desktop */
-            }
-            .nav-toggle {
-                display: none; /* Hidden on tablet/desktop */
-            }
-            .hero h1 {
-                font-size: 4.5rem;
-            }
-            .hero p {
-                font-size: 1.3rem;
-            }
-            .hero-content {
-                padding: 2.5rem;
+            
+            .section-padding {
+                padding: 3rem 0;
             }
 
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .product-card .btn {
-                width: auto;
-            }
-
-            .features h2 {
+            .hero-content h1 {
                 font-size: 2.5rem;
             }
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
+
+            .hero-content p {
+                font-size: 1rem;
             }
 
-            .about-section {
-                flex-direction: row;
-                text-align: left;
-            }
-            .about-image {
-                padding-right: 2rem;
-            }
-            .about-content {
-                padding-left: 2rem;
+            .hero-buttons .btn {
+                width: 90%;
             }
 
-            .testimonial-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .contact-form {
+                padding: 2rem;
             }
-
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-                text-align: left;
-            }
-            .social-links {
-                justify-content: flex-start;
-            }
-            .footer-column.about-col {
-                grid-column: span 2;
-            }
-        }
-
-        /* Mobile Nav Specifics */
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-        }
-        .mobile-nav-menu {
-            position: fixed;
-            top: 0;
-            right: -300px; /* Hidden off-screen */
-            width: 280px;
-            height: 100%;
-            background-color: var(--bg-color-white);
-            box-shadow: -4px 0 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: right 0.3s ease-in-out;
-            padding: 2rem;
-        }
-        .mobile-nav-menu.open {
-            right: 0; /* Slide in */
-        }
-        .mobile-nav-menu ul {
-            list-style: none;
-            padding-top: 3rem;
-        }
-        .mobile-nav-menu ul li {
-            margin-bottom: 1.5rem;
-        }
-        .mobile-nav-menu ul li a {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            font-weight: 500;
-            display: block;
-        }
-        .mobile-nav-menu ul li a:hover {
-            color: var(--primary-color);
-        }
-        .mobile-nav-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--secondary-color);
-            background: none;
-            border: none;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="navbar-logo">Elegance<span>Emporium</span></a>
-            <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
-                <span class="nav-toggle-icon"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
+        <div class="container">
+            <a href="#" class="navbar-brand">EleganceHub</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
-    <div class="mobile-nav-menu" id="mobileNavMenu">
-        <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
-        <ul>
-            <li><a href="#hero" class="mobile-nav-link">Home</a></li>
-            <li><a href="#products" class="mobile-nav-link">Products</a></li>
-            <li><a href="#features" class="mobile-nav-link">Features</a></li>
-            <li><a href="#about" class="mobile-nav-link">About Us</a></li>
-            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-        </ul>
-    </div>
-
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <section id="home" class="hero-section">
         <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with collaborative design and natural light" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with clean desks and natural light, representing a professional business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
         </div>
         <div class="hero-content">
-            <h1>Discover Your Next Style Statement</h1>
-            <p>Elegance Emporium brings you curated fashion and lifestyle products crafted for the modern individual. Explore our exquisite collection.</p>
-            <div class="btn-group">
-                <a href="#products" class="btn btn-primary">Shop Now</a>
+            <h1>Experience Unrivaled Quality & Style</h1>
+            <p>Discover a curated collection of premium products designed to elevate your everyday life. Elegance starts here.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Our Collection</a>
                 <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
@@ -665,89 +667,96 @@
     <!-- Products Section -->
     <section id="products" class="section-padding">
         <div class="container">
-            <h2 class="text-center">Our Latest Collection</h2>
-            <p class="text-center">Hand-picked items that blend style, comfort, and innovation.</p>
-
+            <h2 style="text-align: center; margin-bottom: 3.5rem;">Our Latest Collections</h2>
             <div class="products-grid">
-                <div class="card product-card">
+                <!-- Product Card 1 -->
+                <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek Modern Smartwatch with black strap" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant minimalist smart watch with black strap on a dark surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card-content">
-                        <h3>AuraFit Pro Smartwatch</h3>
-                        <p class="price">₹12,499</p>
-                        <p class="description">Track your fitness, monitor health, and stay connected with our premium AuraFit Pro Smartwatch. Elegant design meets powerful technology.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                    <div class="product-info">
+                        <h3>Apex Smart Watch Pro</h3>
+                        <p>Track your fitness and stay connected with our advanced smartwatch, featuring a sleek design and long-lasting battery.</p>
+                        <span class="product-price">₹14,999</span>
+                        <button class="btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
 
-                <div class="card product-card">
+                <!-- Product Card 2 -->
+                <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-fidelity over-ear headphones in grey" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-fidelity wireless over-ear headphones in a modern design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card-content">
-                        <h3>SonicFlow Wireless Headphones</h3>
-                        <p class="price">₹8,999</p>
-                        <p class="description">Immerse yourself in crystal-clear audio with deep bass. SonicFlow headphones offer unparalleled comfort and sound quality for music lovers.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                    <div class="product-info">
+                        <h3>Harmony Noise-Cancelling Headphones</h3>
+                        <p>Immerse yourself in pure audio bliss with our premium wireless headphones. Exceptional sound, ultimate comfort.</p>
+                        <span class="product-price">₹9,499</span>
+                        <button class="btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
 
-                <div class="card product-card">
+                <!-- Product Card 3 -->
+                <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant Silver Pendant Necklace on a white background" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Slim, portable power bank for charging mobile devices, presented on a minimalist background" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card-content">
-                        <h3>Celeste Silver Pendant</h3>
-                        <p class="price">₹2,850</p>
-                        <p class="description">A delicate sterling silver pendant designed to add a touch of understated elegance to any outfit. Perfect for everyday wear or special occasions.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                    <div class="product-info">
+                        <h3>Ultra-Fast Portable Power Bank</h3>
+                        <p>Never run out of charge with our sleek and powerful portable charger. Fast charging for all your devices.</p>
+                        <span class="product-price">₹2,999</span>
+                        <button class="btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
 
-                <div class="card product-card">
+                <!-- Product Card 4 -->
+                <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium Leather Wallet with multiple compartments" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Stylish pair of black leather smart shoes with subtle detailing" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card-content">
-                        <h3>Voyager Leather Wallet</h3>
-                        <p class="price">₹1,750</p>
-                        <p class="description">Crafted from genuine full-grain leather, the Voyager wallet combines timeless style with practical functionality for your daily essentials.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                    <div class="product-info">
+                        <h3>Elevate Leather Loafers</h3>
+                        <p>Step out in sophisticated comfort. Handcrafted leather loafers designed for modern elegance.</p>
+                        <span class="product-price">₹7,500</span>
+                        <button class="btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section-padding">
+    <section id="features" class="section-padding" style="background-color: var(--light-bg);">
         <div class="container">
-            <h2 class="text-center">Why Choose Elegance Emporium?</h2>
-            <p class="text-center">We are committed to providing an exceptional shopping experience with unparalleled quality.</p>
-            <div class="features-banner-container">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Abstract geometric pattern representing efficiency and modern technology" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-            </div>
+            <h2 style="text-align: center; margin-bottom: 3.5rem;">Why Choose EleganceHub?</h2>
             <div class="features-grid">
-                <div class="feature-item card">
-                    <span class="icon">✨</span>
-                    <h3>Curated Selection</h3>
-                    <p>Every product is hand-picked for its design, quality, and uniqueness, ensuring you find something truly special.</p>
+                <div class="feature-item">
+                    <div class="feature-icon-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing teamwork and strategic planning, symbolizing 'Expert Curation'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <h3>Expert Curation</h3>
+                    <p>Every product is handpicked by our experts for its quality, design, and innovation, ensuring you get only the best.</p>
                 </div>
-                <div class="feature-item card">
-                    <span class="icon">🚀</span>
-                    <h3>Fast & Reliable Delivery</h3>
-                    <p>Experience swift and secure delivery services across India, bringing your desired products to your doorstep without delay.</p>
+                <div class="feature-item">
+                    <div class="feature-icon-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing growth and progress, symbolizing 'Uncompromising Quality'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>We partner with leading brands and artisans to deliver products crafted from premium materials with meticulous attention to detail.</p>
                 </div>
-                <div class="feature-item card">
-                    <span class="icon">💎</span>
-                    <h3>Premium Quality</h3>
-                    <p>We partner with trusted brands and artisans to guarantee the highest standards of craftsmanship and durability.</p>
+                <div class="feature-item">
+                    <div class="feature-icon-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing customer satisfaction and support, symbolizing 'Seamless Shopping Experience'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <h3>Seamless Shopping Experience</h3>
+                    <p>Enjoy easy navigation, secure payments, and fast delivery right to your doorstep, making your shopping journey a pleasure.</p>
                 </div>
-                <div class="feature-item card">
-                    <span class="icon">🤝</span>
+                <div class="feature-item">
+                    <div class="feature-icon-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Image representing global reach and community, symbolizing 'Dedicated Support'" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
                     <h3>Dedicated Support</h3>
-                    <p>Our friendly customer support team is always ready to assist you, ensuring a smooth and satisfying shopping journey.</p>
+                    <p>Our customer service team is always here to assist you, ensuring a satisfying experience from browsing to post-purchase.</p>
                 </div>
             </div>
         </div>
@@ -755,39 +764,68 @@
 
     <!-- About Section -->
     <section id="about" class="section-padding">
-        <div class="container about-section">
-            <div class="about-image">
-                <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-            </div>
+        <div class="container">
             <div class="about-content">
-                <h2>About Elegance Emporium</h2>
-                <p>Founded with a vision to redefine online shopping, Elegance Emporium is more than just a store – it's a destination for discovering exceptional products. We believe in the power of well-designed, high-quality items to enhance everyday life and express individual style.</p>
-                <p>Our journey began with a simple idea: to bring together a diverse range of products, from cutting-edge electronics to timeless fashion accessories, all under one roof. We focus on curating a collection that reflects contemporary trends while upholding values of craftsmanship and sustainability.</p>
-                <p>Join us in our mission to make elegance accessible and empower you to tell your unique story through our carefully selected offerings.</p>
-                <a href="#contact" class="btn btn-primary">Contact Us</a>
+                <div class="about-text">
+                    <h2>Our Story: Crafting Elegance for You</h2>
+                    <p>At EleganceHub, we believe that true luxury lies in thoughtful design, impeccable quality, and effortless experience. Founded in 2023, our mission has been to bring together a collection of premium products that not only serve a purpose but also inspire and delight.</p>
+                    <p>We meticulously source each item, from innovative tech gadgets to timeless lifestyle accessories, ensuring it meets our high standards for craftsmanship and aesthetic appeal. Our passion is to empower you to live a life of refined taste and convenience.</p>
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-container">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse group of professionals collaborating in a modern office space, symbolizing team and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding testimonials">
+    <section id="testimonials" class="section-padding" style="background-color: var(--light-bg);">
         <div class="container">
-            <h2 class="text-center">What Our Customers Say</h2>
-            <p class="text-center">Hear from satisfied shoppers who love the Elegance Emporium experience.</p>
-            <div class="testimonial-grid">
+            <h2 style="text-align: center; margin-bottom: 3.5rem;">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
-                    <p>"The AuraFit Smartwatch exceeded my expectations! Stylish, functional, and the battery life is incredible. Elegance Emporium delivered it so quickly too!"</p>
-                    <p class="author">- Priya Sharma, Mumbai</p>
+                    <p class="testimonial-quote">"EleganceHub has completely transformed my shopping experience. The quality of products is outstanding, and their customer service is truly exceptional. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Abstract image of headphones, repurposed as an avatar for customer review" style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius:50%;" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <strong>Priya Sharma</strong>
+                            <span>Mumbai, India</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
-                    <p>"I absolutely adore my Celeste Silver Pendant. It's truly a piece of art, and the quality is exceptional. Highly recommend shopping here for unique finds."</p>
-                    <p class="author">- Rahul Verma, Delhi</p>
+                    <p class="testimonial-quote">"I purchased the Apex Smart Watch Pro, and I'm incredibly impressed. It looks stylish and functions flawlessly. EleganceHub is now my go-to for premium gadgets."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Abstract image of a smart watch, repurposed as an avatar for customer review" style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius:50%;" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <strong>Amit Kumar</strong>
+                            <span>Bengaluru, India</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
-                    <p>"Fantastic customer service and amazing products. The SonicFlow headphones are a game-changer for my daily commute. Will definitely be a returning customer!"</p>
-                    <p class="author">- Sanjana Rao, Bengaluru</p>
+                    <p class="testimonial-quote">"The delivery was swift, and the product packaging was exquisite. It felt like receiving a gift. EleganceHub truly delivers on its promise of elegance and quality."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Abstract image of headphones, repurposed as an avatar for customer review" style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius:50%;" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <strong>Sarah Khan</strong>
+                            <span>Delhi, India</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -796,102 +834,69 @@
     <!-- Contact Section -->
     <section id="contact" class="section-padding">
         <div class="container">
-            <h2 class="text-center">Get In Touch</h2>
-            <p class="text-center">Have a question or need assistance? Fill out the form below and we'll get back to you.</p>
-
-            <form class="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+            <div class="contact-form">
+                <h2>Get in Touch with Us</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column about-col">
-                    <a href="#" class="footer-logo">Elegance<span>Emporium</span></a>
-                    <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.8);">Your premier destination for high-quality fashion, electronics, and lifestyle products. We curate the best to bring elegance to your everyday.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">FB</a>
-                        <a href="#" aria-label="Twitter">TW</a>
-                        <a href="#" aria-label="Instagram">IG</a>
-                        <a href="#" aria-label="LinkedIn">LI</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#products">Shop All</a></li>
-                        <li><a href="#about">Our Story</a></li>
-                        <li><a href="#features">Why Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Customer Service</h4>
-                    <ul>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#contact">Support</a></li>
-                    </ul>
-                </div>
+            <div class="footer-top">
+                <div class="navbar-brand" style="color: #fff;">EleganceHub</div>
+                <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Discover unparalleled quality and timeless design. Your destination for premium lifestyle products.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
             </div>
             <div class="footer-bottom">
-                &copy; 2023 Elegance Emporium. All rights reserved.
+                &copy; 2023 EleganceHub. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
-        const navToggle = document.getElementById('navToggle');
-        const mobileNavMenu = document.getElementById('mobileNavMenu');
-        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-        const mobileNavClose = document.getElementById('mobileNavClose');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        // Navbar toggle for mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
 
-        function toggleMobileNav() {
-            mobileNavMenu.classList.toggle('open');
-            mobileNavOverlay.style.display = mobileNavMenu.classList.contains('open') ? 'block' : 'none';
-            document.body.style.overflow = mobileNavMenu.classList.contains('open') ? 'hidden' : ''; // Prevent scroll
-        }
-
-        navToggle.addEventListener('click', toggleMobileNav);
-        mobileNavClose.addEventListener('click', toggleMobileNav);
-        mobileNavOverlay.addEventListener('click', toggleMobileNav);
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Prevent default anchor behavior and use smooth scroll
-                e.preventDefault();
-                if (mobileNavMenu.classList.contains('open')) {
-                    toggleMobileNav(); // Close menu on link click
-                }
-                document.querySelector(link.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active'); // Optional: for burger icon animation
         });
 
-        // Smooth scrolling for all anchor links (desktop nav)
-        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Close nav menu when a link is clicked (for single page navigation)
+        document.querySelectorAll('#nav-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
             });
         });
     </script>
