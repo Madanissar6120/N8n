@@ -3,269 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Essence - Modern E-commerce</title>
+    <title>Luxe Apparel - Elevate Your Style</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
         :root {
-            --primary-color: #3B82F6; /* Blue */
-            --secondary-color: #2563EB; /* Darker Blue */
-            --accent-color: #60A5FA; /* Lighter Blue */
-            --text-color: #1F2937; /* Dark Grey */
-            --light-text-color: #6B7280; /* Medium Grey */
-            --bg-color: #F9FAFB; /* Light Grey Background */
-            --card-bg: #FFFFFF; /* White */
-            --border-color: #E5E7EB; /* Light Border */
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --navbar-height: 80px;
+            --primary: #6c63ff; /* A vibrant purple-blue for CTAs */
+            --secondary: #574eec; /* A slightly darker shade */
+            --accent: #FFD700; /* Gold for highlights */
+            --text-dark: #2c3e50; /* Dark text for headings */
+            --text-light: #34495e; /* Slightly lighter for body text */
+            --background-light: #f8f9fa; /* Light background for sections */
+            --background-dark: #ecf0f1; /* Slightly darker background */
+            --white: #ffffff;
+            --gray-light: #e0e0e0;
+            --gray-medium: #bdc3c7;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --font-sans: 'Inter', sans-serif;
         }
 
-        /* Basic Reset & Typography */
-        *, *::before, *::after {
+        /* Basic Reset & Body */
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+        html {
             scroll-behavior: smooth;
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--text-color);
-            line-height: 1.2;
-            margin-bottom: 0.5em;
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--background-light);
         }
 
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-        p { font-size: 1rem; margin-bottom: 1em; }
+        /* Typography */
+        h1 { font-size: 3rem; color: var(--text-dark); line-height: 1.2; }
+        h2 { font-size: 2rem; color: var(--text-dark); line-height: 1.3; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-dark); line-height: 1.4; margin-bottom: 1rem; }
+        p { font-size: 1rem; margin-bottom: 1rem; }
 
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
+        /* Global Container & Spacing */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 2rem 1rem;
         }
-
         section {
-            padding: 6rem 0;
+            padding: 4rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        section:nth-of-type(even) {
+            background-color: var(--background-dark);
         }
 
         /* Buttons */
         .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
             font-size: 1rem;
             font-weight: 600;
-            text-align: center;
+            text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
+            outline: none;
         }
-
         .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--card-bg);
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
         }
-
         .btn-primary:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--secondary);
+            box-shadow: var(--shadow-lg);
             transform: translateY(-2px);
-            box-shadow: var(--shadow);
         }
-
         .btn-secondary {
             background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--card-bg);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
+        /* Image Containers - CRITICAL */
+        .hero-image-container { height: 80vh; width: 100%; overflow: hidden; position: relative; background: #f5f5f5; }
+        .product-image-container { height: 260px; width: 100%; overflow: hidden; position: relative; background: #f5f5f5; }
+        .about-image-container { height: 400px; width: 100%; overflow: hidden; position: relative; background: #f5f5f5; }
 
         /* Navbar */
         .navbar {
-            position: sticky;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: var(--navbar-height);
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-            padding: 0 1.5rem;
+            box-shadow: var(--shadow-sm);
+            padding: 0.8rem 0;
         }
-
-        .navbar-content {
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
+            padding: 0 1rem;
         }
-
         .logo {
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--primary);
             text-decoration: none;
         }
-
         .nav-links {
-            display: flex;
+            display: none; /* Hidden by default on mobile */
             list-style: none;
-            gap: 2.5rem;
         }
-
+        .nav-links li {
+            margin-left: 2rem;
+        }
         .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
             font-weight: 500;
-            color: var(--text-color);
-            position: relative;
+            transition: color 0.3s ease;
         }
-
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--primary);
         }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease-in-out;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
+        .nav-toggle {
+            display: block; /* Hamburger icon */
+            font-size: 1.8rem;
+            background: none;
+            border: none;
             cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color);
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        /* Mobile Nav */
-        .nav-links.active {
+            color: var(--text-dark);
+            width: 40px; /* Make it clickable */
+            height: 40px;
             display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: var(--navbar-height);
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile Nav Overlay */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
+            height: 100%;
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            padding: 1.5rem 0;
-            gap: 1rem;
-            text-align: center;
-            transform: translateY(-100%);
-            transition: transform 0.4s ease-out;
-            opacity: 1;
-            pointer-events: none;
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
         }
-
-        .nav-links.active.open {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
+        .nav-overlay.open {
+            transform: translateX(0);
+        }
+        .nav-overlay-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        .nav-overlay-links {
+            list-style: none;
+            text-align: center;
+        }
+        .nav-overlay-links li {
+            margin-bottom: 2rem;
+        }
+        .nav-overlay-links a {
+            font-size: 2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .nav-overlay-links a:hover {
+            color: var(--primary);
         }
 
         /* Hero Section */
-        .hero-section {
+        .hero {
             position: relative;
-            width: 100%;
-            color: var(--card-bg);
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: var(--navbar-height); /* Offset for sticky navbar */
+            color: var(--white);
+            padding-top: 6rem; /* Account for fixed navbar */
         }
-
-        .hero-image-container {
-            height: 80vh;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #f5f5f5; /* Background for loading state */
-        }
-
         .hero-content {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             z-index: 10;
             max-width: 800px;
-            text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            border-radius: var(--border-radius);
+            margin: 0 1rem; /* Spacing for mobile */
         }
-
         .hero-content h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1rem;
-            color: var(--card-bg);
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            color: var(--white);
+            margin-bottom: 1.5rem;
         }
-
         .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--gray-light);
+            margin-bottom: 2.5rem;
+            font-size: 1.15rem;
         }
-
         .hero-buttons {
             display: flex;
+            gap: 1.5rem;
             justify-content: center;
-            gap: 1rem;
+            flex-wrap: wrap;
         }
-
         .hero-buttons .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--card-bg);
+            background-color: var(--primary);
+            color: var(--white);
         }
         .hero-buttons .btn-secondary {
-            border-color: var(--card-bg);
-            color: var(--card-bg);
+            border-color: var(--white);
+            color: var(--white);
         }
         .hero-buttons .btn-secondary:hover {
-            background-color: var(--card-bg);
-            color: var(--primary-color);
+            background-color: var(--white);
+            color: var(--primary);
         }
 
         /* Products Section */
@@ -273,59 +260,43 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
-
         .product-card {
-            background-color: var(--card-bg);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
             display: flex;
             flex-direction: column;
         }
-
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
+            box-shadow: var(--shadow-lg);
         }
-
-        .product-image-container {
-            height: 260px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #f5f5f5; /* Background for loading state */
-        }
-
-        .product-info {
+        .product-card-content {
             padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-
-        .product-info h3 {
-            font-size: 1.25rem;
+        .product-card h3 {
             margin-bottom: 0.5rem;
-            color: var(--text-color);
+            color: var(--text-dark);
         }
-
-        .product-info p {
+        .product-card p {
             font-size: 0.95rem;
-            color: var(--light-text-color);
+            color: var(--text-light);
             margin-bottom: 1rem;
-            flex-grow: 1;
         }
-
-        .product-price {
+        .product-card-price {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-top: 0.5rem;
-            margin-bottom: 1rem;
+            color: var(--primary);
+            margin-top: auto;
         }
 
         /* Features Section */
@@ -333,216 +304,173 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
             text-align: center;
         }
-
         .feature-item {
-            background-color: var(--card-bg);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            box-shadow: var(--shadow);
+            background-color: var(--white);
+            padding: 2.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
+            box-shadow: var(--shadow-md);
         }
-
         .feature-icon {
             font-size: 3rem;
-            color: var(--primary-color);
+            color: var(--primary);
             margin-bottom: 1rem;
             display: block;
         }
-
         .feature-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.8rem;
         }
-
         .feature-item p {
             font-size: 0.95rem;
-            color: var(--light-text-color);
+            color: var(--text-light);
         }
 
         /* About Section */
         .about-content {
             display: flex;
+            flex-direction: column; /* Stack on mobile */
             gap: 3rem;
             align-items: center;
-            flex-wrap: wrap;
         }
-
         .about-text {
-            flex: 1 1 50%;
-            min-width: 300px;
+            flex: 1;
+            max-width: 600px;
+            text-align: center;
         }
-
-        .about-image {
-            flex: 1 1 40%;
-            min-width: 300px;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .about-image-container {
-            height: 400px;
+        .about-image-wrapper {
+            flex: 1;
             width: 100%;
+            max-width: 500px;
+            height: 400px; /* Fixed height for image container */
             overflow: hidden;
-            position: relative;
-            background: #f5f5f5; /* Background for loading state */
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            order: -1; /* Image first on mobile */
         }
 
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
-
         .testimonial-card {
-            background-color: var(--card-bg);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            text-align: center;
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+            text-align: center;
         }
-
-        .testimonial-card p {
+        .testimonial-text {
             font-style: italic;
-            color: var(--text-color);
             margin-bottom: 1.5rem;
-            flex-grow: 1;
+            color: var(--text-light);
         }
-
         .testimonial-author {
             font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 0.5rem;
-            display: block;
+            color: var(--text-dark);
         }
-
         .testimonial-rating {
-            color: #FFC107; /* Star yellow */
-            font-size: 1.2rem;
+            color: var(--accent); /* Gold stars */
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
-        /* Contact Form */
-        .contact-form-container {
+        /* Contact Section */
+        .contact-form {
             max-width: 600px;
-            margin: 3rem auto 0 auto;
-            background-color: var(--card-bg);
-            padding: 3rem;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+        .contact-form label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-color);
+            font-weight: 500;
+            color: var(--text-dark);
         }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--border-radius);
+            font-family: var(--font-sans);
             font-size: 1rem;
-            color: var(--text-color);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.3s ease;
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
-
-        .form-group textarea {
+        .contact-form textarea {
             min-height: 120px;
             resize: vertical;
+        }
+        .contact-form .btn-primary {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 1rem 0;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--text-color);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 4rem 0;
+            background-color: var(--text-dark);
+            color: var(--gray-light);
+            padding: 4rem 0 2rem;
             font-size: 0.9rem;
         }
-
-        .footer-content {
+        .footer .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: block;
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
         }
-
-        .footer h4 {
-            color: var(--card-bg);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .footer ul {
+        .footer-col ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
-
-        .footer ul li {
-            margin-bottom: 0.75rem;
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
         }
-
-        .footer ul li a {
-            color: rgba(255, 255, 255, 0.7);
+        .footer-col ul li a {
+            color: var(--gray-light);
+            text-decoration: none;
             transition: color 0.3s ease;
         }
-
-        .footer ul li a:hover {
-            color: var(--primary-color);
+        .footer-col ul li a:hover {
+            color: var(--primary);
         }
-
-        .footer-social-links {
+        .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
         }
-
-        .footer-social-links a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.5rem;
+        .social-links a {
+            color: var(--gray-light);
+            font-size: 1.5rem; /* Placeholder for social icons */
+            text-decoration: none;
             transition: color 0.3s ease;
         }
-
-        .footer-social-links a:hover {
-            color: var(--primary-color);
+        .social-links a:hover {
+            color: var(--primary);
         }
-
         .footer-bottom {
             text-align: center;
             margin-top: 3rem;
@@ -550,394 +478,355 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* General Image Container for others not explicitly defined */
-        .image-container {
-            height: 300px; /* Default height, adjust as needed */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #f5f5f5; /* Background for loading state */
-            border-radius: 0.75rem; /* Match card radius if used inside cards */
+        /* Responsive Adjustments */
+        @media (min-width: 480px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.15rem; }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.4rem; }
-            p { font-size: 0.95rem; }
-
-            .navbar-content {
-                padding: 0 1rem;
-            }
-
+        @media (min-width: 768px) {
             .nav-links {
-                display: none;
+                display: flex; /* Show nav links on desktop */
             }
-
-            .hamburger {
-                display: flex;
+            .nav-toggle {
+                display: none; /* Hide hamburger on desktop */
             }
-
-            .hero-content h1 {
-                font-size: 3rem;
+            .navbar .container {
+                padding: 0 2rem;
             }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            .container { padding: 2rem 1.5rem; }
+            section { padding: 5rem 0; }
 
-            .hero-content p {
-                font-size: 1.1rem;
+            .hero {
+                height: 80vh;
             }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .products-grid, .features-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
             .about-content {
-                flex-direction: column;
-            }
-            .about-text, .about-image {
-                flex: 1 1 100%;
-                min-width: unset;
-            }
-            .about-image {
-                order: -1; /* Image above text on mobile */
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-social-links {
+                flex-direction: row; /* Side-by-side on desktop */
                 justify-content: center;
+            }
+            .about-text {
+                text-align: left;
+            }
+            .about-image-wrapper {
+                order: 0; /* Image second on desktop */
+            }
+            .about-image-wrapper.reverse-order { /* For image on left side */
+                order: -1;
             }
         }
 
         @media (max-width: 480px) {
             h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.6rem; }
-            h3 { font-size: 1.2rem; }
-            p { font-size: 0.9rem; }
-
-            section {
-                padding: 4rem 0;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .navbar {
-                height: 70px;
-            }
+            h2 { font-size: 1.7rem; }
+            h3 { font-size: 1.3rem; }
+            .container { padding: 1.5rem 0.8rem; }
+            section { padding: 3rem 0; }
+            .hero-content { padding: 1.5rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; gap: 1rem; }
+            .btn { padding: 0.7rem 1.5rem; font-size: 0.95rem; }
+            .contact-form { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navbar -->
-    <header class="navbar">
-        <div class="container navbar-content">
-            <a href="#" class="logo">Urban Essence</a>
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger" id="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Luxe Apparel</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-overlay">
+        <button class="nav-overlay-close">✖</button>
+        <ul class="nav-overlay-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
+                 alt="Professional workspace with laptop and coffee"
+                 style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+        <div class="hero-content">
+            <h1>Elevate Your Style. Define Your Presence.</h1>
+            <p>Discover sophisticated fashion for the modern professional. Luxe Apparel brings you premium quality and timeless designs that empower you to make a statement.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with clean lines and natural light, representing a vibrant business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            </div>
-            <div class="hero-content">
-                <h1>Elevate Your Everyday Style</h1>
-                <p>Discover a curated collection of modern essentials designed for comfort, quality, and timeless appeal. Shop now and redefine your wardrobe.</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn btn-primary">Shop Now</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
+    <!-- Products/Services Section -->
+    <section id="products" class="container">
+        <h2 style="text-align: center;">Our Signature Collection</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Explore our curated selection of premium apparel, meticulously crafted for comfort, style, and durability. Each piece is designed to complement your unique professional journey.</p>
+
+        <div class="products-grid">
+            <a href="#" class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
+                         alt="Elegant Business Blazer"
+                         style="width:100%; height:100%; object-fit:cover; display:block; border:none;"
+                         loading="lazy">
                 </div>
-            </div>
-        </section>
-
-        <!-- Products/Services Section -->
-        <section id="products">
-            <div class="container">
-                <h2 class="text-center" style="text-align: center; margin-bottom: 1.5rem;">Our Latest Collection</h2>
-                <p class="text-center" style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: var(--light-text-color);">Explore our handpicked selection of premium products, crafted with meticulous attention to detail and designed to enhance your modern lifestyle.</p>
-
-                <div class="products-grid">
-                    <!-- Product 1 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Premium Leather Backpack for daily commute" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Premium Leather Backpack</h3>
-                            <p>Handcrafted with genuine leather, spacious and stylish for your daily adventures.</p>
-                            <span class="product-price">₹4,999</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Minimalist Smartwatch Pro with advanced features" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Minimalist Smartwatch Pro</h3>
-                            <p>Track your fitness and stay connected with our sleek, feature-rich smartwatch.</p>
-                            <span class="product-price">₹12,499</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Organic Cotton T-Shirt, comfortable and breathable" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Organic Cotton Tee</h3>
-                            <p>Soft, breathable, and sustainably sourced organic cotton for everyday comfort.</p>
-                            <span class="product-price">₹1,199</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Noise-Cancelling Over-Ear Headphones for immersive audio" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Noise-Cancelling Headphones</h3>
-                            <p>Experience pure sound with superior active noise cancellation for an immersive audio journey.</p>
-                            <span class="product-price">₹19,999</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <!-- Product 5 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Hand-stitched Leather Wallet with multiple card slots" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Hand-stitched Leather Wallet</h3>
-                            <p>Compact, durable, and elegant wallet designed for modern essentials.</p>
-                            <span class="product-price">₹1,799</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <!-- Product 6 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Polarized Sunglasses for men, UV protection and style" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Stylish Polarized Sunglasses</h3>
-                            <p>Protect your eyes with flair. UV400 protection with a contemporary frame design.</p>
-                            <span class="product-price">₹2,999</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
+                <div class="product-card-content">
+                    <h3>Elegant Business Blazer</h3>
+                    <p>Sharp, tailored fit in premium wool blend. Perfect for formal and semi-formal occasions.</p>
+                    <span class="product-card-price">₹4,999</span>
                 </div>
-            </div>
-        </section>
+            </a>
 
-        <!-- Features Section -->
-        <section id="features" style="background-color: var(--card-bg);">
-            <div class="container">
-                <h2 class="text-center" style="text-align: center; margin-bottom: 1.5rem;">Why Choose Urban Essence?</h2>
-                <p class="text-center" style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: var(--light-text-color);">We are committed to delivering excellence through thoughtful design, premium materials, and an unparalleled shopping experience.</p>
-
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <span class="feature-icon">✨</span>
-                        <h3>Premium Quality</h3>
-                        <p>Every product is crafted with the finest materials and meticulous attention to detail.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🌿</span>
-                        <h3>Sustainable Choices</h3>
-                        <p>We prioritize eco-friendly sourcing and ethical production practices.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🚚</span>
-                        <h3>Fast & Secure Delivery</h3>
-                        <p>Enjoy quick shipping and reliable delivery right to your doorstep.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">💖</span>
-                        <h3>Customer Satisfaction</h3>
-                        <p>Our dedicated support team ensures a seamless and delightful shopping experience.</p>
-                    </div>
+            <a href="#" class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
+                         alt="Premium Slim-Fit Chinos"
+                         style="width:100%; height:100%; object-fit:cover; display:block; border:none;"
+                         loading="lazy">
                 </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2 style="margin-bottom: 1rem;">Our Story & Mission</h2>
-                        <p>Urban Essence was founded with a vision to blend urban sophistication with everyday comfort. We believe that quality and style should be accessible, and sustainability should be standard.</p>
-                        <p>Our mission is to provide a curated collection of modern essentials that resonate with your personal style and values. From the initial design to your doorstep, we ensure a thoughtful process that respects both people and the planet.</p>
-                        <p>Join us in building a wardrobe that's not just fashionable, but also meaningful and enduring.</p>
-                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Get in Touch</a>
-                    </div>
-                    <div class="about-image">
-                        <div class="about-image-container">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office space, reflecting teamwork and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                    </div>
+                <div class="product-card-content">
+                    <h3>Premium Slim-Fit Chinos</h3>
+                    <p>Comfortable stretch fabric with a modern slim silhouette. Ideal for everyday elegance.</p>
+                    <span class="product-card-price">₹2,850</span>
                 </div>
-            </div>
-        </section>
+            </a>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" style="background-color: var(--bg-color);">
-            <div class="container">
-                <h2 class="text-center" style="text-align: center; margin-bottom: 1.5rem;">What Our Customers Say</h2>
-                <p class="text-center" style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: var(--light-text-color);">Hear directly from our satisfied customers about their Urban Essence experience.</p>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                        <p>"Absolutely love my new backpack! The quality is outstanding, and it's incredibly stylish. Urban Essence truly delivers on their promise of premium products."</p>
-                        <span class="testimonial-author">- Priya Sharma, Mumbai</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                        <p>"The smartwatch is a game-changer! It looks fantastic and all the features work seamlessly. Fast delivery and excellent customer service too!"</p>
-                        <span class="testimonial-author">- Rohan Gupta, Delhi</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                        <p>"I've never been happier with an online purchase. The organic cotton tee is super comfortable and fits perfectly. Highly recommend Urban Essence for quality basics."</p>
-                        <span class="testimonial-author">- Aisha Khan, Bangalore</span>
-                    </div>
+            <a href="#" class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
+                         alt="Classic Leather Brogues"
+                         style="width:100%; height:100%; object-fit:cover; display:block; border:none;"
+                         loading="lazy">
                 </div>
-            </div>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section id="contact">
-            <div class="container">
-                <h2 class="text-center" style="text-align: center; margin-bottom: 1.5rem;">Get in Touch</h2>
-                <p class="text-center" style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: var(--light-text-color);">Have questions or need assistance? Reach out to us, and our team will be happy to help.</p>
-
-                <div class="contact-form-container">
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
+                <div class="product-card-content">
+                    <h3>Classic Leather Brogues</h3>
+                    <p>Handcrafted genuine leather brogues, offering supreme comfort and sophisticated style.</p>
+                    <span class="product-card-price">₹6,500</span>
                 </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
+                         alt="Minimalist Dress Watch"
+                         style="width:100%; height:100%; object-fit:cover; display:block; border:none;"
+                         loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <h3>Minimalist Dress Watch</h3>
+                    <p>Sophisticated timepiece with a clean design, perfect for any professional ensemble.</p>
+                    <span class="product-card-price">₹12,999</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80"
+                         alt="Artisan Silk Scarf"
+                         style="width:100%; height:100%; object-fit:cover; display:block; border:none;"
+                         loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <h3>Artisan Silk Scarf</h3>
+                    <p>Luxurious silk scarf with intricate patterns, adding a touch of elegance to your look.</p>
+                    <span class="product-card-price">₹1,800</span>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
+                         alt="Tailored Cotton Shirt"
+                         style="width:100%; height:100%; object-fit:cover; display:block; border:none;"
+                         loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <h3>Tailored Cotton Shirt</h3>
+                    <p>Crisp, breathable cotton shirt with a tailored fit, essential for professional styling.</p>
+                    <span class="product-card-price">₹3,200</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container">
+        <h2 style="text-align: center;">Why Choose Luxe Apparel?</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">We are committed to delivering an unparalleled experience through our dedication to quality, design, and customer satisfaction.</p>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">✨</span>
+                <h3>Uncompromised Quality</h3>
+                <p>Handpicked fabrics and meticulous craftsmanship ensure durability and comfort in every garment.</p>
             </div>
-        </section>
-    </main>
+            <div class="feature-item">
+                <span class="feature-icon">👗</span>
+                <h3>Timeless Elegance</h3>
+                <p>Our designs transcend fleeting trends, offering enduring style that remains sophisticated year after year.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🌿</span>
+                <h3>Ethical Sourcing</h3>
+                <p>Committed to sustainable practices and fair labor across our entire supply chain for a better tomorrow.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">👤</span>
+                <h3>Personalized Styling</h3>
+                <p>Receive expert advice and curated selections to perfect your wardrobe with our dedicated stylists.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Our Story: Crafting Excellence Since 2005</h2>
+                <p>Luxe Apparel began with a vision to redefine professional wear, blending traditional artistry with contemporary fashion. Founded by a team of passionate designers, our journey has been about delivering not just clothing, but confidence and character.</p>
+                <p>We believe in the power of a well-dressed individual to make an impact, and we are dedicated to creating garments that embody sophistication and quality. Every stitch tells a story of passion and precision, making Luxe Apparel a trusted name in premium fashion.</p>
+                <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Contact Us</a>
+            </div>
+            <div class="about-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
+                     alt="People collaborating in a modern office, representing our team's vision"
+                     style="width:100%; height:100%; object-fit:cover; display:block; border:none;"
+                     loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="container">
+        <h2 style="text-align: center;">What Our Clients Say</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Hear directly from the professionals who trust Luxe Apparel for their styling needs and experience the difference.</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Luxe Apparel has transformed my work wardrobe. The quality is exceptional, and the fit is perfect for my demanding schedule. Highly recommend!"</p>
+                <p class="testimonial-author">- Priya S., Marketing Director</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Finally, a brand that understands modern professional needs. Their blazers are a game-changer for my presentations, offering both style and confidence."</p>
+                <p class="testimonial-author">- Rohan K., Business Consultant</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Stylish, comfortable, and ethically made – Luxe Apparel ticks all the boxes. It's my go-to for all business attire, knowing I'm getting the best."</p>
+                <p class="testimonial-author">- Ananya D., Entrepreneur</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="container">
+        <h2 style="text-align: center;">Get in Touch</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Have questions about our products, need styling advice, or want to discuss a partnership? We're here to help.</p>
+
+        <form class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div>
-                    <a href="#" class="footer-logo">Urban Essence</a>
-                    <p>Curating modern essentials for your elevated lifestyle.</p>
-                </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Connect With Us</h4>
-                    <div class="footer-social-links">
-                        <a href="#" aria-label="Facebook">📘</a> <!-- Using emoji for simple icon -->
-                        <a href="#" aria-label="Instagram">📸</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                    </div>
-                    <p style="margin-top: 1rem;">Email: info@urbanessence.com</p>
-                    <p>Phone: +91 98765 43210</p>
+            <div class="footer-col">
+                <h3>Luxe Apparel</h3>
+                <p>Elevating your style with premium, ethically sourced professional wear. Define your presence with us.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Twitter">TW</a>
+                    <a href="#" aria-label="LinkedIn">LN</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Urban Essence. All rights reserved.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Luxe Apparel. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navOverlay = document.querySelector('.nav-overlay');
+            const navOverlayClose = document.querySelector('.nav-overlay-close');
+            const navOverlayLinks = document.querySelector('.nav-overlay-links');
 
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('open');
-                hamburger.classList.toggle('open');
-            });
+            if (navToggle && navOverlay && navOverlayClose && navOverlayLinks) {
+                navToggle.addEventListener('click', function() {
+                    navOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when overlay is open
+                });
 
-            // Close nav on link click (for mobile)
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('open')) {
-                        navLinks.classList.remove('open');
-                        hamburger.classList.remove('open');
+                navOverlayClose.addEventListener('click', function() {
+                    navOverlay.classList.remove('open');
+                    document.body.style.overflow = ''; // Restore scrolling
+                });
+
+                // Close overlay when a link is clicked
+                navOverlayLinks.addEventListener('click', function(event) {
+                    if (event.target.tagName === 'A') {
+                        navOverlay.classList.remove('open');
+                        document.body.style.overflow = '';
                     }
                 });
-            });
+            }
         });
     </script>
 </body>
