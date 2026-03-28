@@ -3,63 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EvolveKart - Your Premier Online Shopping Destination</title>
+    <title>AuraBloom - Curated Style, Effortless Elegance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #0A0A0A; /* Darker for premium feel */
-            --accent-green: #67B246;
-            --text-dark: #333;
-            --text-light: #f9f9f9;
-            --bg-light: #ffffff;
-            --bg-dark: #1a1a1a;
-            --border-light: #e0e0e0;
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --radius-default: 8px;
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 48px;
-            --spacing-xl: 96px;
+            --primary-color: #5A67D8; /* Indigo 600 */
+            --primary-dark: #4C51BF; /* Indigo 700 */
+            --secondary-color: #3182CE; /* Blue 600 */
+            --accent-color: #F6AD55; /* Orange 400 */
+            --text-color-dark: #2D3748; /* Gray 800 */
+            --text-color-light: #4A5568; /* Gray 700 */
+            --background-light: #F7FAFC; /* Gray 50 */
+            --background-white: #FFFFFF;
+            --border-color: #EDF2F7; /* Gray 200 */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius-sm: 0.25rem;
+            --border-radius-md: 0.5rem;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
         }
 
-        /* Base styles */
+        /* Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-sm);
-            color: var(--primary-blue);
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-        p { margin-bottom: var(--spacing-sm); font-size: 1rem; }
-
-        /* Responsive typography */
-        @media (min-width: 768px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.5rem; }
-            h3 { font-size: 1.8rem; }
+        a:hover {
+            color: var(--primary-dark);
         }
 
-        /* Utility classes */
+        h1 { font-size: 3rem; font-weight: 700; line-height: 1.2; margin-bottom: var(--spacing-md); }
+        h2 { font-size: 2.5rem; font-weight: 700; line-height: 1.3; margin-bottom: var(--spacing-lg); }
+        h3 { font-size: 1.8rem; font-weight: 600; line-height: 1.4; margin-bottom: var(--spacing-sm); }
+        h4 { font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-xs); }
+        p { font-size: 1rem; color: var(--text-color-light); margin-bottom: var(--spacing-sm); }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -67,280 +70,194 @@
         }
 
         .section-padding {
-            padding: var(--spacing-xl) 0;
+            padding: var(--spacing-xxl) 0;
         }
 
-        .text-center { text-align: center; }
+        .text-center {
+            text-align: center;
+        }
 
-        /* Buttons */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border: none;
-            border-radius: var(--radius-default);
-            font-size: 1rem;
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius-md);
             font-weight: 600;
+            text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text-light);
+            white-space: nowrap;
+            border: none;
         }
 
         .btn-primary {
-            background-color: var(--primary-blue);
-            color: var(--bg-light);
+            background-color: var(--primary-color);
+            color: var(--background-white);
         }
 
         .btn-primary:hover {
-            background-color: #2c2c2c;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            background-color: var(--primary-dark);
         }
 
         .btn-secondary {
-            background-color: var(--accent-green);
-            color: var(--bg-light);
+            background-color: var(--background-white);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
         }
 
         .btn-secondary:hover {
-            background-color: #5bbd37;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            background-color: var(--primary-color);
+            color: var(--background-white);
         }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-blue);
-            color: var(--bg-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            width: 100%;
-            z-index: 1000;
+            z-index: 100;
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
             padding: var(--spacing-sm) 0;
-            transition: background-color 0.3s ease;
         }
 
-        .navbar .container {
+        .navbar-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 var(--spacing-md);
         }
 
         .navbar-brand {
             font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            text-decoration: none;
+            font-weight: 700;
+            color: var(--primary-color);
             display: flex;
             align-items: center;
         }
 
-        .navbar-links {
-            display: none; /* Hidden by default for mobile */
+        .navbar-nav {
+            display: flex;
             list-style: none;
         }
 
-        .navbar-links li {
-            margin-left: var(--spacing-md);
+        .nav-item {
+            margin-left: var(--spacing-lg);
         }
 
-        .navbar-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-color-light);
+            padding: 0.5rem 0;
+            position: relative;
         }
 
-        .navbar-links a:hover {
-            color: var(--accent-green);
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .menu-toggle {
-            display: block; /* Visible for mobile */
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: var(--primary-blue);
-            cursor: pointer;
-            padding: var(--spacing-xs);
-        }
-
-        @media (min-width: 768px) {
-            .navbar-links {
-                display: flex; /* Visible for desktop */
-            }
-            .menu-toggle {
-                display: none; /* Hidden for desktop */
-            }
-        }
-
-        /* Mobile Nav Overlay */
-        .mobile-nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            z-index: 1001;
-            display: flex;
+            display: none;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .mobile-nav-overlay.active {
-            transform: translateX(0);
-        }
-
-        .mobile-nav-overlay .close-btn {
-            position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-md);
-            font-size: 2rem;
-            background: none;
-            border: none;
-            color: var(--primary-blue);
             cursor: pointer;
+            width: 30px;
+            height: 20px;
+            justify-content: space-between;
         }
 
-        .mobile-nav-overlay ul {
-            list-style: none;
-            padding: 0;
+        .menu-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--text-color-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 1; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--background-light);
+            padding-top: var(--spacing-xxl); /* To offset sticky navbar */
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xxl);
+            padding-bottom: var(--spacing-xxl);
+            align-items: center;
+        }
+
+        .hero-text {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .mobile-nav-overlay ul li {
+        .hero-text h1 {
+            color: var(--primary-dark);
             margin-bottom: var(--spacing-md);
         }
 
-        .mobile-nav-overlay ul a {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .mobile-nav-overlay ul a:hover {
-            color: var(--accent-green);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            color: var(--text-light);
-            text-align: center;
+        .hero-buttons {
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: var(--spacing-lg) var(--spacing-md);
-            min-height: 80vh; /* Ensures content is centered vertically */
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
         .hero-image-container {
             height: 80vh;
             width: 100%;
             overflow: hidden;
-            position: absolute; /* Changed to absolute to allow text overlay */
-            top: 0;
-            left: 0;
-            background: #f0f0f0; /* Default background for loading */
+            position: relative;
+            background: #f5f5f5; /* Background for loading state */
+            max-height: 600px; /* Cap image height for very tall screens */
         }
 
-        .hero-content {
-            position: relative; /* Brings content above the image */
-            z-index: 2; /* Ensures content is on top */
-            max-width: 800px;
-            padding: var(--spacing-md);
-            background-color: rgba(0, 0, 0, 0.4); /* Slight overlay for readability */
-            border-radius: var(--radius-default);
-        }
-        .hero-content h1 {
-            color: var(--text-light);
-            margin-bottom: var(--spacing-md);
-            font-size: 2.8rem;
-        }
-        .hero-content p {
-            color: var(--text-light);
-            margin-bottom: var(--spacing-lg);
-            font-size: 1.1rem;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap; /* Allow buttons to wrap on small screens */
-        }
-        .hero-buttons .btn {
-            min-width: 160px; /* Ensure buttons have a minimum width */
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-            }
-        }
-
-
-        /* Product Section */
-        .products-grid {
+        /* Products Section */
+        #products .grid-container {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-        }
-
-        @media (min-width: 480px) {
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        @media (min-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
         }
 
         .product-card {
-            background-color: var(--bg-light);
-            border-radius: var(--radius-default);
-            box-shadow: var(--shadow-light);
+            background-color: var(--background-white);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-lg);
         }
 
         .product-image-container {
@@ -351,234 +268,161 @@
             background: #f5f5f5; /* Background for loading state */
         }
 
-        .product-content {
+        .product-info {
             padding: var(--spacing-md);
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* Allow content to grow */
+            justify-content: space-between;
         }
 
-        .product-content h3 {
-            margin-top: 0;
-            margin-bottom: var(--spacing-xs);
-            font-size: 1.25rem;
-            color: var(--primary-blue);
-        }
-
-        .product-content p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: var(--spacing-sm);
-            flex-grow: 1; /* Allow description to take available space */
+        .product-info h4 {
+            font-size: 1.2rem;
+            color: var(--text-color-dark);
         }
 
         .product-price {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--accent-green);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .product-card .btn {
-            width: 100%;
-            margin-top: auto; /* Push button to the bottom */
+            color: var(--primary-color);
+            margin-top: var(--spacing-xs);
         }
 
         /* Features Section */
-        .features-grid {
+        #features {
+            background-color: var(--background-white);
+        }
+
+        #features .grid-container {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-            text-align: center;
-        }
-
-        @media (min-width: 480px) {
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xxl);
         }
 
         .feature-item {
-            background-color: var(--bg-light);
-            padding: var(--spacing-md);
-            border-radius: var(--radius-default);
-            box-shadow: var(--shadow-light);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            background-color: var(--background-light);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        .feature-item .icon {
-            font-size: 3rem;
-            color: var(--accent-green);
-            margin-bottom: var(--spacing-sm);
-        }
-        .feature-item h3 {
-            margin-top: 0;
-            font-size: 1.25rem;
-            color: var(--primary-blue);
-        }
-        .feature-item p {
-            font-size: 0.95rem;
-            color: #666;
+            box-shadow: var(--shadow-md);
         }
 
-        /* Feature card with image */
-        .feature-card-with-image {
-            background-color: var(--bg-light);
-            border-radius: var(--radius-default);
-            box-shadow: var(--shadow-light);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .feature-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--spacing-md);
+            background-color: var(--primary-color);
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
-        }
-        .feature-card-with-image:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        .feature-card-with-image .product-image-container { /* Reusing product image container for fixed height */
-            height: 200px; /* Slightly smaller height for feature image */
-        }
-        .feature-card-with-image .feature-content {
-            padding: var(--spacing-md);
-            text-align: left;
-        }
-        .feature-card-with-image h3 {
-            margin-top: 0;
-            font-size: 1.25rem;
-        }
-
-
-        /* About Section */
-        .about-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-lg);
+            justify-content: center;
             align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--background-white);
         }
-
-        @media (min-width: 768px) {
-            .about-content-wrapper {
-                flex-direction: row;
-                text-align: left;
-            }
-            .about-content-wrapper > div {
-                flex: 1;
-            }
-            .about-content-wrapper .about-image-container {
-                order: 2; /* Image on right for desktop */
-            }
+        
+        /* About Section */
+        #about .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xxl);
+            align-items: center;
         }
 
         .about-image-container {
             height: 400px;
-            width: 100%; /* Take full width on mobile */
-            max-width: 600px; /* Limit image width on desktop */
+            width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f0f0f0; /* Default background */
-            border-radius: var(--radius-default);
-            box-shadow: var(--shadow-light);
-            flex-shrink: 0; /* Prevent image from shrinking */
+            background: #f5f5f5; /* Background for loading state */
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
         }
 
-        @media (min-width: 768px) {
-            .about-image-container {
-                width: 50%; /* Take half width on desktop */
-            }
+        .about-text h2 {
+            text-align: left;
         }
 
         /* Testimonials Section */
-        .testimonials {
-            background-color: #f9f9f9;
+        #testimonials {
+            background-color: var(--primary-color);
+            color: var(--background-white);
         }
-        .testimonials-grid {
+
+        #testimonials .section-title, #testimonials .section-subtitle {
+            color: var(--background-white);
+        }
+
+        #testimonials .grid-container {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xxl);
         }
-        @media (min-width: 768px) {
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+
         .testimonial-card {
-            background-color: var(--bg-light);
-            padding: var(--spacing-md);
-            border-radius: var(--radius-default);
-            box-shadow: var(--shadow-light);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
         }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
+
         .testimonial-card p {
             font-style: italic;
-            color: #555;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            color: var(--background-white);
         }
+
         .testimonial-author {
             font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 0;
-        }
-        .testimonial-rating {
-            color: gold;
-            margin-bottom: var(--spacing-xs);
-            font-size: 1.2rem;
+            color: var(--accent-color);
         }
 
         /* Contact Section */
-        .contact-form {
+        #contact .contact-form {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--bg-light);
+            margin: var(--spacing-xxl) auto 0 auto;
+            background-color: var(--background-white);
             padding: var(--spacing-lg);
-            border-radius: var(--radius-default);
-            box-shadow: var(--shadow-light);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
         }
 
         .form-group {
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
         }
 
         .form-group label {
             display: block;
             margin-bottom: var(--spacing-xs);
             font-weight: 600;
-            color: var(--primary-blue);
+            color: var(--text-color-dark);
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
+        .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: var(--spacing-sm);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-default);
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            color: var(--text-color-dark);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
+        .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 3px rgba(103, 178, 70, 0.2);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.2);
         }
 
         .form-group textarea {
@@ -586,271 +430,345 @@
             resize: vertical;
         }
 
+        .contact-form .btn {
+            width: 100%;
+        }
+
         /* Footer */
         .footer {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            padding: var(--spacing-lg) 0;
+            background-color: var(--text-color-dark);
+            color: var(--border-color);
+            padding: var(--spacing-xxl) 0 var(--spacing-lg) 0;
             font-size: 0.9rem;
         }
 
-        .footer-grid {
+        .footer-content {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xxl);
+            margin-bottom: var(--spacing-xxl);
         }
 
-        @media (min-width: 480px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .footer-column h4 {
-            color: var(--bg-light);
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
             margin-bottom: var(--spacing-sm);
-            font-size: 1.1rem;
         }
 
-        .footer-column ul {
+        .footer-section h4 {
+            color: var(--background-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-nav, .footer-social {
             list-style: none;
         }
 
-        .footer-column ul li {
+        .footer-nav li, .footer-social li {
             margin-bottom: var(--spacing-xs);
         }
 
-        .footer-column ul a {
-            color: var(--text-light);
-            text-decoration: none;
+        .footer-nav a, .footer-social a {
+            color: var(--border-color);
             transition: color 0.3s ease;
         }
 
-        .footer-column ul a:hover {
-            color: var(--accent-green);
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-sm);
-        }
-
-        .footer-socials a {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-socials a:hover {
-            color: var(--accent-green);
+        .footer-nav a:hover, .footer-social a:hover {
+            color: var(--primary-color);
         }
 
         .footer-bottom {
-            margin-top: var(--spacing-lg);
-            padding-top: var(--spacing-md);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-lg);
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-color-light);
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 769px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                padding-bottom: 0;
+            }
+
+            .hero-text {
+                text-align: left;
+                margin: 0;
+                padding-right: var(--spacing-xxl);
+            }
+
+            .hero-text h1 {
+                font-size: 4rem;
+            }
+
+            .hero-text p {
+                font-size: 1.25rem;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .hero-buttons {
+                justify-content: flex-start;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-text {
+                order: 1; /* Text first */
+            }
+
+            .about-image-container {
+                order: 2; /* Image second */
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            p { font-size: 0.95rem; }
+
+            .navbar-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                box-shadow: var(--shadow-md);
+                padding: var(--spacing-md) 0;
+                align-items: center;
+            }
+
+            .navbar-nav.active {
+                display: flex;
+            }
+
+            .nav-item {
+                margin: var(--spacing-sm) 0;
+            }
+
+            .nav-link::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .about-text h2 {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            h3 { font-size: 1.3rem; }
+            p { font-size: 0.9rem; }
+
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .section-padding {
+                padding: var(--spacing-xl) 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .hero-image-container {
+                height: 60vh; /* Adjust hero image height for smaller mobiles */
+            }
         }
     </style>
 </head>
 <body>
+
     <header class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">EvolveKart</a>
-            <nav>
-                <ul class="navbar-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">&#9776;</button>
+        <div class="navbar-container container">
+            <a href="#" class="navbar-brand">AuraBloom</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="navbar-nav" id="main-nav">
+                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#products" class="nav-link">Products</a></li>
+                <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </nav>
         </div>
     </header>
 
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-        <button class="close-btn" aria-label="Close navigation" id="closeNav">&times;</button>
-        <ul>
-            <li><a href="#hero" onclick="closeMobileNav()">Home</a></li>
-            <li><a href="#products" onclick="closeMobileNav()">Products</a></li>
-            <li><a href="#features" onclick="closeMobileNav()">Features</a></li>
-            <li><a href="#about" onclick="closeMobileNav()">About Us</a></li>
-            <li><a href="#testimonials" onclick="closeMobileNav()">Testimonials</a></li>
-            <li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
-        </ul>
-    </div>
-
     <main>
-        <section id="hero" class="hero">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office with sleek design and collaborative workspace" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            </div>
-            <div class="hero-content">
-                <h1>Experience Seamless Shopping at EvolveKart</h1>
-                <p>Discover a curated selection of electronics, fashion, and home essentials. Quality products, unbeatable prices, delivered right to your doorstep.</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn btn-primary">Shop Now</a>
-                    <a href="#about" class="btn btn-outline">Learn More</a>
+        <section id="hero" class="section-padding">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Curated Style, Effortless Elegance</h1>
+                    <p>Discover AuraBloom's exclusive collection of ethically sourced fashion and timeless accessories. Elevate your everyday with pieces crafted for comfort, quality, and conscious living.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn btn-primary">Shop Our Collection</a>
+                        <a href="#about" class="btn btn-secondary">Learn Our Story</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with stylish design elements, promoting productivity and inspiration" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="eager">
                 </div>
             </div>
         </section>
 
-        <section id="products" class="section-padding">
-            <div class="container text-center">
-                <h2>Our Latest Innovations</h2>
-                <p>Explore our top-selling products designed to enhance your everyday life.</p>
-                <div class="products-grid">
+        <section id="products" class="section-padding text-center">
+            <div class="container">
+                <h2>Our Handpicked Collection</h2>
+                <p>Explore a range of sophisticated and sustainable products designed to inspire your personal style.</p>
+                <div class="grid-container">
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Stylish minimalist wristwatch with leather strap" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek, minimalist smart fitness tracker with digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="product-content">
-                            <h3>Quantum Chronograph Watch</h3>
-                            <p>A sophisticated timepiece combining classic elegance with modern precision. Water-resistant and crafted for durability.</p>
-                            <span class="product-price">₹12,499</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <div class="product-info">
+                            <div>
+                                <h4>AuraFit Smart Tracker</h4>
+                                <p>Monitor your health with precision and style.</p>
+                            </div>
+                            <span class="product-price">₹4,999</span>
                         </div>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-fidelity wireless over-ear headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium over-ear wireless headphones with comfortable earcups" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="product-content">
-                            <h3>AuraFlow Wireless Headphones</h3>
-                            <p>Immerse yourself in crystal-clear audio with our noise-cancelling wireless headphones. Ergonomic design for ultimate comfort.</p>
-                            <span class="product-price">₹8,999</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek silver metal smartphone on a dark surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-content">
-                            <h3>Zenith X Smart Phone</h3>
-                            <p>Capture life's moments with a stunning camera and enjoy lightning-fast performance. A premium smartphone experience.</p>
-                            <span class="product-price">₹45,999</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <div class="product-info">
+                            <div>
+                                <h4>Serenity Noise-Cancelling Headphones</h4>
+                                <p>Immerse yourself in crystal-clear audio.</p>
+                            </div>
+                            <span class="product-price">₹8,500</span>
                         </div>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Compact portable Bluetooth speaker" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant minimalist ceramic coffee mug set with a comfortable grip" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="product-content">
-                            <h3>EchoBeat Mini Speaker</h3>
-                            <p>Portable and powerful, the EchoBeat Mini delivers rich sound in a compact design. Perfect for adventures or home listening.</p>
-                            <span class="product-price">₹2,999</span>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <div class="product-info">
+                            <div>
+                                <h4>Zenith Ceramic Mug Set</h4>
+                                <p>Enjoy your daily brew in aesthetic comfort.</p>
+                            </div>
+                            <span class="product-price">₹1,200</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Luxurious scented soy candle in a decorative glass jar" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h4>Lumiere Scented Soy Candle</h4>
+                                <p>Create a soothing ambiance with natural fragrances.</p>
+                            </div>
+                            <span class="product-price">₹950</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="section-padding">
-            <div class="container text-center">
-                <h2>Why Choose EvolveKart?</h2>
-                <p>We're committed to providing you with the best shopping experience.</p>
-                <div class="features-grid">
+        <section id="features" class="section-padding text-center">
+            <div class="container">
+                <h2>Why Choose AuraBloom?</h2>
+                <p>We believe in more than just products. We believe in an experience rooted in quality and care.</p>
+                <div class="grid-container">
                     <div class="feature-item">
-                        <span class="icon">&#x1F69B;</span> <!-- Delivery truck emoji -->
-                        <h3>Fast & Reliable Delivery</h3>
-                        <p>Enjoy expedited shipping and timely delivery across India, ensuring your products arrive when you need them.</p>
+                        <div class="feature-icon-wrapper">1</div>
+                        <h3>Ethically Sourced</h3>
+                        <p>Our commitment to responsible sourcing ensures every product respects both people and planet.</p>
                     </div>
-
                     <div class="feature-item">
-                        <span class="icon">&#x1F4B0;</span> <!-- Money bag emoji -->
-                        <h3>Unbeatable Prices</h3>
-                        <p>We source directly from manufacturers to offer you competitive pricing without compromising on quality.</p>
+                        <div class="feature-icon-wrapper">2</div>
+                        <h3>Handcrafted Quality</h3>
+                        <p>Discover the difference of items meticulously crafted with attention to detail and lasting durability.</p>
                     </div>
-
-                    <div class="feature-card-with-image">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Person using a laptop in a modern office, representing innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="feature-content">
-                            <h3>Cutting-Edge Technology</h3>
-                            <p>Stay ahead with our selection of the latest gadgets and innovative solutions for home and personal use.</p>
-                        </div>
-                    </div>
-
                     <div class="feature-item">
-                        <span class="icon">&#x1F4DD;</span> <!-- Memo emoji -->
-                        <h3>Hassle-Free Returns</h3>
-                        <p>Our easy return policy ensures you can shop with confidence, knowing customer satisfaction is our priority.</p>
+                        <div class="feature-icon-wrapper">3</div>
+                        <h3>Sustainable Practices</h3>
+                        <p>From materials to packaging, we strive for eco-friendly choices that minimize our environmental footprint.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="about" class="section-padding">
+            <div class="container about-content">
+                <div class="about-text">
+                    <h2>Our Journey: Crafting Beauty with Purpose</h2>
+                    <p>AuraBloom was founded on the principle that luxury shouldn't come at the expense of our world. We meticulously curate collections that blend contemporary aesthetics with enduring quality and ethical production. Our journey began with a simple desire: to offer discerning customers products that not only look good but also do good.</p>
+                    <p>Every item in our store is a testament to skilled artistry and sustainable practices. We partner with artisans and suppliers who share our vision for a better future, ensuring transparency and fairness at every step. Join us in embracing a lifestyle where elegance meets ethics.</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                </div>
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating on a project in a bright, modern office setting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section-padding text-center">
             <div class="container">
-                <h2 class="text-center">Our Story & Mission</h2>
-                <p class="text-center" style="margin-bottom: var(--spacing-lg);">EvolveKart is more than just an e-commerce platform; it's a commitment to quality, convenience, and community.</p>
-                <div class="about-content-wrapper">
-                    <div>
-                        <h3>Who We Are</h3>
-                        <p>Founded in 2020, EvolveKart started with a vision to simplify online shopping in India. We believe in offering a diverse range of high-quality products, from cutting-edge electronics to everyday essentials, all under one reliable platform.</p>
-                        <p>Our team comprises passionate individuals dedicated to curating the best products and providing exceptional customer service. We're constantly evolving to meet your needs, ensuring a smooth and enjoyable shopping journey from start to finish.</p>
-                        <h3>Our Values</h3>
-                        <ul>
-                            <li><strong>Customer Centricity:</strong> Your satisfaction is at the heart of everything we do.</li>
-                            <li><strong>Quality Assurance:</strong> We partner with trusted brands to ensure every product meets our high standards.</li>
-                            <li><strong>Innovation:</strong> Continuously seeking new ways to enhance your shopping experience.</li>
-                            <li><strong>Integrity:</strong> Transparent practices and honest communication define our business.</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-secondary" style="margin-top: var(--spacing-md);">Get in Touch</a>
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Hear from those who have experienced the AuraBloom difference.</p>
+                <div class="grid-container">
+                    <div class="testimonial-card">
+                        <p>"Absolutely love my new headphones! The sound quality is incredible, and they're so comfortable. AuraBloom truly delivers on their promise of quality."</p>
+                        <div class="testimonial-author">- Priya Sharma</div>
                     </div>
-                    <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Business team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    <div class="testimonial-card">
+                        <p>"The AuraFit tracker changed my daily routine. Stylish and functional, it's exactly what I needed to stay on top of my health goals. Highly recommended!"</p>
+                        <div class="testimonial-author">- Rohan Gupta</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I'm so impressed with the craftsmanship of the ceramic mugs. They feel luxurious and look beautiful. Plus, knowing they're ethically sourced makes it even better!"</p>
+                        <div class="testimonial-author">- Anjali Singh</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="section-padding testimonials">
-            <div class="container text-center">
-                <h2>What Our Customers Say</h2>
-                <p>Hear from the satisfied shoppers who trust EvolveKart for their needs.</p>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
-                        <p>"EvolveKart has completely changed my online shopping experience! The delivery was super fast, and the headphones I ordered are fantastic. Highly recommend for electronics."</p>
-                        <p class="testimonial-author">- Priya Sharma, Bengaluru</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
-                        <p>"I'm always wary of online stores, but EvolveKart's return policy gave me confidence. The watch I bought exceeded my expectations. Excellent service!"</p>
-                        <p class="testimonial-author">- Rajesh Kumar, Delhi</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
-                        <p>"From stylish accessories to home gadgets, EvolveKart has it all. Their product descriptions are accurate, and prices are competitive. A truly reliable platform."</p>
-                        <p class="testimonial-author">- Anjali Singh, Mumbai</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section-padding">
-            <div class="container text-center">
-                <h2>Get in Touch With Us</h2>
-                <p style="margin-bottom: var(--spacing-lg);">Have questions, feedback, or need support? We're here to help!</p>
+        <section id="contact" class="section-padding text-center">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Have a question or a special request? We'd love to hear from you.</p>
                 <form class="contact-form">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -858,13 +776,13 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </section>
@@ -872,69 +790,61 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>EvolveKart</h4>
-                    <p>Your premier online destination for quality electronics, fashion, and home essentials. Shop smart, live better.</p>
-                    <div class="footer-socials">
-                        <a href="#" aria-label="Facebook">F</a> <!-- Placeholder for social icons -->
-                        <a href="#" aria-label="Twitter">T</a>
-                        <a href="#" aria-label="Instagram">I</a>
-                        <a href="#" aria-label="LinkedIn">L</a>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">AuraBloom</div>
+                    <p>Curating elegance, inspiring conscious living.</p>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <ul>
+                    <ul class="footer-nav">
                         <li><a href="#hero">Home</a></li>
-                        <li><a href="#products">Shop Products</a></li>
-                        <li><a href="#about">About EvolveKart</a></li>
-                        <li><a href="#contact">Support</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Customer Service</h4>
-                    <ul>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping Information</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Contact Us</h4>
-                    <p>Email: info@evolvekart.in</p>
-                    <p>Phone: +91 8000 123 456</p>
-                    <p>Address: 123 Evolve Street, Bangalore, India</p>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <ul class="footer-social">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2023 EvolveKart. All rights reserved.
+                &copy; 2023 AuraBloom. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('mobileNavOverlay').classList.add('active');
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            var nav = document.getElementById('main-nav');
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
         });
 
-        document.getElementById('closeNav').addEventListener('click', function() {
-            document.getElementById('mobileNavOverlay').classList.remove('active');
-        });
-
-        function closeMobileNav() {
-            document.getElementById('mobileNavOverlay').classList.remove('active');
-        }
-
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('main-nav');
+                const menuToggle = document.getElementById('mobile-menu');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
             });
         });
     </script>
