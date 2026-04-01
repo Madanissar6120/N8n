@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansh Infotech Store - Premium Electronics & Gadgets</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>LuxeCart - Premium E-commerce</title>
     <style>
+        /* CSS Variables */
         :root {
-            --primary-color: #007bff; /* Blue */
-            --secondary-color: #6c757d; /* Grey */
-            --accent-color: #0d6efd; /* Darker blue for interactions */
-            --text-color: #343a40; /* Dark text */
-            --light-text-color: #f8f9fa; /* Light text */
-            --background-color: #f8f9fa; /* Light background */
-            --card-background: #ffffff; /* Card background */
-            --border-color: #e9ecef; /* Light border */
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --text-color: #333;
+            --light-text-color: #666;
+            --bg-color: #f8f9fa;
+            --card-bg-color: #fff;
+            --border-color: #e9ecef;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --nav-height: 70px;
         }
 
-        /* Base styles */
+        /* Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,531 +29,497 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: var(--font-family-sans);
             color: var(--text-color);
-            background-color: var(--background-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
         a {
-            color: var(--accent-color);
             text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block; /* Ensure no extra space below images */
-            border: none;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            margin-bottom: 0.8em;
-            color: var(--text-color);
-        }
-
-        h1 { font-size: 3rem; line-height: 1.1; }
-        h2 { font-size: 2.2rem; line-height: 1.2; }
-        h3 { font-size: 1.75rem; line-height: 1.3; }
-        h4 { font-size: 1.25rem; line-height: 1.4; }
-        p { font-size: 1rem; margin-bottom: 1em; }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: var(--light-text-color);
-            border-color: var(--accent-color);
-        }
-
-        .btn-primary:hover {
-            background-color: #0b5ed7; /* Slightly darker accent */
-            border-color: #0b5ed7;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
             color: var(--accent-color);
-            border-color: var(--accent-color);
         }
 
-        .btn-secondary:hover {
-            background-color: rgba(0, 123, 255, 0.08);
-            color: #0b5ed7;
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+        h2 { font-size: 2rem; line-height: 1.3; margin-bottom: 1.5rem; color: var(--text-color); }
+        h3 { font-size: 1.5rem; line-height: 1.4; margin-bottom: 1rem; color: var(--text-color); }
+        p { font-size: 1rem; margin-bottom: 1rem; }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
         }
 
-        /* Layout & Spacing */
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        .section-padding {
-            padding: 5rem 0;
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
         }
 
-        .text-center {
-            text-align: center;
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--card-bg-color);
+            box-shadow: 0 4px 10px var(--shadow-medium);
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--card-bg-color);
+            transform: translateY(-2px);
         }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-light);
-            padding: 1rem 0;
-        }
-
-        .navbar .container {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 1.5rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            height: var(--nav-height);
         }
 
         .navbar-brand {
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-color);
-            text-decoration: none;
+            color: var(--primary-color);
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem; /* Increased gap for modern feel */
+        .navbar-nav {
+            display: none;
         }
 
-        .nav-links a {
+        .navbar-nav a {
             color: var(--text-color);
+            margin-left: 1.5rem;
             font-weight: 500;
-            transition: color 0.3s ease;
             position: relative;
         }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-            text-decoration: none;
+        
+        .navbar-nav a:hover {
+            color: var(--primary-color);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-icons {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .nav-icon-btn {
+        .navbar-toggle {
+            display: block;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-color);
-            transition: color 0.3s ease;
-        }
-
-        .nav-icon-btn:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hamburger menu */
-        .menu-toggle {
-            display: none; /* Hidden on desktop */
             font-size: 1.8rem;
             cursor: pointer;
-            background: none;
-            border: none;
             color: var(--text-color);
-            transition: color 0.3s ease;
         }
 
-        .menu-toggle:hover {
-            color: var(--accent-color);
+        @media (min-width: 768px) {
+            .navbar-toggle {
+                display: none;
+            }
+            .navbar-nav {
+                display: flex;
+                align-items: center;
+            }
         }
 
-        /* Mobile navigation */
-        .nav-mobile {
-            display: none;
+        .navbar-nav.active {
+            display: flex;
             flex-direction: column;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
             position: absolute;
-            top: 100%;
+            top: var(--nav-height);
             left: 0;
             width: 100%;
-            box-shadow: var(--shadow-medium);
-            z-index: 999;
-            padding: 1.5rem 1rem;
-            gap: 1rem;
-            opacity: 1;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .nav-mobile.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .nav-mobile a {
-            font-size: 1.1rem;
-            padding: 0.8rem 0;
-            color: var(--text-color);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-color);
-            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 1rem 0;
+            box-shadow: 0 4px 10px var(--shadow-medium);
         }
-
-        .nav-mobile a:last-child {
-            border-bottom: none;
+        .navbar-nav.active a {
+            margin: 0.5rem 0;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            text-align: center;
         }
-
-        .nav-mobile a:hover {
-            color: var(--accent-color);
-            background-color: rgba(0, 123, 255, 0.05);
-        }
-
 
         /* Hero Section */
-        .hero {
+        #hero {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--card-bg-color);
             text-align: center;
-            color: var(--light-text-color);
-            min-height: 80vh; /* Ensures content is visible with image */
-            padding: 2rem 0;
-            overflow: hidden; /* For the image container */
+            height: 80vh; /* Controlled by hero-image-container */
+            padding: 0;
+            overflow: hidden;
         }
 
-        .hero-image-container {
-            height: 80vh;
-            width: 100%;
-            overflow: hidden;
-            position: absolute; /* Position the image relative to the hero section */
-            top: 0;
-            left: 0;
+        .hero-image-container { 
+            height: 80vh; 
+            width: 100%; 
+            overflow: hidden; 
+            position: relative; 
             background: #e0e0e0; /* Placeholder background */
         }
-
+        
         .hero-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-            filter: brightness(0.7); /* Slightly darken image for text readability */
+            filter: brightness(0.7); /* Subtle darkening for text readability */
         }
 
         .hero-content {
-            position: relative;
-            z-index: 10;
+            position: absolute;
+            z-index: 1;
             max-width: 800px;
-            padding: 2rem 1rem;
+            padding: 1rem;
         }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            color: var(--light-text-color);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px var(--shadow-medium);
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+        .hero-content p {
+            font-size: 1.25rem;
             margin-bottom: 2rem;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 3px var(--shadow-medium);
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
+        .hero-buttons .btn {
+            margin: 0 0.5rem;
         }
 
-        .hero-buttons .btn-secondary {
-            color: var(--light-text-color);
-            border-color: var(--light-text-color);
+        @media (min-width: 768px) {
+            .hero-content h1 {
+                font-size: 4.5rem;
+            }
+            .hero-content p {
+                font-size: 1.5rem;
+            }
         }
 
-        .hero-buttons .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: var(--light-text-color);
+        /* Products Section */
+        #products h2 {
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
         }
 
-        /* Product Section */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 480px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .product-card {
-            background-color: var(--card-background);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
+            background-color: var(--card-bg-color);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
             overflow: hidden;
+            text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-medium);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
         }
 
-        .product-image-container {
-            height: 260px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
+        .product-image-container { 
+            height: 260px; 
+            width: 100%; 
+            overflow: hidden; 
+            position: relative; 
             background: #f5f5f5; /* Placeholder background */
         }
 
-        .product-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-        }
-
-        .product-info {
+        .product-content {
             padding: 1.5rem;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            justify-content: space-between;
         }
 
-        .product-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+        .product-content h3 {
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
         }
 
-        .product-info p {
-            font-size: 1rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
+        .product-content p {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
             flex-grow: 1;
         }
 
         .product-price {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: block; /* Ensure it's on its own line */
         }
 
         .product-card .btn {
             width: 100%;
-            padding: 0.9rem 1rem;
-            border-radius: 8px;
-            font-size: 1.05rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 0.5rem;
         }
 
         /* Features Section */
+        #features {
+            background-color: #f0f4f8;
+            padding: 5rem 1rem;
+        }
+
+        #features h2 {
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--card-background);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-item h3 {
-            margin-top: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .feature-banner {
-            position: relative;
-            padding: 4rem 0;
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            overflow: hidden;
-            border-radius: 12px;
-        }
-
-        .feature-banner-image-container {
-            height: 250px; /* Fixed height for feature banner */
-            width: 100%;
-            overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: #d0d0d0;
-        }
-
-        .feature-banner-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-            filter: brightness(0.6);
-        }
-
-        .feature-banner-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            color: var(--light-text-color);
-            max-width: 800px;
-        }
-        .feature-banner-content h2 {
-            color: var(--light-text-color);
-            font-size: 2.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .about-image-wrapper {
-            flex: 1;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-medium);
-            background: #e5e5e5;
-        }
-
-        .about-image-container {
-            height: 400px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #f5f5f5; /* Placeholder background */
-        }
-
-        .about-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-        }
-
-        .about-text {
-            flex: 1;
-            padding-right: 2rem;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .testimonial-card {
-            background-color: var(--card-background);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            padding: 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        @media (min-width: 480px) {
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
         }
 
-        .testimonial-quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .feature-item {
+            background-color: var(--card-bg-color);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .feature-icon-wrapper {
+            height: 80px; /* Fixed height for feature "icon" images */
+            width: 80px; /* Fixed width for feature "icon" images */
+            overflow: hidden;
+            position: relative;
+            border-radius: 50%; /* Make them circular */
+            margin-bottom: 1rem;
+            background-color: var(--border-color); /* Placeholder */
+            box-shadow: 0 2px 8px var(--shadow-light);
+        }
+
+        .feature-icon-wrapper img {
+            object-position: center 20%; /* Adjust for the general business image to look better in a small circle */
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+        }
+
+        /* About Section */
+        #about {
+            text-align: left;
+            padding: 5rem 1rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            .about-content > div {
+                flex: 1;
+            }
+        }
+
+        .about-image-container { 
+            height: 400px; 
+            width: 100%; 
+            max-width: 500px; /* Limit image width on larger screens */
+            overflow: hidden; 
+            position: relative; 
+            background: #d0d0d0; /* Placeholder background */
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        #about h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+        
+        @media (min-width: 768px) {
+            #about h2 {
+                text-align: left;
+            }
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--light-text-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background-color: #f0f4f8;
+            padding: 5rem 1rem;
+        }
+
+        #testimonials h2 {
+            margin-bottom: 3rem;
             color: var(--text-color);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg-color);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            text-align: left;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            color: var(--light-text-color);
+            margin-bottom: 1.5rem;
         }
 
         .testimonial-author {
             font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 0.5rem;
-        }
-        .testimonial-rating {
-            color: #ffc107; /* Star color */
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+            color: var(--text-color);
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
         }
 
         /* Contact Section */
+        #contact {
+            padding: 5rem 1rem;
+        }
+
+        #contact h2 {
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+
         .contact-form {
-            max-width: 700px;
-            margin: 3rem auto 0;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg-color);
             padding: 2.5rem;
-            background-color: var(--card-background);
-            border-radius: 12px;
-            box-shadow: var(--shadow-medium);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            text-align: left;
         }
 
         .form-group {
@@ -560,27 +528,27 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.6rem;
-            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
             color: var(--text-color);
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
+        .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.9rem 1.2rem;
+            padding: 0.75rem 1rem;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 0.5rem;
+            font-family: var(--font-family-sans);
             font-size: 1rem;
-            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
 
@@ -589,1033 +557,308 @@
             resize: vertical;
         }
 
-        .contact-form .btn-primary {
+        .contact-form .btn {
             width: 100%;
             padding: 1rem;
-            font-size: 1.1rem;
         }
 
         /* Footer */
         .footer {
-            background-color: #212529; /* Dark footer */
-            color: rgba(255, 255, 255, 0.8);
-            padding: 4rem 0 2rem;
-            font-size: 0.95rem;
-            margin-top: 5rem;
-        }
-
-        .footer .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            font-size: 1.1rem;
-            color: var(--light-text-color);
-            margin-bottom: 1.2rem;
-            position: relative;
-        }
-
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col ul li a {
+            background-color: #212529;
             color: rgba(255, 255, 255, 0.7);
-            transition: color 0.3s ease;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .social-links a {
-            display: inline-block;
-            height: 40px;
-            width: 40px;
-            background-color: rgba(255, 255, 255, 0.2);
-            margin: 0 10px 10px 0;
+            padding: 3rem 1rem;
             text-align: center;
-            line-height: 40px;
-            border-radius: 50%;
-            color: var(--light-text-color);
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
         }
 
-        .social-links a:hover {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            text-align: left;
+        }
+
+        @media (min-width: 480px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-column h4 {
+            color: var(--card-bg-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        .footer-column ul li a:hover {
             color: var(--primary-color);
-            background-color: var(--light-text-color);
+        }
+
+        .footer-socials {
+            margin-top: 1.5rem;
+        }
+
+        .footer-socials a {
+            display: inline-block;
+            margin: 0 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem; /* Placeholder for icon */
+        }
+        .footer-socials a:hover {
+            color: var(--primary-color);
         }
 
         .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Cart Sidebar/Modal */
-        .cart-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            display: none; /* Hidden by default */
-        }
-
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 100%;
-            background-color: var(--card-background);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            z-index: 2001;
-            transform: translateX(100%);
-            transition: transform 0.4s ease-out;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-overlay.active {
-            display: block;
-        }
-
-        .cart-sidebar.active {
-            transform: translateX(0);
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .cart-header h3 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .cart-close-btn {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-color);
-            transition: color 0.3s ease;
-        }
-
-        .cart-close-btn:hover {
-            color: var(--accent-color);
-        }
-
-        .cart-items {
-            flex-grow: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px dashed var(--border-color);
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .cart-item-image-container {
-            width: 80px;
-            height: 80px;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-right: 1rem;
-            flex-shrink: 0;
-            background: #f0f0f0;
-        }
-        .cart-item-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cart-item-details {
-            flex-grow: 1;
-        }
-
-        .cart-item-details h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .cart-item-details .price {
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .cart-item-actions button {
-            background: none;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            width: 30px;
-            height: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
-        }
-
-        .cart-item-actions button:hover {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: var(--light-text-color);
-        }
-        .cart-item-actions input {
-            width: 40px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 0.3rem 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .cart-summary {
-            padding: 1.5rem;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .cart-summary div {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.1rem;
-        }
-
-        .cart-summary .total {
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: var(--text-color);
-        }
-
-        .cart-summary .btn {
-            width: 100%;
-            font-size: 1.1rem;
-            padding: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Checkout Section */
-        #checkout {
-            display: none; /* Hidden by default, shown when clicking checkout from cart */
-        }
-        #checkout.active {
-            display: block;
-        }
-        .checkout-section {
-            background-color: var(--background-color);
-            padding: 5rem 0;
-        }
-
-        .checkout-form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: var(--card-background);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .checkout-form-container h2 {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .checkout-form-container .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .checkout-form-container .form-group label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .checkout-form-container .form-group input,
-        .checkout-form-container .form-group select,
-        .checkout-form-container .form-group textarea {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .checkout-form-container .form-group input:focus,
-        .checkout-form-container .form-group select:focus,
-        .checkout-form-container .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-        }
-        .checkout-form-container .btn-primary {
-            width: 100%;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            font-size: 1.1rem;
-        }
-
-        /* Utility for icons (using basic text as placeholder for font awesome) */
-        .icon {
-            font-family: 'Arial', sans-serif; /* A simple fallback for icon-like characters */
-            font-weight: normal;
-        }
-        /* Cart count badge */
-        .cart-count {
-            background-color: #dc3545; /* Red */
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 50%;
-            padding: 0.2rem 0.5rem;
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            min-width: 20px;
-            text-align: center;
-            line-height: 1;
-        }
-        .nav-icon-btn.cart-icon {
-            position: relative;
-        }
-
-        /* Media Queries */
-        /* Mobile (below 768px) */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.4rem; }
-            p { font-size: 0.95rem; }
-
-            .navbar .nav-links,
-            .navbar .nav-icons {
-                display: none; /* Hide desktop nav items */
-            }
-            .navbar .menu-toggle {
-                display: block; /* Show hamburger */
-            }
-
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.1rem; }
-            .hero-buttons { flex-direction: column; gap: 1rem; }
-            .hero-buttons .btn { width: 80%; margin: 0 auto; }
-
-            .section-padding { padding: 3rem 0; }
-
-            .product-grid {
-                grid-template-columns: 1fr; /* Single column */
-                gap: 2rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .about-text {
-                padding-right: 0;
-                text-align: center;
-            }
-            .about-image-wrapper {
-                width: 100%;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .contact-form {
-                padding: 1.5rem;
-            }
-
-            .footer .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-col h4::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .cart-sidebar {
-                width: 100%; /* Full width on mobile */
-            }
-        }
-
-        /* Smaller mobile (below 480px) */
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.6rem; }
-            h3 { font-size: 1.3rem; }
-
-            .hero h1 { font-size: 2.3rem; }
-            .hero p { font-size: 1rem; }
-            .hero-buttons .btn { width: 90%; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
     <nav class="navbar">
-        <div class="container">
-            <a href="#hero" class="navbar-brand">Ansh Infotech</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-icons">
-                <button class="nav-icon-btn cart-icon" id="cartToggle">
-                    🛒 <span class="cart-count" id="cartItemCount">0</span>
-                </button>
-            </div>
-            <button class="menu-toggle" id="menuToggle">☰</button>
-        </div>
-        <div class="nav-mobile" id="navMobile">
-            <a href="#hero" onclick="toggleMenu()">Home</a>
-            <a href="#products" onclick="toggleMenu()">Products</a>
-            <a href="#about" onclick="toggleMenu()">About Us</a>
-            <a href="#contact" onclick="toggleMenu()">Contact</a>
+        <a href="#" class="navbar-brand">LuxeCart</a>
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <div class="navbar-nav" id="navbarNav">
+            <a href="#products">Products</a>
+            <a href="#features">Features</a>
+            <a href="#about">About Us</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with computers and collaborators" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            </div>
-            <div class="hero-content container">
-                <h1>Innovate. Connect. Succeed.</h1>
-                <p>Ansh Infotech Store: Your ultimate destination for cutting-edge electronics and smart gadgets. Explore a world of innovation.</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn btn-primary">Shop Now</a>
-                    <a href="#features" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section id="products" class="section-padding">
-            <div class="container">
-                <h2 class="text-center">Our Bestselling Gadgets</h2>
-                <p class="text-center">Discover a curated collection of high-performance electronics designed to enhance your digital lifestyle.</p>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Smartwatch displaying time and fitness data" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Quantum Smartwatch X1</h3>
-                            <p>Track your health, receive notifications, and stay connected on the go with this sleek smartwatch.</p>
-                            <span class="product-price">₹12,499</span>
-                            <button class="btn btn-primary add-to-cart" data-id="P001" data-name="Quantum Smartwatch X1" data-price="12499" data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Modern wireless over-ear headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Aura Noise-Cancelling Headphones</h3>
-                            <p>Immersive audio experience with superior comfort and advanced noise-cancellation technology.</p>
-                            <span class="product-price">₹8,999</span>
-                            <button class="btn btn-primary add-to-cart" data-id="P002" data-name="Aura Noise-Cancelling Headphones" data-price="8999" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1601924582319-35ed527c9a9d?w=1200&q=80" alt="Stylish gaming mouse on a desk" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Precision Gaming Mouse</h3>
-                            <p>Ergonomic design with adjustable DPI and customizable buttons for ultimate gaming control.</p>
-                            <span class="product-price">₹3,299</span>
-                            <button class="btn btn-primary add-to-cart" data-id="P003" data-name="Precision Gaming Mouse" data-price="3299" data-image="https://images.unsplash.com/photo-1601924582319-35ed527c9a9d?w=1200&q=80">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1593305841399-6e397c763402?w=1200&q=80" alt="Compact portable power bank charging phone" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>HyperCharge Power Bank 20000mAh</h3>
-                            <p>Keep your devices charged on the go with this high-capacity and fast-charging power bank.</p>
-                            <span class="product-price">₹2,499</span>
-                            <button class="btn btn-primary add-to-cart" data-id="P004" data-name="HyperCharge Power Bank 20000mAh" data-price="2499" data-image="https://images.unsplash.com/photo-1593305841399-6e397c763402?w=1200&q=80">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1542496658-e33a6d07d506?w=1200&q=80" alt="Professional DSLR camera with lens" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>ProVision 4K Action Camera</h3>
-                            <p>Capture breathtaking moments in stunning 4K detail, perfect for adventures and vlogging.</p>
-                            <span class="product-price">₹18,999</span>
-                            <button class="btn btn-primary add-to-cart" data-id="P005" data-name="ProVision 4K Action Camera" data-price="18999" data-image="https://images.unsplash.com/photo-1542496658-e33a6d07d506?w=1200&q=80">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1588147708051-27771746654a?w=1200&q=80" alt="Smart home speaker with abstract light" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>EchoTune Smart Home Speaker</h3>
-                            <p>Voice-controlled assistant with premium sound quality, integrating seamlessly with your smart home.</p>
-                            <span class="product-price">₹6,999</span>
-                            <button class="btn btn-primary add-to-cart" data-id="P006" data-name="EchoTune Smart Home Speaker" data-price="6999" data-image="https://images.unsplash.com/photo-1588147708051-27771746654a?w=1200&q=80">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="section-padding" style="background-color: #f0f4f8;">
-            <div class="container text-center">
-                <h2>Why Choose Ansh Infotech?</h2>
-                <p>We are dedicated to bringing you the best in technology with unmatched service and reliability.</p>
-                
-                <div class="feature-banner" style="margin-top: 3rem;">
-                    <div class="feature-banner-image-container">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Team collaborating on a project in a modern office" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="feature-banner-content">
-                        <h2>Experience the Future of Technology</h2>
-                    </div>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">✨</div>
-                        <h3>Innovative Products</h3>
-                        <p>Stay ahead with our selection of cutting-edge gadgets and electronics from top brands.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🛡️</div>
-                        <h3>Quality Assurance</h3>
-                        <p>Every product undergoes rigorous quality checks to ensure durability and peak performance.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🚀</div>
-                        <h3>Fast Delivery</h3>
-                        <p>Enjoy swift and secure delivery services right to your doorstep, nationwide.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">💬</div>
-                        <h3>24/7 Support</h3>
-                        <p>Our dedicated customer support team is always ready to assist you with any queries.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section-padding">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-image-wrapper">
-                        <div class="about-image-container">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team working together in a modern office setting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="about-text">
-                        <h2>About Ansh Infotech Store</h2>
-                        <p>Ansh Infotech Store was founded with a vision to make advanced technology accessible to everyone. Since our inception, we have been committed to providing a seamless online shopping experience, offering a diverse range of high-quality electronics and gadgets.</p>
-                        <p>Our mission is to empower individuals and businesses with the tools they need to thrive in the digital age. We believe in innovation, customer satisfaction, and building lasting relationships. With a passionate team and a focus on emerging trends, we are constantly expanding our catalog to bring you the future, today.</p>
-                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="section-padding" style="background-color: #f0f4f8;">
-            <div class="container text-center">
-                <h2>What Our Customers Say</h2>
-                <p>Hear from satisfied customers who have experienced the Ansh Infotech difference.</p>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
-                        <p class="testimonial-quote">"Ansh Infotech has an amazing selection of smart gadgets. My new smartwatch arrived quickly and works flawlessly. Highly recommend!"</p>
-                        <p class="testimonial-author">- Priya Sharma, Tech Enthusiast</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
-                        <p class="testimonial-quote">"The noise-cancelling headphones I bought are incredible! The sound quality is superb, and the delivery was super fast. Excellent service!"</p>
-                        <p class="testimonial-author">- Rohan Kumar, Music Lover</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">★★★★★</div>
-                        <p class="testimonial-quote">"I'm impressed with the quality and pricing at Ansh Infotech. The customer support was also very helpful with my queries. A trustworthy store."</p>
-                        <p class="testimonial-author">- Sneha Patel, Professional</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section-padding">
-            <div class="container">
-                <h2 class="text-center">Contact Us</h2>
-                <p class="text-center">Have a question or need assistance? Reach out to our team!</p>
-                <div class="contact-form">
-                    <form action="#" method="POST"> <!-- Action can be updated for a real backend -->
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your full name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="your@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Checkout Section - Initially hidden -->
-        <section id="checkout" class="checkout-section">
-            <div class="container">
-                <div class="checkout-form-container">
-                    <h2>Checkout</h2>
-                    <form id="checkoutForm">
-                        <h3>Shipping Information</h3>
-                        <div class="form-group">
-                            <label for="checkout-name">Full Name</label>
-                            <input type="text" id="checkout-name" name="name" required placeholder="Your Full Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout-email">Email Address</label>
-                            <input type="email" id="checkout-email" name="email" required placeholder="your@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout-address">Shipping Address</label>
-                            <input type="text" id="checkout-address" name="address" required placeholder="House No., Street, Area">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout-city">City</label>
-                            <input type="text" id="checkout-city" name="city" required placeholder="City Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout-state">State</label>
-                            <input type="text" id="checkout-state" name="state" required placeholder="State Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout-zip">PIN Code</label>
-                            <input type="text" id="checkout-zip" name="zip" pattern="[0-9]{6}" title="Six digit PIN code" required placeholder="e.g., 110001">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout-phone">Phone Number</label>
-                            <input type="tel" id="checkout-phone" name="phone" pattern="[0-9]{10}" title="Ten digit phone number" required placeholder="e.g., 9876543210">
-                        </div>
-
-                        <h3 style="margin-top: 2.5rem;">Payment Method</h3>
-                        <div class="form-group">
-                            <label for="payment-method">Select Method</label>
-                            <select id="payment-method" name="paymentMethod" required>
-                                <option value="">Select a payment method</option>
-                                <option value="cod">Cash on Delivery (COD)</option>
-                                <option value="upi">UPI / Net Banking (Placeholder)</option>
-                                <option value="card">Credit/Debit Card (Placeholder)</option>
-                            </select>
-                        </div>
-
-                        <div style="margin-top: 2.5rem;">
-                            <h4>Order Summary</h4>
-                            <div id="checkoutOrderSummary" style="margin-top: 1rem; padding: 1rem; background-color: #f8f9fa; border-radius: 8px; border: 1px dashed var(--border-color);">
-                                <!-- Cart items will be rendered here by JS -->
-                                <p style="font-weight: 500;">No items in cart for checkout.</p>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 1.2rem; margin-top: 1.5rem;">
-                                <span>Total:</span>
-                                <span id="checkoutTotal">₹0</span>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Place Order</button>
-                        <button type="button" class="btn btn-secondary" style="margin-top: 1rem;" onclick="hideCheckout()">Back to Home</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Cart Sidebar -->
-    <div class="cart-overlay" id="cartOverlay">
-        <div class="cart-sidebar" id="cartSidebar">
-            <div class="cart-header">
-                <h3>Your Cart</h3>
-                <button class="cart-close-btn" id="cartClose">✕</button>
-            </div>
-            <div class="cart-items" id="cartItemsContainer">
-                <!-- Cart items will be rendered here by JS -->
-                <p id="emptyCartMessage" style="text-align: center; margin-top: 2rem; color: var(--secondary-color);">Your cart is empty.</p>
-            </div>
-            <div class="cart-summary">
-                <div>
-                    <span>Subtotal:</span>
-                    <span id="cartSubtotal">₹0</span>
-                </div>
-                <div class="total">
-                    <span>Total:</span>
-                    <span id="cartTotal">₹0</span>
-                </div>
-                <button class="btn btn-primary" id="checkoutBtn">Proceed to Checkout</button>
+    <header id="hero">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with computers and natural light, symbolizing a professional business environment." style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+        <div class="hero-content">
+            <h1>Elevate Your Lifestyle with LuxeCart</h1>
+            <p>Discover premium products curated for the modern Indian consumer. Quality, style, and innovation delivered to your doorstep.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-col">
-                <h4>Ansh Infotech</h4>
-                <p>Your trusted partner for cutting-edge electronics and smart solutions.</p>
+    <section id="products">
+        <h2>Our Premium Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek smartwatch with a minimalist design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3>LuxeBand Pro Smartwatch</h3>
+                    <p>Track your fitness, monitor your health, and stay connected with cutting-edge technology wrapped in elegant design.</p>
+                    <span class="product-price">₹7,499</span>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Over-ear headphones with soft earcups, providing comfort and immersive sound" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3>SonicWave Premium Headphones</h3>
+                    <p>Immerse yourself in crystal-clear audio with unparalleled comfort. Perfect for music lovers and professionals.</p>
+                    <span class="product-price">₹12,999</span>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Health-focused fitness tracker displaying activity metrics" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3>HealthPulse Fitness Tracker</h3>
+                    <p>Achieve your wellness goals with real-time tracking of steps, heart rate, and sleep patterns. Your health, simplified.</p>
+                    <span class="product-price">₹4,999</span>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Compact portable Bluetooth speaker for on-the-go music" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3>AuraSound Bluetooth Speaker</h3>
+                    <p>Powerful sound in a portable design. Take your music anywhere with this durable and stylish wireless speaker.</p>
+                    <span class="product-price">₹3,999</span>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Why Choose LuxeCart?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Laptop keyboard, symbolizing efficiency and ease of use" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <h3>Seamless Experience</h3>
+                <p>Browse, select, and checkout with unparalleled ease. Our intuitive interface makes shopping a delight.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Close-up of keyboard, representing secure digital transactions" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <h3>Secure Payments</h3>
+                <p>Shop with confidence. We partner with leading payment gateways to ensure your transactions are always safe.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Hand on keyboard, indicating fast processing and delivery" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <h3>Fast Shipping</h3>
+                <p>Get your products delivered to your doorstep quickly and reliably across India.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Keyboard and mouse, representing dedicated customer support" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Our dedicated customer service team is always ready to assist you, day or night.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About LuxeCart</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Story and Vision</h3>
+                <p>At LuxeCart, we believe that premium quality and innovative design should be accessible. Founded with a passion for bringing the best products to discerning customers across India, we meticulously curate our collection from trusted global and local brands.</p>
+                <p>Our vision is to become the leading destination for e-commerce, where every purchase is an experience in itself. We focus on product excellence, customer satisfaction, and a seamless shopping journey from start to finish.</p>
+                <p>We are committed to building a community around quality, style, and convenience. Join us on our journey to redefine online shopping.</p>
+            </div>
+            <div class="about-image-container">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating happily in a modern, open-plan office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"LuxeCart has completely changed my online shopping experience. The LuxeBand Pro Smartwatch is fantastic, and the delivery was incredibly fast. Highly recommend their products!"</p>
+                <span class="testimonial-author">- Priya Sharma, Bengaluru</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"I was searching for high-quality headphones, and SonicWave from LuxeCart exceeded my expectations. The sound is amazing, and customer service was very helpful with my query."</p>
+                <span class="testimonial-author">- Rahul Singh, Mumbai</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The HealthPulse Fitness Tracker is exactly what I needed. Accurate, stylish, and durable. LuxeCart's collection is truly premium and worth every rupee."</p>
+                <span class="testimonial-author">- Sneha Patel, Delhi</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>LuxeCart</h4>
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#features">Why LuxeCart</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><span class="icon">FB</span></a>
-                    <a href="#"><span class="icon">TW</span></a>
-                    <a href="#"><span class="icon">IG</span></a>
-                    <a href="#"><span class="icon">LN</span></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Info</h4>
+            <div class="footer-column">
+                <h4>Shop</h4>
                 <ul>
-                    <li><a href="#">Ansh Infotech Store, G-10, Block C, Delhi - 110001</a></li>
-                    <li><a href="mailto:info@anshtech.com">info@anshtech.com</a></li>
-                    <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+                    <li><a href="#products">Smart Devices</a></li>
+                    <li><a href="#products">Audio & Visual</a></li>
+                    <li><a href="#products">Health & Fitness</a></li>
+                    <li><a href="#products">Best Sellers</a></li>
                 </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <p>Stay updated with our latest collections and offers.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook">F</a> <!-- Placeholder for social icon, following image rules -->
+                    <a href="#" aria-label="Twitter">T</a>
+                    <a href="#" aria-label="Instagram">I</a>
+                    <a href="#" aria-label="LinkedIn">L</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Ansh Infotech Store. All Rights Reserved. Designed with ❤️ by Ansh Infotech Team.</p>
+            <p>&copy; 2023 LuxeCart. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Navbar Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMobile = document.getElementById('navMobile');
-        const navLinks = document.getElementById('navLinks'); // Desktop links for hiding
+        document.getElementById('navbarToggle').onclick = function() {
+            var nav = document.getElementById('navbarNav');
+            nav.classList.toggle('active');
+        };
 
-        function toggleMenu() {
-            navMobile.classList.toggle('active');
-            // Accessibility: Toggle aria-expanded
-            const isExpanded = navMobile.classList.contains('active');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-
-        // Close mobile nav when clicking outside or on a link (delegation)
-        document.addEventListener('click', function(event) {
-            if (navMobile.classList.contains('active') && 
-                !navMobile.contains(event.target) && 
-                !menuToggle.contains(event.target) &&
-                !navLinks.contains(event.target)) { // Also check desktop nav if it somehow triggers
-                toggleMenu();
-            }
-        });
-
-        // Cart functionality
-        const cartOverlay = document.getElementById('cartOverlay');
-        const cartSidebar = document.getElementById('cartSidebar');
-        const cartToggle = document.getElementById('cartToggle');
-        const cartClose = document.getElementById('cartClose');
-        const cartItemsContainer = document.getElementById('cartItemsContainer');
-        const cartItemCount = document.getElementById('cartItemCount');
-        const cartSubtotalSpan = document.getElementById('cartSubtotal');
-        const cartTotalSpan = document.getElementById('cartTotal');
-        const emptyCartMessage = document.getElementById('emptyCartMessage');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-        const checkoutSection = document.getElementById('checkout');
-        const checkoutOrderSummary = document.getElementById('checkoutOrderSummary');
-        const checkoutTotalSpan = document.getElementById('checkoutTotal');
-        const mainContent = document.querySelector('main'); // To hide main content
-
-        let cart = JSON.parse(localStorage.getItem('ans_infotech_cart')) || [];
-
-        function saveCart() {
-            localStorage.setItem('ans_infotech_cart', JSON.stringify(cart));
-        }
-
-        function renderCart() {
-            cartItemsContainer.innerHTML = '';
-            if (cart.length === 0) {
-                emptyCartMessage.style.display = 'block';
-                checkoutBtn.disabled = true;
-                checkoutBtn.classList.remove('btn-primary');
-                checkoutBtn.classList.add('btn-secondary');
-            } else {
-                emptyCartMessage.style.display = 'none';
-                checkoutBtn.disabled = false;
-                checkoutBtn.classList.remove('btn-secondary');
-                checkoutBtn.classList.add('btn-primary');
-
-                cart.forEach(item => {
-                    const cartItemDiv = document.createElement('div');
-                    cartItemDiv.classList.add('cart-item');
-                    cartItemDiv.innerHTML = `
-                        <div class="cart-item-image-container">
-                            <img src="${item.image}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                        </div>
-                        <div class="cart-item-details">
-                            <h4>${item.name}</h4>
-                            <p class="price">₹${item.price.toLocaleString('en-IN')}</p>
-                            <div class="cart-item-actions">
-                                <button data-id="${item.id}" data-action="decrease">-</button>
-                                <input type="number" value="${item.quantity}" min="1" readonly>
-                                <button data-id="${item.id}" data-action="increase">+</button>
-                                <button data-id="${item.id}" data-action="remove" style="background-color: #dc3545; color: white; border-color: #dc3545; margin-left: auto;">✕</button>
-                            </div>
-                        </div>
-                    `;
-                    cartItemsContainer.appendChild(cartItemDiv);
-                });
-            }
-            updateCartSummary();
-        }
-
-        function updateCartSummary() {
-            let subtotal = 0;
-            cart.forEach(item => {
-                subtotal += item.price * item.quantity;
-            });
-            const total = subtotal; // For simplicity, no taxes/shipping added here
-            cartSubtotalSpan.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
-            cartTotalSpan.textContent = `₹${total.toLocaleString('en-IN')}`;
-            cartItemCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-        }
-
-        function addToCart(productId, productName, productPrice, productImage) {
-            const existingItem = cart.find(item => item.id === productId);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({
-                    id: productId,
-                    name: productName,
-                    price: productPrice,
-                    image: productImage,
-                    quantity: 1
-                });
-            }
-            saveCart();
-            renderCart();
-            showCart();
-        }
-
-        function updateCartItemQuantity(productId, action) {
-            const itemIndex = cart.findIndex(item => item.id === productId);
-            if (itemIndex > -1) {
-                if (action === 'increase') {
-                    cart[itemIndex].quantity++;
-                } else if (action === 'decrease') {
-                    cart[itemIndex].quantity--;
-                    if (cart[itemIndex].quantity <= 0) {
-                        cart.splice(itemIndex, 1); // Remove if quantity is 0 or less
-                    }
+        // Close nav on link click for mobile
+        document.querySelectorAll('.navbar-nav a').forEach(item => {
+            item.addEventListener('click', () => {
+                var nav = document.getElementById('navbarNav');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
                 }
-                saveCart();
-                renderCart();
-            }
-        }
-
-        function removeCartItem(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            saveCart();
-            renderCart();
-        }
-
-        // Event listeners for cart
-        cartToggle.addEventListener('click', showCart);
-        cartClose.addEventListener('click', hideCart);
-        cartOverlay.addEventListener('click', (e) => {
-            if (e.target === cartOverlay) {
-                hideCart();
-            }
-        });
-
-        function showCart() {
-            cartOverlay.classList.add('active');
-            cartSidebar.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling body
-        }
-
-        function hideCart() {
-            cartOverlay.classList.remove('active');
-            cartSidebar.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-
-        // Add to Cart buttons
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const id = e.target.dataset.id;
-                const name = e.target.dataset.name;
-                const price = parseFloat(e.target.dataset.price);
-                const image = e.target.dataset.image;
-                addToCart(id, name, price, image);
             });
-        });
-
-        // Event listener for quantity change and remove buttons inside cart
-        cartItemsContainer.addEventListener('click', (e) => {
-            const target = e.target;
-            const productId = target.dataset.id;
-            const action = target.dataset.action;
-
-            if (productId && action) {
-                if (action === 'remove') {
-                    removeCartItem(productId);
-                } else if (action === 'increase' || action === 'decrease') {
-                    updateCartItemQuantity(productId, action);
-                }
-            }
-        });
-
-        // Checkout functionality
-        checkoutBtn.addEventListener('click', () => {
-            hideCart();
-            renderCheckoutSummary();
-            showCheckout();
-        });
-
-        function renderCheckoutSummary() {
-            checkoutOrderSummary.innerHTML = '';
-            if (cart.length === 0) {
-                checkoutOrderSummary.innerHTML = '<p style="font-weight: 500;">Your cart is empty.</p>';
-                checkoutTotalSpan.textContent = '₹0';
-                return;
-            }
-
-            let total = 0;
-            cart.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.style.display = 'flex';
-                itemDiv.style.justifyContent = 'space-between';
-                itemDiv.style.marginBottom = '0.5rem';
-                itemDiv.innerHTML = `
-                    <span>${item.name} (x${item.quantity})</span>
-                    <span>₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
-                `;
-                checkoutOrderSummary.appendChild(itemDiv);
-                total += item.price * item.quantity;
-            });
-            checkoutTotalSpan.textContent = `₹${total.toLocaleString('en-IN')}`;
-        }
-
-        function showCheckout() {
-            checkoutSection.classList.add('active');
-            mainContent.querySelectorAll('section:not(#checkout)').forEach(section => {
-                section.style.display = 'none';
-            });
-            document.querySelector('.navbar').style.display = 'flex'; // Ensure navbar is visible
-            document.querySelector('footer').style.display = 'none'; // Hide footer during checkout
-            document.body.style.overflow = 'auto'; // Allow scrolling on checkout page
-            window.scrollTo(0, 0); // Scroll to top
-        }
-
-        function hideCheckout() {
-            checkoutSection.classList.remove('active');
-            mainContent.querySelectorAll('section:not(#checkout)').forEach(section => {
-                section.style.display = ''; // Restore display
-            });
-            document.querySelector('footer').style.display = ''; // Show footer again
-            // Also need to scroll to #hero to get back to homepage view nicely
-            window.location.hash = 'hero';
-            // Trigger a re-render of initial sections might be needed
-            // For now, just setting display to '' should work
-        }
-
-        document.getElementById('checkoutForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Order Placed Successfully! (This is a dummy checkout)');
-            cart = []; // Clear cart after dummy checkout
-            saveCart();
-            renderCart();
-            hideCheckout();
-            window.location.hash = 'hero'; // Redirect to home after order
-        });
-
-
-        // Initial render on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCart();
         });
     </script>
 </body>
