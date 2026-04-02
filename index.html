@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuxeCart - Premium E-commerce</title>
+    <title>NexusMart - Your Premier Online Shopping Destination</title>
     <style>
-        /* CSS Variables */
         :root {
             --primary-color: #007bff;
             --secondary-color: #6c757d;
             --accent-color: #28a745;
-            --text-color: #333;
-            --light-text-color: #666;
-            --bg-color: #f8f9fa;
-            --card-bg-color: #fff;
-            --border-color: #e9ecef;
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-            --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --nav-height: 70px;
+            --bg-light: #f8f9fa;
+            --bg-dark: #343a40;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --border-color: #dee2e6;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --h1-font-size: 3rem;
+            --h2-font-size: 2.25rem;
+            --h3-font-size: 1.75rem;
+            --p-font-size: 1.125rem;
+            --small-font-size: 0.875rem;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            --border-radius: 0.5rem;
         }
 
-        /* Base Styles */
+        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        body {
-            font-family: var(--font-family-sans);
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            line-height: 1.6;
+        html {
             scroll-behavior: smooth;
         }
 
+        body {
+            font-family: var(--font-family);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         a {
-            text-decoration: none;
             color: var(--primary-color);
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
@@ -46,152 +60,140 @@
             color: var(--accent-color);
         }
 
-        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
-        h2 { font-size: 2rem; line-height: 1.3; margin-bottom: 1.5rem; color: var(--text-color); }
-        h3 { font-size: 1.5rem; line-height: 1.4; margin-bottom: 1rem; color: var(--text-color); }
-        p { font-size: 1rem; margin-bottom: 1rem; }
-
-        @media (min-width: 768px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.5rem; }
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
         }
 
-        section {
-            padding: 4rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
+        h1 { font-size: var(--h1-font-size); }
+        h2 { font-size: var(--h2-font-size); }
+        h3 { font-size: var(--h3-font-size); }
+        p { font-size: var(--p-font-size); margin-bottom: var(--spacing-sm); }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 var(--spacing-sm);
         }
 
         .btn {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            font-size: var(--p-font-size);
             font-weight: 600;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: none;
+            border: 2px solid transparent;
+            text-decoration: none;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--card-bg-color);
-            box-shadow: 0 4px 10px var(--shadow-medium);
+            color: var(--text-light);
+            border-color: var(--primary-color);
         }
 
         .btn-primary:hover {
             background-color: #0056b3;
+            border-color: #0056b3;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px var(--shadow-medium);
+            box-shadow: var(--shadow-medium);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            border-color: var(--primary-color);
         }
 
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--card-bg-color);
+            color: var(--text-light);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .section-padding {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .text-center {
+            text-align: center;
         }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
+            left: 0;
             width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--spacing-sm) 0;
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        .navbar-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            height: var(--nav-height);
+            padding: 0 var(--spacing-md);
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
+            font-size: var(--h3-font-size);
             font-weight: 700;
             color: var(--primary-color);
+            text-decoration: none;
         }
 
-        .navbar-nav {
-            display: none;
-        }
-
-        .navbar-nav a {
-            color: var(--text-color);
-            margin-left: 1.5rem;
-            font-weight: 500;
-            position: relative;
-        }
-        
-        .navbar-nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .navbar-toggle {
-            display: block;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-color);
-        }
-
-        @media (min-width: 768px) {
-            .navbar-toggle {
-                display: none;
-            }
-            .navbar-nav {
-                display: flex;
-                align-items: center;
-            }
-        }
-
-        .navbar-nav.active {
+        .nav-links {
             display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: var(--nav-height);
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
-            box-shadow: 0 4px 10px var(--shadow-medium);
+            gap: var(--spacing-md);
+            list-style: none;
         }
-        .navbar-nav.active a {
-            margin: 0.5rem 0;
-            padding: 0.75rem 1rem;
-            width: 100%;
-            text-align: center;
+
+        .nav-link a {
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* Hamburger menu for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
-        #hero {
+        .hero {
             position: relative;
+            color: var(--text-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--card-bg-color);
-            text-align: center;
-            height: 80vh; /* Controlled by hero-image-container */
-            padding: 0;
-            overflow: hidden;
         }
 
         .hero-image-container { 
@@ -199,85 +201,65 @@
             width: 100%; 
             overflow: hidden; 
             position: relative; 
-            background: #e0e0e0; /* Placeholder background */
-        }
-        
-        .hero-image-container img {
-            filter: brightness(0.7); /* Subtle darkening for text readability */
+            background: #f0f0f0; /* Placeholder background */
         }
 
         .hero-content {
             position: absolute;
-            z-index: 1;
-            max-width: 800px;
-            padding: 1rem;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            padding: var(--spacing-md);
         }
 
         .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px var(--shadow-medium);
+            color: var(--text-light);
+            font-size: 4rem; /* Larger for impact */
+            margin-bottom: var(--spacing-md);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
 
         .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 3px var(--shadow-medium);
+            color: var(--text-light);
+            font-size: var(--h3-font-size);
+            max-width: 800px;
+            margin-bottom: var(--spacing-lg);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
         }
 
-        .hero-buttons .btn {
-            margin: 0 0.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .hero-content h1 {
-                font-size: 4.5rem;
-            }
-            .hero-content p {
-                font-size: 1.5rem;
-            }
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
         }
 
         /* Products Section */
-        #products h2 {
-            margin-bottom: 3rem;
-            font-size: 2.2rem;
-        }
-
-        .product-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 480px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        @media (min-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
         }
 
         .product-card {
-            background-color: var(--card-bg-color);
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px var(--shadow-light);
+            background-color: var(--text-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px var(--shadow-light);
             overflow: hidden;
-            text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            height: 100%;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow-medium);
+            box-shadow: 0 8px 20px var(--shadow-medium);
         }
 
         .product-image-container { 
@@ -288,260 +270,158 @@
             background: #f5f5f5; /* Placeholder background */
         }
 
-        .product-content {
-            padding: 1.5rem;
+        .product-info {
+            padding: var(--spacing-md);
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
-        .product-content h3 {
-            font-size: 1.3rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary-color);
-        }
-
-        .product-content p {
-            font-size: 0.95rem;
-            color: var(--light-text-color);
-            flex-grow: 1;
+        .product-info h3 {
+            margin-top: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--h3-font-size);
+            flex-grow: 1; /* Allows card title to take up available space */
         }
 
         .product-price {
-            font-size: 1.4rem;
+            font-size: var(--h3-font-size);
             font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            display: block; /* Ensure it's on its own line */
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
         }
 
         .product-card .btn {
             width: 100%;
-            padding: 0.75rem 1rem;
-            font-size: 0.9rem;
-            border-radius: 0.5rem;
+            margin-top: auto; /* Pushes button to the bottom */
         }
 
         /* Features Section */
-        #features {
-            background-color: #f0f4f8;
-            padding: 5rem 1rem;
-        }
-
-        #features h2 {
-            margin-bottom: 3rem;
-            color: var(--text-color);
-        }
-
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        @media (min-width: 480px) {
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .feature-item {
-            background-color: var(--card-bg-color);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
             text-align: center;
         }
 
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow-medium);
+        .feature-item {
+            background-color: var(--text-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
         }
 
-        .feature-icon-wrapper {
-            height: 80px; /* Fixed height for feature "icon" images */
-            width: 80px; /* Fixed width for feature "icon" images */
-            overflow: hidden;
-            position: relative;
-            border-radius: 50%; /* Make them circular */
-            margin-bottom: 1rem;
-            background-color: var(--border-color); /* Placeholder */
-            box-shadow: 0 2px 8px var(--shadow-light);
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-sm);
         }
-
-        .feature-icon-wrapper img {
-            object-position: center 20%; /* Adjust for the general business image to look better in a small circle */
-        }
-
+        
         .feature-item h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--h3-font-size);
         }
 
         .feature-item p {
-            font-size: 0.95rem;
-            color: var(--light-text-color);
+            font-size: var(--p-font-size);
+            color: var(--secondary-color);
         }
 
         /* About Section */
-        #about {
-            text-align: left;
-            padding: 5rem 1rem;
-        }
-
         .about-content {
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            gap: var(--spacing-xl);
             align-items: center;
+            margin-top: var(--spacing-xl);
         }
 
-        @media (min-width: 768px) {
-            .about-content {
-                flex-direction: row;
-                text-align: left;
-            }
-            .about-content > div {
-                flex: 1;
-            }
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-medium);
         }
 
         .about-image-container { 
             height: 400px; 
             width: 100%; 
-            max-width: 500px; /* Limit image width on larger screens */
             overflow: hidden; 
             position: relative; 
-            background: #d0d0d0; /* Placeholder background */
-            border-radius: 0.75rem;
-            box-shadow: 0 8px 25px var(--shadow-medium);
-        }
-
-        #about h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-        }
-        
-        @media (min-width: 768px) {
-            #about h2 {
-                text-align: left;
-            }
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            font-size: 1.05rem;
-            color: var(--light-text-color);
-            margin-bottom: 1rem;
+            background: #e0e0e0; /* Placeholder background */
+            border-radius: var(--border-radius);
         }
 
         /* Testimonials Section */
-        #testimonials {
-            background-color: #f0f4f8;
-            padding: 5rem 1rem;
-        }
-
-        #testimonials h2 {
-            margin-bottom: 3rem;
-            color: var(--text-color);
-        }
-
-        .testimonial-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .testimonial-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
         }
 
         .testimonial-card {
-            background-color: var(--card-bg-color);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            text-align: left;
-            font-style: italic;
-            position: relative;
+            background-color: var(--text-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .testimonial-card p {
-            font-size: 1.1rem;
-            color: var(--light-text-color);
-            margin-bottom: 1.5rem;
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+            font-size: var(--p-font-size);
         }
 
         .testimonial-author {
             font-weight: 600;
-            color: var(--text-color);
-            display: block;
-            margin-top: 1rem;
-            font-style: normal;
+            color: var(--primary-color);
+            font-size: var(--small-font-size);
+            text-align: right;
         }
 
         /* Contact Section */
-        #contact {
-            padding: 5rem 1rem;
-        }
-
-        #contact h2 {
-            margin-bottom: 3rem;
-            font-size: 2.2rem;
-        }
-
         .contact-form {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--card-bg-color);
-            padding: 2.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            text-align: left;
+            margin: var(--spacing-xl) auto 0 auto;
+            background-color: var(--text-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px var(--shadow-light);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--spacing-md);
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--spacing-xs);
             font-weight: 600;
-            color: var(--text-color);
+            font-size: var(--p-font-size);
         }
 
-        .form-group input,
+        .form-group input[type="text"],
+        .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem 1rem;
+            padding: var(--spacing-sm);
             border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            font-family: var(--font-family-sans);
-            font-size: 1rem;
-            color: var(--text-color);
+            border-radius: var(--border-radius);
+            font-family: var(--font-family);
+            font-size: var(--p-font-size);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -559,305 +439,446 @@
 
         .contact-form .btn {
             width: 100%;
-            padding: 1rem;
+            margin-top: var(--spacing-md);
         }
 
         /* Footer */
         .footer {
-            background-color: #212529;
-            color: rgba(255, 255, 255, 0.7);
-            padding: 3rem 1rem;
-            text-align: center;
-            font-size: 0.9rem;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-xl);
+            font-size: var(--p-font-size);
         }
 
-        .footer-grid {
+        .footer-content {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 2rem auto;
-            text-align: left;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
         }
 
-        @media (min-width: 480px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+        .footer-logo {
+            font-size: var(--h3-font-size);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
         }
 
-        .footer-column h4 {
-            color: var(--card-bg-color);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+        .footer h3 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--h3-font-size);
         }
 
-        .footer-column ul {
+        .footer-links ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
 
-        .footer-column ul li {
-            margin-bottom: 0.7rem;
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
         }
 
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 400;
+        .footer-links a {
+            color: var(--text-light);
+            transition: color 0.3s ease;
         }
 
-        .footer-column ul li a:hover {
+        .footer-links a:hover {
             color: var(--primary-color);
         }
 
-        .footer-socials {
-            margin-top: 1.5rem;
+        .social-icons {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
         }
 
-        .footer-socials a {
-            display: inline-block;
-            margin: 0 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.5rem; /* Placeholder for icon */
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
         }
-        .footer-socials a:hover {
+
+        .social-icons a:hover {
             color: var(--primary-color);
         }
 
         .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: var(--small-font-size);
+            color: var(--secondary-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            :root {
+                --h1-font-size: 2.5rem;
+                --h2-font-size: 2rem;
+                --h3-font-size: 1.5rem;
+                --p-font-size: 1rem;
+                --spacing-lg: 2rem;
+                --spacing-xl: 3rem;
+            }
+
+            .navbar-container {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: var(--spacing-md) 0;
+                box-shadow: 0 4px 10px var(--shadow-light);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-link {
+                text-align: center;
+                margin: var(--spacing-xs) 0;
+            }
+
+            .nav-link a {
+                display: block;
+                padding: var(--spacing-sm);
+            }
+
+            .hero-content h1 {
+                font-size: var(--h1-font-size);
+            }
+
+            .hero-content p {
+                font-size: var(--p-font-size);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 80%;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .products-grid, .features-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links ul {
+                padding-left: 0;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --h1-font-size: 2rem;
+                --h2-font-size: 1.75rem;
+                --h3-font-size: 1.25rem;
+                --p-font-size: 0.95rem;
+                --spacing-md: 1rem;
+                --spacing-lg: 1.5rem;
+                --spacing-xl: 2rem;
+            }
+
+            .navbar-brand {
+                font-size: var(--h3-font-size);
+            }
+
+            .hero-image-container {
+                height: 60vh;
+            }
+
+            .hero-content h1 {
+                font-size: var(--h1-font-size);
+            }
+
+            .hero-content p {
+                font-size: var(--p-font-size);
+            }
+
+            .product-image-container {
+                height: 200px;
+            }
+
+            .about-image-container {
+                height: 300px;
+            }
+
+            .section-padding {
+                padding: var(--spacing-lg) 0;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#" class="navbar-brand">LuxeCart</a>
-        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
-        <div class="navbar-nav" id="navbarNav">
-            <a href="#products">Products</a>
-            <a href="#features">Features</a>
-            <a href="#about">About Us</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
 
-    <header id="hero">
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with computers and natural light, symbolizing a professional business environment." style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-        </div>
-        <div class="hero-content">
-            <h1>Elevate Your Lifestyle with LuxeCart</h1>
-            <p>Discover premium products curated for the modern Indian consumer. Quality, style, and innovation delivered to your doorstep.</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">Shop Now</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
+    <header class="navbar">
+        <div class="navbar-container container">
+            <a href="#" class="navbar-brand">NexusMart</a>
+            <div class="hamburger" id="hamburger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
+            <nav class="nav-links" id="nav-links">
+                <li class="nav-link"><a href="#home">Home</a></li>
+                <li class="nav-link"><a href="#products">Products</a></li>
+                <li class="nav-link"><a href="#features">Features</a></li>
+                <li class="nav-link"><a href="#about">About</a></li>
+                <li class="nav-link"><a href="#testimonials">Testimonials</a></li>
+                <li class="nav-link"><a href="#contact">Contact</a></li>
+            </nav>
         </div>
     </header>
 
-    <section id="products">
-        <h2>Our Premium Collection</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek smartwatch with a minimalist design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-content">
-                    <h3>LuxeBand Pro Smartwatch</h3>
-                    <p>Track your fitness, monitor your health, and stay connected with cutting-edge technology wrapped in elegant design.</p>
-                    <span class="product-price">₹7,499</span>
-                    <button class="btn btn-primary">Add to Cart</button>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with laptop and coffee" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            </div>
+            <div class="hero-content">
+                <h1>Discover Your Next Essential</h1>
+                <p>Curated collections of premium products, delivered right to your doorstep. Experience seamless shopping with NexusMart.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Shop Now</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Over-ear headphones with soft earcups, providing comfort and immersive sound" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-content">
-                    <h3>SonicWave Premium Headphones</h3>
-                    <p>Immerse yourself in crystal-clear audio with unparalleled comfort. Perfect for music lovers and professionals.</p>
-                    <span class="product-price">₹12,999</span>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Health-focused fitness tracker displaying activity metrics" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-content">
-                    <h3>HealthPulse Fitness Tracker</h3>
-                    <p>Achieve your wellness goals with real-time tracking of steps, heart rate, and sleep patterns. Your health, simplified.</p>
-                    <span class="product-price">₹4,999</span>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Compact portable Bluetooth speaker for on-the-go music" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-content">
-                    <h3>AuraSound Bluetooth Speaker</h3>
-                    <p>Powerful sound in a portable design. Take your music anywhere with this durable and stylish wireless speaker.</p>
-                    <span class="product-price">₹3,999</span>
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features">
-        <h2>Why Choose LuxeCart?</h2>
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="feature-icon-wrapper">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Laptop keyboard, symbolizing efficiency and ease of use" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+        <!-- Products/Services Section -->
+        <section id="products" class="section-padding">
+            <div class="container text-center">
+                <h2>Our Premium Products</h2>
+                <p>Explore a diverse range of high-quality items designed to elevate your everyday.</p>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek silver smartwatch on a wooden surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Quantum Smartwatch X1</h3>
+                            <p class="product-price">₹18,999</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-quality over-ear headphones in black" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>AcousticFlow Wireless Headphones</h3>
+                            <p class="product-price">₹12,499</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Stylish leather wallet with cards" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Executive Leather Wallet</h3>
+                            <p class="product-price">₹2,850</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Compact portable power bank" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>MegaCharge Power Bank 20000mAh</h3>
+                            <p class="product-price">₹4,199</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
                 </div>
-                <h3>Seamless Experience</h3>
-                <p>Browse, select, and checkout with unparalleled ease. Our intuitive interface makes shopping a delight.</p>
             </div>
-            <div class="feature-item">
-                <div class="feature-icon-wrapper">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Close-up of keyboard, representing secure digital transactions" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <h3>Secure Payments</h3>
-                <p>Shop with confidence. We partner with leading payment gateways to ensure your transactions are always safe.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon-wrapper">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Hand on keyboard, indicating fast processing and delivery" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <h3>Fast Shipping</h3>
-                <p>Get your products delivered to your doorstep quickly and reliably across India.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon-wrapper">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Keyboard and mouse, representing dedicated customer support" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <h3>24/7 Support</h3>
-                <p>Our dedicated customer service team is always ready to assist you, day or night.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about">
-        <h2>About LuxeCart</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Our Story and Vision</h3>
-                <p>At LuxeCart, we believe that premium quality and innovative design should be accessible. Founded with a passion for bringing the best products to discerning customers across India, we meticulously curate our collection from trusted global and local brands.</p>
-                <p>Our vision is to become the leading destination for e-commerce, where every purchase is an experience in itself. We focus on product excellence, customer satisfaction, and a seamless shopping journey from start to finish.</p>
-                <p>We are committed to building a community around quality, style, and convenience. Join us on our journey to redefine online shopping.</p>
+        <!-- Features Section -->
+        <section id="features" class="section-padding bg-light">
+            <div class="container text-center">
+                <h2>Why Choose NexusMart?</h2>
+                <p>We're committed to providing an unparalleled shopping experience.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <h3>Curated Selection</h3>
+                        <p>Discover hand-picked products for quality and style.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🚚</span>
+                        <h3>Fast Shipping</h3>
+                        <p>Enjoy swift and reliable delivery right to your door.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <h3>Secure Payments</h3>
+                        <p>Shop with confidence using our encrypted payment gateway.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📞</span>
+                        <h3>24/7 Support</h3>
+                        <p>Our dedicated team is always here to assist you.</p>
+                    </div>
+                </div>
             </div>
-            <div class="about-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating happily in a modern, open-plan office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"LuxeCart has completely changed my online shopping experience. The LuxeBand Pro Smartwatch is fantastic, and the delivery was incredibly fast. Highly recommend their products!"</p>
-                <span class="testimonial-author">- Priya Sharma, Bengaluru</span>
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <h2 class="text-center">About NexusMart</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Founded with a vision to revolutionize online shopping, NexusMart is your trusted destination for premium goods. We believe in offering not just products, but a lifestyle choice — a commitment to quality, innovation, and unparalleled customer satisfaction.</p>
+                        <p>Our journey began with a simple idea: to create a platform where customers can easily find unique, high-quality items without compromising on convenience or trust. From cutting-edge electronics to sophisticated lifestyle accessories, every product in our catalog is meticulously selected to meet the highest standards.</p>
+                        <p>At NexusMart, we pride ourselves on building lasting relationships with our customers. We listen, we adapt, and we constantly strive to enhance your shopping experience, making it seamless, secure, and enjoyable. Join the NexusMart family today and discover the difference!</p>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-image-container">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team members collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <p>"I was searching for high-quality headphones, and SonicWave from LuxeCart exceeded my expectations. The sound is amazing, and customer service was very helpful with my query."</p>
-                <span class="testimonial-author">- Rahul Singh, Mumbai</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"The HealthPulse Fitness Tracker is exactly what I needed. Accurate, stylish, and durable. LuxeCart's collection is truly premium and worth every rupee."</p>
-                <span class="testimonial-author">- Sneha Patel, Delhi</span>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section-padding bg-light">
+            <div class="container text-center">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from the happy shoppers who've made NexusMart their preferred choice.</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"NexusMart has truly changed my online shopping experience. The quality of products is exceptional, and the delivery was incredibly fast. Highly recommend for anyone looking for premium items!"</p>
+                        <p class="testimonial-author">— Priya S., Mumbai</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I purchased a smartwatch from NexusMart, and I couldn't be happier. It works flawlessly, and the customer service was very helpful when I had a question. A fantastic platform!"</p>
+                        <p class="testimonial-author">— Rohan K., Bangalore</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The collection at NexusMart is just what I've been looking for—stylish and high-quality. Every item feels premium, and their secure payment system gives me peace of mind."</p>
+                        <p class="testimonial-author">— Aisha M., Delhi</p>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="section-padding">
+            <div class="container text-center">
+                <h2>Get in Touch</h2>
+                <p>Have a question or need assistance? We're here to help!</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h4>LuxeCart</h4>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">NexusMart</div>
+                <p>Your premier destination for high-quality products and a seamless shopping experience.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#about">Our Story</a></li>
-                    <li><a href="#features">Why LuxeCart</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Support</h3>
+                <ul>
                     <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Shop</h4>
-                <ul>
-                    <li><a href="#products">Smart Devices</a></li>
-                    <li><a href="#products">Audio & Visual</a></li>
-                    <li><a href="#products">Health & Fitness</a></li>
-                    <li><a href="#products">Best Sellers</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">FAQ</a></li>
                     <li><a href="#">Shipping & Returns</a></li>
                     <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h4>Connect</h4>
-                <p>Stay updated with our latest collections and offers.</p>
-                <div class="footer-socials">
-                    <a href="#" aria-label="Facebook">F</a> <!-- Placeholder for social icon, following image rules -->
-                    <a href="#" aria-label="Twitter">T</a>
-                    <a href="#" aria-label="Instagram">I</a>
-                    <a href="#" aria-label="LinkedIn">L</a>
-                </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Email: info@nexusmart.com</p>
+                <p>Phone: +91 1234 567890</p>
+                <p>Address: 123 Market St, New Delhi, India</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 LuxeCart. All rights reserved.</p>
+            <p>&copy; 2024 NexusMart. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        document.getElementById('navbarToggle').onclick = function() {
-            var nav = document.getElementById('navbarNav');
-            nav.classList.toggle('active');
-        };
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
 
-        // Close nav on link click for mobile
-        document.querySelectorAll('.navbar-nav a').forEach(item => {
-            item.addEventListener('click', () => {
-                var nav = document.getElementById('navbarNav');
-                if (nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                }
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close nav links when a link is clicked (for mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
             });
         });
     </script>
