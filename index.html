@@ -3,29 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EleganceHub - Premium Electronics & Lifestyle</title>
+    <title>NexGen - Elevating Your Lifestyle</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' font-size='50' text-anchor='middle' dominant-baseline='central'%3E✨%3C/text%3E%3C/svg%3E" type="image/svg+xml">
     <style>
         :root {
-            --primary-color: #007bff; /* Blue */
-            --secondary-color: #6c757d; /* Grey */
-            --accent-color: #28a745; /* Green for success/CTA */
-            --text-color: #333;
-            --text-color-light: #f8f8f8;
-            --bg-color: #ffffff;
-            --card-bg: #fdfdfd;
-            --border-color: #eee;
-            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.1);
-            --navbar-bg: rgba(255, 255, 255, 0.8); /* For backdrop blur */
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            --section-padding: 4rem 0;
-            --border-radius: 8px;
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #6f42c1;
+            --bg-light: #f8f9fa;
+            --bg-dark: #212529;
+            --text-color: #343a40;
+            --text-light: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+            --transition-speed: 0.3s ease;
+            --header-height: 70px;
         }
 
-        /* Base Styles */
+        /* Basic Reset & Typography */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -33,63 +29,77 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
             scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 0.5em;
             color: var(--text-color);
         }
 
-        h1 { font-size: 3rem; }
+        h1 { font-size: 2.5rem; }
         h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-        p { font-size: 1rem; margin-bottom: var(--spacing-md); }
-
+        h3 { font-size: 1.75rem; }
+        p { font-size: 1rem; margin-bottom: 1em; }
         a {
             color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed);
         }
         a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
+            color: var(--accent-color);
         }
 
-        button, .button { /* .button class added for styled anchors */
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-md) var(--spacing-lg);
-            border: none;
-            border-radius: var(--border-radius);
+        /* Layout & Spacing */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+        section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .mb-4 { margin-bottom: 1.5rem; }
+        .mb-6 { margin-bottom: 3rem; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            text-align: center;
             text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            border: none;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--text-color-light);
+            color: var(--text-light);
+            box-shadow: var(--shadow-light);
         }
         .btn-primary:hover {
-            background-color: #0056b3; /* Darker primary */
+            background-color: var(--accent-color);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
         }
 
         .btn-secondary {
@@ -99,55 +109,52 @@
         }
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--text-color-light);
+            color: var(--text-light);
+            box-shadow: var(--shadow-light);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
         }
-
-        .text-center { text-align: center; }
-        .flex-center { display: flex; align-items: center; justify-content: center; }
-        .grid { display: grid; gap: var(--spacing-lg); }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
             width: 100%;
-            background-color: var(--navbar-bg);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             z-index: 1000;
-            padding: var(--spacing-md) 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 800;
             color: var(--text-color);
-            text-decoration: none;
+        }
+        .navbar-brand span {
+            color: var(--primary-color);
         }
 
         .nav-links {
-            display: flex;
+            display: none; /* Hidden on mobile by default */
+        }
+        .nav-links ul {
             list-style: none;
-            margin: 0; /* Override default list margin */
+            display: flex;
+            gap: 2rem;
         }
-
-        .nav-links li {
-            margin-left: var(--spacing-lg);
-        }
-
         .nav-links a {
             color: var(--text-color);
             font-weight: 500;
-            font-size: 1.05rem;
-            transition: color 0.3s ease;
             position: relative;
         }
         .nav-links a::after {
@@ -158,41 +165,38 @@
             width: 0;
             height: 2px;
             background-color: var(--primary-color);
-            transition: width 0.3s ease;
+            transition: width var(--transition-speed);
         }
         .nav-links a:hover::after {
             width: 100%;
         }
 
         .hamburger {
-            display: none;
+            display: flex; /* Visible on mobile */
             flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 20px;
             cursor: pointer;
-            padding: 5px;
-            z-index: 1001; /* Ensure hamburger is above nav-links when open */
         }
         .hamburger span {
-            height: 3px;
-            width: 25px;
+            display: block;
+            height: 2px;
             background-color: var(--text-color);
-            margin-bottom: 4px;
-            border-radius: 2px;
-            transition: all 0.3s ease-in-out;
-        }
-        .hamburger span:last-child {
-            margin-bottom: 0;
+            width: 100%;
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
-        .hero-section {
+        .hero {
             position: relative;
-            height: 80vh; /* Controlled by image container height */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--text-color-light);
-            overflow: hidden; /* Important for image container */
+            color: var(--text-light); /* Text color over the image */
+            padding: 0; /* Remove default section padding */
+            overflow: hidden; /* Ensure image container fits */
         }
 
         .hero-image-container {
@@ -200,57 +204,73 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e0e0e0; /* Fallback/loading color */
-            display: block; /* Ensure no extra space */
+        }
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)); /* Dark overlay for text readability */
+            z-index: 1;
         }
 
         .hero-content {
             position: absolute;
-            z-index: 1;
-            padding: var(--spacing-lg);
+            z-index: 2;
             max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.3); /* Slightly darken background for text visibility */
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-medium);
+            padding: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-
-        .hero-content h1 {
-            color: var(--text-color-light);
-            margin-bottom: var(--spacing-lg);
-            font-size: 3.5rem; /* Larger for hero */
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
         }
-        .hero-content p {
-            color: var(--text-color-light);
+        .hero p {
             font-size: 1.25rem;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: 2rem;
+            color: var(--text-light);
         }
         .hero-buttons {
             display: flex;
-            gap: var(--spacing-md);
+            gap: 1rem;
             justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        .hero-buttons .btn {
+            min-width: 160px; /* Ensure buttons have minimum width */
+        }
+        /* Override btn-secondary color for hero */
+        .hero .btn-secondary {
+            border-color: var(--text-light);
+            color: var(--text-light);
+        }
+        .hero .btn-secondary:hover {
+            background-color: var(--text-light);
+            color: var(--primary-color);
         }
 
         /* Products Section */
-        .products-section {
-            padding: var(--section-padding);
-            background-color: var(--bg-color);
-        }
-        .products-grid {
+        .product-grid {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .product-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
+            background-color: #fff;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-light);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
             display: flex;
             flex-direction: column;
         }
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-hover);
         }
 
         .product-image-container {
@@ -258,653 +278,574 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f5f5f5; /* Fallback/loading color */
-            display: block;
+            background: #f5f5f5;
         }
 
-        .product-info {
-            padding: var(--spacing-md);
+        .product-content {
+            padding: 1.5rem;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* Allows info section to grow and push button down */
+            justify-content: space-between;
         }
-        .product-info h3 {
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.3rem;
-            line-height: 1.4;
+        .product-content h3 {
+            margin-top: 0;
+            font-size: 1.35rem;
+            color: var(--text-color);
+        }
+        .product-content p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allow description to take space */
         }
         .product-price {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
-            margin-top: auto; /* Pushes price to the bottom before the button */
-        }
-        .product-card .btn-primary {
-            width: 100%;
-            padding: var(--spacing-sm) var(--spacing-md);
-            font-size: 0.95rem;
-            border-radius: 6px;
-            margin-top: var(--spacing-md); /* Space above button */
+            color: var(--accent-color);
+            margin-bottom: 1rem;
         }
 
         /* Features Section */
-        .features-section {
-            padding: var(--section-padding);
-            background-color: #f9f9f9;
-        }
         .features-grid {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            text-align: center;
+            gap: 2rem;
         }
         .feature-item {
-            padding: var(--spacing-lg);
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
             box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%; /* Ensure equal height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
         .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
-        .feature-item .icon {
+        .feature-icon {
             font-size: 3rem;
             color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
-            display: block; /* Ensure icon is on its own line */
+            margin-bottom: 1rem;
+            display: block; /* Ensure it's a block element */
         }
         .feature-item h3 {
-            margin-bottom: var(--spacing-sm);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
         }
-        .features-bg-image-container {
-            height: 400px; /* Example height for a section background visual */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0; /* Fallback/loading color */
-            margin-top: var(--spacing-xl);
-            border-radius: var(--border-radius);
-            display: block;
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
         }
 
         /* About Section */
-        .about-section {
-            padding: var(--section-padding);
-            background-color: var(--bg-color);
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
+        .about-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
             align-items: center;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
         }
         .about-image-container {
             height: 400px;
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e0e0e0; /* Fallback/loading color */
-            border-radius: var(--border-radius);
+            border-radius: 12px;
             box-shadow: var(--shadow-light);
-            display: block;
         }
 
         /* Testimonials Section */
-        .testimonials-section {
-            padding: var(--section-padding);
-            background-color: #f9f9f9;
-        }
         .testimonials-grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
         .testimonial-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
             box-shadow: var(--shadow-light);
-            padding: var(--spacing-lg);
-            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Space out content vertically */
+            align-items: center;
+            text-align: center;
         }
-        .testimonial-card p {
+        .testimonial-quote {
+            font-size: 1.1rem;
             font-style: italic;
-            margin-bottom: var(--spacing-md);
-            flex-grow: 1;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
         }
-        .testimonial-card .author {
+        .testimonial-author {
             font-weight: 600;
             color: var(--primary-color);
-            margin-top: var(--spacing-md); /* Add some space above author */
-            display: block; /* Ensure author is on its own line */
+            margin-top: auto; /* Push to bottom */
         }
 
         /* Contact Section */
-        .contact-section {
-            padding: var(--section-padding);
-            background-color: var(--bg-color);
-        }
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-medium);
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
         }
-        .form-group {
-            margin-bottom: var(--spacing-md);
-        }
-        .form-group label {
+        .contact-form label {
             display: block;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 0.5rem;
             font-weight: 600;
             color: var(--text-color);
         }
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
             width: 100%;
-            padding: var(--spacing-md);
+            padding: 0.8rem 1rem;
+            margin-bottom: 1.5rem;
             border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
         }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
+        .contact-form input:focus,
+        .contact-form textarea:focus {
             border-color: var(--primary-color);
+            outline: none;
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
-        .form-group textarea {
+        .contact-form textarea {
             min-height: 120px;
             resize: vertical;
         }
-        .contact-form button {
+        .contact-form .btn {
             width: 100%;
-            padding: var(--spacing-md) var(--spacing-lg);
+            padding: 1rem;
             font-size: 1.1rem;
-            border-radius: var(--border-radius);
         }
 
         /* Footer */
         .footer {
-            background-color: #222;
-            color: var(--text-color-light);
-            padding: var(--section-padding) 0;
-            font-size: 0.9rem;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         .footer .container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: var(--spacing-xl);
+            flex-direction: column;
+            gap: 2rem;
         }
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: var(--spacing-md);
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 1rem;
         }
-        .footer-column h3 {
-            color: var(--text-color-light);
-            margin-bottom: var(--spacing-md);
-            font-size: 1.2rem;
+        .footer-brand span {
+            color: var(--primary-color);
         }
-        .footer-column ul {
+        .footer-links ul {
             list-style: none;
-            padding-left: 0;
-        }
-        .footer-column ul li {
-            margin-bottom: var(--spacing-sm);
-        }
-        .footer-column ul li a {
-            color: var(--text-color-light);
-            transition: color 0.3s ease;
-        }
-        .footer-column ul li a:hover {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        .footer-socials {
+            padding: 0;
+            margin: 0;
             display: flex;
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 1.5rem;
         }
-        .footer-socials a {
-            font-size: 1.5rem;
-            color: var(--text-color-light);
-            transition: color 0.3s ease;
+        .footer-links a {
+            color: var(--text-light);
+            font-weight: 400;
         }
-        .footer-socials a:hover {
+        .footer-links a:hover {
             color: var(--primary-color);
         }
-        .footer-bottom {
-            margin-top: var(--spacing-xl);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: #ccc;
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color var(--transition-speed);
+        }
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        .footer-copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
         }
 
-        /* Utility for icons (since no image for icons) */
-        .icon {
-            font-family: "Segoe UI Symbol", "Apple Color Emoji", "Segoe UI Emoji", sans-serif; /* For basic unicode icons */
+        /* Image Specific Styles - CRITICAL */
+        .hero-image-container img,
+        .product-image-container img,
+        .about-image-container img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+            border:none;
         }
 
+        /* Responsive Design */
+        @media (min-width: 480px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.25rem; }
+            h3 { font-size: 1.85rem; }
+            .hero p { font-size: 1.35rem; }
+        }
 
-        /* Media Queries */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.8rem; }
+            h2 { font-size: 2.8rem; }
+            h3 { font-size: 2rem; }
+            p { font-size: 1.05rem; }
 
-        /* Mobile breakpoint at 768px */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.75rem; }
-            h3 { font-size: 1.3rem; }
-            p { font-size: 0.95rem; }
-            .section-padding { padding: 3rem 0; }
-
-            .navbar .container {
-                flex-wrap: wrap;
-                padding: var(--spacing-sm) var(--spacing-md);
-            }
-            .navbar-brand {
-                flex-grow: 1; /* Allows brand to take space */
-            }
-            .hamburger {
-                display: flex;
+            .navbar {
+                height: var(--header-height);
             }
             .nav-links {
-                flex-direction: column;
-                width: 100%;
-                display: none;
-                background-color: var(--navbar-bg);
-                backdrop-filter: blur(10px);
-                position: absolute;
-                top: 100%; /* Position below navbar */
-                left: 0;
-                padding: var(--spacing-md) 0;
-                border-top: 1px solid rgba(0, 0, 0, 0.05);
-                box-shadow: var(--shadow-light);
+                display: block; /* Visible on larger screens */
             }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links li {
-                margin: var(--spacing-sm) var(--spacing-md);
-                text-align: center;
-            }
-            .nav-links li a {
-                padding: var(--spacing-sm) 0;
-                display: block;
-            }
-            .nav-links a::after {
-                display: none; /* Hide hover underline on mobile menu */
+            .hamburger {
+                display: none; /* Hidden on larger screens */
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.5rem; }
             .hero-buttons {
-                flex-direction: column;
-            }
-            .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
-                width: 100%;
+                flex-wrap: nowrap;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
+            .about-content-wrapper {
+                flex-direction: row;
+                text-align: left;
             }
-            .about-image-container {
-                order: -1; /* Image first on mobile */
+            .about-text {
+                padding-right: 3rem;
+            }
+            .about-image {
+                padding-left: 3rem;
             }
 
             .footer .container {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
-            .footer-column {
-                min-width: unset;
-                width: 100%;
+            .footer-links ul {
+                justify-content: flex-start;
             }
-            .footer-column ul {
-                padding-left: 0;
-            }
-            .footer-socials {
-                justify-content: center;
+            .footer-copyright {
+                margin-top: 0;
             }
         }
 
-        /* Mobile breakpoint at 480px */
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
-            h3 { font-size: 1.2rem; }
-            p { font-size: 0.9rem; }
-            .section-padding { padding: 2.5rem 0; }
+        @media (min-width: 1024px) {
+            h1 { font-size: 4.5rem; }
+            h2 { font-size: 3.2rem; }
+            h3 { font-size: 2.2rem; }
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
-            .hero-content {
-                padding: var(--spacing-md);
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-            .hero-image-container, .hero-section {
-                height: 70vh;
-            }
-
-            .product-image-container {
-                height: 200px;
-            }
-            .product-info h3 {
-                font-size: 1.1rem;
-            }
-            .product-price {
-                font-size: 1.2rem;
-            }
-
-            .features-bg-image-container {
-                height: 250px;
-            }
-
-            .about-image-container {
-                height: 300px;
-            }
-
-            .contact-form {
-                padding: var(--spacing-md);
-            }
+        /* CSS for mobile navigation toggle */
+        .nav-links.active {
+            display: flex; /* Show menu */
+            position: absolute;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-light);
+        }
+        .nav-links.active ul {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .nav-links.active a {
+            padding: 0.5rem 0;
+            width: 100%;
+            text-align: center;
+        }
+        .nav-links.active a::after {
+            display: none; /* Hide hover line on active mobile links for cleaner look */
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 1;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
+
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="container">
-            <a href="#" class="navbar-brand">EleganceHub</a>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav class="nav-links" id="navLinks">
+            <a href="#hero" class="navbar-brand">Nex<span>Gen</span></a>
+            <div class="nav-links">
                 <ul>
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#products">Products</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with computers and natural light" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office with sleek design and technology" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+        <div class="hero-content">
+            <h1>Elevate Your Digital Lifestyle</h1>
+            <p>Discover cutting-edge tech and stylish accessories designed to enhance your everyday experience.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
-            <div class="hero-content">
-                <h1>Elevate Your Lifestyle with EleganceHub</h1>
-                <p>Discover a curated collection of premium electronics and lifestyle essentials designed for the modern individual.</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn-primary button">Shop Now</a>
-                    <a href="#about" class="btn-secondary button">Learn More</a>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="products" class="products-section">
-            <div class="container">
-                <h2 class="text-center">Our Bestselling Collections</h2>
-                <p class="text-center">Explore innovation and quality crafted for your everyday needs.</p>
-                <div class="products-grid grid">
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black noise-cancelling headphones on a stand" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Elite Noise-Cancelling Headphones</h3>
-                            <p>Immerse yourself in crystal-clear audio with superior comfort.</p>
-                            <span class="product-price">₹12,999</span>
-                            <button class="btn-primary">Add to Cart</button>
-                        </div>
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2 class="text-center mb-6">Our Latest Innovations</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch on a modern surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Modern smartwatch displaying time and health data" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Smartwatch Pro X</h3>
-                            <p>Stay connected and track your fitness with advanced features.</p>
-                            <span class="product-price">₹18,499</span>
-                            <button class="btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant silver wireless earbuds in a charging case" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Aura Wireless Earbuds</h3>
-                            <p>Experience true wireless freedom with exceptional sound quality.</p>
-                            <span class="product-price">₹7,499</span>
-                            <button class="btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Minimalist portable power bank charging a smartphone" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>VoltCharge Power Bank</h3>
-                            <p>Keep your devices powered on the go with high-capacity charging.</p>
-                            <span class="product-price">₹2,999</span>
-                            <button class="btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="High-fidelity Bluetooth speaker for home entertainment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Acoustic Flow Speaker</h3>
-                            <p>Fill any room with rich, dynamic sound wirelessly and stylishly.</p>
-                            <span class="product-price">₹9,999</span>
-                            <button class="btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Compact drone with foldable arms and camera" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>SkyView Mini Drone</h3>
-                            <p>Capture breathtaking aerial footage with ease and precision control.</p>
-                            <span class="product-price">₹24,999</span>
-                            <button class="btn-primary">Add to Cart</button>
-                        </div>
+                    <div class="product-content">
+                        <h3>ZenFlow Smart Watch</h3>
+                        <p>Track your fitness, monitor your health, and stay connected with our elegant and powerful smartwatch.</p>
+                        <span class="product-price">₹12,499</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="features" class="features-section">
-            <div class="container">
-                <h2 class="text-center">Why Choose EleganceHub?</h2>
-                <p class="text-center">We are dedicated to providing an unparalleled shopping experience.</p>
-                <div class="features-grid grid">
-                    <div class="feature-item">
-                        <span class="icon">✨</span>
-                        <h3>Curated Selection</h3>
-                        <p>Hand-picked products ensuring quality, innovation, and style meet expectations.</p>
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="White wireless earbuds in a charging case" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">🚀</span>
-                        <h3>Fast & Reliable Delivery</h3>
-                        <p>Experience swift and secure delivery right to your doorstep, every time.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="icon">🔒</span>
-                        <h3>Secure Payments</h3>
-                        <p>Shop with confidence through our encrypted and trusted payment gateways.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="icon">📞</span>
-                        <h3>Exceptional Support</h3>
-                        <p>Our dedicated team is always ready to assist you with any queries or needs.</p>
+                    <div class="product-content">
+                        <h3>AuraSound Wireless Earbuds</h3>
+                        <p>Immersive audio experience with crystal-clear sound and ergonomic design for all-day comfort.</p>
+                        <span class="product-price">₹4,999</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
-                <div class="features-bg-image-container">
-                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="People collaborating in a modern office environment, symbolizing teamwork and support" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-            </div>
-        </section>
 
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2 class="text-center">About Our Story</h2>
-                <p class="text-center">EleganceHub was founded on the principle of bringing sophistication and technology together for a refined lifestyle.</p>
-                <div class="about-content">
-                    <div>
-                        <h3>Our Vision</h3>
-                        <p>At EleganceHub, we believe that technology should seamlessly integrate into your life, enhancing every moment without compromising on style. We meticulously source products that are not only cutting-edge but also embody a sense of refined design and durability.</p>
-                        <p>From the latest in smart home devices to essential lifestyle gadgets, our collection is thoughtfully assembled to meet the diverse needs of our discerning customers. We are more than just a store; we are a gateway to a smarter, more elegant way of living, ensuring every purchase brings value and joy.</p>
-                        <a href="#contact" class="btn-primary button">Contact Us</a>
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Stylish compact camera on a desk" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
+                    <div class="product-content">
+                        <h3>FocusShot Mini Camera</h3>
+                        <p>Capture life's moments in stunning detail with this portable, high-performance digital camera.</p>
+                        <span class="product-price">₹28,999</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="High-performance gaming mouse with LED lights" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3>ApexPro Gaming Mouse</h3>
+                        <p>Experience unparalleled precision and customizable controls for ultimate gaming performance.</p>
+                        <span class="product-price">₹3,750</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2 class="text-center mb-6">Why Choose NexGen?</h2>
+            <div class="features-grid">
+
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Blazing Fast Performance</h3>
+                    <p>Our products are engineered for speed and efficiency, delivering a seamless user experience every time.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Secure & Reliable</h3>
+                    <p>Built with robust security features to protect your data and privacy in an interconnected world.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <h3>Sleek, Modern Design</h3>
+                    <p>Combining aesthetics with functionality, our devices are designed to complement your contemporary lifestyle.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🌍</span>
+                    <h3>Eco-Conscious Materials</h3>
+                    <p>Committed to sustainability, we use responsibly sourced materials and eco-friendly manufacturing processes.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="text-center mb-6">About NexGen</h2>
+            <div class="about-content-wrapper">
+                <div class="about-text">
+                    <p>At NexGen, we believe in the power of innovation to transform lives. Founded in 2020, our mission is to bring state-of-the-art technology and premium lifestyle products directly to you.</p>
+                    <p>We meticulously select and design each item, ensuring it meets our high standards for performance, durability, and aesthetic appeal. From smart wearables to advanced audio solutions, every NexGen product is crafted to elevate your daily routine.</p>
+                    <p>Our commitment extends beyond just products; we strive to build a community of forward-thinkers who embrace the future. Join the NexGen family and experience the difference that thoughtful design and cutting-edge technology can make.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Get in Touch</a>
+                </div>
+                <div class="about-image">
                     <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team members collaborating in a bright, modern co-working space" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="testimonials" class="testimonials-section">
-            <div class="container">
-                <h2 class="text-center">What Our Customers Say</h2>
-                <p class="text-center">Hear from those who have experienced the EleganceHub difference and our commitment to excellence.</p>
-                <div class="testimonials-grid grid">
-                    <div class="testimonial-card">
-                        <p>"EleganceHub offers truly exceptional products. My new Smartwatch Pro X is both stylish and incredibly functional, exceeding my expectations. The delivery was fast, and customer service was a delight!"</p>
-                        <span class="author">— Anjali Sharma, Bengaluru</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"I was thoroughly impressed by the curated selection at EleganceHub. I found the perfect noise-cancelling headphones here, and they've been a game-changer for my daily commute. Highly recommend!"</p>
-                        <span class="author">— Rohan Patel, Mumbai</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Shopping at EleganceHub was a breeze! The website is incredibly user-friendly, and the product descriptions are always accurate and helpful. My Aura Wireless Earbuds are fantastic, great value for money."</p>
-                        <span class="author">— Priya Singh, Delhi</span>
-                    </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2 class="text-center mb-6">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"The ZenFlow Smart Watch has truly changed my routine. Accurate tracking, sleek design, and incredible battery life. Highly recommend NexGen!"</p>
+                    <span class="testimonial-author">— Priya Sharma</span>
                 </div>
-            </div>
-        </section>
 
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2 class="text-center">Get in Touch</h2>
-                <p class="text-center">Have a question, feedback, or need assistance? Reach out to us anytime, and we'll be glad to help.</p>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Your message..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"I'm blown away by the sound quality of the AuraSound Earbuds. Perfect for my workouts and daily commute. NexGen truly delivers premium products."</p>
+                    <span class="testimonial-author">— Rahul Singh</span>
+                </div>
 
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"NexGen's customer service is as impressive as their products. They helped me choose the perfect camera. Fantastic experience from start to finish!"</p>
+                    <span class="testimonial-author">— Ananya Das</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="text-center mb-6">Get In Touch</h2>
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-column">
-                <h3>EleganceHub</h3>
-                <p>Your destination for premium electronics and lifestyle essentials. Elevating your everyday with innovation and style.</p>
-                <div class="footer-socials">
-                    <a href="#" aria-label="Facebook">🌐</a> <!-- Simple unicode icon for Facebook -->
-                    <a href="#" aria-label="Twitter">🕊️</a> <!-- Simple unicode icon for Twitter -->
-                    <a href="#" aria-label="Instagram">📸</a> <!-- Simple unicode icon for Instagram -->
-                    <a href="#" aria-label="LinkedIn">🔗</a> <!-- Simple unicode icon for LinkedIn -->
-                </div>
+            <div class="footer-col">
+                <a href="#hero" class="footer-brand">Nex<span>Gen</span></a>
+                <p style="margin-top: 0.5rem; color: var(--secondary-color);">Innovating your everyday.</p>
             </div>
-            <div class="footer-column">
-                <h3>Company</h3>
+            <div class="footer-links">
                 <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#features">Our Vision</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Support</h3>
-                <ul>
-                    <li><a href="#contact">Help Center</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Product Care</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Legal</h3>
-                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
                 </ul>
             </div>
+            <div class="footer-col">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">F</a>
+                    <a href="#" aria-label="Twitter">T</a>
+                    <a href="#" aria-label="Instagram">I</a>
+                    <a href="#" aria-label="LinkedIn">L</a>
+                </div>
+            </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2023 EleganceHub. All rights reserved. Prices are in Indian Rupees (₹).
-        </div>
+        <p class="footer-copyright">© 2023 NexGen. All rights reserved.</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
+        // Simple script for mobile navigation toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-            hamburger.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('is-active'); // Optional: for burger animation
-            });
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active'); // Add active class to hamburger for animation if desired
+        });
 
-            // Close nav when clicking a link
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    hamburger.classList.remove('is-active');
-                });
-            });
-
-            // Close nav when clicking outside on mobile
-            document.addEventListener('click', function(event) {
-                // Check if the click is outside the nav-links and outside the hamburger button
-                const isClickInsideNav = navLinks.contains(event.target) || hamburger.contains(event.target);
-                if (!isClickInsideNav && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburger.classList.remove('is-active');
-                }
+        // Close nav on link click (for mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             });
         });
     </script>
