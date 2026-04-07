@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Trends - Elevate Your Everyday</title>
+    <title>Trending Shop - Your Style Destination</title>
     <style>
         :root {
-            --primary-bg: #ffffff;
-            --secondary-bg: #f9fafb;
-            --accent-color: #6366f1; /* Indigo */
-            --accent-hover: #4f46e5;
-            --text-color: #1a202c; /* Dark charcoal */
-            --text-light: #4a5568;
-            --border-color: #e2e8f0;
-            --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --primary-color: #333;
+            --secondary-color: #007bff;
+            --accent-color: #ff5722;
+            --light-bg: #f8f9fa;
+            --dark-bg: #212529;
+            --text-color: #343a40;
+            --light-text: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --shadow-strong: rgba(0, 0, 0, 0.2);
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 96px;
+            --font-body: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-heading: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Base Styles */
+        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,149 +34,147 @@
         }
 
         body {
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             line-height: 1.6;
-            color: var(--text-light);
-            background-color: var(--primary-bg);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
         }
 
         a {
-            color: var(--accent-color);
             text-decoration: none;
+            color: var(--secondary-color);
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--accent-hover);
+            color: var(--accent-color);
         }
 
-        /* Typography */
-        h1 { font-size: 3rem; line-height: 1.2; font-weight: 700; color: var(--text-color); }
-        h2 { font-size: 2rem; line-height: 1.3; font-weight: 700; color: var(--text-color); }
-        h3 { font-size: 1.5rem; line-height: 1.4; font-weight: 600; color: var(--text-color); }
-        p { font-size: 1rem; line-height: 1.6; color: var(--text-light); }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
 
-        /* Utility Classes */
+        h1 { font-size: clamp(2.5rem, 6vw, 3rem); }
+        h2 { font-size: clamp(1.8rem, 5vw, 2rem); }
+        h3 { font-size: clamp(1.5rem, 4vw, 1.75rem); }
+        p { font-size: clamp(1rem, 2.5vw, 1.1rem); line-height: 1.7; }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: var(--spacing-md);
         }
 
         .section-padding {
-            padding: 6rem 0;
+            padding: var(--spacing-lg) var(--spacing-md);
         }
 
         .text-center {
             text-align: center;
         }
 
-        .btn {
+        .button {
             display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: 0.5rem;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            text-align: center;
             border: none;
-            text-decoration: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        .btn-primary {
+        .button:hover {
             background-color: var(--accent-color);
-            color: var(--primary-bg);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
         }
 
-        .btn-secondary {
+        .button.outline {
             background-color: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            box-shadow: var(--shadow-light);
+            border: 2px solid var(--light-text);
+            color: var(--light-text);
         }
 
-        .btn-secondary:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-bg);
+        .button.outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
         }
 
         /* Navbar */
         .navbar {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
+            z-index: 1000;
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: var(--shadow-light);
-        }
-
-        .navbar .container {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .navbar-brand {
-            font-size: 1.7rem;
+        .navbar-logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--primary-color);
         }
 
-        .nav-links {
+        .navbar-nav {
             display: flex;
-            gap: 2.5rem;
             list-style: none;
+            gap: var(--spacing-md);
         }
 
-        .nav-links a {
-            color: var(--text-light);
+        .navbar-nav a {
+            color: var(--primary-color);
             font-weight: 500;
+            padding: 5px 0;
             position: relative;
         }
 
-        .nav-links a::after {
+        .navbar-nav a::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -5px;
+            bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent-color);
+            background-color: var(--secondary-color);
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .navbar-nav a:hover::after,
+        .navbar-nav a.active::after {
             width: 100%;
         }
 
-        .navbar-toggle {
+        .hamburger {
             display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
             cursor: pointer;
-            color: var(--text-color);
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
         .hero {
-            padding-top: 5rem; /* Offset for sticky navbar */
             position: relative;
+            background: var(--dark-bg); /* Fallback background */
         }
 
         .hero-image-container {
@@ -177,65 +182,71 @@
             width: 100%;
             overflow: hidden;
             position: relative;
+            background: var(--dark-bg); /* Fallback color for image container */
+        }
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
         }
 
         .hero-content {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            color: var(--primary-bg); /* Text color for contrast over image */
-            width: 90%;
-            max-width: 800px;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            /* Using a subtle background for readability without heavily obscuring image */
-            background-color: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(3px); /* Subtle blur for modern look */
-            -webkit-backdrop-filter: blur(3px);
+            padding: var(--spacing-md);
+            background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.2)); /* Subtle gradient for text readability */
         }
 
         .hero-content h1 {
-            color: var(--primary-bg); /* Ensure heading is white */
-            margin-bottom: 1rem;
-            font-size: 3.5rem;
+            color: var(--light-text);
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 2px 2px 4px var(--shadow-strong);
         }
+
         .hero-content p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--light-text);
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin-bottom: var(--spacing-lg);
+            max-width: 800px;
+            text-shadow: 1px 1px 3px var(--shadow-strong);
         }
 
         .hero-buttons {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
+            gap: var(--spacing-md);
         }
 
         /* Products Section */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
         .product-card {
-            background-color: var(--primary-bg);
-            border-radius: 0.75rem;
+            background-color: #fff;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 4px 15px var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
         }
 
         .product-image-container {
@@ -243,183 +254,172 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f5f5f5; /* Background for loading state */
+            background: #f5f5f5; /* Specified background */
+        }
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
         }
 
         .product-info {
-            padding: 1.5rem;
-            flex-grow: 1; /* Allow content to grow */
+            padding: var(--spacing-md);
+            flex-grow: 1; /* Allow info to take remaining space */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .product-info h3 {
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.25rem;
         }
 
         .product-info p {
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: auto; /* Push price to bottom */
+            margin-bottom: var(--spacing-sm);
         }
 
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            display: block;
+        .product-info .button {
+            width: 100%;
+            text-align: center;
         }
 
         /* Features Section */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
         .feature-item {
+            background-color: #fff;
+            padding: var(--spacing-md);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-light);
             text-align: center;
-            padding: 2rem;
-            background-color: var(--secondary-bg);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 8px 25px var(--shadow-medium);
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            display: block;
+        .feature-item .icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+            display: block; /* Ensure text icons are block for proper spacing */
         }
 
-        .features-image-container {
-            height: 350px; /* Fixed height for the features section image */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            margin-top: 3rem;
-            background: #f5f5f5;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-medium);
+        .feature-item h3 {
+            margin-bottom: var(--spacing-xs);
         }
-
 
         /* About Section */
         .about-content {
             display: flex;
             flex-wrap: wrap;
-            gap: 3rem;
+            gap: var(--spacing-lg);
             align-items: center;
-            margin-top: 3rem;
+            margin-top: var(--spacing-lg);
         }
 
-        .about-text {
-            flex: 1;
+        .about-text, .about-image-wrapper {
+            flex: 1 1 45%; /* Allows content to wrap on smaller screens */
             min-width: 300px;
-        }
-
-        .about-image-wrapper {
-            flex: 1;
-            min-width: 350px;
-            display: flex;
-            justify-content: center;
         }
 
         .about-image-container {
             height: 400px;
             width: 100%;
-            max-width: 500px; /* Limit width for aesthetic */
             overflow: hidden;
             position: relative;
-            background: #f5f5f5;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-medium);
+            background: #e9ecef; /* Fallback background */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+        .about-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
+            border-radius: 10px;
         }
 
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
         .testimonial-card {
-            background-color: var(--primary-bg);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-light);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            background-color: #fff;
+            padding: var(--spacing-md);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 8px 25px var(--shadow-medium);
         }
 
-        .testimonial-quote {
-            font-size: 1.1rem;
+        .testimonial-card p {
             font-style: italic;
+            margin-bottom: var(--spacing-sm);
             color: var(--text-color);
         }
 
-        .testimonial-author {
+        .testimonial-card .author {
             font-weight: 600;
-            color: var(--accent-color);
-            margin-top: 1rem;
+            color: var(--primary-color);
+        }
+
+        .testimonial-card .stars {
+            color: #ffc107; /* Gold color for stars */
+            margin-bottom: var(--spacing-xs);
         }
 
         /* Contact Form */
         .contact-form {
             max-width: 600px;
-            margin: 3rem auto 0;
-            background-color: var(--primary-bg);
-            padding: 2.5rem;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-medium);
+            margin: var(--spacing-lg) auto 0 auto;
+            background-color: #fff;
+            padding: var(--spacing-lg);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-light);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--spacing-md);
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--spacing-xs);
             font-weight: 600;
-            color: var(--text-color);
+            color: var(--primary-color);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem 1rem;
+            padding: var(--spacing-sm);
             border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            font-family: var(--font-sans);
+            border-radius: 5px;
+            font-family: var(--font-body);
             font-size: 1rem;
-            color: var(--text-color);
-            background-color: var(--secondary-bg);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
         }
 
         .form-group textarea {
@@ -427,472 +427,396 @@
             resize: vertical;
         }
 
+        .contact-form .button {
+            width: auto;
+            padding: var(--spacing-sm) var(--spacing-lg);
+        }
+
         /* Footer */
         .footer {
-            background-color: var(--text-color);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 4rem 0 2rem;
-            margin-top: 6rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-bg);
-            margin-bottom: 1rem;
-        }
-
-        .footer h3 {
-            color: var(--primary-bg);
-            margin-bottom: 1.2rem;
-            font-size: 1.2rem;
-        }
-
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-        }
-
-        .footer ul li a:hover {
-            color: var(--accent-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: var(--spacing-lg) var(--spacing-md);
             text-align: center;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            margin-top: var(--spacing-xl);
         }
 
-        /* Responsive Design */
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .social-icons a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.75rem; }
-            h3 { font-size: 1.3rem; }
-
-            .section-padding {
-                padding: 4rem 0;
-            }
-
-            .nav-links {
+            .navbar-nav {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 100%;
+                top: 70px; /* Adjust based on navbar height */
                 left: 0;
                 width: 100%;
-                background-color: rgba(255, 255, 255, 0.9);
+                background-color: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                padding: 1rem 1.5rem;
-                box-shadow: var(--shadow-light);
-                gap: 1rem;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                padding: var(--spacing-sm) 0;
             }
-            .nav-links.active {
+
+            .navbar-nav.active {
                 display: flex;
             }
-            .nav-links a {
-                color: var(--text-color);
-                padding: 0.5rem 0;
+
+            .navbar-nav li {
+                text-align: center;
+                padding: var(--spacing-xs) 0;
             }
-            .nav-links a::after {
-                background-color: var(--accent-color);
-                height: 1px;
-                bottom: 0;
-            }
-            .navbar-toggle {
+
+            .navbar-nav a {
+                padding: var(--spacing-xs) var(--spacing-md);
                 display: block;
-            }
-            .navbar .container {
-                padding: 0 1.5rem;
-            }
-            .navbar .btn-primary { /* Hide desktop CTA button on mobile nav */
-                display: none;
+                width: 100%;
             }
 
-
-            .hero-content {
-                width: 95%;
-                padding: 1.5rem;
+            .hamburger {
+                display: flex;
             }
+
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: clamp(2rem, 8vw, 2.5rem);
             }
+
             .hero-content p {
-                font-size: 0.9rem;
+                font-size: clamp(1rem, 4vw, 1.1rem);
             }
+
             .hero-buttons {
                 flex-direction: column;
-                gap: 1rem;
-            }
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .products-grid,
-            .features-grid,
-            .testimonials-grid,
-            .footer-grid {
-                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
             }
 
             .about-content {
                 flex-direction: column;
-                gap: 2rem;
-            }
-            .about-image-wrapper {
-                order: -1; /* Image above text on mobile */
-                width: 100%;
-                max-width: 100%;
-            }
-            .about-image-container {
-                width: 100%;
             }
 
-            .contact-form {
-                padding: 1.5rem;
+            .about-text, .about-image-wrapper {
+                flex: 1 1 100%;
+                min-width: unset;
+            }
+
+            .product-card, .feature-item, .testimonial-card {
+                margin-bottom: var(--spacing-md); /* Add spacing between items in a single column */
+            }
+
+            .section-padding {
+                padding: var(--spacing-md) var(--spacing-sm);
             }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
-            h3 { font-size: 1.2rem; }
-            p { font-size: 0.9rem; }
-
             .container {
-                padding: 0 1rem;
+                padding: var(--spacing-sm);
+            }
+
+            .navbar-logo {
+                font-size: 1.5rem;
             }
 
             .hero-content h1 {
-                font-size: 2rem;
+                font-size: clamp(1.8rem, 10vw, 2rem);
             }
+
             .hero-content p {
-                font-size: 0.85rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                gap: 0.8rem;
+                font-size: clamp(0.9rem, 4.5vw, 1rem);
             }
 
-            .navbar-brand {
-                font-size: 1.5rem;
+            .button {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: 0.9rem;
             }
-            .navbar-toggle {
-                font-size: 1.5rem;
-            }
-            .nav-links {
-                padding: 0.5rem 1rem;
-            }
-
-            .product-info h3 {
-                font-size: 1.2rem;
-            }
-            .product-price {
-                font-size: 1.1rem;
+            
+            .hero-image-container {
+                height: 60vh;
             }
 
-            .feature-icon {
-                font-size: 2rem;
+            .product-image-container {
+                height: 200px;
             }
-            .feature-item h3 {
-                font-size: 1.1rem;
+
+            .about-image-container {
+                height: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">Nexus Trends</a>
-            <nav style="display: flex; align-items: center; gap: 1rem;">
-                <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">&#9776;</button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#products" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Shop Now</a>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#home" class="navbar-logo">Trending Shop</a>
+        <ul class="navbar-nav" id="navbarNav">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with people working, representing a dynamic business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                <div class="hero-content">
-                    <h1>Elevate Your Everyday with Nexus Trends</h1>
-                    <p>Discover a curated collection of innovative gadgets, stylish accessories, and essential lifestyle products designed to enhance your daily life. Experience quality and convenience like never before.</p>
-                    <div class="hero-buttons">
-                        <a href="#products" class="btn btn-primary">Explore Products</a>
-                        <a href="#about" class="btn btn-secondary">Learn More</a>
-                    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with collaborative space and a large window, representing a vibrant business environment." style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+        <div class="hero-content">
+            <h1>Discover Your Next Obsession</h1>
+            <p>At Trending Shop, we bring you the latest and most innovative products to enhance your lifestyle. Explore our curated collections designed for modern living.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="button">Shop Now</a>
+                <a href="#about" class="button outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-padding container">
+        <h2 class="text-center">Our Bestsellers</h2>
+        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Handpicked items that our customers love and trust.</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with digital display on a clean surface." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Smart Fitness Watch Pro</h3>
+                    <p>Track your health and stay connected with advanced features.</p>
+                    <p>₹12,499</p>
+                    <button class="button">Add to Cart</button>
                 </div>
             </div>
-        </section>
-
-        <section id="products" class="section-padding" style="background-color: var(--secondary-bg);">
-            <div class="container text-center">
-                <h2>Our Premium Collection</h2>
-                <p>Hand-picked for quality and innovation. Find what truly enhances your lifestyle.</p>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with digital display on a wooden surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <div>
-                                <h3>ZenFlow Smartwatch Pro</h3>
-                                <p>Track your fitness, monitor health, and stay connected with advanced features.</p>
-                            </div>
-                            <div>
-                                <span class="product-price">₹12,499</span>
-                                <a href="#" class="btn btn-primary" style="width:100%;">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Wireless over-ear headphones in black against a bright background" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <div>
-                                <h3>AuraSonic X-Bass Headphones</h3>
-                                <p>Immerse yourself in crystal-clear audio with deep bass and ergonomic design.</p>
-                            </div>
-                            <div>
-                                <span class="product-price">₹7,999</span>
-                                <a href="#" class="btn btn-primary" style="width:100%;">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Compact portable power bank next to a smartphone" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <div>
-                                <h3>PowerVault 10000mAh Bank</h3>
-                                <p>Never run out of charge. Fast, reliable power for all your devices on the go.</p>
-                            </div>
-                            <div>
-                                <span class="product-price">₹1,899</span>
-                                <a href="#" class="btn btn-primary" style="width:100%;">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Stylish minimalist wireless charging pad for smartphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <div>
-                                <h3>ZenCharge Wireless Pad</h3>
-                                <p>Effortless charging for your compatible devices with a sleek, minimalist design.</p>
-                            </div>
-                            <div>
-                                <span class="product-price">₹2,999</span>
-                                <a href="#" class="btn btn-primary" style="width:100%;">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium silver wireless headphones over a wooden table, offering superior audio." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Acoustic Pro Wireless Earbuds</h3>
+                    <p>Immersive sound and comfort for your daily commute and workouts.</p>
+                    <p>₹7,999</p>
+                    <button class="button">Add to Cart</button>
                 </div>
             </div>
-        </section>
-
-        <section id="features" class="section-padding">
-            <div class="container text-center">
-                <h2>Why Choose Nexus Trends?</h2>
-                <p>We're dedicated to bringing you the best in technology and lifestyle.</p>
-
-                <div class="features-image-container">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Overhead view of a creative workspace with various tech gadgets and stationery" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Modern minimalist smartphone with a vibrant screen, suitable for daily use." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-
-                <div class="features-grid" style="margin-top: 4rem;">
-                    <div class="feature-item">
-                        <span class="feature-icon">&#128187;</span> <!-- Computer emoji -->
-                        <h3>Cutting-Edge Technology</h3>
-                        <p>Stay ahead with the latest innovations and smart solutions for a modern life.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">&#128717;&#65039;</span> <!-- Shield emoji -->
-                        <h3>Uncompromised Quality</h3>
-                        <p>Every product is rigorously tested to ensure durability, performance, and reliability.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">&#128170;</span> <!-- Bicep emoji -->
-                        <h3>Exceptional Support</h3>
-                        <p>Our dedicated team is here to assist you with any queries, ensuring a smooth experience.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">&#128640;</span> <!-- Rocket emoji -->
-                        <h3>Fast & Secure Delivery</h3>
-                        <p>Get your favorite products delivered quickly and safely to your doorstep.</p>
-                    </div>
+                <div class="product-info">
+                    <h3>Ultra-Slim Power Bank</h3>
+                    <p>Keep your devices charged on the go with this high-capacity power bank.</p>
+                    <p>₹2,199</p>
+                    <button class="button">Add to Cart</button>
                 </div>
             </div>
-        </section>
-
-        <section id="about" class="section-padding" style="background-color: var(--secondary-bg);">
-            <div class="container">
-                <h2 class="text-center">Our Story & Mission</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Innovating for a Better Tomorrow</h3>
-                        <p>At Nexus Trends, we believe that technology and design should seamlessly integrate into your life, making it simpler, more efficient, and more enjoyable. Founded in 2020, our journey began with a passion for discovering and delivering products that truly make a difference.</p>
-                        <p style="margin-top: 1rem;">We carefully curate our collection, partnering with leading innovators and ethical manufacturers to ensure every item meets our high standards of quality, performance, and aesthetic appeal. Our mission is to empower individuals to live smarter, work better, and connect more meaningfully through our thoughtfully selected range.</p>
-                        <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Get in Touch</a>
-                    </div>
-                    <div class="about-image-wrapper">
-                        <div class="about-image-container">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team collaborating in a modern office, representing company culture" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                    </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Elegant metallic coffee tumbler, ideal for maintaining drink temperature." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Thermal Coffee Mug</h3>
+                    <p>Enjoy your beverages hot or cold for hours with our insulated mug.</p>
+                    <p>₹1,499</p>
+                    <button class="button">Add to Cart</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="testimonials" class="section-padding">
-            <div class="container text-center">
-                <h2>What Our Customers Say</h2>
-                <p>Real feedback from real people who love Nexus Trends.</p>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"The ZenFlow Smartwatch has revolutionized my daily routine. The battery life is incredible, and the health tracking is surprisingly accurate. Nexus Trends delivered quickly and the customer service was top-notch!"</p>
-                        <span class="testimonial-author">- Priya Sharma, Bengaluru</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"I was skeptical about buying headphones online, but the AuraSonic X-Bass blew me away! The sound quality is phenomenal, and they're so comfortable. Definitely recommending Nexus Trends to all my friends."</p>
-                        <span class="testimonial-author">- Rohan Mehta, Mumbai</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"Excellent selection of products and a seamless shopping experience. I bought the PowerVault and it's been a lifesaver on my travels. Nexus Trends is my new go-to for gadgets!"</p>
-                        <span class="testimonial-author">- Aisha Khan, Delhi</span>
-                    </div>
+    <!-- Features Section -->
+    <section id="features" class="section-padding container" style="background-color: var(--light-bg);">
+        <h2 class="text-center">Why Choose Trending Shop?</h2>
+        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Experience the difference with our commitment to quality and customer satisfaction.</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="icon" role="img" aria-label="Sparkles">✨</span>
+                <h3>Curated Selection</h3>
+                <p>We handpick every product to ensure it meets our high standards for innovation and style.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon" role="img" aria-label="Rocket">🚀</span>
+                <h3>Fast & Reliable Shipping</h3>
+                <p>Get your favorite products delivered quickly and safely right to your doorstep.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon" role="img" aria-label="Lock">🔒</span>
+                <h3>Secure Shopping</h3>
+                <p>Shop with confidence thanks to our secure payment gateways and data protection.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon" role="img" aria-label="Telephone">📞</span>
+                <h3>Excellent Support</h3>
+                <p>Our dedicated customer service team is always ready to assist you with any queries.</p>
+            </div>
+        </div>
+        <!-- The features image is used here to provide a visual context for the section -->
+        <div class="about-image-wrapper" style="margin-top: var(--spacing-lg);">
+            <div class="about-image-container" style="height: 300px; background: var(--light-bg); border-radius: 10px; box-shadow: 0 4px 15px var(--shadow-light);">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Modern minimalist desktop setup with laptop, coffee, and neatly arranged office supplies, symbolizing efficiency and clean design." style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius: 10px;" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding container">
+        <h2 class="text-center">About Trending Shop</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p style="margin-bottom: var(--spacing-sm);">Trending Shop started with a simple vision: to bring the most innovative and stylish products to our customers' fingertips. We believe that modern living demands smart solutions and beautiful designs, and we tirelessly search the globe to curate a collection that reflects just that.</p>
+                <p>From cutting-edge electronics to chic home essentials, every item in our store is chosen for its quality, functionality, and ability to enhance your everyday life. We are committed to providing an exceptional shopping experience, supported by reliable service and a passion for trends that matter.</p>
+            </div>
+            <div class="about-image-wrapper">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team of professionals collaborating in a modern office space, showcasing teamwork and innovation." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="section-padding" style="background-color: var(--secondary-bg);">
-            <div class="container text-center">
-                <h2>Contact Us</h2>
-                <p>Have a question or need assistance? Reach out to our friendly team!</p>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
-                </form>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding container" style="background-color: var(--light-bg);">
+        <h2 class="text-center">What Our Customers Say</h2>
+        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Hear from people who love shopping with us!</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"I absolutely love the products from Trending Shop! The Smart Fitness Watch is a game-changer for my workouts, and the delivery was incredibly fast. Highly recommended!"</p>
+                <div class="author">- Priya Sharma</div>
             </div>
-        </section>
-    </main>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"The Acoustic Pro Earbuds exceeded my expectations. Fantastic sound quality and comfortable fit. Trending Shop has definitely become my go-to for tech gadgets."</p>
+                <div class="author">- Rahul Singh</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐</div>
+                <p>"Great selection of unique items. I bought a Thermal Coffee Mug and it keeps my coffee hot for hours. The customer service was also very helpful with my queries."</p>
+                <div class="author">- Anjali Desai</div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Form Section -->
+    <section id="contact" class="section-padding container">
+        <h2 class="text-center">Get In Touch</h2>
+        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Have questions or feedback? We'd love to hear from you!</p>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="button">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3 class="footer-brand">Nexus Trends</h3>
-                    <p>Elevating your everyday with premium products and seamless experiences.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">F</a> <!-- Placeholder for social icons -->
-                        <a href="#" aria-label="Twitter">T</a>
-                        <a href="#" aria-label="Instagram">I</a>
-                    </div>
-                </div>
-                <div>
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Our Address</h3>
-                    <p>Nexus Trends HQ<br>
-                    123 Digital Avenue<br>
-                    Innovation City, India<br>
-                    Pin: 560001</p>
-                </div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">FB</a>
+                <a href="#" aria-label="Twitter">TW</a>
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="LinkedIn">LN</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Nexus Trends. All rights reserved.</p>
-            </div>
+            <p>&copy; 2023 Trending Shop. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        document.getElementById('navbarToggle').addEventListener('click', function() {
-            var navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+            document.getElementById('navbarNav').classList.toggle('active');
         });
 
-        // Close mobile nav when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                var navLinks = document.getElementById('navLinks');
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
+        // Optional: Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile nav if open
+                if (document.getElementById('navbarNav').classList.contains('active')) {
+                    document.getElementById('navbarNav').classList.remove('active');
+                }
+            });
+        });
+
+        // Optional: Highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar-nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) { // Offset for navbar height
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
                 }
             });
         });
