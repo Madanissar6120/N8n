@@ -3,30 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trending Shop - Your Style Destination</title>
+    <title>The Artisan's Haven - Premium Lifestyle & Home Goods</title>
     <style>
+        /* CSS Reset & Variables */
         :root {
-            --primary-color: #333;
-            --secondary-color: #007bff;
-            --accent-color: #ff5722;
-            --light-bg: #f8f9fa;
-            --dark-bg: #212529;
-            --text-color: #343a40;
-            --light-text: #f8f9fa;
+            --primary-color: #5C6BC0; /* Indigo */
+            --secondary-color: #FFC107; /* Amber */
+            --text-color: #212121;
+            --light-text-color: #616161;
+            --background-color: #ffffff;
+            --light-bg-color: #f5f5f5;
             --border-color: #e0e0e0;
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-            --shadow-strong: rgba(0, 0, 0, 0.2);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
             --spacing-xs: 8px;
             --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 48px;
-            --spacing-xl: 96px;
-            --font-body: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --font-heading: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --spacing-md: 32px;
+            --spacing-lg: 64px;
+            --navbar-height: 70px;
         }
 
-        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -34,147 +30,199 @@
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-bg);
-            scroll-behavior: smooth;
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         a {
+            color: var(--primary-color);
             text-decoration: none;
-            color: var(--secondary-color);
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--accent-color);
+            color: var(--secondary-color);
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Ensure no extra space below images */
+        }
+
+        /* Typography */
         h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
             margin-bottom: var(--spacing-sm);
         }
 
-        h1 { font-size: clamp(2.5rem, 6vw, 3rem); }
-        h2 { font-size: clamp(1.8rem, 5vw, 2rem); }
-        h3 { font-size: clamp(1.5rem, 4vw, 1.75rem); }
-        p { font-size: clamp(1rem, 2.5vw, 1.1rem); line-height: 1.7; }
-
+        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: var(--spacing-md);
+            padding: 0 var(--spacing-sm);
         }
 
         .section-padding {
-            padding: var(--spacing-lg) var(--spacing-md);
+            padding: var(--spacing-lg) 0;
         }
 
         .text-center {
             text-align: center;
         }
 
-        .button {
+        .btn {
             display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--light-text);
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
             font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
         }
 
-        .button:hover {
-            background-color: var(--accent-color);
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #4CAF50; /* A slightly darker green for hover */
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
-        .button.outline {
+        .btn-secondary {
             background-color: transparent;
-            border: 2px solid var(--light-text);
-            color: var(--light-text);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
         }
 
-        .button.outline:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--light-text);
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--background-color);
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .shadow-sm {
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-5px);
         }
 
         /* Navbar */
         .navbar {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            width: 100%;
+            height: var(--navbar-height);
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-sm);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .navbar-logo {
-            font-family: var(--font-heading);
+        .navbar-brand {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
         }
 
-        .navbar-nav {
-            display: flex;
+        .nav-links {
+            display: none; /* Hidden by default on mobile */
             list-style: none;
             gap: var(--spacing-md);
         }
 
-        .navbar-nav a {
-            color: var(--primary-color);
+        .nav-links a {
+            color: var(--text-color);
             font-weight: 500;
-            padding: 5px 0;
+            padding: var(--spacing-xs) 0;
             position: relative;
         }
-
-        .navbar-nav a::after {
+        
+        .nav-links a::after {
             content: '';
             position: absolute;
-            left: 0;
-            bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
             transition: width 0.3s ease;
         }
 
-        .navbar-nav a:hover::after,
-        .navbar-nav a.active::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
-        .hamburger {
-            display: none;
+        .menu-toggle {
+            display: block; /* Visible on mobile */
+            font-size: 2rem;
+            background: none;
+            border: none;
             cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-color);
-            transition: all 0.3s ease;
+            color: var(--text-color);
+            padding: 0;
         }
 
         /* Hero Section */
         .hero {
+            padding-top: var(--navbar-height); /* Offset for fixed navbar */
             position: relative;
-            background: var(--dark-bg); /* Fallback background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--background-color);
         }
 
         .hero-image-container {
@@ -182,71 +230,74 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: var(--dark-bg); /* Fallback color for image container */
-        }
-        .hero-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
+            background: #333; /* Placeholder background */
         }
 
         .hero-content {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: var(--spacing-md);
-            background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.2)); /* Subtle gradient for text readability */
+            z-index: 1;
+            padding: var(--spacing-sm);
+            max-width: 800px;
         }
 
         .hero-content h1 {
-            color: var(--light-text);
-            margin-bottom: var(--spacing-sm);
-            text-shadow: 2px 2px 4px var(--shadow-strong);
+            color: var(--background-color);
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         .hero-content p {
-            color: var(--light-text);
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-size: 1.2rem;
             margin-bottom: var(--spacing-lg);
-            max-width: 800px;
-            text-shadow: 1px 1px 3px var(--shadow-strong);
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
         }
 
         .hero-buttons {
             display: flex;
-            gap: var(--spacing-md);
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .hero-buttons .btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border-color: var(--secondary-color);
+            padding: var(--spacing-xs) var(--spacing-md);
+        }
+        
+        .hero-buttons .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--background-color);
+            border-color: var(--background-color);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            border-color: var(--background-color);
         }
 
         /* Products Section */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr;
             gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
         }
 
         .product-card {
-            background-color: #fff;
-            border-radius: 10px;
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 4px 15px var(--shadow-light);
+            box-shadow: 0 4px 12px var(--shadow-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow-medium);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         .product-image-container {
@@ -254,86 +305,89 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f5f5f5; /* Specified background */
-        }
-        .product-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
+            background: #f5f5f5; /* Placeholder for loading */
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .product-info {
-            padding: var(--spacing-md);
-            flex-grow: 1; /* Allow info to take remaining space */
+        .product-card-content {
+            padding: var(--spacing-sm);
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
-        .product-info h3 {
+        .product-card h3 {
             margin-bottom: var(--spacing-xs);
-            font-size: 1.25rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
         }
 
-        .product-info p {
-            font-size: 1rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-top: auto; /* Push price to bottom */
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-color);
             margin-bottom: var(--spacing-sm);
         }
 
-        .product-info .button {
+        .product-card .btn {
             width: 100%;
-            text-align: center;
+            padding: var(--spacing-xs);
         }
 
         /* Features Section */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr;
             gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
         }
 
         .feature-item {
-            background-color: #fff;
-            padding: var(--spacing-md);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-light);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: var(--spacing-sm);
+            background-color: var(--light-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
 
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow-medium);
         }
 
-        .feature-item .icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: var(--spacing-sm);
-            display: block; /* Ensure text icons are block for proper spacing */
+        .feature-icon-container {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--spacing-sm);
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--background-color);
+            font-size: 2rem;
         }
-
         .feature-item h3 {
+            color: var(--primary-color);
             margin-bottom: var(--spacing-xs);
+        }
+        
+        .features-main-image-container {
+            height: 300px; /* Custom fixed height for features section main image */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #eee;
+            border-radius: var(--border-radius);
+            margin-top: var(--spacing-md);
         }
 
         /* About Section */
         .about-content {
             display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-lg);
-            align-items: center;
-            margin-top: var(--spacing-lg);
-        }
-
-        .about-text, .about-image-wrapper {
-            flex: 1 1 45%; /* Allows content to wrap on smaller screens */
-            min-width: 300px;
+            flex-direction: column;
+            gap: var(--spacing-md);
         }
 
         .about-image-container {
@@ -341,85 +395,79 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e9ecef; /* Fallback background */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-light);
-        }
-        .about-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-            border-radius: 10px;
+            background: #f0f0f0;
+            border-radius: var(--border-radius);
         }
 
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr;
             gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
         }
 
         .testimonial-card {
-            background-color: #fff;
+            background-color: var(--light-bg-color);
             padding: var(--spacing-md);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow-medium);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .testimonial-card p {
             font-style: italic;
             margin-bottom: var(--spacing-sm);
-            color: var(--text-color);
+            color: var(--light-text-color);
         }
 
-        .testimonial-card .author {
+        .testimonial-author {
             font-weight: 600;
             color: var(--primary-color);
+            margin-top: var(--spacing-xs);
         }
 
-        .testimonial-card .stars {
-            color: #ffc107; /* Gold color for stars */
-            margin-bottom: var(--spacing-xs);
-        }
-
-        /* Contact Form */
+        /* Contact Section */
         .contact-form {
             max-width: 600px;
-            margin: var(--spacing-lg) auto 0 auto;
-            background-color: #fff;
-            padding: var(--spacing-lg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-light);
+            margin: 0 auto;
+            background-color: var(--light-bg-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px var(--shadow-color);
         }
 
         .form-group {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
         }
 
         .form-group label {
             display: block;
             margin-bottom: var(--spacing-xs);
-            font-weight: 600;
-            color: var(--primary-color);
+            font-weight: 500;
+            color: var(--text-color);
         }
 
-        .form-group input,
+        .form-group input[type="text"],
+        .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: var(--spacing-sm);
+            padding: var(--spacing-xs);
             border: 1px solid var(--border-color);
-            border-radius: 5px;
-            font-family: var(--font-body);
+            border-radius: var(--border-radius);
             font-size: 1rem;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.2);
         }
 
         .form-group textarea {
@@ -427,152 +475,267 @@
             resize: vertical;
         }
 
-        .contact-form .button {
-            width: auto;
-            padding: var(--spacing-sm) var(--spacing-lg);
+        .contact-form .btn-primary {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border-color: var(--primary-color);
         }
 
         /* Footer */
         .footer {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
-            padding: var(--spacing-lg) var(--spacing-md);
+            background-color: var(--text-color);
+            color: var(--light-bg-color);
+            padding: var(--spacing-lg) 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
             text-align: center;
-            margin-top: var(--spacing-xl);
         }
 
-        .footer-links {
+        .footer-col h4 {
+            color: var(--background-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+        }
+
+        .footer-col p, .footer-col ul {
+            color: var(--border-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-col ul {
             list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-            flex-wrap: wrap;
+            padding: 0;
         }
 
-        .footer-links a {
-            color: var(--light-text);
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .social-icons {
-            margin-bottom: var(--spacing-md);
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-md);
-        }
-
-        .social-icons a {
-            color: var(--light-text);
-            font-size: 1.5rem;
+        .footer-col ul li a {
+            color: var(--border-color);
+            padding: var(--spacing-xs) 0;
+            display: block;
             transition: color 0.3s ease;
         }
 
-        .social-icons a:hover {
+        .footer-col ul li a:hover {
             color: var(--secondary-color);
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .navbar-nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px; /* Adjust based on navbar height */
-                left: 0;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                border-top: 1px solid rgba(0, 0, 0, 0.05);
-                padding: var(--spacing-sm) 0;
-            }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
 
-            .navbar-nav.active {
-                display: flex;
-            }
+        .social-link {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            color: var(--background-color);
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-            .navbar-nav li {
-                text-align: center;
-                padding: var(--spacing-xs) 0;
-            }
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
 
-            .navbar-nav a {
-                padding: var(--spacing-xs) var(--spacing-md);
-                display: block;
-                width: 100%;
-            }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            text-align: center;
+            color: var(--border-color);
+        }
 
-            .hamburger {
-                display: flex;
-            }
+        /* Mobile Nav Overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: flex;
+            justify-content: flex-end; /* Pushes content to the right */
+            visibility: hidden;
+            opacity: 1;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
 
+        .mobile-nav-overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .mobile-nav-content {
+            width: 70%; /* Adjust as needed */
+            max-width: 300px;
+            background-color: var(--background-color);
+            padding: var(--spacing-md);
+            box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-nav-overlay.open .mobile-nav-content {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-close {
+            align-self: flex-end;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: var(--spacing-xs) 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+
+        /* Media Queries */
+
+        /* Small devices (up to 480px) - Base styles are for this */
+        @media (min-width: 480px) {
             .hero-content h1 {
-                font-size: clamp(2rem, 8vw, 2.5rem);
+                font-size: 3.5rem;
             }
-
             .hero-content p {
-                font-size: clamp(1rem, 4vw, 1.1rem);
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .about-text, .about-image-wrapper {
-                flex: 1 1 100%;
-                min-width: unset;
-            }
-
-            .product-card, .feature-item, .testimonial-card {
-                margin-bottom: var(--spacing-md); /* Add spacing between items in a single column */
-            }
-
-            .section-padding {
-                padding: var(--spacing-md) var(--spacing-sm);
+                font-size: 1.4rem;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            h2 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1.1rem;
+            }
             .container {
-                padding: var(--spacing-sm);
+                padding: 0 var(--spacing-md);
             }
 
-            .navbar-logo {
-                font-size: 1.5rem;
+            .navbar .menu-toggle {
+                display: none; /* Hide hamburger on desktop */
+            }
+
+            .navbar .nav-links {
+                display: flex; /* Show nav links on desktop */
             }
 
             .hero-content h1 {
-                font-size: clamp(1.8rem, 10vw, 2rem);
+                font-size: 4.5rem;
             }
-
             .hero-content p {
-                font-size: clamp(0.9rem, 4.5vw, 1rem);
+                font-size: 1.5rem;
             }
 
-            .button {
-                padding: var(--spacing-xs) var(--spacing-sm);
-                font-size: 0.9rem;
+            .hero-buttons .btn {
+                padding: var(--spacing-sm) var(--spacing-lg);
+                font-size: 1.1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+            }
+            .about-text, .about-image-container {
+                flex: 1;
+            }
+            .about-text {
+                padding-right: var(--spacing-md);
+            }
+            .about-image-container {
+                height: 450px; /* Slightly taller on tablet */
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
+            .features-main-image-container {
+                height: 400px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                text-align: left;
+            }
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+
+        /* Large devices (desktops, 1024px and up) */
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 4rem;
+            }
+            h2 {
+                font-size: 3rem;
+            }
             .hero-image-container {
-                height: 60vh;
+                height: 90vh; /* Taller hero on larger screens */
             }
-
-            .product-image-container {
-                height: 200px;
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
-
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
             .about-image-container {
-                height: 300px;
+                height: 500px; /* Even taller on desktop */
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .features-main-image-container {
+                height: 500px;
             }
         }
     </style>
@@ -580,244 +743,306 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#home" class="navbar-logo">Trending Shop</a>
-        <ul class="navbar-nav" id="navbarNav">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger" id="hamburgerMenu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="container">
+            <a href="#" class="navbar-brand">The Artisan's Haven</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">&#9776;</button>
         </div>
     </nav>
 
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-content">
+            <button class="mobile-nav-close" aria-label="Close navigation" id="mobileNavClose">&times;</button>
+            <ul class="mobile-nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="hero" class="hero">
         <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with collaborative space and a large window, representing a vibrant business environment." style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with people working, representing a dynamic business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
         </div>
         <div class="hero-content">
-            <h1>Discover Your Next Obsession</h1>
-            <p>At Trending Shop, we bring you the latest and most innovative products to enhance your lifestyle. Explore our curated collections designed for modern living.</p>
+            <h1>Discover Timeless Elegance for Your Home & Lifestyle</h1>
+            <p>Curated collection of handcrafted goods and modern essentials, blending tradition with contemporary design.</p>
             <div class="hero-buttons">
-                <a href="#products" class="button">Shop Now</a>
-                <a href="#about" class="button outline">Learn More</a>
+                <a href="#products" class="btn btn-primary hover-scale">Explore Products</a>
+                <a href="#contact" class="btn btn-secondary hover-scale">Get in Touch</a>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section-padding container">
-        <h2 class="text-center">Our Bestsellers</h2>
-        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Handpicked items that our customers love and trust.</p>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with digital display on a clean surface." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+    <!-- Products/Services Section -->
+    <section id="products" class="section-padding">
+        <div class="container text-center">
+            <h2 style="margin-bottom: var(--spacing-md);">Our Signature Collection</h2>
+            <p style="margin-bottom: var(--spacing-lg);">Experience quality and craftsmanship with our handpicked selection of lifestyle products.</p>
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card hover-scale shadow-md">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Premium Smartwatch with a sleek design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-card-content">
+                        <div>
+                            <h3>Premium Smartwatch X1</h3>
+                            <p>Track your fitness and stay connected with cutting-edge technology.</p>
+                        </div>
+                        <div class="product-price">₹12,999</div>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
-                <div class="product-info">
-                    <h3>Smart Fitness Watch Pro</h3>
-                    <p>Track your health and stay connected with advanced features.</p>
-                    <p>₹12,499</p>
-                    <button class="button">Add to Cart</button>
+
+                <!-- Product Card 2 -->
+                <div class="product-card hover-scale shadow-md">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Over-ear noise-cancelling headphones in a studio setting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-card-content">
+                        <div>
+                            <h3>Studio Pro Noise-Cancelling Headphones</h3>
+                            <p>Immersive sound experience with superior comfort for audiophiles.</p>
+                        </div>
+                        <div class="product-price">₹8,999</div>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium silver wireless headphones over a wooden table, offering superior audio." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+
+                <!-- Product Card 3 -->
+                <div class="product-card hover-scale shadow-md">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Handcrafted leather wallet with multiple card slots" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-card-content">
+                        <div>
+                            <h3>Handcrafted Leather Wallet</h3>
+                            <p>Elegant and durable, designed for timeless appeal and everyday use.</p>
+                        </div>
+                        <div class="product-price">₹1,899</div>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
-                <div class="product-info">
-                    <h3>Acoustic Pro Wireless Earbuds</h3>
-                    <p>Immersive sound and comfort for your daily commute and workouts.</p>
-                    <p>₹7,999</p>
-                    <button class="button">Add to Cart</button>
+
+                <!-- Product Card 4 -->
+                <div class="product-card hover-scale shadow-md">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Vintage style metal desk lamp with a warm glow" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-card-content">
+                        <div>
+                            <h3>Classic Metal Desk Lamp</h3>
+                            <p>Illuminate your workspace with a touch of retro sophistication.</p>
+                        </div>
+                        <div class="product-price">₹4,500</div>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Modern minimalist smartphone with a vibrant screen, suitable for daily use." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Ultra-Slim Power Bank</h3>
-                    <p>Keep your devices charged on the go with this high-capacity power bank.</p>
-                    <p>₹2,199</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Elegant metallic coffee tumbler, ideal for maintaining drink temperature." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Thermal Coffee Mug</h3>
-                    <p>Enjoy your beverages hot or cold for hours with our insulated mug.</p>
-                    <p>₹1,499</p>
-                    <button class="button">Add to Cart</button>
+
+                <!-- Product Card 5 -->
+                <div class="product-card hover-scale shadow-md">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Set of organic cotton bath towels, soft and absorbent" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-card-content">
+                        <div>
+                            <h3>Organic Cotton Bath Towel Set</h3>
+                            <p>Luxurious comfort and exceptional absorbency for your daily routine.</p>
+                        </div>
+                        <div class="product-price">₹2,499</div>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section-padding container" style="background-color: var(--light-bg);">
-        <h2 class="text-center">Why Choose Trending Shop?</h2>
-        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Experience the difference with our commitment to quality and customer satisfaction.</p>
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="icon" role="img" aria-label="Sparkles">✨</span>
-                <h3>Curated Selection</h3>
-                <p>We handpick every product to ensure it meets our high standards for innovation and style.</p>
+    <section id="features" class="section-padding" style="background-color: var(--light-bg-color);">
+        <div class="container text-center">
+            <h2 style="margin-bottom: var(--spacing-md);">Why Choose The Artisan's Haven?</h2>
+            <p style="margin-bottom: var(--spacing-lg);">We are committed to providing exceptional quality, unique designs, and unmatched customer service.</p>
+            
+            <div class="features-main-image-container shadow-sm">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="A person typing on a laptop with creative tools, representing innovation and design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
             </div>
-            <div class="feature-item">
-                <span class="icon" role="img" aria-label="Rocket">🚀</span>
-                <h3>Fast & Reliable Shipping</h3>
-                <p>Get your favorite products delivered quickly and safely right to your doorstep.</p>
-            </div>
-            <div class="feature-item">
-                <span class="icon" role="img" aria-label="Lock">🔒</span>
-                <h3>Secure Shopping</h3>
-                <p>Shop with confidence thanks to our secure payment gateways and data protection.</p>
-            </div>
-            <div class="feature-item">
-                <span class="icon" role="img" aria-label="Telephone">📞</span>
-                <h3>Excellent Support</h3>
-                <p>Our dedicated customer service team is always ready to assist you with any queries.</p>
-            </div>
-        </div>
-        <!-- The features image is used here to provide a visual context for the section -->
-        <div class="about-image-wrapper" style="margin-top: var(--spacing-lg);">
-            <div class="about-image-container" style="height: 300px; background: var(--light-bg); border-radius: 10px; box-shadow: 0 4px 15px var(--shadow-light);">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Modern minimalist desktop setup with laptop, coffee, and neatly arranged office supplies, symbolizing efficiency and clean design." style="width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius: 10px;" loading="lazy">
+
+            <div class="features-grid" style="margin-top: var(--spacing-lg);">
+                <div class="feature-item shadow-sm">
+                    <div class="feature-icon-container">✨</div>
+                    <h3>Curated Selection</h3>
+                    <p>Each item is handpicked for its unique design and superior quality.</p>
+                </div>
+                <div class="feature-item shadow-sm">
+                    <div class="feature-icon-container">🌍</div>
+                    <h3>Ethically Sourced</h3>
+                    <p>We partner with artisans who uphold fair labor practices and sustainability.</p>
+                </div>
+                <div class="feature-item shadow-sm">
+                    <div class="feature-icon-container">🚀</div>
+                    <h3>Fast & Secure Delivery</h3>
+                    <p>Enjoy swift and safe delivery right to your doorstep, nationwide.</p>
+                </div>
+                <div class="feature-item shadow-sm">
+                    <div class="feature-icon-container">💖</div>
+                    <h3>Customer Happiness</h3>
+                    <p>Your satisfaction is our top priority with dedicated support.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding container">
-        <h2 class="text-center">About Trending Shop</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p style="margin-bottom: var(--spacing-sm);">Trending Shop started with a simple vision: to bring the most innovative and stylish products to our customers' fingertips. We believe that modern living demands smart solutions and beautiful designs, and we tirelessly search the globe to curate a collection that reflects just that.</p>
-                <p>From cutting-edge electronics to chic home essentials, every item in our store is chosen for its quality, functionality, and ability to enhance your everyday life. We are committed to providing an exceptional shopping experience, supported by reliable service and a passion for trends that matter.</p>
-            </div>
-            <div class="about-image-wrapper">
-                <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team of professionals collaborating in a modern office space, showcasing teamwork and innovation." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">About Our Journey</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story of Craftsmanship and Passion</h3>
+                    <p>The Artisan's Haven was born from a deep appreciation for quality craftsmanship and a desire to bring beautifully designed, functional products to discerning customers. We believe that everyday objects should not only serve a purpose but also bring joy and aesthetic pleasure to your life.</p>
+                    <p>Our journey began with a small collection of handcrafted items, and over time, we have expanded to include a diverse range of lifestyle and home goods, all united by their commitment to excellence and unique design. We work directly with talented artisans and trusted manufacturers, ensuring that every product meets our high standards.</p>
+                    <p>Join us in celebrating the art of living well, one exquisite piece at a time.</p>
+                </div>
+                <div class="about-image-container shadow-md">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office, symbolizing innovation and unity" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding container" style="background-color: var(--light-bg);">
-        <h2 class="text-center">What Our Customers Say</h2>
-        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Hear from people who love shopping with us!</p>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"I absolutely love the products from Trending Shop! The Smart Fitness Watch is a game-changer for my workouts, and the delivery was incredibly fast. Highly recommended!"</p>
-                <div class="author">- Priya Sharma</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"The Acoustic Pro Earbuds exceeded my expectations. Fantastic sound quality and comfortable fit. Trending Shop has definitely become my go-to for tech gadgets."</p>
-                <div class="author">- Rahul Singh</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐</div>
-                <p>"Great selection of unique items. I bought a Thermal Coffee Mug and it keeps my coffee hot for hours. The customer service was also very helpful with my queries."</p>
-                <div class="author">- Anjali Desai</div>
+    <section id="testimonials" class="section-padding" style="background-color: var(--light-bg-color);">
+        <div class="container text-center">
+            <h2 style="margin-bottom: var(--spacing-md);">What Our Customers Say</h2>
+            <p style="margin-bottom: var(--spacing-lg);">Hear from our happy customers who love their Artisan's Haven experience.</p>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card shadow-sm">
+                    <p>"The smartwatch exceeded my expectations! Sleek design and incredible features. Shipping was super fast too. Highly recommend The Artisan's Haven for quality products."</p>
+                    <div class="testimonial-author">— Priya S., Bengaluru</div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card shadow-sm">
+                    <p>"I absolutely adore my new desk lamp. It's truly a piece of art that adds so much character to my study. The quality is phenomenal and it feels very sturdy."</p>
+                    <div class="testimonial-author">— Rohan K., Mumbai</div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card shadow-sm">
+                    <p>"Fantastic headphones! The sound clarity is amazing, and the noise cancelling works wonders. Plus, the customer service was very helpful when I had a question."</p>
+                    <div class="testimonial-author">— Anjali R., Delhi</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contact" class="section-padding container">
-        <h2 class="text-center">Get In Touch</h2>
-        <p class="text-center" style="margin-bottom: var(--spacing-lg);">Have questions or feedback? We'd love to hear from you!</p>
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="button">Send Message</button>
-        </form>
+    <section id="contact" class="section-padding">
+        <div class="container text-center">
+            <h2 style="margin-bottom: var(--spacing-md);">Get in Touch</h2>
+            <p style="margin-bottom: var(--spacing-lg);">Have questions or need assistance? Reach out to us, and we'll be happy to help!</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="How can we assist you?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Shop</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook">FB</a>
-                <a href="#" aria-label="Twitter">TW</a>
-                <a href="#" aria-label="Instagram">IG</a>
-                <a href="#" aria-label="LinkedIn">LN</a>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>The Artisan's Haven</h4>
+                    <p>Premium lifestyle and home goods, passionately curated for you.</p>
+                    <p>Gurugram, Haryana, India</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">F</a> <!-- Using F for Facebook for simplicity, as no icon library is allowed -->
+                        <a href="#" class="social-link" aria-label="Twitter">T</a> <!-- Using T for Twitter -->
+                        <a href="#" class="social-link" aria-label="Instagram">I</a> <!-- Using I for Instagram -->
+                    </div>
+                </div>
             </div>
-            <p>&copy; 2023 Trending Shop. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2023 The Artisan's Haven. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        document.getElementById('hamburgerMenu').addEventListener('click', function() {
-            document.getElementById('navbarNav').classList.toggle('active');
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+            const mobileNavClose = document.getElementById('mobileNavClose');
+            const mobileNavLinks = document.querySelector('.mobile-nav-links');
 
-        // Optional: Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+            function toggleMobileNav() {
+                mobileNavOverlay.classList.toggle('open');
+                document.body.classList.toggle('no-scroll'); // Optional: disable scrolling
+            }
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            menuToggle.addEventListener('click', toggleMobileNav);
+            mobileNavClose.addEventListener('click', toggleMobileNav);
+
+            // Close mobile nav when a link is clicked
+            mobileNavLinks.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                    toggleMobileNav();
+                }
+            });
+
+            // Optional: Close mobile nav if clicking outside the content area
+            mobileNavOverlay.addEventListener('click', function(event) {
+                if (event.target === mobileNavOverlay) {
+                    toggleMobileNav();
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
-
-                // Close mobile nav if open
-                if (document.getElementById('navbarNav').classList.contains('active')) {
-                    document.getElementById('navbarNav').classList.remove('active');
-                }
-            });
-        });
-
-        // Optional: Highlight active nav link on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.navbar-nav a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 150) { // Offset for navbar height
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
             });
         });
     </script>
