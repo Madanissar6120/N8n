@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Artisan's Haven - Premium Lifestyle & Home Goods</title>
+    <title>Modern Business Solutions</title>
     <style>
-        /* CSS Reset & Variables */
         :root {
-            --primary-color: #5C6BC0; /* Indigo */
-            --secondary-color: #FFC107; /* Amber */
-            --text-color: #212121;
-            --light-text-color: #616161;
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --text-color: #343a40;
+            --light-text-color: #f8f9fa;
             --background-color: #ffffff;
-            --light-bg-color: #f5f5f5;
+            --light-background-color: #f8f9fa;
             --border-color: #e0e0e0;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --border-radius: 10px;
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 32px;
-            --spacing-lg: 64px;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
             --navbar-height: 70px;
         }
 
+        /* Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -30,12 +27,11 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             color: var(--text-color);
             background-color: var(--background-color);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -45,107 +41,74 @@
         }
 
         a:hover {
-            color: var(--secondary-color);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block; /* Ensure no extra space below images */
+            color: var(--accent-color);
         }
 
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.2;
-            color: var(--text-color);
-        }
-
-        h1 {
-            font-size: 3rem;
             font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
         }
 
-        h2 {
-            font-size: 2rem;
-            font-weight: 600;
-        }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+        p { font-size: 1rem; margin-bottom: 1em; }
 
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-sm);
-        }
-
-        .section-padding {
-            padding: var(--spacing-lg) 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
+        /* Buttons */
         .btn {
             display: inline-block;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--border-radius);
+            padding: 12px 24px;
+            border-radius: 8px;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
+            text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
-            border: 2px solid transparent;
+            white-space: nowrap;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--background-color);
+            color: var(--light-text-color);
+            border: 1px solid var(--primary-color);
         }
 
         .btn-primary:hover {
-            background-color: #4CAF50; /* A slightly darker green for hover */
+            background-color: #0056b3;
+            border-color: #0056b3;
+            box-shadow: var(--shadow-hover);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--primary-color);
-            border-color: var(--primary-color);
+            border: 1px solid var(--primary-color);
         }
 
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--background-color);
+            color: var(--light-text-color);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px var(--shadow-color);
         }
 
-        .shadow-sm {
-            box-shadow: 0 2px 4px var(--shadow-color);
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .shadow-md {
-            box-shadow: 0 4px 12px var(--shadow-color);
+        .section-padding {
+            padding: 6rem 0;
         }
 
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-
-        .hover-scale:hover {
-            transform: translateY(-5px);
+        .text-center {
+            text-align: center;
         }
 
         /* Navbar */
@@ -155,74 +118,76 @@
             left: 0;
             width: 100%;
             height: var(--navbar-height);
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
             display: flex;
             align-items: center;
-            padding: 0 var(--spacing-sm);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .navbar .container {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
+            padding: 0 1.5rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .navbar-brand {
+        .navbar .logo {
             font-size: 1.8rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary-color);
         }
 
-        .nav-links {
-            display: none; /* Hidden by default on mobile */
+        .navbar-nav {
+            display: flex;
             list-style: none;
-            gap: var(--spacing-md);
+            gap: 2rem;
         }
 
-        .nav-links a {
+        .navbar-nav a {
             color: var(--text-color);
-            font-weight: 500;
-            padding: var(--spacing-xs) 0;
+            font-weight: 600;
+            font-size: 1.05rem;
             position: relative;
         }
-        
-        .nav-links a::after {
+
+        .navbar-nav a::after {
             content: '';
             position: absolute;
+            left: 0;
+            bottom: -5px;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 0;
             background-color: var(--primary-color);
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .navbar-nav a:hover::after {
             width: 100%;
         }
 
-        .menu-toggle {
-            display: block; /* Visible on mobile */
-            font-size: 2rem;
-            background: none;
-            border: none;
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
             cursor: pointer;
-            color: var(--text-color);
-            padding: 0;
+            gap: 6px;
+        }
+
+        .navbar-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
         .hero {
-            padding-top: var(--navbar-height); /* Offset for fixed navbar */
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--background-color);
+            color: var(--light-text-color);
+            padding-top: var(--navbar-height); /* Offset for sticky navbar */
+            overflow: hidden; /* Ensure image doesn't bleed */
         }
 
         .hero-image-container {
@@ -230,74 +195,59 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #333; /* Placeholder background */
         }
 
         .hero-content {
             position: absolute;
-            z-index: 1;
-            padding: var(--spacing-sm);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
             max-width: 800px;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text readability */
+            border-radius: 12px;
         }
 
-        .hero-content h1 {
-            color: var(--background-color);
-            margin-bottom: var(--spacing-md);
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-text-color);
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: var(--spacing-lg);
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-buttons {
+        .hero .cta-buttons {
             display: flex;
+            gap: 1.5rem;
             justify-content: center;
-            gap: var(--spacing-sm);
-        }
-
-        .hero-buttons .btn {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            border-color: var(--secondary-color);
-            padding: var(--spacing-xs) var(--spacing-md);
-        }
-        
-        .hero-buttons .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: var(--background-color);
-            border-color: var(--background-color);
-        }
-
-        .hero-buttons .btn-secondary:hover {
-            background-color: var(--background-color);
-            color: var(--primary-color);
-            border-color: var(--background-color);
         }
 
         /* Products Section */
         .products-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
         }
 
         .product-card {
             background-color: var(--background-color);
-            border-radius: var(--border-radius);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
             overflow: hidden;
-            box-shadow: 0 4px 12px var(--shadow-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--border-color);
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-hover);
         }
 
         .product-image-container {
@@ -305,89 +255,80 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f5f5f5; /* Placeholder for loading */
-            border-bottom: 1px solid var(--border-color);
+            background: #f5f5f5; /* For loading state */
         }
 
-        .product-card-content {
-            padding: var(--spacing-sm);
-            flex-grow: 1;
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1; /* Allow content to push button down */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .product-card h3 {
-            margin-bottom: var(--spacing-xs);
-            color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-
-        .product-price {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .product-info h3 {
+            font-size: 1.5rem;
             color: var(--text-color);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 0.5rem;
         }
 
-        .product-card .btn {
-            width: 100%;
-            padding: var(--spacing-xs);
+        .product-info .price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
         /* Features Section */
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-            padding-top: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
         }
 
         .feature-item {
+            background-color: var(--light-background-color);
+            padding: 2.5rem;
+            border-radius: 12px;
             text-align: center;
-            padding: var(--spacing-sm);
-            background-color: var(--light-bg-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .feature-item:hover {
             transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .feature-icon-container {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto var(--spacing-sm);
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--background-color);
-            font-size: 2rem;
-        }
-        .feature-item h3 {
+        .feature-item .icon {
+            font-size: 3rem;
             color: var(--primary-color);
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 1rem;
+            display: block; /* Make emoji appear on its own line */
         }
-        
-        .features-main-image-container {
-            height: 300px; /* Custom fixed height for features section main image */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #eee;
-            border-radius: var(--border-radius);
-            margin-top: var(--spacing-md);
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 0.75rem;
         }
 
         /* About Section */
         .about-content {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-md);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
         }
 
         .about-image-container {
@@ -395,79 +336,76 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f0f0f0;
-            border-radius: var(--border-radius);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            background: #f5f5f5;
         }
 
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
         }
 
         .testimonial-card {
-            background-color: var(--light-bg-color);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 8px var(--shadow-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--light-background-color);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
             text-align: center;
+            border: 1px solid var(--border-color);
         }
 
         .testimonial-card p {
             font-style: italic;
-            margin-bottom: var(--spacing-sm);
-            color: var(--light-text-color);
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
         }
 
-        .testimonial-author {
-            font-weight: 600;
+        .testimonial-card .author {
+            font-weight: 700;
             color: var(--primary-color);
-            margin-top: var(--spacing-xs);
         }
 
-        /* Contact Section */
+        /* Contact Form Section */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--light-bg-color);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 12px var(--shadow-color);
+            background-color: var(--light-background-color);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
         }
 
         .form-group {
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
             color: var(--text-color);
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
+        .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: var(--spacing-xs);
+            padding: 12px 15px;
             border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             font-size: 1rem;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            transition: border-color 0.3s ease;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.2);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
 
         .form-group textarea {
@@ -475,573 +413,360 @@
             resize: vertical;
         }
 
-        .contact-form .btn-primary {
-            width: 100%;
-            padding: var(--spacing-sm);
-            border-color: var(--primary-color);
-        }
-
         /* Footer */
         .footer {
             background-color: var(--text-color);
-            color: var(--light-bg-color);
-            padding: var(--spacing-lg) 0;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 0 2rem;
             font-size: 0.9rem;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         .footer-col h4 {
-            color: var(--background-color);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.2rem;
-        }
-
-        .footer-col p, .footer-col ul {
-            color: var(--border-color);
-            margin-bottom: var(--spacing-xs);
+            color: var(--light-text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-col ul {
             list-style: none;
-            padding: 0;
         }
 
-        .footer-col ul li a {
-            color: var(--border-color);
-            padding: var(--spacing-xs) 0;
-            display: block;
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul a {
+            color: rgba(255, 255, 255, 0.7);
             transition: color 0.3s ease;
         }
 
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-sm);
-        }
-
-        .social-link {
-            display: inline-flex;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            color: var(--background-color);
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
+        .footer-col ul a:hover {
+            color: var(--primary-color);
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: var(--spacing-md);
-            padding-top: var(--spacing-md);
+            padding-top: 2rem;
             text-align: center;
-            color: var(--border-color);
         }
 
-        /* Mobile Nav Overlay */
-        .mobile-nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-            display: flex;
-            justify-content: flex-end; /* Pushes content to the right */
-            visibility: hidden;
-            opacity: 1;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
 
-        .mobile-nav-overlay.open {
-            visibility: visible;
-            opacity: 1;
-        }
+            .navbar .logo { font-size: 1.5rem; }
+            .navbar-nav { display: none; flex-direction: column; position: absolute; top: var(--navbar-height); left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 1rem 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+            .navbar-nav.active { display: flex; }
+            .navbar-nav li { text-align: center; margin: 0.5rem 0; }
+            .navbar-toggle { display: flex; }
+            .navbar-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .navbar-toggle.active span:nth-child(2) { opacity: 1; }
+            .navbar-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        .mobile-nav-content {
-            width: 70%; /* Adjust as needed */
-            max-width: 300px;
-            background-color: var(--background-color);
-            padding: var(--spacing-md);
-            box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .hero .cta-buttons { flex-direction: column; gap: 1rem; }
+            .hero-content { width: 90%; }
 
-        .mobile-nav-overlay.open .mobile-nav-content {
-            transform: translateX(0);
-        }
+            .section-padding { padding: 4rem 0; }
 
-        .mobile-nav-close {
-            align-self: flex-end;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-color);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        .mobile-nav-links a {
-            display: block;
-            padding: var(--spacing-xs) 0;
-            color: var(--text-color);
-            font-size: 1.2rem;
-            font-weight: 500;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .mobile-nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-
-        /* Media Queries */
-
-        /* Small devices (up to 480px) - Base styles are for this */
-        @media (min-width: 480px) {
-            .hero-content h1 {
-                font-size: 3.5rem;
-            }
-            .hero-content p {
-                font-size: 1.4rem;
-            }
-        }
-
-        /* Medium devices (tablets, 768px and up) */
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 3.5rem;
-            }
-            h2 {
-                font-size: 2.5rem;
-            }
-            p {
-                font-size: 1.1rem;
-            }
-            .container {
-                padding: 0 var(--spacing-md);
-            }
-
-            .navbar .menu-toggle {
-                display: none; /* Hide hamburger on desktop */
-            }
-
-            .navbar .nav-links {
-                display: flex; /* Show nav links on desktop */
-            }
-
-            .hero-content h1 {
-                font-size: 4.5rem;
-            }
-            .hero-content p {
-                font-size: 1.5rem;
-            }
-
-            .hero-buttons .btn {
-                padding: var(--spacing-sm) var(--spacing-lg);
-                font-size: 1.1rem;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .products-grid, .features-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
             }
 
             .about-content {
-                flex-direction: row;
-                align-items: center;
-            }
-            .about-text, .about-image-container {
-                flex: 1;
-            }
-            .about-text {
-                padding-right: var(--spacing-md);
-            }
-            .about-image-container {
-                height: 450px; /* Slightly taller on tablet */
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .features-main-image-container {
-                height: 400px;
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(3, 1fr);
-                text-align: left;
-            }
-            .social-links {
-                justify-content: flex-start;
+                flex-direction: column;
             }
         }
 
-        /* Large devices (desktops, 1024px and up) */
-        @media (min-width: 1024px) {
-            h1 {
-                font-size: 4rem;
+        @media (max-width: 480px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.25rem; }
+            p { font-size: 0.9rem; }
+
+            .navbar { padding: 0 1rem; }
+            .navbar .logo { font-size: 1.3rem; }
+
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 0.9rem; }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
-            h2 {
-                font-size: 3rem;
+
+            .product-card, .feature-item, .testimonial-card {
+                padding: 1.5rem;
             }
-            .hero-image-container {
-                height: 90vh; /* Taller hero on larger screens */
-            }
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .about-image-container {
-                height: 500px; /* Even taller on desktop */
-            }
-            .testimonials-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .features-main-image-container {
-                height: 500px;
-            }
+
+            .product-info h3 { font-size: 1.25rem; }
+            .product-info .price { font-size: 1.1rem; }
+
+            .about-image-container { height: 300px; }
+
+            .contact-form { padding: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">The Artisan's Haven</a>
-            <ul class="nav-links" id="navLinks">
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">BizPro Solutions</a>
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="navbar-nav" id="navbarNav">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">&#9776;</button>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-        <div class="mobile-nav-content">
-            <button class="mobile-nav-close" aria-label="Close navigation" id="mobileNavClose">&times;</button>
-            <ul class="mobile-nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with people working, representing a dynamic business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-        </div>
-        <div class="hero-content">
-            <h1>Discover Timeless Elegance for Your Home & Lifestyle</h1>
-            <p>Curated collection of handcrafted goods and modern essentials, blending tradition with contemporary design.</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary hover-scale">Explore Products</a>
-                <a href="#contact" class="btn btn-secondary hover-scale">Get in Touch</a>
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office meeting with diverse team collaborating" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
-        </div>
-    </section>
+            <div class="hero-content">
+                <h1>Innovate. Collaborate. Succeed.</h1>
+                <p>Empowering businesses with cutting-edge solutions and unparalleled support. Drive your future forward with BizPro.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#products" class="btn btn-secondary">Explore Products</a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Products/Services Section -->
-    <section id="products" class="section-padding">
-        <div class="container text-center">
-            <h2 style="margin-bottom: var(--spacing-md);">Our Signature Collection</h2>
-            <p style="margin-bottom: var(--spacing-lg);">Experience quality and craftsmanship with our handpicked selection of lifestyle products.</p>
-            <div class="products-grid">
-                <!-- Product Card 1 -->
-                <div class="product-card hover-scale shadow-md">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Premium Smartwatch with a sleek design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-card-content">
-                        <div>
-                            <h3>Premium Smartwatch X1</h3>
-                            <p>Track your fitness and stay connected with cutting-edge technology.</p>
+        <section id="products" class="section-padding">
+            <div class="container">
+                <h2 class="text-center">Our Innovative Products</h2>
+                <p class="text-center" style="margin-bottom: 3.5rem;">Discover a suite of solutions designed to elevate your business efficiency and reach.</p>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek silver laptop and smartphone on a desk" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="product-price">₹12,999</div>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-
-                <!-- Product Card 2 -->
-                <div class="product-card hover-scale shadow-md">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Over-ear noise-cancelling headphones in a studio setting" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-card-content">
-                        <div>
-                            <h3>Studio Pro Noise-Cancelling Headphones</h3>
-                            <p>Immersive sound experience with superior comfort for audiophiles.</p>
+                        <div class="product-info">
+                            <div>
+                                <h3>SmartConnect Hub</h3>
+                                <p>Seamlessly integrate all your devices for ultimate productivity.</p>
+                                <span class="price">₹12,499</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Details</a>
                         </div>
-                        <div class="product-price">₹8,999</div>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
-                </div>
-
-                <!-- Product Card 3 -->
-                <div class="product-card hover-scale shadow-md">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Handcrafted leather wallet with multiple card slots" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-card-content">
-                        <div>
-                            <h3>Handcrafted Leather Wallet</h3>
-                            <p>Elegant and durable, designed for timeless appeal and everyday use.</p>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Pair of wireless headphones on a wooden table" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="product-price">₹1,899</div>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-
-                <!-- Product Card 4 -->
-                <div class="product-card hover-scale shadow-md">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Vintage style metal desk lamp with a warm glow" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-card-content">
-                        <div>
-                            <h3>Classic Metal Desk Lamp</h3>
-                            <p>Illuminate your workspace with a touch of retro sophistication.</p>
+                        <div class="product-info">
+                            <div>
+                                <h3>Aura Audio Pro</h3>
+                                <p>Immersive sound experience with advanced noise cancellation.</p>
+                                <span class="price">₹8,999</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Details</a>
                         </div>
-                        <div class="product-price">₹4,500</div>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
-                </div>
-
-                <!-- Product Card 5 -->
-                <div class="product-card hover-scale shadow-md">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Set of organic cotton bath towels, soft and absorbent" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-card-content">
-                        <div>
-                            <h3>Organic Cotton Bath Towel Set</h3>
-                            <p>Luxurious comfort and exceptional absorbency for your daily routine.</p>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Close-up of a smartwatch display showing health data" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="product-price">₹2,499</div>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <div class="product-info">
+                            <div>
+                                <h3>Precision Fitness Tracker</h3>
+                                <p>Monitor your health and achieve your wellness goals with ease.</p>
+                                <span class="price">₹4,999</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Professional camera lens with a blurred background" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Visionary Lens Kit</h3>
+                                <p>Capture stunning visuals with our premium quality camera lenses.</p>
+                                <span class="price">₹28,500</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section id="features" class="section-padding" style="background-color: var(--light-bg-color);">
-        <div class="container text-center">
-            <h2 style="margin-bottom: var(--spacing-md);">Why Choose The Artisan's Haven?</h2>
-            <p style="margin-bottom: var(--spacing-lg);">We are committed to providing exceptional quality, unique designs, and unmatched customer service.</p>
-            
-            <div class="features-main-image-container shadow-sm">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="A person typing on a laptop with creative tools, representing innovation and design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-            </div>
-
-            <div class="features-grid" style="margin-top: var(--spacing-lg);">
-                <div class="feature-item shadow-sm">
-                    <div class="feature-icon-container">✨</div>
-                    <h3>Curated Selection</h3>
-                    <p>Each item is handpicked for its unique design and superior quality.</p>
-                </div>
-                <div class="feature-item shadow-sm">
-                    <div class="feature-icon-container">🌍</div>
-                    <h3>Ethically Sourced</h3>
-                    <p>We partner with artisans who uphold fair labor practices and sustainability.</p>
-                </div>
-                <div class="feature-item shadow-sm">
-                    <div class="feature-icon-container">🚀</div>
-                    <h3>Fast & Secure Delivery</h3>
-                    <p>Enjoy swift and safe delivery right to your doorstep, nationwide.</p>
-                </div>
-                <div class="feature-item shadow-sm">
-                    <div class="feature-icon-container">💖</div>
-                    <h3>Customer Happiness</h3>
-                    <p>Your satisfaction is our top priority with dedicated support.</p>
+        <section id="features" class="section-padding" style="background-color: var(--light-background-color);">
+            <div class="container">
+                <h2 class="text-center">Why Choose BizPro Solutions?</h2>
+                <p class="text-center" style="margin-bottom: 3.5rem;">We build solutions that empower your business to thrive in a dynamic market.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="icon">🚀</span>
+                        <h3>Rapid Deployment</h3>
+                        <p>Get your solutions up and running in record time with our streamlined processes and dedicated support.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">📈</span>
+                        <h3>Scalable Architecture</h3>
+                        <p>Our robust infrastructure is built to grow with your business, handling any demand with ease.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">🔒</span>
+                        <h3>Secure & Reliable</h3>
+                        <p>Industry-leading security protocols ensure your data is always safe, protected, and accessible.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">💡</span>
+                        <h3>Intuitive Interface</h3>
+                        <p>Enjoy a seamless and user-friendly experience, designed for maximum efficiency and ease of use.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section-padding">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">About Our Journey</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Our Story of Craftsmanship and Passion</h3>
-                    <p>The Artisan's Haven was born from a deep appreciation for quality craftsmanship and a desire to bring beautifully designed, functional products to discerning customers. We believe that everyday objects should not only serve a purpose but also bring joy and aesthetic pleasure to your life.</p>
-                    <p>Our journey began with a small collection of handcrafted items, and over time, we have expanded to include a diverse range of lifestyle and home goods, all united by their commitment to excellence and unique design. We work directly with talented artisans and trusted manufacturers, ensuring that every product meets our high standards.</p>
-                    <p>Join us in celebrating the art of living well, one exquisite piece at a time.</p>
-                </div>
-                <div class="about-image-container shadow-md">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office, symbolizing innovation and unity" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+        <section id="about" class="section-padding">
+            <div class="container">
+                <h2 class="text-center">About BizPro Solutions</h2>
+                <p class="text-center" style="margin-bottom: 3.5rem;">Our journey is defined by innovation, client success, and a passion for technology.</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Vision</h3>
+                        <p>At BizPro Solutions, we envision a future where technology is a seamless enabler for every business, regardless of size or industry. We strive to create intelligent, adaptable, and powerful tools that simplify complex challenges and unlock new opportunities for growth.</p>
+                        <h3>Our Mission</h3>
+                        <p>We are dedicated to providing best-in-class software and hardware solutions tailored to our clients' unique needs. By fostering a culture of innovation and collaboration, we empower businesses to achieve operational excellence, enhance customer engagement, and maintain a competitive edge in today's fast-paced digital landscape.</p>
+                        <a href="#contact" class="btn btn-primary">Learn More</a>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-image-container">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team working together in a modern office" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding" style="background-color: var(--light-bg-color);">
-        <div class="container text-center">
-            <h2 style="margin-bottom: var(--spacing-md);">What Our Customers Say</h2>
-            <p style="margin-bottom: var(--spacing-lg);">Hear from our happy customers who love their Artisan's Haven experience.</p>
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card shadow-sm">
-                    <p>"The smartwatch exceeded my expectations! Sleek design and incredible features. Shipping was super fast too. Highly recommend The Artisan's Haven for quality products."</p>
-                    <div class="testimonial-author">— Priya S., Bengaluru</div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card shadow-sm">
-                    <p>"I absolutely adore my new desk lamp. It's truly a piece of art that adds so much character to my study. The quality is phenomenal and it feels very sturdy."</p>
-                    <div class="testimonial-author">— Rohan K., Mumbai</div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card shadow-sm">
-                    <p>"Fantastic headphones! The sound clarity is amazing, and the noise cancelling works wonders. Plus, the customer service was very helpful when I had a question."</p>
-                    <div class="testimonial-author">— Anjali R., Delhi</div>
+        <section id="testimonials" class="section-padding" style="background-color: var(--light-background-color);">
+            <div class="container">
+                <h2 class="text-center">What Our Clients Say</h2>
+                <p class="text-center" style="margin-bottom: 3.5rem;">Hear from businesses who have transformed their operations with BizPro Solutions.</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"BizPro Solutions completely revolutionized our workflow. Their SmartConnect Hub is a game-changer for our internal communications and project management. Highly recommended!"</p>
+                        <div class="author">— Priya Sharma, CEO of InnovateTech</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The Aura Audio Pro headphones are fantastic for our remote team. The noise cancellation is top-notch, ensuring crystal-clear calls and focused work. An essential tool for modern business."</p>
+                        <div class="author">— Rohan Singh, Marketing Director at Global Ventures</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Their support team is exceptional. They guided us through every step of implementation, and the results speak for themselves. BizPro truly understands client needs."</p>
+                        <div class="author">— Sneha Patel, Operations Manager, Future Systems</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="section-padding">
-        <div class="container text-center">
-            <h2 style="margin-bottom: var(--spacing-md);">Get in Touch</h2>
-            <p style="margin-bottom: var(--spacing-lg);">Have questions or need assistance? Reach out to us, and we'll be happy to help!</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <h2 class="text-center">Get In Touch</h2>
+                <p class="text-center" style="margin-bottom: 3.5rem;">Have questions or ready to start your project? We'd love to hear from you.</p>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="How can we assist you?" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>The Artisan's Haven</h4>
-                    <p>Premium lifestyle and home goods, passionately curated for you.</p>
-                    <p>Gurugram, Haryana, India</p>
+                    <h4>BizPro Solutions</h4>
+                    <p>Innovating the future, one solution at a time. We are committed to your success.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#products">Products</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">F</a> <!-- Using F for Facebook for simplicity, as no icon library is allowed -->
-                        <a href="#" class="social-link" aria-label="Twitter">T</a> <!-- Using T for Twitter -->
-                        <a href="#" class="social-link" aria-label="Instagram">I</a> <!-- Using I for Instagram -->
-                    </div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Email: info@bizpro.com</li>
+                        <li>Phone: +91 98765 43210</li>
+                        <li>Address: 123 Business Hub, New Delhi, India</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 The Artisan's Haven. All rights reserved.</p>
+                &copy; 2023 BizPro Solutions. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-            const mobileNavClose = document.getElementById('mobileNavClose');
-            const mobileNavLinks = document.querySelector('.mobile-nav-links');
+            const navbarToggle = document.getElementById('navbarToggle');
+            const navbarNav = document.getElementById('navbarNav');
 
-            function toggleMobileNav() {
-                mobileNavOverlay.classList.toggle('open');
-                document.body.classList.toggle('no-scroll'); // Optional: disable scrolling
-            }
-
-            menuToggle.addEventListener('click', toggleMobileNav);
-            mobileNavClose.addEventListener('click', toggleMobileNav);
-
-            // Close mobile nav when a link is clicked
-            mobileNavLinks.addEventListener('click', function(event) {
-                if (event.target.tagName === 'A') {
-                    toggleMobileNav();
-                }
+            navbarToggle.addEventListener('click', function() {
+                navbarNav.classList.toggle('active');
+                navbarToggle.classList.toggle('active');
             });
 
-            // Optional: Close mobile nav if clicking outside the content area
-            mobileNavOverlay.addEventListener('click', function(event) {
-                if (event.target === mobileNavOverlay) {
-                    toggleMobileNav();
-                }
-            });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            // Close nav when clicking a link (for mobile)
+            document.querySelectorAll('.navbar-nav a').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navbarNav.classList.contains('active')) {
+                        navbarNav.classList.remove('active');
+                        navbarToggle.classList.remove('active');
+                    }
                 });
             });
         });
