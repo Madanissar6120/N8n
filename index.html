@@ -3,118 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AuraFinds - Modern E-commerce</title>
+    <title>NexGen Commerce - Your Future in Shopping</title>
     <style>
+        /* CSS Variables */
         :root {
-            --primary-color: #6C63FF;
-            --accent-color: #5D56E0;
+            --primary-color: #0a0a0a;
+            --accent-color: #3b82f6; /* Blue */
             --text-color: #333;
-            --light-text-color: #666;
-            --bg-color: #fff;
-            --light-bg-color: #f8f9fa;
-            --border-color: #eee;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-            --hover-shadow-color: rgba(0, 0, 0, 0.15);
+            --text-color-light: #f9f9f9;
+            --background-color: #ffffff;
+            --light-background: #f7f7f7;
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --shadow-strong: rgba(0, 0, 0, 0.2);
+            --card-bg: #ffffff;
+            --navbar-bg: rgba(255, 255, 255, 0.8);
+            --transition-speed: 0.3s ease-in-out;
         }
 
-        /* Basic Reset & Body Styles */
+        /* Base Styles */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* A common sans-serif choice */
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
         }
 
         a {
             color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed);
         }
 
         a:hover {
             color: var(--accent-color);
         }
 
-        button, .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 8px;
+        button {
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
             border: none;
+            background: var(--accent-color);
+            color: var(--text-color-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background var(--transition-speed), transform var(--transition-speed);
         }
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            box-shadow: 0 4px 12px var(--shadow-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-color);
-            box-shadow: 0 6px 16px var(--hover-shadow-color);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            box-shadow: 0 6px 12px var(--hover-shadow-color);
+        button:hover {
+            background: #2563eb; /* Darker blue */
+            transform: translateY(-2px);
         }
 
         /* Typography */
-        h1 {
-            font-size: 3rem;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+            margin-bottom: 1rem;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
 
-        h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
+        h1 { font-size: 3rem; line-height: 1.1; }
+        h2 { font-size: 2rem; line-height: 1.2; }
+        h3 { font-size: 1.5rem; line-height: 1.3; }
+        p { font-size: 1rem; margin-bottom: 1rem; }
 
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: var(--light-text-color);
-        }
-
-        /* Layout */
+        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
 
         .section-padding {
-            padding: 80px 0;
+            padding: 6rem 0;
         }
 
         .text-center {
@@ -126,13 +98,14 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--navbar-bg);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
             border-bottom: 1px solid var(--border-color);
-            padding: 15px 0;
         }
 
-        .navbar-content {
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -140,133 +113,122 @@
 
         .navbar-brand {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-color);
-        }
-
-        .navbar-brand:hover {
+            font-weight: 800;
             color: var(--primary-color);
+            text-transform: uppercase;
         }
 
-        .nav-links {
+        .navbar-nav {
             display: flex;
-            gap: 30px;
+            list-style: none;
         }
 
-        .nav-link {
+        .navbar-nav li {
+            margin-left: 2.5rem;
+        }
+
+        .navbar-nav a {
+            color: var(--primary-color);
             font-weight: 500;
-            color: var(--light-text-color);
-            position: relative;
+            transition: color var(--transition-speed);
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
+        .navbar-nav a:hover {
+            color: var(--accent-color);
         }
 
         .nav-toggle {
             display: none;
-            font-size: 1.8rem;
+            font-size: 2rem;
             background: none;
             border: none;
-            cursor: pointer;
-            color: var(--text-color);
+            color: var(--primary-color);
+            padding: 0;
         }
 
         /* Hero Section */
-        .hero {
+        .hero-section {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--bg-color);
+            color: var(--text-color-light);
             text-align: center;
-            height: 80vh; 
+            overflow: hidden;
+            height: 80vh;
         }
 
         .hero-image-container {
             height: 80vh;
             width: 100%;
             overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
+            position: relative;
             background: #e0e0e0; /* Background color for loading state */
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
+            position: absolute;
+            z-index: 10;
             max-width: 800px;
-            padding: 20px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4); /* Subtle overlay for readability */
+            border-radius: 1rem;
         }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            color: var(--bg-color);
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color-light);
         }
 
-        .hero p {
+        .hero-content p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: var(--text-color-light);
         }
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .hero-buttons button {
+            margin: 0 0.75rem;
+            min-width: 150px;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
         }
 
-        .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
-            color: var(--bg-color);
-            border-color: var(--bg-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        .hero-buttons button:first-child {
+            background: var(--accent-color);
         }
 
-        .hero-buttons .btn-secondary {
-             background-color: rgba(0,0,0,0.3);
-             border-color: var(--bg-color);
+        .hero-buttons button:last-child {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--text-color-light);
         }
-        .hero-buttons .btn-secondary:hover {
-            background-color: var(--bg-color);
-            color: var(--primary-color);
+        .hero-buttons button:last-child:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         /* Products Section */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .product-card {
-            background-color: var(--bg-color);
-            border-radius: 12px;
-            box-shadow: 0 6px 20px var(--shadow-color);
+            background: var(--card-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--border-color);
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 30px var(--hover-shadow-color);
+            box-shadow: 0 8px 25px var(--shadow-medium);
         }
 
         .product-image-container {
@@ -275,88 +237,117 @@
             overflow: hidden;
             position: relative;
             background: #f5f5f5; /* Background color for loading state */
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .product-content {
-            padding: 20px;
-            flex-grow: 1;
+        .product-details {
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-
-        .product-card p {
-            font-size: 0.9rem;
-            color: var(--light-text-color);
-            margin-bottom: 1rem;
             flex-grow: 1;
+        }
+
+        .product-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
         }
 
         .product-price {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--accent-color);
             margin-bottom: 1rem;
-            display: block;
         }
 
-        .product-card .btn {
+        .product-card button {
+            margin-top: auto; /* Push button to bottom */
             width: 100%;
-            padding: 10px 15px;
-            font-size: 0.9rem;
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
         }
 
         /* Features Section */
-        .features {
-            background-color: var(--light-bg-color);
+        .section-image-container { /* General container for section images without specific rules */
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #e0e0e0;
+            margin-bottom: 3rem;
+            border-radius: 0.75rem;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .feature-item {
-            background-color: var(--bg-color);
-            border-radius: 12px;
-            padding: 30px;
             text-align: center;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 2rem;
+            background: var(--card-bg); /* Changed from light-background for consistency with product cards */
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color); /* Added border */
         }
 
         .feature-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px var(--hover-shadow-color);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--shadow-medium);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: block;
+            font-size: 3rem; /* Using text/emoji, so style for size */
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            display: inline-block; /* Ensure vertical alignment */
+            line-height: 1;
         }
 
         .feature-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #666;
         }
 
         /* About Section */
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .about-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
 
@@ -365,561 +356,518 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px var(--shadow-color);
-            background: #e9e9e9; /* Background color for loading state */
-        }
-
-        .about-text h2 {
-            text-align: left;
-            margin-bottom: 1rem;
+            background: #e0e0e0; /* Background color for loading state */
+            border-radius: 0.75rem;
         }
 
         /* Testimonials Section */
-        .testimonials {
-            background-color: var(--light-bg-color);
-        }
-
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .testimonial-card {
-            background-color: var(--bg-color);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
 
-        .testimonial-card p {
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        .testimonial-text {
             font-style: italic;
             margin-bottom: 1.5rem;
-            flex-grow: 1;
+            color: #555;
+            line-height: 1.7;
         }
 
         .testimonial-author {
             font-weight: 600;
-            color: var(--text-color);
-            font-size: 1.1rem;
+            color: var(--primary-color);
         }
 
         .testimonial-author span {
             display: block;
             font-size: 0.9rem;
-            color: var(--light-text-color);
+            color: #777;
             font-weight: 400;
         }
 
         /* Contact Section */
         .contact-form {
-            max-width: 600px;
-            margin: 40px auto 0;
-            background-color: var(--bg-color);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px var(--shadow-color);
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
+            max-width: 700px;
+            margin: 3rem auto 0;
+            padding: 3rem;
+            background: var(--card-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 20px var(--shadow-light);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
             font-size: 1rem;
-            color: var(--text-color);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
         }
 
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary-color);
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
         }
 
-        .contact-form textarea {
+        .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
 
-        .contact-form .btn {
+        .contact-form button {
             width: 100%;
-            padding: 14px;
+            padding: 1rem;
+            font-size: 1.1rem;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--text-color);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 60px 0 30px;
+            background: var(--primary-color);
+            color: var(--text-color-light);
+            padding: 4rem 0 2rem;
             font-size: 0.9rem;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
 
-        .footer-brand {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--bg-color);
-            margin-bottom: 15px;
-            display: block;
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 2rem;
         }
 
-        .footer h3 {
-            color: var(--bg-color);
+        .footer-section h4 {
+            color: var(--text-color-light);
             font-size: 1.2rem;
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
         }
 
-        .footer ul {
+        .footer-section ul {
             list-style: none;
         }
 
-        .footer ul li {
-            margin-bottom: 10px;
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
         }
 
-        .footer ul li a {
+        .footer-section a {
             color: rgba(255, 255, 255, 0.7);
+            transition: color var(--transition-speed);
         }
 
-        .footer ul li a:hover {
-            color: var(--primary-color);
+        .footer-section a:hover {
+            color: var(--accent-color);
         }
 
-        .social-links {
+        .footer-socials {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .social-link {
+        .footer-socials a {
             font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .social-link:hover {
-            color: var(--primary-color);
+        .footer-socials a:hover {
+            color: var(--accent-color);
         }
 
         .footer-bottom {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Responsive Design */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
             h3 { font-size: 1.3rem; }
-            .section-padding { padding: 60px 0; }
 
-            .nav-links {
+            .section-padding { padding: 4rem 0; }
+
+            .navbar-nav {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px; /* Adjust based on navbar height */
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: rgba(255, 255, 255, 0.95);
+                background-color: var(--navbar-bg);
                 backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 border-bottom: 1px solid var(--border-color);
-                padding: 20px 0;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                padding: 1rem 0;
             }
-            .nav-links.active {
+
+            .navbar-nav.active {
                 display: flex;
             }
-            .nav-links a {
-                padding: 10px 20px;
-                text-align: center;
-                color: var(--text-color);
-                width: 100%;
+
+            .navbar-nav li {
+                margin: 0.75rem 1.5rem;
             }
-            .nav-links a::after {
-                display: none;
-            }
-            .nav-links a:hover {
-                background-color: var(--light-bg-color);
-            }
+
             .nav-toggle {
                 display: block;
             }
 
-            .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1.1rem; }
-            .hero-buttons { flex-direction: column; gap: 15px; }
-            .hero-buttons .btn { width: 80%; margin: 0 auto; }
+            .hero-content h1 { font-size: 3rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
+            .hero-buttons button { margin: 0; }
 
             .products-grid, .features-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
             .about-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 2rem;
             }
-            .about-text h2 {
-                text-align: center;
-            }
-            .about-image-container {
-                height: 300px; /* Adjust height for smaller screens */
+            .about-text, .about-image-wrapper {
+                min-width: unset;
+                width: 100%;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
                 text-align: center;
             }
-            .footer-brand, .footer h3 {
-                text-align: center;
+
+            .footer-section {
+                min-width: unset;
             }
-            .social-links {
+
+            .footer-section ul {
+                padding: 0;
+            }
+            .footer-socials {
                 justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
             h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
+            h2 { font-size: 1.6rem; }
             h3 { font-size: 1.2rem; }
-            p { font-size: 0.95rem; }
-            .section-padding { padding: 40px 0; }
+            p { font-size: 0.9rem; }
+
+            .container { padding: 0 1rem; }
+            .section-padding { padding: 3rem 0; }
 
             .navbar-brand { font-size: 1.5rem; }
 
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
-            .hero-buttons .btn { width: 90%; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 0.9rem; }
 
-            .product-card h3 { font-size: 1.2rem; }
+            .product-details h3 { font-size: 1.2rem; }
             .product-price { font-size: 1.2rem; }
 
-            .contact-form { padding: 30px; }
-        }
-
-        /* CRITICAL IMAGE STYLES - FOLLOWED EXACTLY */
-        img {
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            display:block;
-            border:none;
-            opacity: 1; /* Ensure no opacity */
-            filter: none; /* Ensure no filters */
+            .feature-icon { font-size: 2.5rem; }
+            .feature-item h3 { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">NexGen Commerce</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="navbar-nav">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container navbar-content">
-            <a href="#" class="navbar-brand">AuraFinds</a>
-            <nav class="nav-links" id="navLinks">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#testimonials" class="nav-link">Testimonials</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+    <header class="hero-section">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with laptops and vibrant decor" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+        <div class="hero-content">
+            <h1>Experience the Future of Shopping</h1>
+            <p>Discover innovative products, unbeatable prices, and seamless delivery, right at your fingertips.</p>
+            <div class="hero-buttons">
+                <button onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' });">Shop Now</button>
+                <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">Learn More</button>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office space with a bright atmosphere, representing business innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-        </div>
-        <div class="hero-content">
-            <h1>Discover Your Next Favorite Thing</h1>
-            <p>Curated collections, exceptional quality, delivered to your door. Explore a world of innovation and style.</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">Shop Now</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
     <section id="products" class="section-padding">
-        <div class="container">
-            <h2>Explore Our Bestsellers</h2>
-            <p class="text-center">Handpicked for quality and style, these are the items our customers love the most.</p>
+        <div class="container text-center">
+            <h2>Our Trending Products</h2>
+            <p>Explore a curated selection of our most popular and innovative items.</p>
             <div class="products-grid">
-                <!-- Product Card 1 -->
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black wireless over-ear headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-content">
-                        <h3>Zenith Smartwatch Pro</h3>
-                        <p>Track your fitness, stay connected, and manage your day with this elegant and powerful smartwatch.</p>
-                        <span class="product-price">₹14,999</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <div class="product-details">
+                        <h3>Premium Wireless Headphones</h3>
+                        <p class="product-price">₹12,499</p>
+                        <button>Add to Cart</button>
                     </div>
                 </div>
-                <!-- Product Card 2 -->
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="White wireless over-ear headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Elegant silver smartwatch with a digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-content">
-                        <h3>Aurora Wireless Earbuds</h3>
-                        <p>Immerse yourself in rich, clear sound. Ergonomic design for ultimate comfort, perfect for music lovers.</p>
-                        <span class="product-price">₹7,999</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <div class="product-details">
+                        <h3>Smartwatch Pro X</h3>
+                        <p class="product-price">₹8,999</p>
+                        <button>Add to Cart</button>
                     </div>
                 </div>
-                <!-- Product Card 3 -->
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Stylish retro-inspired camera" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Compact portable Bluetooth speaker with vibrant sound" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-content">
-                        <h3>Vanguard Vintage Camera</h3>
-                        <p>Capture life's moments with a touch of nostalgia. Modern technology meets classic design.</p>
-                        <span class="product-price">₹28,500</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <div class="product-details">
+                        <h3>Dynamic Portable Speaker</h3>
+                        <p class="product-price">₹5,999</p>
+                        <button>Add to Cart</button>
                     </div>
                 </div>
-                <!-- Product Card 4 -->
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Minimalist desktop speaker" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Modern minimalist leather wallet for cards and cash" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-content">
-                        <h3>Echo Bluetooth Speaker</h3>
-                        <p>Powerful sound in a compact design. Perfect for home, office, or on-the-go entertainment.</p>
-                        <span class="product-price">₹5,499</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <div class="product-details">
+                        <h3>Minimalist Leather Wallet</h3>
+                        <p class="product-price">₹1,999</p>
+                        <button>Add to Cart</button>
                     </div>
                 </div>
-                <!-- Product Card 5 -->
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Modern minimalist wall clock" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="High-resolution instant camera for quick photo prints" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-content">
-                        <h3>Chrono Wall Decor Clock</h3>
-                        <p>A statement piece for any room. Precision timekeeping with a sophisticated, clean aesthetic.</p>
-                        <span class="product-price">₹2,800</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <div class="product-details">
+                        <h3>Instant Print Camera</h3>
+                        <p class="product-price">₹7,499</p>
+                        <button>Add to Cart</button>
                     </div>
                 </div>
-                <!-- Product Card 6 -->
+
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Stylish leather wallet" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Ergonomic vertical computer mouse for comfortable use" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="product-content">
-                        <h3>Luxe Leather Wallet</h3>
-                        <p>Handcrafted from premium leather, offering elegance and functionality for your everyday essentials.</p>
-                        <span class="product-price">₹1,999</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <div class="product-details">
+                        <h3>Ergonomic Vertical Mouse</h3>
+                        <p class="product-price">₹2,499</p>
+                        <button>Add to Cart</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="section-padding features">
-        <div class="container">
-            <h2>Why Choose AuraFinds?</h2>
-            <p class="text-center">We are dedicated to providing an unparalleled shopping experience with integrity and excellence.</p>
+    <section id="features" class="section-padding" style="background-color: var(--light-background);">
+        <div class="container text-center">
+            <h2>Why Choose NexGen Commerce?</h2>
+            <p>We're dedicated to providing an unparalleled shopping experience.</p>
+
+            <div class="section-image-container" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Seamless delivery truck on a modern highway" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+            </div>
+
             <div class="features-grid">
                 <div class="feature-item">
-                    <span class="feature-icon">&#10024;</span> <!-- Sparkle emoji as icon -->
-                    <h3>Premium Quality</h3>
-                    <p>Every product is rigorously vetted to ensure it meets our high standards of craftsmanship and durability.</p>
+                    <span class="feature-icon">⚡</span>
+                    <h3>Blazing Fast Delivery</h3>
+                    <p>Get your products delivered to your doorstep in record time, safely and securely.</p>
                 </div>
                 <div class="feature-item">
-                    <span class="feature-icon">&#9992;</span> <!-- Airplane emoji as icon -->
-                    <h3>Fast & Reliable Delivery</h3>
-                    <p>Experience swift and secure delivery services, bringing your desired products to your doorstep without delay.</p>
+                    <span class="feature-icon">🤝</span>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Our dedicated support team is always available to assist you with any queries or issues.</p>
                 </div>
                 <div class="feature-item">
-                    <span class="feature-icon">&#128274;</span> <!-- Lock emoji as icon -->
+                    <span class="feature-icon">🔒</span>
                     <h3>Secure Payments</h3>
-                    <p>Shop with confidence using our encrypted payment gateways, protecting your financial information at every step.</p>
+                    <p>Shop with confidence using our encrypted and secure payment gateways.</p>
                 </div>
                 <div class="feature-item">
-                    <span class="feature-icon">&#128101;</span> <!-- People emoji as icon -->
-                    <h3>Dedicated Support</h3>
-                    <p>Our friendly customer service team is always ready to assist you, ensuring a smooth and satisfactory experience.</p>
+                    <span class="feature-icon">✨</span>
+                    <h3>Premium Quality</h3>
+                    <p>We source only the best products, ensuring exceptional quality and durability.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="section-padding">
-        <div class="container about-content">
-            <div class="about-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-            </div>
-            <div class="about-text">
-                <h2>Our Story: Crafting Your Experience</h2>
-                <p>AuraFinds was born from a simple idea: to create a seamless bridge between exceptional products and discerning customers. We believe that shopping should be an inspiring journey, not just a transaction. Our team meticulously curates a collection of innovative, stylish, and high-quality items, ensuring that every discovery brings joy and value to your life.</p>
-                <p>From cutting-edge gadgets to timeless lifestyle essentials, we stand by the quality and uniqueness of every piece. We are more than just an e-commerce platform; we are a community built on trust, passion, and the shared excitement of finding something truly special. Join us in our mission to elevate everyday living.</p>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About NexGen Commerce</h2>
+                    <p>At NexGen Commerce, we believe in connecting people with the products they love in the most efficient and enjoyable way possible. Founded in 2023, our mission is to redefine online shopping by offering a seamless experience, from product discovery to doorstep delivery.</p>
+                    <p>We are a passionate team dedicated to curating a diverse range of high-quality products, ensuring that every item meets our strict standards for innovation, utility, and design. Our commitment extends beyond sales; we strive to build lasting relationships with our customers through transparency, trust, and exceptional service.</p>
+                    <p>Join us on our journey to make online shopping smarter, faster, and more delightful for everyone.</p>
+                </div>
+                <div class="about-image-wrapper">
+                    <div class="about-image-container">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding testimonials">
-        <div class="container">
+    <section id="testimonials" class="section-padding" style="background-color: var(--light-background);">
+        <div class="container text-center">
             <h2>What Our Customers Say</h2>
-            <p class="text-center">Hear directly from the people who make AuraFinds a part of their daily lives.</p>
+            <p>Hear from the happy shoppers who've experienced NexGen Commerce.</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"AuraFinds has completely changed how I shop online. Their product selection is unique, and the quality is consistently top-notch. The Zenith Smartwatch Pro I bought is simply fantastic!"</p>
-                    <span class="testimonial-author">Priya Sharma<span>Tech Enthusiast</span></span>
+                    <p class="testimonial-text">"NexGen Commerce has completely changed my online shopping experience! The delivery was incredibly fast, and the headphones I bought are of superb quality. Highly recommended!"</p>
+                    <p class="testimonial-author">Priya Sharma <span>- Mumbai, India</span></p>
                 </div>
                 <div class="testimonial-card">
-                    <p>"I was searching for stylish, reliable earbuds and found the Aurora Wireless Earbuds here. The sound clarity is incredible, and they fit perfectly. Delivery was super fast too!"</p>
-                    <span class="testimonial-author">Rahul Singh<span>Music Lover</span></span>
+                    <p class="testimonial-text">"I was skeptical about buying electronics online, but NexGen Commerce proved me wrong. The smartwatch arrived perfectly packaged, and their customer support was very helpful."</p>
+                    <p class="testimonial-author">Ravi Kumar <span>- Bengaluru, India</span></p>
                 </div>
                 <div class="testimonial-card">
-                    <p>"The Luxe Leather Wallet I received is even better in person. The craftsmanship is superb, and it feels luxurious. AuraFinds truly delivers on its promise of premium products."</p>
-                    <span class="testimonial-author">Anjali Mehta<span>Fashion Blogger</span></span>
+                    <p class="testimonial-text">"Fantastic range of products and even better service. The prices are competitive, and the checkout process is smooth. My new portable speaker is a joy to use!"</p>
+                    <p class="testimonial-author">Anjali Singh <span>- Delhi, India</span></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section-padding">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <p class="text-center">Have a question, feedback, or need assistance? We're here to help!</p>
+        <div class="container text-center">
+            <h2>Get In Touch</h2>
+            <p>Have a question or need assistance? Reach out to us!</p>
             <form class="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
-
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <a href="#" class="footer-brand">AuraFinds</a>
-                    <p>Discover unique and quality products for a better everyday life. Your journey to discovery starts here.</p>
-                </div>
-                <div>
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Connect With Us</h3>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">FB</a> 
-                        <a href="#" class="social-link" aria-label="Twitter">TW</a>  
-                        <a href="#" class="social-link" aria-label="Instagram">IG</a> 
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NexGen Commerce</h4>
+                    <p>Your destination for cutting-edge products and seamless shopping experiences.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
                     </div>
-                    <p style="margin-top: 15px;">Email: info@aurafinds.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Shop</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@nexgencommerce.com">support@nexgencommerce.com</a></p>
+                    <p>Phone: <a href="tel:+918023456789">+91 80 2345 6789</a></p>
+                    <p>Address: 123 Digital Ave, Cyber City, Bengaluru, India</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; <span id="currentYear"></span> AuraFinds. All rights reserved.
+                &copy; 2023 NexGen Commerce. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Navbar toggle for mobile
-            const navToggle = document.getElementById('navToggle');
-            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.navbar-nav');
 
-            if (navToggle && navLinks) {
+            if (navToggle && navMenu) {
                 navToggle.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    navMenu.classList.toggle('active');
                 });
 
-                // Close nav menu when a link is clicked (for single page navigation)
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
+                // Close nav menu when a link is clicked (for mobile)
+                document.querySelectorAll('.navbar-nav a').forEach(item => {
+                    item.addEventListener('click', () => {
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
                         }
                     });
                 });
             }
-
-            // Set current year in footer
-            const currentYearSpan = document.getElementById('currentYear');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
         });
     </script>
 </body>
