@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexGen Commerce - Your Future in Shopping</title>
+    <title>LumiLux - Elevate Your Everyday</title>
     <style>
-        /* CSS Variables */
         :root {
-            --primary-color: #0a0a0a;
-            --accent-color: #3b82f6; /* Blue */
+            --primary-color: #0A0A0A;
+            --secondary-color: #6a0dad; /* A deep purple, can be adjusted */
+            --accent-color: #E22B5F; /* Rose pink, modern accent */
             --text-color: #333;
-            --text-color-light: #f9f9f9;
-            --background-color: #ffffff;
-            --light-background: #f7f7f7;
-            --border-color: #e0e0e0;
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-            --shadow-strong: rgba(0, 0, 0, 0.2);
-            --card-bg: #ffffff;
-            --navbar-bg: rgba(255, 255, 255, 0.8);
-            --transition-speed: 0.3s ease-in-out;
+            --light-text-color: #555;
+            --background-color: #f8f8f8;
+            --white-color: #ffffff;
+            --border-color: #eee;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
-        /* Base Styles */
+        /* Base Reset & Typography */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -30,82 +26,99 @@
         }
 
         body {
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
             color: var(--text-color);
+            line-height: 1.6;
             background-color: var(--background-color);
-            -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
         }
 
         a {
-            color: var(--primary-color);
+            color: var(--secondary-color);
             text-decoration: none;
-            transition: color var(--transition-speed);
+            transition: color 0.3s ease;
         }
 
         a:hover {
             color: var(--accent-color);
         }
 
-        button {
-            cursor: pointer;
-            border: none;
-            background: var(--accent-color);
-            color: var(--text-color-light);
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: background var(--transition-speed), transform var(--transition-speed);
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary-color);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
         }
 
-        button:hover {
-            background: #2563eb; /* Darker blue */
+        h1 { font-size: 2.5rem; font-weight: 700; }
+        h2 { font-size: 2rem; font-weight: 600; }
+        h3 { font-size: 1.5rem; font-weight: 500; }
+        p { font-size: 1rem; margin-bottom: 1em; color: var(--light-text-color); }
+
+        button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
             transform: translateY(-2px);
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: var(--primary-color);
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        h1 { font-size: 3rem; line-height: 1.1; }
-        h2 { font-size: 2rem; line-height: 1.2; }
-        h3 { font-size: 1.5rem; line-height: 1.3; }
-        p { font-size: 1rem; margin-bottom: 1rem; }
-
-        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 20px;
         }
 
-        .section-padding {
-            padding: 6rem 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
+        /* Image Container CSS (CRITICAL) */
+        .hero-image-container { height: 80vh; width: 100%; overflow: hidden; position: relative; }
+        .product-image-container { height: 260px; width: 100%; overflow: hidden; position: relative; background: #f5f5f5; }
+        .about-image-container { height: 400px; width: 100%; overflow: hidden; position: relative; }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background-color: var(--navbar-bg);
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .navbar .container {
+            z-index: 1000;
+            box-shadow: var(--shadow-light);
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -113,761 +126,742 @@
 
         .navbar-brand {
             font-size: 1.8rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--primary-color);
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .navbar-nav {
-            display: flex;
+        .nav-links {
             list-style: none;
+            display: flex;
+            gap: 30px;
         }
 
-        .navbar-nav li {
-            margin-left: 2.5rem;
-        }
-
-        .navbar-nav a {
-            color: var(--primary-color);
+        .nav-links a {
+            color: var(--text-color);
             font-weight: 500;
-            transition: color var(--transition-speed);
+            padding: 5px 0;
+            position: relative;
         }
 
-        .navbar-nav a:hover {
-            color: var(--accent-color);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-toggle {
             display: none;
-            font-size: 2rem;
             background: none;
             border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
             color: var(--primary-color);
-            padding: 0;
+            z-index: 1001;
         }
 
         /* Hero Section */
-        .hero-section {
+        #hero {
+            padding: 0;
+            text-align: center;
             position: relative;
-            display: flex;
+            display: flex; /* Make hero a flex container for image and text */
             align-items: center;
             justify-content: center;
-            color: var(--text-color-light);
-            text-align: center;
-            overflow: hidden;
-            height: 80vh;
+            color: var(--white-color);
+            min-height: 80vh;
         }
 
-        .hero-image-container {
-            height: 80vh;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0; /* Background color for loading state */
-        }
-
-        .hero-content {
+        #hero .hero-image-container {
             position: absolute;
-            z-index: 10;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #hero .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
             max-width: 800px;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.4); /* Subtle overlay for readability */
-            border-radius: 1rem;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            border-radius: 12px;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color-light);
+        #hero h1 {
+            font-size: 3rem;
+            color: var(--white-color);
+            margin-bottom: 20px;
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--text-color-light);
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #f0f0f0;
         }
 
-        .hero-buttons button {
-            margin: 0 0.75rem;
-            min-width: 150px;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-        }
-
-        .hero-buttons button:first-child {
-            background: var(--accent-color);
-        }
-
-        .hero-buttons button:last-child {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid var(--text-color-light);
-        }
-        .hero-buttons button:last-child:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Products Section */
-        .products-grid {
+        #products {
+            text-align: center;
+            background-color: var(--white-color);
+            padding-bottom: 100px;
+        }
+
+        #products h2 {
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 30px;
         }
 
         .product-card {
-            background: var(--card-bg);
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px var(--shadow-light);
+            background-color: var(--white-color);
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 25px var(--shadow-medium);
+            box-shadow: var(--shadow-medium);
         }
 
-        .product-image-container {
-            height: 260px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #f5f5f5; /* Background color for loading state */
+        .product-card-content {
+            padding: 20px;
         }
 
-        .product-details {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-details h3 {
+        .product-card h3 {
             font-size: 1.3rem;
-            margin-bottom: 0.75rem;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
-        .product-price {
+        .product-card p {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+            margin-bottom: 15px;
+        }
+
+        .product-card .price {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
         }
 
         .product-card button {
-            margin-top: auto; /* Push button to bottom */
             width: 100%;
-            padding: 0.8rem 1rem;
-            font-size: 0.95rem;
+            background-color: var(--accent-color);
+            color: var(--white-color);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .product-card button:hover {
+            background-color: #c0204d; /* Darker accent */
+            transform: none;
         }
 
         /* Features Section */
-        .section-image-container { /* General container for section images without specific rules */
-            height: 400px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0;
-            margin-bottom: 3rem;
-            border-radius: 0.75rem;
+        #features {
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        #features h2 {
+            margin-bottom: 60px;
+            font-size: 2.5rem;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 40px;
+            margin-top: 40px;
         }
 
         .feature-item {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            padding: 2rem;
-            background: var(--card-bg); /* Changed from light-background for consistency with product cards */
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 10px var(--shadow-light);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-color); /* Added border */
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px var(--shadow-medium);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
         }
 
-        .feature-icon {
-            font-size: 3rem; /* Using text/emoji, so style for size */
-            margin-bottom: 1rem;
+        .feature-item .icon {
+            font-size: 3rem;
             color: var(--accent-color);
-            display: inline-block; /* Ensure vertical alignment */
-            line-height: 1;
+            margin-bottom: 20px;
+            display: block;
         }
 
         .feature-item h3 {
-            margin-bottom: 0.5rem;
             font-size: 1.4rem;
-        }
-
-        .feature-item p {
-            font-size: 0.95rem;
-            color: #666;
+            margin-bottom: 10px;
         }
 
         /* About Section */
-        .about-content {
+        #about {
+            background-color: var(--white-color);
+        }
+
+        .about-content-wrapper {
             display: flex;
+            flex-direction: column;
+            gap: 40px;
             align-items: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            text-align: center;
         }
 
         .about-text {
             flex: 1;
-            min-width: 300px;
+            padding-right: 20px;
         }
 
-        .about-text h2 {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: #555;
-        }
-
-        .about-image-wrapper {
+        .about-image {
             flex: 1;
             min-width: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .about-image-container {
-            height: 400px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0; /* Background color for loading state */
-            border-radius: 0.75rem;
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
         }
 
         /* Testimonials Section */
+        #testimonials {
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        #testimonials h2 {
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 30px;
         }
 
         .testimonial-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            border: 1px solid var(--border-color);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            text-align: left;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--shadow-medium);
-        }
-
-        .testimonial-text {
+        .testimonial-card p {
             font-style: italic;
-            margin-bottom: 1.5rem;
-            color: #555;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
         }
 
-        .testimonial-author {
+        .testimonial-card span {
             font-weight: 600;
             color: var(--primary-color);
-        }
-
-        .testimonial-author span {
             display: block;
-            font-size: 0.9rem;
-            color: #777;
-            font-weight: 400;
+            text-align: right;
         }
 
         /* Contact Section */
-        .contact-form {
-            max-width: 700px;
-            margin: 3rem auto 0;
-            padding: 3rem;
-            background: var(--card-bg);
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 20px var(--shadow-light);
-            border: 1px solid var(--border-color);
+        #contact {
+            background-color: var(--white-color);
+            text-align: center;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        #contact h2 {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
+        #contact input,
+        #contact textarea {
             width: 100%;
-            padding: 0.85rem 1rem;
+            padding: 15px;
             border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
+            border-radius: 8px;
             font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+            color: var(--text-color);
+            background-color: var(--white-color);
+            transition: border-color 0.3s ease;
         }
 
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        #contact input:focus,
+        #contact textarea:focus {
+            border-color: var(--secondary-color);
             outline: none;
         }
 
-        .form-group textarea {
-            min-height: 120px;
+        #contact textarea {
             resize: vertical;
+            min-height: 120px;
         }
 
-        .contact-form button {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
+        #contact button {
+            margin-top: 10px;
+            padding: 15px 30px;
+            border-radius: 8px;
+            align-self: flex-start; /* Align button to start in flex column */
         }
 
         /* Footer */
         .footer {
-            background: var(--primary-color);
-            color: var(--text-color-light);
-            padding: 4rem 0 2rem;
+            background-color: var(--primary-color);
+            color: #f0f0f0;
+            padding: 60px 20px;
             font-size: 0.9rem;
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 3rem;
-            flex-wrap: wrap;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: var(--text-color-light);
+        .footer-column h3 {
+            color: var(--white-color);
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        .footer-section ul {
+        .footer-column ul {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .footer-section ul li {
-            margin-bottom: 0.75rem;
+        .footer-column ul li {
+            margin-bottom: 10px;
         }
 
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: color var(--transition-speed);
+        .footer-column a {
+            color: #ccc;
+            transition: color 0.3s ease;
         }
 
-        .footer-section a:hover {
+        .footer-column a:hover {
             color: var(--accent-color);
         }
 
-        .footer-socials {
+        .footer-social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .footer-socials a {
+        .footer-social-links a {
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-socials a:hover {
-            color: var(--accent-color);
+            color: #ccc;
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
+            margin-top: 50px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2rem; }
             h2 { font-size: 1.8rem; }
             h3 { font-size: 1.3rem; }
+            p { font-size: 0.95rem; }
 
-            .section-padding { padding: 4rem 0; }
+            .navbar {
+                padding: 15px;
+            }
 
-            .navbar-nav {
+            .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 100%;
+                top: 70px; /* Adjust based on navbar height */
                 left: 0;
                 width: 100%;
-                background-color: var(--navbar-bg);
+                background-color: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
-                border-bottom: 1px solid var(--border-color);
-                padding: 1rem 0;
+                box-shadow: var(--shadow-medium);
+                padding: 20px 0;
+                animation: slideDown 0.3s ease-out forwards;
             }
 
-            .navbar-nav.active {
+            .nav-links.active {
                 display: flex;
             }
 
-            .navbar-nav li {
-                margin: 0.75rem 1.5rem;
+            .nav-links li {
+                text-align: center;
+                margin: 10px 0;
             }
 
             .nav-toggle {
                 display: block;
             }
 
-            .hero-content h1 { font-size: 3rem; }
-            .hero-content p { font-size: 1rem; }
-            .hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
-            .hero-buttons button { margin: 0; }
+            .hero-content {
+                padding: 15px;
+            }
 
-            .products-grid, .features-grid, .testimonials-grid {
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+
+            #hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .about-content-wrapper {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+            }
+
+            .product-grid, .features-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .about-text, .about-image-wrapper {
-                min-width: unset;
-                width: 100%;
-            }
-
-            .contact-form {
-                padding: 2rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
+            .product-image-container { height: 200px; }
+            .about-image-container { height: 300px; } /* Adjusting for mobile */
+            .footer-grid {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .footer-section {
-                min-width: unset;
+            .footer-column ul {
+                padding-left: 0;
             }
 
-            .footer-section ul {
-                padding: 0;
-            }
-            .footer-socials {
+            .footer-social-links {
                 justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
+            h1 { font-size: 1.8rem; }
             h2 { font-size: 1.6rem; }
             h3 { font-size: 1.2rem; }
             p { font-size: 0.9rem; }
 
-            .container { padding: 0 1rem; }
-            .section-padding { padding: 3rem 0; }
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
 
-            .navbar-brand { font-size: 1.5rem; }
+            #hero h1 {
+                font-size: 1.8rem;
+            }
 
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-content p { font-size: 0.9rem; }
+            #hero p {
+                font-size: 0.9rem;
+            }
 
-            .product-details h3 { font-size: 1.2rem; }
-            .product-price { font-size: 1.2rem; }
+            .product-card button {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
 
-            .feature-icon { font-size: 2.5rem; }
-            .feature-item h3 { font-size: 1.3rem; }
+            .feature-item .icon {
+                font-size: 2.5rem;
+            }
+
+            .hero-image-container { height: 60vh; }
+        }
+
+        /* Animation for mobile menu */
+        @keyframes slideDown {
+            from { opacity: 1; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
+
     <nav class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">NexGen Commerce</a>
-            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-            <ul class="navbar-nav">
-                <li><a href="#products">Products</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+        <a href="#hero" class="navbar-brand">LumiLux</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-links">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <header class="hero-section">
+    <section id="hero">
         <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with laptops and vibrant decor" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office interior with collaborative space" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
         </div>
         <div class="hero-content">
-            <h1>Experience the Future of Shopping</h1>
-            <p>Discover innovative products, unbeatable prices, and seamless delivery, right at your fingertips.</p>
+            <h1>Elevate Your Everyday with LumiLux</h1>
+            <p>Discover a curated collection of premium lifestyle products designed for the modern Indian consumer. Innovation meets elegance.</p>
             <div class="hero-buttons">
-                <button onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' });">Shop Now</button>
-                <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">Learn More</button>
+                <a href="#products" class="btn-primary">Shop Now</a>
+                <a href="#about" class="btn-secondary">Learn More</a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <section id="products" class="section-padding">
-        <div class="container text-center">
-            <h2>Our Trending Products</h2>
-            <p>Explore a curated selection of our most popular and innovative items.</p>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black wireless over-ear headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-details">
-                        <h3>Premium Wireless Headphones</h3>
-                        <p class="product-price">₹12,499</p>
-                        <button>Add to Cart</button>
-                    </div>
+    <section id="products">
+        <h2>Our Latest Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek silver smartwatch on a wrist" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Elegant silver smartwatch with a digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-details">
-                        <h3>Smartwatch Pro X</h3>
-                        <p class="product-price">₹8,999</p>
-                        <button>Add to Cart</button>
-                    </div>
+                <div class="product-card-content">
+                    <h3>AuraFit Smartwatch Pro</h3>
+                    <p>Track your health with precision, receive smart notifications, and stay stylish on the go. Compatible with Android & iOS.</p>
+                    <div class="price">₹14,999</div>
+                    <button class="btn-primary">Add to Cart</button>
                 </div>
+            </div>
 
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Compact portable Bluetooth speaker with vibrant sound" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-details">
-                        <h3>Dynamic Portable Speaker</h3>
-                        <p class="product-price">₹5,999</p>
-                        <button>Add to Cart</button>
-                    </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-quality wireless over-ear headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Modern minimalist leather wallet for cards and cash" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-details">
-                        <h3>Minimalist Leather Wallet</h3>
-                        <p class="product-price">₹1,999</p>
-                        <button>Add to Cart</button>
-                    </div>
+                <div class="product-card-content">
+                    <h3>SonicWave Noise-Cancelling Headphones</h3>
+                    <p>Immerse yourself in pure audio bliss with exceptional sound quality and active noise cancellation. All-day comfort.</p>
+                    <div class="price">₹8,999</div>
+                    <button class="btn-primary">Add to Cart</button>
                 </div>
+            </div>
 
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="High-resolution instant camera for quick photo prints" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-details">
-                        <h3>Instant Print Camera</h3>
-                        <p class="product-price">₹7,499</p>
-                        <button>Add to Cart</button>
-                    </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant metallic pen set for executives" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
+                <div class="product-card-content">
+                    <h3>Executive Lumina Pen Set</h3>
+                    <p>Experience effortless writing with our finely crafted pen set. Perfect for professionals and gifting.</p>
+                    <div class="price">₹2,499</div>
+                    <button class="btn-primary">Add to Cart</button>
+                </div>
+            </div>
 
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Ergonomic vertical computer mouse for comfortable use" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <div class="product-details">
-                        <h3>Ergonomic Vertical Mouse</h3>
-                        <p class="product-price">₹2,499</p>
-                        <button>Add to Cart</button>
-                    </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Compact portable power bank with cables" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <h3>PowerPulse Fast Charger</h3>
+                    <p>Never run out of battery. Our sleek and powerful portable charger ensures your devices stay powered, wherever you are.</p>
+                    <div class="price">₹1,799</div>
+                    <button class="btn-primary">Add to Cart</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="section-padding" style="background-color: var(--light-background);">
-        <div class="container text-center">
-            <h2>Why Choose NexGen Commerce?</h2>
-            <p>We're dedicated to providing an unparalleled shopping experience.</p>
-
-            <div class="section-image-container" style="max-width: 900px; margin-left: auto; margin-right: auto;">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Seamless delivery truck on a modern highway" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+    <section id="features">
+        <h2>Why Choose LumiLux?</h2>
+        <div class="about-image-container" style="height: 300px; margin-bottom: 40px;">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Abstract gears and cogs representing innovation and features" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="icon">✨</span>
+                <h3>Premium Quality</h3>
+                <p>Every product is meticulously crafted using the finest materials and advanced technology, ensuring durability and excellence.</p>
             </div>
+            <div class="feature-item">
+                <span class="icon">🚀</span>
+                <h3>Innovation Driven</h3>
+                <p>We constantly seek out the latest trends and innovations to bring you products that simplify your life and spark joy.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">💡</span>
+                <h3>Thoughtful Design</h3>
+                <p>Our products seamlessly blend aesthetics with functionality, designed to enhance your daily routine and complement your style.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🌍</span>
+                <h3>Customer Focus</h3>
+                <p>Your satisfaction is our priority. We offer exceptional support and a seamless shopping experience from start to finish.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Blazing Fast Delivery</h3>
-                    <p>Get your products delivered to your doorstep in record time, safely and securely.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🤝</span>
-                    <h3>24/7 Customer Support</h3>
-                    <p>Our dedicated support team is always available to assist you with any queries or issues.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔒</span>
-                    <h3>Secure Payments</h3>
-                    <p>Shop with confidence using our encrypted and secure payment gateways.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">✨</span>
-                    <h3>Premium Quality</h3>
-                    <p>We source only the best products, ensuring exceptional quality and durability.</p>
+    <section id="about">
+        <div class="about-content-wrapper">
+            <div class="about-text">
+                <h2>About LumiLux</h2>
+                <p>LumiLux was founded with a vision to bring premium, thoughtfully designed lifestyle products to the discerning Indian customer. We believe that everyday items can be extraordinary, blending cutting-edge technology with elegant aesthetics.</p>
+                <p>Our journey began in 2020, driven by a passion for quality and innovation. From smart devices that streamline your life to accessories that elevate your style, every LumiLux product is a testament to our commitment to excellence. We are more than just an e-commerce platform; we are a community dedicated to enriching your daily experiences.</p>
+            </div>
+            <div class="about-image">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating happily in a modern office space" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section-padding">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About NexGen Commerce</h2>
-                    <p>At NexGen Commerce, we believe in connecting people with the products they love in the most efficient and enjoyable way possible. Founded in 2023, our mission is to redefine online shopping by offering a seamless experience, from product discovery to doorstep delivery.</p>
-                    <p>We are a passionate team dedicated to curating a diverse range of high-quality products, ensuring that every item meets our strict standards for innovation, utility, and design. Our commitment extends beyond sales; we strive to build lasting relationships with our customers through transparency, trust, and exceptional service.</p>
-                    <p>Join us on our journey to make online shopping smarter, faster, and more delightful for everyone.</p>
-                </div>
-                <div class="about-image-wrapper">
-                    <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                </div>
+    <section id="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"I absolutely love my AuraFit Smartwatch from LumiLux! It's stylish, functional, and has truly helped me stay on top of my fitness goals. The quality is exceptional."</p>
+                <span>- Priya Sharma, Bengaluru</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The SonicWave Headphones are a game-changer. The sound quality is phenomenal, and the noise cancellation works perfectly for my daily commute. LumiLux delivers excellence!"</p>
+                <span>- Rohan Patel, Mumbai</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"LumiLux has quickly become my go-to for premium gadgets. Their products are not just high-tech but also beautifully designed. Great customer service too!"</p>
+                <span>- Ananya Rao, Hyderabad</span>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="section-padding" style="background-color: var(--light-background);">
-        <div class="container text-center">
-            <h2>What Our Customers Say</h2>
-            <p>Hear from the happy shoppers who've experienced NexGen Commerce.</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"NexGen Commerce has completely changed my online shopping experience! The delivery was incredibly fast, and the headphones I bought are of superb quality. Highly recommended!"</p>
-                    <p class="testimonial-author">Priya Sharma <span>- Mumbai, India</span></p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"I was skeptical about buying electronics online, but NexGen Commerce proved me wrong. The smartwatch arrived perfectly packaged, and their customer support was very helpful."</p>
-                    <p class="testimonial-author">Ravi Kumar <span>- Bengaluru, India</span></p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Fantastic range of products and even better service. The prices are competitive, and the checkout process is smooth. My new portable speaker is a joy to use!"</p>
-                    <p class="testimonial-author">Anjali Singh <span>- Delhi, India</span></p>
-                </div>
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>Have questions, feedback, or need support? Reach out to us, and we'll be happy to assist you.</p>
+        <form action="#" method="POST">
+            <div>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding">
-        <div class="container text-center">
-            <h2>Get In Touch</h2>
-            <p>Have a question or need assistance? Reach out to us!</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+            <div>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>NexGen Commerce</h4>
-                    <p>Your destination for cutting-edge products and seamless shopping experiences.</p>
-                    <div class="footer-socials">
-                        <a href="#" aria-label="Facebook">FB</a>
-                        <a href="#" aria-label="Twitter">TW</a>
-                        <a href="#" aria-label="Instagram">IG</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#products">Shop</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <p>Email: <a href="mailto:support@nexgencommerce.com">support@nexgencommerce.com</a></p>
-                    <p>Phone: <a href="tel:+918023456789">+91 80 2345 6789</a></p>
-                    <p>Address: 123 Digital Ave, Cyber City, Bengaluru, India</p>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>LumiLux</h3>
+                <p>Elevating your everyday with premium products.</p>
+                <div class="footer-social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Twitter">TW</a>
+                    <a href="#" aria-label="LinkedIn">LI</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2023 NexGen Commerce. All rights reserved.
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Support</a></li>
+                </ul>
             </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@lumilux.in">info@lumilux.in</a></p>
+                <p>Phone: <a href="tel:+918000000000">+91 80000 00000</a></p>
+                <p>Address: 123 LumiLux Towers, Innovation City, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 LumiLux. All rights reserved.
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.navbar-nav');
+            const navLinks = document.querySelector('.nav-links');
 
-            if (navToggle && navMenu) {
-                navToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+            });
+
+            // Close nav menu on link click for mobile
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
                 });
+            });
 
-                // Close nav menu when a link is clicked (for mobile)
-                document.querySelectorAll('.navbar-nav a').forEach(item => {
-                    item.addEventListener('click', () => {
-                        if (navMenu.classList.contains('active')) {
-                            navMenu.classList.remove('active');
-                        }
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
                     });
                 });
-            }
+            });
         });
     </script>
 </body>
