@@ -1,180 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Hub - Your Modern Online Store</title>
+    <title>Nexus Trends - Your Destination for Modern Lifestyle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables */
         :root {
-            --primary-color: #2e7d32; /* Deep Green */
-            --secondary-color: #f0f4f8; /* Light Grey Blue */
-            --accent-color: #ff9800; /* Orange */
-            --text-color: #333;
-            --light-text-color: #666;
-            --background-color: #fff;
-            --card-background: #fff;
-            --border-color: #e0e0e0;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --header-height: 70px;
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #6f42c1;
+            --text-color: #212529;
+            --light-text-color: #495057;
+            --bg-color: #ffffff;
+            --light-bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e9ecef;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
         /* Base Styles */
-        * {
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-            line-height: 1.6;
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 0.5em;
             color: var(--text-color);
-            background-color: var(--background-color);
         }
 
+        h1 { font-size: 2.5rem; line-height: 1.1; }
+        h2 { font-size: 2rem; line-height: 1.2; }
+        h3 { font-size: 1.5rem; line-height: 1.3; }
+        p { font-size: 1rem; margin-bottom: 1em; color: var(--light-text-color); }
+
+        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 1.5rem;
         }
 
-        .section-padding {
-            padding: 5rem 0;
-        }
+        .text-center { text-align: center; }
+        .py-section { padding: 4rem 0; }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mb-8 { margin-bottom: 4rem; }
 
-        .background-secondary {
-            background-color: var(--secondary-color);
-        }
-
-        /* Typography */
-        h1, h2, h3 {
-            color: var(--text-color);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: 3rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: var(--light-text-color);
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--light-text-color);
-        }
-
-        /* Buttons */
-        .button {
+        .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
+            font-weight: 500;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: 2px solid transparent;
         }
 
-        .button.primary {
+        .btn-primary {
             background-color: var(--primary-color);
-            color: var(--background-color);
+            color: var(--bg-color);
+            border-color: var(--primary-color);
         }
 
-        .button.primary:hover {
-            background-color: #256a2a; /* Darker primary */
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px var(--shadow-color);
+            box-shadow: var(--shadow-sm);
         }
 
-        .button.secondary {
+        .btn-secondary {
             background-color: transparent;
             color: var(--primary-color);
             border-color: var(--primary-color);
         }
 
-        .button.secondary:hover {
+        .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--background-color);
+            color: var(--bg-color);
+            border-color: var(--primary-color);
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px var(--shadow-color);
+            box-shadow: var(--shadow-sm);
         }
 
-        .button.small {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem;
-            border-radius: 6px;
+        .flex-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            width: 100%;
+            z-index: 1000;
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
             border-bottom: 1px solid var(--border-color);
-            min-height: var(--header-height);
-            display: flex;
-            align-items: center;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
         }
 
-        .navbar .logo {
-            font-size: 1.8rem;
+        .navbar-brand {
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
+            color: var(--text-color);
         }
 
-        .navbar .nav-links {
+        .navbar-nav {
             display: flex;
+            list-style: none;
             gap: 2rem;
         }
 
-        .navbar .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
+        .navbar-nav a {
+            color: var(--light-text-color);
             font-weight: 500;
-            font-size: 1.1rem;
             padding: 0.5rem 0;
             position: relative;
-            transition: color 0.3s ease;
         }
 
-        .navbar .nav-links a::after {
+        .navbar-nav a::after {
             content: '';
             position: absolute;
             left: 0;
@@ -185,50 +172,41 @@
             transition: width 0.3s ease;
         }
 
-        .navbar .nav-links a:hover::after,
-        .navbar .nav-links a.active::after {
+        .navbar-nav a:hover::after,
+        .navbar-nav a.active::after {
             width: 100%;
         }
-        .navbar .nav-links a:hover {
-            color: var(--primary-color);
-        }
 
-        .nav-toggle {
+        .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
             padding: 0.5rem;
         }
 
-        .nav-toggle span {
-            height: 3px;
+        .menu-toggle span {
+            height: 2px;
             width: 25px;
-            background-color: var(--text-color);
+            background: var(--text-color);
             margin-bottom: 4px;
-            border-radius: 2px;
+            border-radius: 5px;
             transition: all 0.3s ease;
         }
 
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 1;
-        }
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.open span:nth-child(2) { opacity: 1; }
+        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* Hero Section */
         .hero-section {
             position: relative;
-            height: calc(80vh + var(--header-height)); /* Image height + header for visual offset */
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--bg-color);
             text-align: center;
-            color: var(--background-color);
-            padding-top: var(--header-height); /* Push content below sticky header */
+            overflow: hidden; /* Important for image container */
         }
 
         .hero-image-container {
@@ -238,69 +216,34 @@
             position: absolute;
             top: 0;
             left: 0;
-            background: #f5f5f5; /* Placeholder background */
-            z-index: -1; /* Place image behind content */
-        }
-
-        .hero-image-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            background: #e0e0e0; /* Placeholder background */
             z-index: 1;
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-            position: relative; /* ensure z-index on img for overlay */
-            z-index: 0;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2; /* Ensure content is above overlay */
+            z-index: 2;
             max-width: 800px;
             padding: 2rem;
+            background: rgba(0, 0, 0, 0.4); /* Subtle overlay for text readability */
+            border-radius: 12px;
+            color: var(--bg-color);
         }
 
         .hero-content h1 {
-            color: var(--background-color);
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--bg-color);
         }
 
         .hero-content p {
-            color: rgba(255, 255, 255, 0.9);
             font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .hero-buttons .button.secondary {
-            color: var(--background-color);
-            border-color: var(--background-color);
-        }
-        .hero-buttons .button.secondary:hover {
-            color: var(--primary-color);
-            background-color: var(--background-color);
-        }
-
-        /* Product Grid */
-        .product-grid {
+        /* Products Section */
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
@@ -308,18 +251,16 @@
         }
 
         .product-card {
-            background-color: var(--card-background);
+            background-color: var(--card-bg);
             border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .product-image-container {
@@ -328,203 +269,136 @@
             overflow: hidden;
             position: relative;
             background: #f5f5f5; /* Placeholder background */
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .product-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .product-card h3 {
+        .product-info h3 {
             font-size: 1.3rem;
-            margin: 1.5rem 1.5rem 0.5rem;
+            margin-bottom: 0.5rem;
             color: var(--text-color);
         }
 
-        .product-card .price {
-            font-size: 1.15rem;
-            font-weight: 700;
+        .product-info .price {
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--primary-color);
-            margin: 0 1.5rem 1rem;
-        }
-
-        .product-card .button {
-            margin: 0 1.5rem 1.5rem;
-            align-self: flex-start;
-            width: calc(100% - 3rem);
+            margin-bottom: 1rem;
         }
 
         /* Features Section */
-        .feature-layout {
+        .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .feature-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        .feature-content h2, .feature-content .subtitle {
-            text-align: left;
-            margin-left: 0;
-            margin-right: 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.2rem;
-            background-color: var(--card-background);
-            padding: 1.5rem;
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--card-bg);
             border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
         }
 
-        .feature-icon {
-            font-size: 2.2rem;
-            color: var(--accent-color);
-            line-height: 1;
-            flex-shrink: 0;
-            margin-top: 0.2rem; /* Align icon better with text */
+        .feature-item img {
+            max-width: 60px; /* Assuming icons are small images */
+            height: auto;
+            margin-bottom: 1rem;
+            display: inline-block; /* To center */
+            border: none; /* Override general img style if needed */
         }
 
-        .feature-item h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-        .feature-item p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
-        .features-image-container {
-            height: 500px; /* Custom height for this image */
+        /* The features image specified in rules. Needs its own container with fixed height. */
+        .features-main-image-container {
+            height: 300px; /* Fixed height for this specific features image */
             width: 100%;
             overflow: hidden;
             position: relative;
+            background: #e0e0e0;
             border-radius: 12px;
-            box-shadow: 0 8px 30px var(--shadow-color);
-            background: #f5f5f5; /* Placeholder background */
-        }
-        .features-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-sm);
         }
 
         /* About Section */
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
             align-items: center;
         }
 
         .about-image-container {
             height: 400px;
             width: 100%;
+            max-width: 600px; /* Restrict width for better layout on large screens */
             overflow: hidden;
             position: relative;
+            background: #f5f5f5;
             border-radius: 12px;
-            box-shadow: 0 8px 30px var(--shadow-color);
-            background: #f5f5f5; /* Placeholder background */
+            box-shadow: var(--shadow-md);
         }
 
-        .about-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-        }
-
-        .about-content h2 {
-            text-align: left;
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        .about-content p:last-of-type {
-            margin-bottom: 2rem;
+        .about-text {
+            flex: 1;
+            max-width: 600px; /* Match image width for balanced layout */
         }
 
         /* Testimonials Section */
-        .testimonial-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .testimonial-card {
-            background-color: var(--card-background);
-            border-radius: 12px;
+            background-color: var(--card-bg);
             padding: 2rem;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-md);
         }
 
-        .testimonial-card .quote {
+        .testimonial-card p {
             font-style: italic;
-            font-size: 1.05rem;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            quotes: "“" "”" "‘" "’";
-        }
-        .testimonial-card .quote::before {
-            content: open-quote;
-            font-size: 2em;
-            line-height: 0.1em;
-            vertical-align: -0.4em;
-            margin-right: 0.1em;
-            color: var(--primary-color);
-        }
-        .testimonial-card .quote::after {
-            content: close-quote;
-            font-size: 2em;
-            line-height: 0.1em;
-            vertical-align: -0.4em;
-            margin-left: 0.1em;
-            color: var(--primary-color);
+            margin-bottom: 1rem;
+            color: var(--light-text-color);
         }
 
         .testimonial-card .author {
             font-weight: 600;
-            color: var(--primary-color);
-            text-align: right;
-            margin-bottom: 0;
+            color: var(--text-color);
+            font-size: 1.1rem;
         }
 
-        /* Contact Form */
+        /* Contact Section */
         .contact-form {
             max-width: 600px;
-            margin: 3rem auto 0;
-            background-color: var(--card-background);
-            padding: 2.5rem;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
+            box-shadow: var(--shadow-md);
         }
 
         .form-group {
@@ -533,77 +407,89 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.6rem;
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--light-text-color);
         }
 
-        .form-group input,
+        .form-group input[type="text"],
+        .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: 0.9rem 1rem;
+            padding: 1rem 1.2rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             color: var(--text-color);
-            background-color: var(--secondary-color);
+            background-color: var(--light-bg-color);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: var(--primary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
 
         .form-group textarea {
-            resize: vertical;
             min-height: 120px;
+            resize: vertical;
         }
 
-        .contact-form .button {
+        .btn-submit {
             width: 100%;
-            margin-top: 1rem;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
         /* Footer */
-        footer {
-            background-color: #222;
-            color: rgba(255, 255, 255, 0.8);
-            padding-top: 4rem;
+        .footer {
+            background-color: var(--text-color);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 0;
+            font-size: 0.9rem;
         }
 
-        .footer-grid {
+        .footer .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer-col h3 {
-            color: var(--background-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+        .footer-column h4 {
+            color: var(--bg-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
-        .footer-col p,
-        .footer-col ul li,
-        .footer-col a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-col ul {
+        .footer-column ul {
             list-style: none;
         }
 
-        .footer-col ul li a:hover {
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
             color: var(--primary-color);
         }
 
@@ -614,445 +500,417 @@
         }
 
         .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            font-size: 1.5rem; /* Placeholder for icon font */
             color: rgba(255, 255, 255, 0.7);
-            font-weight: 700;
-            text-decoration: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            color: var(--background-color);
         }
 
         .footer-bottom {
             text-align: center;
-            padding: 1.5rem 0;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
         }
-        .footer-bottom p {
-            margin-bottom: 0;
-            color: inherit;
+
+        /* General Image Styles (CRITICAL) */
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
+            max-width: 100%; /* Ensure responsiveness */
+            height: auto; /* Prevent distortion if parent has auto height */
+        }
+
+        /* Specific overrides for icon-like images */
+        .feature-item img {
+            width: auto; /* For small icon-like images */
+            height: 60px; /* Fixed height for consistency */
+            object-fit: contain; /* Ensure full icon is visible */
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-            h3 {
-                font-size: 1.3rem;
-            }
-            p {
-                font-size: 0.95rem;
-            }
-            .subtitle {
-                font-size: 1rem;
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.3rem; }
+            p { font-size: 0.95rem; }
+
+            .navbar .container {
+                flex-wrap: wrap;
             }
 
-            .section-padding {
-                padding: 3rem 0;
+            .navbar-brand {
+                flex-grow: 1;
             }
 
-            .navbar .nav-links {
-                display: none;
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar-nav {
                 flex-direction: column;
-                position: absolute;
-                top: var(--header-height);
-                left: 0;
                 width: 100%;
                 background-color: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(10px);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                transform: translateY(-100%);
+                opacity: 1;
+                pointer-events: none;
+                transition: transform 0.3s ease-out, opacity 0.3s ease-out;
                 border-top: 1px solid var(--border-color);
-                box-shadow: 0 4px 15px var(--shadow-color);
-            }
-
-            .navbar .nav-links.active {
-                display: flex;
-            }
-
-            .navbar .nav-links a {
                 padding: 1rem 1.5rem;
-                border-bottom: 1px solid var(--border-color);
-                width: 100%;
-                text-align: center;
-            }
-            .navbar .nav-links a:last-child {
-                border-bottom: none;
+                gap: 0.5rem;
             }
 
-            .nav-toggle {
-                display: flex;
+            .navbar-nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
             }
 
-            .hero-section {
-                height: 90vh; /* Adjust hero height for mobile */
-                padding-top: var(--header-height);
+            .navbar-nav a {
+                padding: 0.8rem 0;
             }
-            .hero-image-container {
-                height: 90vh;
+            .navbar-nav a::after { display: none; } /* Hide underline for mobile */
+            .navbar-nav a:hover { color: var(--primary-color); }
+
+            .hero-content {
+                padding: 1.5rem;
             }
             .hero-content h1 {
-                font-size: 2.8rem;
+                font-size: 2.2rem;
             }
             .hero-content p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
-            .hero-buttons {
+            .flex-group {
                 flex-direction: column;
-                gap: 1rem;
-            }
-            .hero-buttons .button {
-                width: 100%;
-                max-width: 250px;
+                gap: 1.5rem;
             }
 
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            .py-section { padding: 3rem 0; }
+
+            .about-content {
+                flex-direction: column;
             }
 
-            .feature-layout,
-            .about-layout {
-                grid-template-columns: 1fr;
-            }
-            .features-image-container,
             .about-image-container {
-                height: 300px; /* Adjust image height for smaller screens */
-            }
-            .feature-content h2, .feature-content .subtitle {
-                text-align: center;
-            }
-            .feature-content h2 { margin-left: auto; margin-right: auto; }
-            .feature-item {
-                max-width: 500px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .about-content h2 {
-                text-align: center;
-                margin-left: auto; margin-right: auto;
+                max-width: 100%;
             }
 
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-            .testimonial-card {
-                max-width: 500px;
-                margin-left: auto;
-                margin-right: auto;
+            .contact-form {
+                padding: 2rem;
             }
 
-            .footer-grid {
+            .footer .container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+
+            .footer-column ul {
+                padding-left: 0;
+            }
+
             .social-links {
                 justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            h2 {
-                font-size: 1.6rem;
-            }
-            h3 {
-                font-size: 1.2rem;
-            }
-            p {
-                font-size: 0.9rem;
-            }
-            .subtitle {
-                font-size: 0.9rem;
-            }
-
             .container {
-                padding: 0 1rem;
+                padding: 1rem;
             }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+            p { font-size: 0.9rem; }
 
-            .hero-section {
-                height: 85vh;
-            }
-            .hero-image-container {
-                height: 85vh;
-            }
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
             .hero-content p {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 0.6rem 1.4rem;
+                font-size: 0.9rem;
+            }
+
+            .product-info {
+                padding: 1rem;
+            }
+            .product-info h3 {
+                font-size: 1.1rem;
+            }
+            .product-info .price {
                 font-size: 1rem;
             }
-
-            .product-grid {
-                grid-template-columns: 1fr;
+            .feature-item {
+                padding: 1.5rem;
             }
-
-            .features-image-container,
-            .about-image-container {
-                height: 250px;
+            .testimonial-card {
+                padding: 1.5rem;
             }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 0.8rem 0.9rem;
+            .contact-form {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- Navbar -->
     <header class="navbar">
         <div class="container">
-            <a href="#" class="logo">E-Commerce Hub</a>
-            <div class="nav-toggle" aria-label="Toggle navigation">
+            <a href="#" class="navbar-brand">Nexus Trends</a>
+            <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <nav class="nav-links">
+            <nav class="navbar-nav" id="navbar-nav-links">
+                <a href="#hero">Home</a>
                 <a href="#products">Products</a>
                 <a href="#features">Features</a>
-                <a href="#about">About</a>
+                <a href="#about">About Us</a>
+                <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office with computers and people working, symbolizing innovation and efficiency" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-        </div>
-        <div class="hero-content container">
-            <h1>Your Style, Your Story. Shop the Latest Trends.</h1>
-            <p>Discover curated collections of premium fashion and accessories. Elevate your everyday with our exclusive range.</p>
-            <div class="hero-buttons">
-                <a href="#products" class="button primary">Shop Now</a>
-                <a href="#features" class="button secondary">Learn More</a>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office with computers and team collaborating" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
-        </div>
-    </section>
-
-    <section id="products" class="section-padding">
-        <div class="container">
-            <h2>Our Premium Collections</h2>
-            <p class="subtitle">Explore our exquisite range of products designed for modern living and sophisticated tastes.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant brown leather handbag with gold accents" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Elegant Leather Handbag</h3>
-                    <p class="price">₹ 7,999</p>
-                    <button class="button small primary">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Classic black aviator sunglasses on a reflective surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Classic Aviator Sunglasses</h3>
-                    <p class="price">₹ 2,499</p>
-                    <button class="button small primary">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Luxurious patterned silk scarf draped elegantly" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Premium Silk Scarf</h3>
-                    <p class="price">₹ 1,299</p>
-                    <button class="button small primary">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Minimalist black smartwatch with a sleek interface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Minimalist Smartwatch</h3>
-                    <p class="price">₹ 12,499</p>
-                    <button class="button small primary">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Modern wireless ergonomic earbuds in a charging case" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Wireless Ergonomic Earbuds</h3>
-                    <p class="price">₹ 5,999</p>
-                    <button class="button small primary">Add to Cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium brown leather bi-fold wallet" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
-                    <h3>Premium Designer Wallet</h3>
-                    <p class="price">₹ 3,499</p>
-                    <button class="button small primary">Add to Cart</button>
+            <div class="hero-content">
+                <h1>Elevate Your Lifestyle with Nexus Trends</h1>
+                <p>Discover a curated collection of innovative electronics, stylish apparel, and essential home goods.</p>
+                <div class="flex-group">
+                    <a href="#products" class="btn btn-primary">Shop Now</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features" class="section-padding background-secondary">
-        <div class="container feature-layout">
-            <div class="feature-content">
-                <h2>Why Choose E-Commerce Hub?</h2>
-                <p class="subtitle" style="text-align: left;">Experience unparalleled service and quality with every purchase.</p>
-                <div class="feature-item">
-                    <span class="feature-icon">✨</span>
-                    <div>
-                        <h3>Curated Collections</h3>
-                        <p>Hand-picked products ensuring the highest quality and latest trends for discerning tastes.</p>
+        <!-- Products Section -->
+        <section id="products" class="py-section">
+            <div class="container text-center">
+                <h2>Our Latest Innovations</h2>
+                <p class="mb-8">Explore our exclusive range of products designed for the modern individual.</p>
+
+                <div class="products-grid">
+                    <!-- Product Card 1 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with a digital display showing time and fitness metrics" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Quantum Smartwatch X1</h3>
+                            <p>Stay connected and track your fitness with our advanced smartwatch.</p>
+                            <span class="price">₹12,499</span>
+                            <a href="#" class="btn btn-primary mt-4">Add to Cart</a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium noise-cancelling over-ear headphones in a minimalist design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Aura ANC Headphones Pro</h3>
+                            <p>Immersive sound and superior comfort for an unparalleled audio experience.</p>
+                            <span class="price">₹8,999</span>
+                            <a href="#" class="btn btn-primary mt-4">Add to Cart</a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant metallic portable SSD with a modern design for fast data storage" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>Velocity Portable SSD 2TB</h3>
+                            <p>Blazing-fast storage solution for all your digital needs on the go.</p>
+                            <span class="price">₹14,999</span>
+                            <a href="#" class="btn btn-primary mt-4">Add to Cart</a>
+                        </div>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🚚</span>
-                    <div>
-                        <h3>Fast & Reliable Shipping</h3>
-                        <p>Enjoy swift delivery to your doorstep with our trusted logistics partners across India.</p>
-                    </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-section" style="background-color: var(--bg-color);">
+            <div class="container text-center">
+                <h2>Why Choose Nexus Trends?</h2>
+                <p class="mb-8">Experience the difference with our commitment to quality, innovation, and customer satisfaction.</p>
+
+                <!-- Prominent image within the features section -->
+                <div class="features-main-image-container mb-4">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Modern office desk with a laptop, notebooks, and a cup of coffee, symbolizing productivity and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔒</span>
-                    <div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <img src="https://img.icons8.com/ios-filled/50/007bff/lightning-bolt.png" alt="Fast Delivery Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
+                        <h3>Rapid Delivery</h3>
+                        <p>Get your products delivered swiftly and securely to your doorstep.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://img.icons8.com/ios-filled/50/007bff/star.png" alt="Premium Quality Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
+                        <h3>Premium Quality</h3>
+                        <p>We source only the best products, ensuring durability and performance.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://img.icons8.com/ios-filled/50/007bff/customer-service.png" alt="24/7 Support Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
+                        <h3>24/7 Support</h3>
+                        <p>Our dedicated support team is always ready to assist you.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://img.icons8.com/ios-filled/50/007bff/secure.png" alt="Secure Payments Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
                         <h3>Secure Payments</h3>
-                        <p>Shop with confidence using our encrypted and secure payment gateways for all transactions.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🤝</span>
-                    <div>
-                        <h3>Exceptional Customer Support</h3>
-                        <p>Our dedicated team is always ready to assist you with any queries or concerns, ensuring a smooth shopping journey.</p>
+                        <p>Shop with confidence using our encrypted and secure payment gateways.</p>
                     </div>
                 </div>
             </div>
-            <div class="features-image-container">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="People collaborating in a modern office environment, symbolizing teamwork and efficiency in service" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="section-padding">
-        <div class="container about-layout">
-            <div class="about-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team collaborating on a project in a modern workspace, representing company values and dedication" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+        <!-- About Section -->
+        <section id="about" class="py-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image-container">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team collaborating in a modern office space, reflecting unity and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="about-text">
+                        <h2>About Nexus Trends</h2>
+                        <p>At Nexus Trends, we believe in bringing the future to your doorstep today. Founded in 2023, our mission is to provide cutting-edge products that enhance daily life, from smart devices that simplify tasks to fashion that defines your style.</p>
+                        <p>We are a team of passionate individuals dedicated to curating a selection of high-quality, innovative, and sustainable products. Our commitment to excellence extends from product sourcing to customer service, ensuring a seamless and satisfying shopping experience for every client.</p>
+                        <p>Join us on our journey to discover the next big thing and transform the way you live, work, and play.</p>
+                    </div>
+                </div>
             </div>
-            <div class="about-content">
-                <h2>About E-Commerce Hub</h2>
-                <p>E-Commerce Hub was founded with a vision to redefine online shopping in India. We believe in providing not just products, but an experience that embodies quality, style, and convenience.</p>
-                <p>Our journey began with a passion for bringing globally inspired fashion and lifestyle accessories to your fingertips. We meticulously select each item, ensuring it meets our high standards of craftsmanship and design. We are committed to sustainable practices and fostering strong relationships with our suppliers and customers.</p>
-                <a href="#contact" class="button primary">Contact Us</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-padding background-secondary">
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-section" style="background-color: var(--bg-color);">
+            <div class="container text-center">
+                <h2>What Our Customers Say</h2>
+                <p class="mb-8">Hear directly from the people who love Nexus Trends.</p>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Nexus Trends has revolutionized my tech purchases. Their Quantum Smartwatch X1 is simply amazing, and the delivery was incredibly fast. Highly recommended!"</p>
+                        <div class="author">- Priya Sharma, Tech Enthusiast</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I was searching for quality noise-cancelling headphones for ages, and the Aura ANC Headphones Pro from Nexus Trends exceeded all expectations. Fantastic sound!"</p>
+                        <div class="author">- Rahul Singh, Music Lover</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The customer service is outstanding. I had a query about my order, and they resolved it quickly and efficiently. A truly reliable e-commerce platform."</p>
+                        <div class="author">- Anjali Mehta, Satisfied Customer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-section">
+            <div class="container">
+                <h2 class="text-center">Get In Touch</h2>
+                <p class="text-center mb-8">Have questions or need assistance? Send us a message!</p>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <h2>What Our Customers Say</h2>
-            <p class="subtitle">Hear from satisfied shoppers who love our products and service.</p>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="quote">"Absolutely thrilled with my new handbag! The quality is exceptional, and it arrived much faster than expected. E-Commerce Hub is now my go-to for premium accessories."</p>
-                    <p class="author">- Priya Sharma, Mumbai</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="quote">"The minimalist smartwatch exceeded my expectations. Stylish, functional, and great value. The customer service was also incredibly helpful with my queries."</p>
-                    <p class="author">- Rahul Verma, Delhi</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="quote">"I've purchased multiple items from this store, and I'm always impressed. The aviator sunglasses are perfect, and the delivery is always seamless. Highly recommend!"</p>
-                    <p class="author">- Aisha Khan, Bengaluru</p>
+            <div class="footer-column">
+                <h4>Nexus Trends</h4>
+                <p>Your ultimate destination for modern lifestyle products. Innovate, explore, and elevate with us.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="Facebook Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
+                    <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-filled/30/ffffff/twitter.png" alt="Twitter Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
+                    <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
+                    <a href="#" aria-label="LinkedIn"><img src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png" alt="LinkedIn Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p class="subtitle">Have questions or need assistance? Reach out to us!</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Your message here..." required></textarea>
-                </div>
-                <button type="submit" class="button primary">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h3>E-Commerce Hub</h3>
-                <p>Your premier destination for modern fashion and lifestyle accessories. Shop smart, live stylish.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#products">Products</a></li>
-                    <li><a href="#features">Features</a></li>
                     <li><a href="#about">About Us</a></li>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="Twitter">TW</a>
-                </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
             </div>
-            <div class="footer-col">
-                <h3>Contact Info</h3>
-                <p>Email: info@ecommercehub.in</p>
-                <p>Phone: +91 98765 43210</p>
-                <p>Address: 123 Fashion St, Mumbai, India</p>
+            <div class="footer-column">
+                <h4>Contact Info</h4>
+                <p>123 Digital Street, Innovation City, 560001</p>
+                <p>Email: <a href="mailto:info@nexustrends.com">info@nexustrends.com</a></p>
+                <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2023 E-Commerce Hub. All rights reserved.</p>
-            </div>
+            &copy; 2023 Nexus Trends. All rights reserved.
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('navbar-nav-links');
 
-            if (navToggle && navLinks) {
-                navToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    navToggle.classList.toggle('active');
-                });
+            mobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.toggle('open');
+                navLinks.classList.toggle('active');
+            });
 
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                        navToggle.classList.remove('active');
-                    });
+            // Close mobile menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    navLinks.classList.remove('active');
                 });
-            }
+            });
         });
     </script>
 </body>
