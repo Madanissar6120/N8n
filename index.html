@@ -3,43 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Trends - Your Destination for Modern Lifestyle</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>ShopSphere - Discover Your Next Favorite Item</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables */
+        /* CSS Reset & Variables */
         :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --accent-color: #6f42c1;
-            --text-color: #212529;
-            --light-text-color: #495057;
-            --bg-color: #ffffff;
-            --light-bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --border-color: #e9ecef;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --primary-color: #6366f1; /* Indigo 500 */
+            --primary-light: #818cf8; /* Indigo 400 */
+            --primary-dark: #4f46e5; /* Indigo 600 */
+            --text-color-dark: #1f2937; /* Gray 900 */
+            --text-color-medium: #4b5563; /* Gray 700 */
+            --text-color-light: #6b7280; /* Gray 500 */
+            --bg-color-light: #f9fafb; /* Gray 50 */
+            --bg-color-white: #ffffff;
+            --border-color: #e5e7eb; /* Gray 200 */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+            --radius-sm: 0.375rem; /* 6px */
+            --radius-md: 0.75rem; /* 12px */
+            --radius-lg: 1rem; /* 16px */
+            --font-inter: 'Inter', sans-serif;
+
+            --h1-size: 2.5rem;
+            --h2-size: 2rem;
+            --h3-size: 1.5rem;
+            --p-size: 1rem;
+            --sm-gap: 0.5rem;
+            --md-gap: 1rem;
+            --lg-gap: 2rem;
+            --xl-gap: 3rem;
+            --section-padding: 4rem 1rem;
         }
 
-        /* Base Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-color);
-            background-color: var(--light-bg-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        @media (min-width: 768px) {
+            :root {
+                --h1-size: 3.5rem;
+                --h2-size: 2.5rem;
+                --h3-size: 1.75rem;
+                --section-padding: 6rem 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            :root {
+                --h1-size: 4rem;
+                --h2-size: 3rem;
+                --h3-size: 2rem;
+                --section-padding: 8rem 2rem;
+            }
         }
 
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            color: var(--text-color-medium);
+            background-color: var(--bg-color-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -49,866 +77,833 @@
         }
 
         a:hover {
-            color: var(--accent-color);
+            color: var(--primary-dark);
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            margin-bottom: 0.5em;
-            color: var(--text-color);
+            color: var(--text-color-dark);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--md-gap);
         }
 
-        h1 { font-size: 2.5rem; line-height: 1.1; }
-        h2 { font-size: 2rem; line-height: 1.2; }
-        h3 { font-size: 1.5rem; line-height: 1.3; }
-        p { font-size: 1rem; margin-bottom: 1em; color: var(--light-text-color); }
+        h1 { font-size: var(--h1-size); }
+        h2 { font-size: var(--h2-size); }
+        h3 { font-size: var(--h3-size); }
+        p { font-size: var(--p-size); margin-bottom: var(--md-gap); }
 
-        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5rem;
+            padding: 0 var(--lg-gap);
         }
 
-        .text-center { text-align: center; }
-        .py-section { padding: 4rem 0; }
-        .mt-4 { margin-top: 2rem; }
-        .mb-4 { margin-bottom: 2rem; }
-        .mb-8 { margin-bottom: 4rem; }
-
+        /* Buttons */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            font-weight: 500;
-            text-align: center;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
-            border: 2px solid transparent;
+            white-space: nowrap;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--bg-color);
-            border-color: var(--primary-color);
+            color: var(--bg-color-white);
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
+            background-color: var(--primary-dark);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--primary-color);
-            border-color: var(--primary-color);
+            border: 1px solid var(--primary-color);
         }
 
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: var(--bg-color);
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .flex-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            color: var(--bg-color-white);
+            box-shadow: var(--shadow-md);
         }
 
         /* Navbar */
         .navbar {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            width: 100%;
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
             box-shadow: var(--shadow-sm);
+            padding: var(--md-gap) 0;
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
         }
 
-        .navbar-brand {
-            font-size: 1.6rem;
+        .navbar-logo {
             font-weight: 700;
-            color: var(--text-color);
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
 
-        .navbar-nav {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        .navbar-links {
+            display: none; /* Hidden by default on mobile */
+            gap: var(--lg-gap);
         }
 
-        .navbar-nav a {
-            color: var(--light-text-color);
+        .navbar-links a {
+            color: var(--text-color-dark);
             font-weight: 500;
-            padding: 0.5rem 0;
+            padding: var(--sm-gap) 0;
             position: relative;
         }
 
-        .navbar-nav a::after {
+        .navbar-links a::after {
             content: '';
             position: absolute;
-            left: 0;
             bottom: 0;
+            left: 0;
             width: 0;
             height: 2px;
             background-color: var(--primary-color);
             transition: width 0.3s ease;
         }
 
-        .navbar-nav a:hover::after,
-        .navbar-nav a.active::after {
+        .navbar-links a:hover::after {
             width: 100%;
         }
 
-        .menu-toggle {
-            display: none;
+        .navbar-toggle {
+            display: flex; /* Show on mobile */
             flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
             cursor: pointer;
-            padding: 0.5rem;
+            z-index: 1001;
+            padding: 0;
+            border: none;
+            background: none;
         }
 
-        .menu-toggle span {
+        .navbar-toggle span {
+            display: block;
+            width: 100%;
             height: 2px;
-            width: 25px;
-            background: var(--text-color);
-            margin-bottom: 4px;
-            border-radius: 5px;
+            background-color: var(--text-color-dark);
             transition: all 0.3s ease;
+            border-radius: 1px;
         }
 
-        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .menu-toggle.open span:nth-child(2) { opacity: 1; }
-        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .navbar-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .navbar-toggle.active span:nth-child(2) { opacity: 1; }
+        .navbar-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        .navbar-mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--xl-gap);
+            z-index: 999;
+            transform: translateX(100%);
+            transition: transform 0.4s ease-out;
+        }
+
+        .navbar-mobile-menu.active {
+            transform: translateX(0);
+            display: flex;
+        }
+
+        .navbar-mobile-menu a {
+            color: var(--text-color-dark);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .navbar-toggle {
+                display: none;
+            }
+            .navbar-links {
+                display: flex;
+            }
+            .navbar-mobile-menu {
+                display: none !important; /* Ensure it's hidden on larger screens */
+            }
+        }
+
 
         /* Hero Section */
         .hero-section {
-            position: relative;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-color);
+            padding-top: 6rem; /* Offset for sticky navbar */
             text-align: center;
-            overflow: hidden; /* Important for image container */
+            background-color: var(--bg-color-white);
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-image-container {
-            height: 80vh;
+            height: 80vh; /* Fixed height for hero image */
             width: 100%;
             overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: #e0e0e0; /* Placeholder background */
-            z-index: 1;
+            position: relative;
+            background: #f5f5f5; /* Background for loading state */
+            display: flex; /* For centering content */
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.4); /* Subtle overlay for text readability */
-            border-radius: 12px;
-            color: var(--bg-color);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--lg-gap);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
+            text-align: center;
         }
 
         .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: var(--bg-color);
+            color: var(--bg-color-white);
+            margin-bottom: var(--md-gap);
+            font-size: var(--h1-size);
         }
 
         .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin-bottom: var(--xl-gap);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: var(--md-gap);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Section Styling */
+        section {
+            padding: var(--section-padding);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: var(--xl-gap);
+        }
+
+        .section-heading h2 {
+            margin-bottom: var(--sm-gap);
+            font-size: var(--h2-size);
+        }
+
+        .section-heading p {
+            font-size: 1.15rem;
+            color: var(--text-color-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Products Section */
-        .products-grid {
+        #products {
+            background-color: var(--bg-color-light);
+        }
+
+        .product-grid {
             display: grid;
+            gap: var(--xl-gap);
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
         }
 
         .product-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
+            background-color: var(--bg-color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-hover);
         }
 
         .product-image-container {
-            height: 260px;
+            height: 260px; /* Fixed height for product image */
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f5f5f5; /* Placeholder background */
-            border-bottom: 1px solid var(--border-color);
+            background: #f5f5f5; /* Background for loading state */
         }
 
-        .product-info {
-            padding: 1.5rem;
+        .product-content {
+            padding: var(--lg-gap);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            flex-grow: 1;
         }
 
-        .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
+        .product-content h3 {
+            font-size: var(--h3-size);
+            margin-bottom: var(--sm-gap);
+            line-height: 1.3;
         }
 
-        .product-info .price {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .product-content p {
+            color: var(--text-color-light);
+            font-size: 0.95rem;
+            margin-bottom: var(--md-gap);
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: var(--lg-gap);
         }
 
         /* Features Section */
+        #features {
+            background-color: var(--bg-color-white);
+        }
+
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: var(--xl-gap);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--card-bg);
-            border-radius: 12px;
+        .feature-card {
+            background-color: var(--bg-color-white);
+            padding: var(--lg-gap);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-sm);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
+        .feature-card.with-image {
             box-shadow: var(--shadow-md);
         }
 
-        .feature-item img {
-            max-width: 60px; /* Assuming icons are small images */
-            height: auto;
-            margin-bottom: 1rem;
-            display: inline-block; /* To center */
-            border: none; /* Override general img style if needed */
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .feature-card.with-image:hover {
+            box-shadow: var(--shadow-hover);
         }
 
-        /* The features image specified in rules. Needs its own container with fixed height. */
-        .features-main-image-container {
-            height: 300px; /* Fixed height for this specific features image */
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--md-gap);
+            display: block; /* Ensures icon is not affected by flex-direction */
+        }
+
+        .feature-image-container {
+            height: 200px; /* Fixed height for feature image */
             width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image-container {
-            height: 400px;
-            width: 100%;
-            max-width: 600px; /* Restrict width for better layout on large screens */
             overflow: hidden;
             position: relative;
             background: #f5f5f5;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
+            margin-bottom: var(--md-gap);
+            border-radius: var(--radius-md);
         }
 
-        .about-text {
-            flex: 1;
-            max-width: 600px; /* Match image width for balanced layout */
+
+        /* About Section */
+        #about {
+            background-color: var(--bg-color-light);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--xl-gap);
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+            }
+            .about-content > div {
+                flex: 1;
+            }
+            .about-content .about-text {
+                padding-right: var(--xl-gap);
+            }
+        }
+
+        .about-image-container {
+            height: 400px; /* Fixed height for about image */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5; /* Background for loading state */
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
         }
 
         /* Testimonials Section */
-        .testimonials-grid {
+        #testimonials {
+            background-color: var(--bg-color-white);
+            text-align: center;
+        }
+
+        .testimonial-grid {
             display: grid;
+            gap: var(--lg-gap);
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            margin-top: var(--xl-gap);
         }
 
         .testimonial-card {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
+            background-color: var(--bg-color-white);
+            padding: var(--lg-gap);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            text-align: center;
+            border: 1px solid var(--border-color);
         }
 
         .testimonial-card p {
             font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--light-text-color);
+            color: var(--text-color-dark);
+            margin-bottom: var(--md-gap);
         }
 
-        .testimonial-card .author {
+        .testimonial-author {
             font-weight: 600;
-            color: var(--text-color);
-            font-size: 1.1rem;
+            color: var(--text-color-medium);
         }
 
         /* Contact Section */
+        #contact {
+            background-color: var(--bg-color-light);
+        }
+
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 3rem;
-            border-radius: 12px;
+            background-color: var(--bg-color-white);
+            padding: var(--xl-gap);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--lg-gap);
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--sm-gap);
             font-weight: 500;
-            color: var(--light-text-color);
+            color: var(--text-color-dark);
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
+        .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem 1.2rem;
+            padding: 0.8rem;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: var(--text-color);
-            background-color: var(--light-bg-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-inter);
+            font-size: var(--p-size);
+            color: var(--text-color-dark);
+            background-color: var(--bg-color-light);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* primary-color with 20% opacity */
         }
 
         .form-group textarea {
-            min-height: 120px;
             resize: vertical;
+            min-height: 120px;
         }
 
-        .btn-submit {
+        .contact-form .btn {
             width: 100%;
             padding: 1rem;
             font-size: 1.1rem;
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
         }
 
         /* Footer */
         .footer {
-            background-color: var(--text-color);
+            background-color: var(--text-color-dark);
             color: rgba(255, 255, 255, 0.7);
-            padding: 3rem 0;
+            padding: var(--xl-gap) 0;
             font-size: 0.9rem;
         }
 
         .footer .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--xl-gap);
         }
 
-        .footer-column h4 {
-            color: var(--bg-color);
-            margin-bottom: 1rem;
+        .footer-col h4 {
+            color: var(--bg-color-white);
             font-size: 1.1rem;
+            margin-bottom: var(--lg-gap);
         }
 
-        .footer-column ul {
+        .footer-col ul {
             list-style: none;
         }
 
-        .footer-column ul li {
-            margin-bottom: 0.7rem;
+        .footer-col ul li {
+            margin-bottom: var(--sm-gap);
         }
 
-        .footer-column a {
+        .footer-col ul li a {
             color: rgba(255, 255, 255, 0.7);
             transition: color 0.3s ease;
         }
 
-        .footer-column a:hover {
-            color: var(--primary-color);
+        .footer-col ul li a:hover {
+            color: var(--primary-light);
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: var(--md-gap);
         }
 
         .social-links a {
-            font-size: 1.5rem; /* Placeholder for icon font */
             color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-light);
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            padding-top: var(--xl-gap);
+            margin-top: var(--xl-gap);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* General Image Styles (CRITICAL) */
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border: none;
-            max-width: 100%; /* Ensure responsiveness */
-            height: auto; /* Prevent distortion if parent has auto height */
-        }
-
-        /* Specific overrides for icon-like images */
-        .feature-item img {
-            width: auto; /* For small icon-like images */
-            height: 60px; /* Fixed height for consistency */
-            object-fit: contain; /* Ensure full icon is visible */
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-            h3 { font-size: 1.3rem; }
-            p { font-size: 0.95rem; }
-
-            .navbar .container {
-                flex-wrap: wrap;
-            }
-
-            .navbar-brand {
-                flex-grow: 1;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .navbar-nav {
-                flex-direction: column;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                transform: translateY(-100%);
-                opacity: 1;
-                pointer-events: none;
-                transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-                border-top: 1px solid var(--border-color);
-                padding: 1rem 1.5rem;
-                gap: 0.5rem;
-            }
-
-            .navbar-nav.active {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .navbar-nav a {
-                padding: 0.8rem 0;
-            }
-            .navbar-nav a::after { display: none; } /* Hide underline for mobile */
-            .navbar-nav a:hover { color: var(--primary-color); }
-
-            .hero-content {
-                padding: 1.5rem;
-            }
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .flex-group {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .py-section { padding: 3rem 0; }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .about-image-container {
-                max-width: 100%;
-            }
-
-            .contact-form {
-                padding: 2rem;
-            }
-
-            .footer .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-column ul {
-                padding-left: 0;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
-            }
-            h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.5rem; }
-            h3 { font-size: 1.2rem; }
-            p { font-size: 0.9rem; }
-
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-            .btn {
-                padding: 0.6rem 1.4rem;
-                font-size: 0.9rem;
-            }
-
-            .product-info {
-                padding: 1rem;
-            }
-            .product-info h3 {
-                font-size: 1.1rem;
-            }
-            .product-info .price {
-                font-size: 1rem;
-            }
-            .feature-item {
-                padding: 1.5rem;
-            }
-            .testimonial-card {
-                padding: 1.5rem;
-            }
-            .contact-form {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
-
     <!-- Navbar -->
-    <header class="navbar">
+    <nav class="navbar">
         <div class="container">
-            <a href="#" class="navbar-brand">Nexus Trends</a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav class="navbar-nav" id="navbar-nav-links">
-                <a href="#hero">Home</a>
+            <a href="#hero" class="navbar-logo">ShopSphere</a>
+            <div class="navbar-links">
                 <a href="#products">Products</a>
                 <a href="#features">Features</a>
                 <a href="#about">About Us</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
-            </nav>
+            </div>
+            <button class="navbar-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </header>
+    </nav>
+    <div class="navbar-mobile-menu">
+        <a href="#products" onclick="document.querySelector('.navbar-toggle').click()">Products</a>
+        <a href="#features" onclick="document.querySelector('.navbar-toggle').click()">Features</a>
+        <a href="#about" onclick="document.querySelector('.navbar-toggle').click()">About Us</a>
+        <a href="#testimonials" onclick="document.querySelector('.navbar-toggle').click()">Testimonials</a>
+        <a href="#contact" onclick="document.querySelector('.navbar-toggle').click()">Contact</a>
+    </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office with computers and team collaborating" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            </div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with team working, representing a dynamic business environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             <div class="hero-content">
-                <h1>Elevate Your Lifestyle with Nexus Trends</h1>
-                <p>Discover a curated collection of innovative electronics, stylish apparel, and essential home goods.</p>
-                <div class="flex-group">
+                <h1>Unlock a World of Quality & Innovation</h1>
+                <p>Discover hand-picked products that blend cutting-edge technology with elegant design. ShopSphere brings you the best, right to your doorstep.</p>
+                <div class="hero-actions">
                     <a href="#products" class="btn btn-primary">Shop Now</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                    <a href="#features" class="btn btn-secondary">Explore Features</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Products Section -->
-        <section id="products" class="py-section">
-            <div class="container text-center">
-                <h2>Our Latest Innovations</h2>
-                <p class="mb-8">Explore our exclusive range of products designed for the modern individual.</p>
-
-                <div class="products-grid">
-                    <!-- Product Card 1 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with a digital display showing time and fitness metrics" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Quantum Smartwatch X1</h3>
-                            <p>Stay connected and track your fitness with our advanced smartwatch.</p>
-                            <span class="price">₹12,499</span>
-                            <a href="#" class="btn btn-primary mt-4">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 2 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Premium noise-cancelling over-ear headphones in a minimalist design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Aura ANC Headphones Pro</h3>
-                            <p>Immersive sound and superior comfort for an unparalleled audio experience.</p>
-                            <span class="price">₹8,999</span>
-                            <a href="#" class="btn btn-primary mt-4">Add to Cart</a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 3 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant metallic portable SSD with a modern design for fast data storage" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Velocity Portable SSD 2TB</h3>
-                            <p>Blazing-fast storage solution for all your digital needs on the go.</p>
-                            <span class="price">₹14,999</span>
-                            <a href="#" class="btn btn-primary mt-4">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Latest Arrivals & Bestsellers</h2>
+                <p>Explore a curated selection of products designed to enhance your everyday life. From smart gadgets to stylish accessories, find what you love.</p>
             </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="py-section" style="background-color: var(--bg-color);">
-            <div class="container text-center">
-                <h2>Why Choose Nexus Trends?</h2>
-                <p class="mb-8">Experience the difference with our commitment to quality, innovation, and customer satisfaction.</p>
-
-                <!-- Prominent image within the features section -->
-                <div class="features-main-image-container mb-4">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Modern office desk with a laptop, notebooks, and a cup of coffee, symbolizing productivity and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="ShopSphere Aura Smartwatch, black strap with digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3>ShopSphere Aura Smartwatch</h3>
+                        <p>Track your fitness, monitor health, and stay connected with our sleek and powerful smartwatch. Designed for the modern life.</p>
+                        <span class="product-price">₹12,999</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
 
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <img src="https://img.icons8.com/ios-filled/50/007bff/lightning-bolt.png" alt="Fast Delivery Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
-                        <h3>Rapid Delivery</h3>
-                        <p>Get your products delivered swiftly and securely to your doorstep.</p>
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="SonicFlow Noise-Cancelling Headphones, silver metallic finish" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="feature-item">
-                        <img src="https://img.icons8.com/ios-filled/50/007bff/star.png" alt="Premium Quality Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
-                        <h3>Premium Quality</h3>
-                        <p>We source only the best products, ensuring durability and performance.</p>
+                    <div class="product-content">
+                        <h3>SonicFlow Noise-Cancelling Headphones</h3>
+                        <p>Immerse yourself in pure audio bliss. Experience crystal-clear sound and supreme comfort with active noise cancellation.</p>
+                        <span class="product-price">₹7,499</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
-                    <div class="feature-item">
-                        <img src="https://img.icons8.com/ios-filled/50/007bff/customer-service.png" alt="24/7 Support Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
-                        <h3>24/7 Support</h3>
-                        <p>Our dedicated support team is always ready to assist you.</p>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Aura Pro Fitness Tracker, with heart rate monitor visible" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="feature-item">
-                        <img src="https://img.icons8.com/ios-filled/50/007bff/secure.png" alt="Secure Payments Icon" style="width:auto; height:60px; object-fit:contain; display:block; border:none; margin: 0 auto 1rem auto;">
-                        <h3>Secure Payments</h3>
-                        <p>Shop with confidence using our encrypted and secure payment gateways.</p>
+                    <div class="product-content">
+                        <h3>Aura Pro Fitness Tracker</h3>
+                        <p>Elevate your workout with advanced metrics, long battery life, and integrated GPS. Your ultimate fitness companion.</p>
+                        <span class="product-price">₹15,999</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="AeroBuds Wireless Earbuds, charging case and earbuds displayed" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3>AeroBuds Wireless Earbuds</h3>
+                        <p>Compact design, powerful sound. Enjoy true wireless freedom with seamless connectivity and ergonomic fit for all-day listening.</p>
+                        <span class="product-price">₹4,299</span>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-section">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team collaborating in a modern office space, reflecting unity and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Why Choose ShopSphere?</h2>
+                <p>We're more than just a store; we're a commitment to quality, convenience, and customer satisfaction.</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature Card 1 (with image) -->
+                <div class="feature-card with-image">
+                    <div class="feature-image-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Abstract network lines representing advanced AI integration" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                     </div>
-                    <div class="about-text">
-                        <h2>About Nexus Trends</h2>
-                        <p>At Nexus Trends, we believe in bringing the future to your doorstep today. Founded in 2023, our mission is to provide cutting-edge products that enhance daily life, from smart devices that simplify tasks to fashion that defines your style.</p>
-                        <p>We are a team of passionate individuals dedicated to curating a selection of high-quality, innovative, and sustainable products. Our commitment to excellence extends from product sourcing to customer service, ensuring a seamless and satisfying shopping experience for every client.</p>
-                        <p>Join us on our journey to discover the next big thing and transform the way you live, work, and play.</p>
-                    </div>
+                    <h3>Intelligent Product Recommendations</h3>
+                    <p>Our advanced AI learns your preferences to suggest products you'll truly love, making your shopping experience effortless and personalized.</p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Secure & Seamless Transactions</h3>
+                    <p>Shop with confidence using our encrypted payment gateways. Your privacy and security are our top priorities for every purchase.</p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="feature-card">
+                    <span class="feature-icon">🚚</span>
+                    <h3>Nationwide Fast Shipping</h3>
+                    <p>Get your favorite products delivered quickly and reliably across India. We partner with trusted logistics for timely arrivals.</p>
+                </div>
+
+                <!-- Feature Card 4 -->
+                <div class="feature-card">
+                    <span class="feature-icon">💬</span>
+                    <h3>Dedicated 24/7 Support</h3>
+                    <p>Our friendly customer service team is always here to assist you, from product queries to after-sales support.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-section" style="background-color: var(--bg-color);">
-            <div class="container text-center">
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-heading" style="text-align: left;">
+                        <h2>Our Journey at ShopSphere</h2>
+                    </div>
+                    <p>Founded on the principle of bringing unparalleled quality and innovation to every household, ShopSphere began with a vision to redefine online shopping. We believe in offering products that not only meet your needs but also exceed your expectations in design, functionality, and durability.</p>
+                    <p>From carefully sourcing manufacturers to rigorous quality checks, every step of our process is geared towards ensuring you receive nothing but the best. We are a team of passionate individuals dedicated to creating a seamless and delightful shopping experience for you.</p>
+                </div>
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="ShopSphere team collaborating in a modern office environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-heading">
                 <h2>What Our Customers Say</h2>
-                <p class="mb-8">Hear directly from the people who love Nexus Trends.</p>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p>"Nexus Trends has revolutionized my tech purchases. Their Quantum Smartwatch X1 is simply amazing, and the delivery was incredibly fast. Highly recommended!"</p>
-                        <div class="author">- Priya Sharma, Tech Enthusiast</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"I was searching for quality noise-cancelling headphones for ages, and the Aura ANC Headphones Pro from Nexus Trends exceeded all expectations. Fantastic sound!"</p>
-                        <div class="author">- Rahul Singh, Music Lover</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"The customer service is outstanding. I had a query about my order, and they resolved it quickly and efficiently. A truly reliable e-commerce platform."</p>
-                        <div class="author">- Anjali Mehta, Satisfied Customer</div>
-                    </div>
+                <p>Hear from the ShopSphere community about their experiences with our products and service.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Absolutely love my new Smartwatch! It's stylish, functional, and battery life is impressive. ShopSphere delivered it quickly and the packaging was great. Highly recommend!"</p>
+                    <p class="testimonial-author">- Priya Sharma, Bengaluru</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The noise-cancelling headphones are a game-changer for my daily commute. The sound quality is fantastic, and they're so comfortable. Excellent product and service from ShopSphere."</p>
+                    <p class="testimonial-author">- Rohan Mehta, Mumbai</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I was looking for a reliable fitness tracker, and the Aura Pro exceeded my expectations. Accurate readings and easy to use. ShopSphere has earned a loyal customer!"</p>
+                    <p class="testimonial-author">- Aarti Singh, Delhi</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-section">
-            <div class="container">
-                <h2 class="text-center">Get In Touch</h2>
-                <p class="text-center mb-8">Have questions or need assistance? Send us a message!</p>
-
-                <div class="contact-form">
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">Send Message</button>
-                    </form>
-                </div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Get in Touch with ShopSphere</h2>
+                <p>Have questions, feedback, or need assistance? Reach out to us, and our team will be happy to help.</p>
             </div>
-        </section>
-    </main>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-column">
-                <h4>Nexus Trends</h4>
-                <p>Your ultimate destination for modern lifestyle products. Innovate, explore, and elevate with us.</p>
+            <div class="footer-col">
+                <h4>ShopSphere</h4>
+                <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--lg-gap);">Discover innovation, embrace quality.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="Facebook Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
-                    <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-filled/30/ffffff/twitter.png" alt="Twitter Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
-                    <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
-                    <a href="#" aria-label="LinkedIn"><img src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png" alt="LinkedIn Icon" style="width:30px; height:30px; object-fit:contain; display:inline-block; border:none;"></a>
+                    <a href="#" aria-label="Facebook"><span style="font-family: Arial, sans-serif;">f</span></a>
+                    <a href="#" aria-label="Twitter"><span style="font-family: Arial, sans-serif;">t</span></a>
+                    <a href="#" aria-label="Instagram"><span style="font-family: Arial, sans-serif;">i</span></a>
+                    <a href="#" aria-label="LinkedIn"><span style="font-family: Arial, sans-serif;">in</span></a>
                 </div>
             </div>
-            <div class="footer-column">
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About Us</a></li>
                     <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
+            <div class="footer-col">
                 <h4>Support</h4>
                 <ul>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">FAQs</a></li>
                     <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h4>Contact Info</h4>
-                <p>123 Digital Street, Innovation City, 560001</p>
-                <p>Email: <a href="mailto:info@nexustrends.com">info@nexustrends.com</a></p>
-                <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:support@shopsphere.in" style="color: inherit;">support@shopsphere.in</a></p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Address: 123 Innovation Hub, Cyber City, Gurugram, India</p>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2023 Nexus Trends. All rights reserved.
+            <p>&copy; 2023 ShopSphere. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- JavaScript for Mobile Navbar -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.getElementById('navbar-nav-links');
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const mobileMenu = document.querySelector('.navbar-mobile-menu');
 
-            mobileMenu.addEventListener('click', function() {
-                mobileMenu.classList.toggle('open');
-                navLinks.classList.toggle('active');
+            navbarToggle.addEventListener('click', function() {
+                navbarToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.classList.toggle('no-scroll'); // Optional: prevent scrolling when mobile menu is open
             });
 
             // Close mobile menu when a link is clicked
-            navLinks.querySelectorAll('a').forEach(link => {
+            mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('open');
-                    navLinks.classList.remove('active');
+                    navbarToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
                 });
             });
         });
