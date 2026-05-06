@@ -3,125 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexGen Trends - Your Future Fashion Destination</title>
+    <title>NEXUS | Premium Tech & Lifestyle</title>
     <style>
-        /* CSS Reset & Variables */
         :root {
-            --primary-color: #2e3a87; /* Darker blue */
-            --accent-color: #007bff; /* Bright blue */
-            --text-color: #333;
-            --light-text-color: #f8f8f8;
-            --background-color: #ffffff;
-            --secondary-background: #f8f8f8;
-            --card-background: #ffffff;
-            --border-color: #e0e0e0;
-            --shadow-light: rgba(0, 0, 0, 0.08);
-            --shadow-medium: rgba(0, 0, 0, 0.15);
-            --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            --border-radius: 8px;
-            --transition-speed: 0.3s ease;
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
-        body {
-            font-family: var(--font-family);
-            color: var(--text-color);
-            background-color: var(--background-color);
-            line-height: 1.6;
+        html {
             scroll-behavior: smooth;
         }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color var(--transition-speed);
-        }
-
-        a:hover {
-            color: var(--primary-color);
-        }
-
-        h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1.5rem; }
-        h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 1.2rem; }
-        h3 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 1rem; }
-        p { font-size: 1rem; margin-bottom: 1rem; }
-
-        section {
-            padding: 4rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
         /* Navbar */
-        .navbar {
-            position: fixed;
+        nav {
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 10px var(--shadow-light);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
         }
 
-        .navbar .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+            text-decoration: none;
         }
 
-        .navbar-links {
+        .nav-links {
             display: flex;
             gap: 2rem;
         }
 
-        .navbar-links a {
-            color: var(--text-color);
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
             font-weight: 500;
-            font-size: 1.05rem;
-            position: relative;
+            font-size: 0.95rem;
+            transition: var(--transition);
         }
 
-        .navbar-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width var(--transition-speed);
+        .nav-links a:hover {
+            color: var(--accent);
         }
 
-        .navbar-links a:hover::after {
-            width: 100%;
+        .cart-btn {
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .cart-btn:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
         }
 
         /* Hero Section */
         .hero {
-            padding-top: 60px; /* Adjust for fixed navbar height */
-            height: 80vh; /* Controlled by image container below */
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative; /* For hero content positioning */
+            min-height: 80vh;
+            background: var(--white);
+            padding: 0 5%;
+            gap: 40px;
+        }
+
+        .hero-content {
+            padding: 40px 0;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            transition: var(--transition);
         }
 
         .hero-image-container {
@@ -129,97 +151,44 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e0e0e0; /* Loading state background */
-        }
-
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            color: var(--light-text-color);
-            max-width: 800px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-        }
-
-        .hero-content h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1rem;
-            color: var(--light-text-color);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: var(--light-text-color);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-align: center;
-            transition: all var(--transition-speed);
-            cursor: pointer;
-            border: none;
-            text-decoration: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: var(--light-text-color);
-            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-color);
-            box-shadow: 0 6px 20px rgba(46, 58, 135, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: var(--light-text-color);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.8);
-            transform: translateY(-2px);
+            border-radius: 24px;
+            background: #eee;
         }
 
         /* Products Section */
-        .products-grid {
+        .section-padding {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .product-card {
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px var(--shadow-light);
+            background: var(--white);
+            border-radius: 20px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px var(--shadow-medium);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         .product-image-container {
@@ -231,609 +200,402 @@
         }
 
         .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: 24px;
         }
 
-        .product-info h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-            color: var(--primary-color);
+        .product-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        .product-info p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1rem;
-            flex-grow: 1;
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
         }
 
         .product-price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .product-card .btn {
-            width: 100%;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: var(--border-radius);
+        .buy-now {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
         }
 
-        /* Features Section */
-        .features {
-            background-color: var(--secondary-background);
+        .buy-now:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            background: var(--primary);
+            color: white;
+            padding: 80px 5%;
+            border-radius: 40px;
+            margin: 0 5%;
+        }
+
+        .feature-card {
             text-align: center;
         }
-        
-        .features-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-top: 3rem;
-            text-align: left;
-        }
 
-        .features-image-container {
-            height: 400px; /* Fixed height for feature image */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #e0e0e0; /* Loading state background */
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 30px var(--shadow-light);
-        }
-
-        .features-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            text-align: left;
-            gap: 1.2rem;
-        }
-
-        .feature-icon-wrapper {
-            width: 48px;
-            height: 48px;
-            min-width: 48px; /* ensure icon size doesn't shrink */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            border-radius: var(--border-radius);
+        .feature-card h3 {
             font-size: 1.5rem;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px 0 10px;
         }
 
-        .feature-text h3 {
-            margin-top: 0;
-            margin-bottom: 0.4rem;
-            color: var(--primary-color);
-        }
-        .feature-text p {
-            margin-bottom: 0;
-            color: #555;
+        .feature-card p {
+            color: #cbd5e1;
         }
 
         /* About Section */
-        .about-content {
+        .about-section {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
         }
 
         .about-image-container {
-            height: 400px;
+            height: 500px;
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #e0e0e0; /* Loading state background */
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 30px var(--shadow-light);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
         }
 
-        .about-text h2 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--secondary-background);
-            text-align: center;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background-color: var(--card-background);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px var(--shadow-light);
-            text-align: left;
-            position: relative;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px var(--shadow-medium);
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-card .author {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 1rem;
-            display: block;
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
         /* Contact Section */
-        .contact-form-wrapper {
-            max-width: 700px;
-            margin: 2rem auto 0 auto;
-            background-color: var(--card-background);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px var(--shadow-light);
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
         }
 
-        .contact-form label {
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
             font-weight: 600;
-            color: var(--primary-color);
         }
 
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
+        .form-group input, .form-group textarea {
             width: 100%;
-            padding: 0.9rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            font-family: var(--font-family);
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
             font-size: 1rem;
-            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
         }
 
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
-            outline: none;
-        }
-
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form .btn {
-            width: auto;
-            padding: 0.9rem 2.5rem;
-            font-size: 1.1rem;
-            border-radius: var(--border-radius);
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
         }
 
         /* Footer */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            padding: 3rem 1rem;
-            text-align: center;
-            font-size: 0.9rem;
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 5% 40px;
+            margin-top: 100px;
         }
 
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
-        .footer-links-group {
-            flex: 1 1 150px; /* Allow items to grow/shrink, with a base of 150px */
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            align-items: flex-start; /* Align left */
-            text-align: left;
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .footer-links-group h4 {
+        .footer-links h4 {
+            margin-bottom: 20px;
             font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            color: var(--light-text-color);
         }
 
-        .footer-links-group a {
-            color: var(--light-text-color);
-            opacity: 1.8;
-            transition: opacity var(--transition-speed);
+        .footer-links ul {
+            list-style: none;
         }
 
-        .footer-links-group a:hover {
-            opacity: 1;
-            text-decoration: underline;
+        .footer-links li {
+            margin-bottom: 12px;
         }
 
-        .footer-socials {
-            flex: 1 1 100%; /* Take full width on small screens */
-            margin-top: 1rem;
-            text-align: center;
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
         }
 
-        .footer-socials a {
-            font-size: 1.2rem;
-            margin: 0 0.8rem;
-            color: var(--light-text-color);
-            opacity: 1.8;
-        }
-
-        .footer-socials a:hover {
-            opacity: 1;
+        .footer-links a:hover {
+            color: white;
         }
 
         .footer-bottom {
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            opacity: 1.7;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
             text-align: center;
+            color: #94a3b8;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.7rem; }
-            h3 { font-size: 1.3rem; }
-
-            .navbar {
-                padding: 0.8rem 1rem;
-            }
-            .navbar .logo {
-                font-size: 1.5rem;
-            }
-            .navbar-links {
-                gap: 1.2rem;
-            }
-            .navbar-links a {
-                font-size: 0.95rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .btn {
-                width: 80%;
-                margin: 0 auto;
-            }
-
-            .products-grid, .testimonials-grid {
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero, .about-section {
                 grid-template-columns: 1fr;
             }
-
-            .features-layout {
-                grid-template-columns: 1fr; /* Stack image and list */
+            .hero-image-container {
+                height: 50vh;
             }
-            .features-image-container, .about-image-container {
-                height: 300px;
-            }
-            .features-list {
-                margin-top: 2rem;
-            }
-            .feature-item {
-                flex-direction: row; /* Keep icon and text side-by-side */
-                text-align: left;
-                align-items: flex-start;
-            }
-            .feature-text h3 {
-                margin-top: 0;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr; /* Stack image and text */
-            }
-
-            .footer-links-group {
-                align-items: center;
-                text-align: center;
-                flex: 1 1 100%;
-            }
-            .footer-socials {
-                margin-top: 2rem;
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
-            p { font-size: 0.9rem; }
-
-            .navbar-links {
-                gap: 0.8rem;
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
-            .navbar-links a {
-                font-size: 0.9rem;
+            .section-padding {
+                padding: 60px 5%;
             }
-
             .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .btn {
-                width: 90%;
-            }
-
-            section {
-                padding: 3rem 0.8rem;
-            }
-
-            .product-card {
-                margin: 0 auto;
-                max-width: 350px;
-            }
-
-            .contact-form-wrapper {
-                padding: 1.5rem;
-            }
-
-            .feature-icon-wrapper {
-                width: 40px;
-                height: 40px;
-                min-width: 40px;
-                font-size: 1.2rem;
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo"><a href="#">NexGen Trends</a></div>
-        <div class="navbar-links">
-            <a href="#hero">Home</a>
-            <a href="#products">Products</a>
-            <a href="#features">Features</a>
+
+    <nav>
+        <a href="#" class="logo">NEXUS</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#products">Store</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </div>
+        <a href="#" class="cart-btn">Cart (0)</a>
     </nav>
 
-    <header id="hero" class="hero">
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with technology, representing a future-focused business." style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-        </div>
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Elevate Your Everyday with NexGen Trends</h1>
-            <p>Discover cutting-edge products designed for the modern lifestyle. Quality, innovation, and style.</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">Shop Our Collections</a>
-                <a href="#about" class="btn btn-secondary">Learn Our Story</a>
+            <h1>Tomorrow's Tech, <br>Available Today.</h1>
+            <p>Experience the next generation of lifestyle electronics and premium accessories designed for the modern professional.</p>
+            <div class="cta-group">
+                <a href="#products" class="btn-primary">Shop Collection</a>
+                <a href="#about" class="btn-secondary">Our Story</a>
             </div>
         </div>
-    </header>
-
-    <section id="products">
-        <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 0.5rem;">Our Bestselling Products</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: #666;">Explore our curated selection of high-quality items, blending innovative design with everyday functionality.</p>
-
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Close-up of a sleek, modern smartwatch on a wrist." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Elegant Smartwatch X10</h3>
-                    <p>Track your fitness, stay connected, and manage your day with unparalleled style and precision.</p>
-                    <span class="product-price">₹12,499</span>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-quality wireless over-ear headphones." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>AuraFlow Wireless Earbuds</h3>
-                    <p>Immersive audio experience with comfortable fit and long-lasting battery life. Perfect for any journey.</p>
-                    <span class="product-price">₹4,999</span>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Close-up of a sleek, modern smartwatch on a wrist." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Smart Fitness Band Pro</h3>
-                    <p>Monitor your health with advanced sensors and personalized insights. Achieve your fitness goals smarter.</p>
-                    <span class="product-price">₹2,999</span>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-quality wireless over-ear headphones." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Portable Power Bank 20000mAh</h3>
-                    <p>Never run out of charge. Fast, reliable power for all your devices, wherever you go.</p>
-                    <span class="product-price">₹1,799</span>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-            </div>
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern corporate office and tech environment" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
         </div>
     </section>
 
-    <section id="features" class="features">
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem;">Why Choose NexGen Trends?</h2>
-        <p style="max-width: 700px; margin: 0 auto 3rem auto; color: #666;">We are committed to delivering exceptional value through innovative design, superior quality, and a seamless shopping experience.</p>
-
-        <div class="features-layout">
-            <div class="features-image-container">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Team collaborating on a project, showcasing innovation and collaboration." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+    <section class="section-padding" id="products">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <p>Handpicked essentials for your digital workflow.</p>
+        </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Nexus S1 Premium Smartwatch" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Wearables</span>
+                    <h3 class="product-name">Nexus S1 Smartwatch</h3>
+                    <div class="product-price">
+                        ₹12,999
+                        <button class="buy-now">Add to Cart</button>
+                    </div>
+                </div>
             </div>
-            <div class="features-list">
-                <div class="feature-item">
-                    <div class="feature-icon-wrapper">✓</div>
-                    <div class="feature-text">
-                        <h3>Cutting-Edge Innovation</h3>
-                        <p>We consistently bring you the latest technological advancements and trends.</p>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="AeroBass Wireless Headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3 class="product-name">AeroBass Headphones</h3>
+                    <div class="product-price">
+                        ₹8,499
+                        <button class="buy-now">Add to Cart</button>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon-wrapper">★</div>
-                    <div class="feature-text">
-                        <h3>Uncompromised Quality</h3>
-                        <p>Every product is rigorously tested to meet our high standards for durability and performance.</p>
-                    </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Core Performance Laptop Stand" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon-wrapper">⚡</div>
-                    <div class="feature-text">
-                        <h3>Fast & Secure Delivery</h3>
-                        <p>Enjoy swift and safe delivery right to your doorstep, powered by trusted logistics partners.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon-wrapper">✉</div>
-                    <div class="feature-text">
-                        <h3>Dedicated Customer Support</h3>
-                        <p>Our friendly support team is always ready to assist you with any queries or concerns.</p>
+                <div class="product-info">
+                    <span class="product-category">Workstation</span>
+                    <h3 class="product-name">Pro-Work Hub</h3>
+                    <div class="product-price">
+                        ₹4,999
+                        <button class="buy-now">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Our Vision: Shaping the Future of E-commerce</h2>
-                <p>At NexGen Trends, we believe in a future where technology and lifestyle seamlessly merge. Founded in 2021, our mission is to handpick and deliver products that not only keep you ahead of the curve but also enhance your daily life.</p>
-                <p>We are a passionate team of innovators, designers, and tech enthusiasts dedicated to creating a unique online shopping experience. From the latest smart devices to modern lifestyle essentials, every item in our catalog is chosen for its quality, innovation, and positive impact on your routine.</p>
-                <p>Join us on our journey to redefine contemporary living, one exceptional product at a time.</p>
-                <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Get in Touch</a>
-            </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Fast Delivery</h3>
+            <p>Pan-India shipping within 48 hours for all prime members.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Secure Payment</h3>
+            <p>All transactions are 256-bit AES encrypted and 100% safe.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Premium Support</h3>
+            <p>24/7 dedicated customer assistance for all your tech needs.</p>
+        </div>
+    </div>
+
+    <section class="section-padding" id="about">
+        <div class="about-section">
             <div class="about-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Group of diverse professionals collaborating in a modern office, representing our team." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="The Nexus Design Team" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            </div>
+            <div class="about-content">
+                <h2>Designed for the Bold</h2>
+                <p>NEXUS started with a simple idea: premium technology shouldn't just be functional; it should be an extension of your personality. Founded in 2021, we've served over 50,000 customers across India with high-performance gadgets that redefine quality.</p>
+                <p style="margin-top: 20px;">Every product in our catalog undergoes rigorous testing for durability, performance, and aesthetic appeal. We believe in minimalist design and maximal performance.</p>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
-        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem;">What Our Customers Say</h2>
-        <p style="max-width: 700px; margin: 0 auto 3rem auto; color: #666;">Hear directly from our satisfied customers about their NexGen Trends experience.</p>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p>"The Smartwatch X10 is a game-changer! Its sleek design and powerful features make it indispensable for my daily routine. Absolutely love the battery life too."</p>
-                <span class="author">— Priya Sharma, Mumbai</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"NexGen Trends has become my go-to for gadgets. The AuraFlow Earbuds are incredible – crystal clear sound and they fit perfectly. Shipping was super fast!"</p>
-                <span class="author">— Rohan Patel, Bangalore</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"Fantastic customer service and high-quality products. I bought the Smart Fitness Band Pro, and it has genuinely helped me stay on track with my health goals. Highly recommended!"</p>
-                <span class="author">— Meena Devi, Chennai</span>
-            </div>
+    <section class="section-padding" id="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Have questions? Our team is here to help.</p>
         </div>
-    </section>
-
-    <section id="contact">
-        <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 0.5rem;">Connect With Us</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: #666;">Have questions, feedback, or just want to say hello? We're eager to hear from you!</p>
-
-        <div class="contact-form-wrapper">
-            <form class="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
-
-                <button type="submit" class="btn btn-primary">Send Message</button>
+        <div class="contact-container">
+            <form action="#">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Tell us how we can help..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links-group">
-                <h4>Explore</h4>
-                <a href="#hero">Home</a>
-                <a href="#products">Products</a>
-                <a href="#features">Features</a>
-                <a href="#about">About Us</a>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <span class="footer-logo">NEXUS</span>
+                <p style="color: #94a3b8; max-width: 300px;">Redefining the boundaries of tech and lifestyle since 2021. Premium quality guaranteed.</p>
             </div>
-            <div class="footer-links-group">
+            <div class="footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Smartwatches</a></li>
+                    <li><a href="#">Audio Gear</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
                 <h4>Support</h4>
-                <a href="#contact">Contact Us</a>
-                <a href="#">FAQs</a>
-                <a href="#">Shipping Info</a>
-                <a href="#">Returns & Refunds</a>
-            </div>
-            <div class="footer-links-group">
-                <h4>Legal</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Disclaimer</a>
-            </div>
-            <div class="footer-socials">
-                <a href="#" aria-label="Facebook">Facebook</a> |
-                <a href="#" aria-label="Twitter">Twitter</a> |
-                <a href="#" aria-label="Instagram">Instagram</a> |
-                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 NexGen Trends. All rights reserved.</p>
+            <p>&copy; 2024 NEXUS Technology India Pvt Ltd. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Simple Interaction
+        document.querySelectorAll('.buy-now').forEach(button => {
+            button.addEventListener('click', () => {
+                const count = document.querySelector('.cart-btn');
+                let current = parseInt(count.innerText.match(/\d+/)[0]);
+                count.innerText = `Cart (${current + 1})`;
+                button.innerText = "Added ✓";
+                button.style.background = "#059669";
+                button.style.color = "white";
+                setTimeout(() => {
+                    button.innerText = "Add to Cart";
+                    button.style.background = "";
+                    button.style.color = "";
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 </html>
