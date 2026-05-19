@@ -3,870 +3,758 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern General Store</title>
+    <title>Lumina Tech | Premium Electronics & Lifestyle</title>
     <style>
         :root {
-            --primary-color: #3b82f6; /* Blue */
-            --secondary-color: #1c2a38; /* Dark Blue/Gray */
-            --accent-color: #ef4444; /* Red */
-            --text-color: #333;
-            --light-text-color: #f8fafc;
-            --background-color: #ffffff;
-            --light-bg: #f5f5f5;
-            --border-color: #e5e7eb;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --transition-speed: 0.3s ease;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
         }
 
-        /* Base Styles */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color var(--transition-speed);
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Utility, not for img rules directly */
-        img { 
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-
-        h1 {
-            font-size: 2.5rem; /* Mobile */
-        }
-
-        h2 {
-            font-size: 1.75rem; /* Mobile */
-        }
-
-        h3 {
-            font-size: 1.25rem;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            border: 1px solid transparent;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            border-color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background-color: #2563eb; /* Darker primary */
-            border-color: #2563eb;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .section-padding {
-            padding: 4rem 0;
+            overflow-x: hidden;
         }
 
         /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 70px;
+            display: flex;
+            align-items: center;
         }
 
-        .navbar .container {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary-color);
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
         }
 
         .nav-links {
-            display: none; /* Hidden by default on mobile */
-            flex-direction: column;
-            width: 100%;
-            position: absolute;
-            top: 100%; /* Position below navbar */
-            left: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem;
-        }
-        
-        .nav-links.open {
             display: flex;
-        }
-
-        .nav-links li {
-            margin: 0.5rem 0;
-            text-align: center;
+            gap: 2.5rem;
+            list-style: none;
         }
 
         .nav-links a {
-            color: var(--secondary-color);
+            text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            display: block;
+            font-size: 0.95rem;
+            transition: var(--transition);
         }
 
-        .hamburger {
-            display: flex; /* Visible on mobile */
-            flex-direction: column;
-            justify-content: space-between;
-            width: 25px;
-            height: 20px;
-            cursor: pointer;
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        .hamburger span {
-            display: block;
-            width: 100%;
-            height: 3px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-            transition: all var(--transition-speed);
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
         /* Hero Section */
         .hero {
-            position: relative;
-            color: var(--light-text-color);
-            display: flex;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* CRITICAL: Hero Image Container */
-        .hero-image-container { 
-            height: 80vh; 
-            width: 100%; 
-            overflow: hidden; 
-            position: relative; 
-            background: #e0e7ff; /* Background for loading state */
-        }
-        .hero-image-container img {
-            width:100%; 
-            height:100%; 
-            object-fit:cover; 
-            display:block; 
-            border:none;
-        }
-
-        .hero-content {
-            position: absolute;
-            z-index: 1;
-            max-width: 800px;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.4); /* Subtle overlay for text readability */
-            border-radius: 0.5rem;
+            min-height: 85vh;
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: var(--light-text-color);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-weight: 800;
+            color: var(--dark);
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--light-text-color);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            font-size: 1.125rem;
+            color: var(--secondary);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
         }
 
-        .hero-actions {
+        .hero-btns {
             display: flex;
-            flex-direction: column;
             gap: 1rem;
-            justify-content: center;
-            align-items: center;
         }
-        .hero-actions .btn {
-            min-width: 180px;
+
+        .btn-primary {
+            background: var(--dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--dark);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .hero-image-container {
+            height: 80vh;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            background: #e2e8f0;
         }
 
         /* Products Section */
-        .products-grid {
+        .section-padding {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
         .product-card {
-            background-color: var(--background-color);
-            border-radius: 0.75rem;
+            background: var(--white);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* CRITICAL: Product Image Container */
-        .product-image-container { 
-            height: 260px; 
-            width: 100%; 
-            overflow: hidden; 
-            position: relative; 
-            background: #f5f5f5; /* Background for loading state */
-        }
-        .product-image-container img {
-            width:100%; 
-            height:100%; 
-            object-fit:cover; 
-            display:block; 
-            border:none;
+        .product-image-container {
+            height: 260px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
         }
 
         .product-info {
             padding: 1.5rem;
-            text-align: center;
         }
 
-        .product-info h3 {
+        .product-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .product-name {
             font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
         }
 
         .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary-dark);
         }
 
         /* Features Section */
-        .features-grid {
+        .features-bg {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
             margin-top: 3rem;
-            text-align: center;
         }
 
-        .feature-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem;
-            background-color: var(--light-bg);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-sm);
+        .feature-card {
+            text-align: left;
         }
 
-        .feature-icon {
-            width: 60px;
+        .feature-icon-box {
             height: 60px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
+            width: 60px;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
             margin-bottom: 1rem;
-            font-size: 2rem;
-            color: var(--light-text-color);
         }
-        
-        .feature-item-image {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0; 
-            background-color: var(--light-bg);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-sm);
-        }
-        .feature-item-image .image-wrapper {
-            height: 250px; /* Fixed height for feature image item */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            border-radius: 0.75rem 0.75rem 0 0; /* Top rounded corners */
-            background: #e0e7ff; /* Background for loading state */
-        }
-        .feature-item-image .image-wrapper img {
-            width:100%; 
-            height:100%; 
-            object-fit:cover; 
-            display:block; 
-            border:none;
-            border-radius: 0.75rem 0.75rem 0 0; /* Top rounded corners */
-        }
-        .feature-item-image .feature-content {
-            padding: 1.5rem;
-            text-align: center;
-        }
-        .feature-item-image h3 {
-            margin-top: 0;
-            margin-bottom: 0.75rem;
+
+        .feature-card p {
+            color: #94a3b8;
         }
 
         /* About Section */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        /* CRITICAL: About Image Container */
-        .about-image-container { 
-            height: 400px; 
-            width: 100%; 
-            overflow: hidden; 
-            position: relative; 
-            border-radius: 0.75rem;
-            background: #e0e7ff; /* Background for loading state */
-        }
-        .about-image-container img {
-            width:100%; 
-            height:100%; 
-            object-fit:cover; 
-            display:block; 
-            border:none;
-            border-radius: 0.75rem;
-        }
-        
-        /* Testimonials Section */
-        .testimonials-grid {
+        .about-section {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background-color: var(--light-bg);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-            border-left: 5px solid var(--primary-color);
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto 0;
-            padding: 2rem;
-            background-color: var(--light-bg);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.375rem;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color var(--transition-speed);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-            padding: 3rem 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .footer .container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
 
-        .footer-links ul {
+        .about-image-container {
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 16px;
+            background: #e2e8f0;
+        }
+
+        .about-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
             margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .footer-about p {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
         }
 
         .footer-links a {
-            color: var(--light-text-color);
-            font-weight: 500;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
         }
 
-        .social-links {
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 0.9rem;
         }
 
-        .social-links a {
-            font-size: 1.5rem; /* Placeholder for social icons */
-            color: var(--light-text-color);
-        }
-        
-        /* Media Queries */
-        @media (min-width: 480px) {
-            .hero-actions {
-                flex-direction: row;
-            }
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            h1 {
-                font-size: 3rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .navbar .container {
-                padding-top: 1.5rem;
-                padding-bottom: 1.5rem;
-            }
-            .nav-links {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                width: auto;
-                background-color: transparent;
-                backdrop-filter: none;
-                border-bottom: none;
-                padding: 0;
-            }
-            .nav-links li {
-                margin: 0 1rem;
-            }
-            .nav-links a {
-                padding: 0;
-            }
-            .hamburger {
-                display: none; /* Hide on larger screens */
-            }
-
-            .hero-content h1 {
-                font-size: 4rem;
-            }
-            .hero-content p {
-                font-size: 1.4rem;
-            }
-            .hero-actions .btn {
-                min-width: 200px;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .feature-item-image {
-                grid-column: span 3; /* Make it span full width if it's the only one */
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                text-align: left;
-            }
-            .feature-item-image .image-wrapper {
-                flex: 1;
-                border-radius: 0.75rem 0 0 0.75rem; /* Left rounded corners */
-                height: 300px; /* Adjust height for larger screens */
-            }
-            .feature-item-image .image-wrapper img {
-                border-radius: 0.75rem 0 0 0.75rem;
-            }
-            .feature-item-image .feature-content {
-                flex: 1;
-                padding: 2rem;
-            }
-
-            .about-content {
-                flex-direction: row;
-                align-items: center;
-                text-align: left;
-            }
-            .about-text {
-                flex: 1;
-                padding-right: 2rem;
-            }
-            .about-image-container {
-                flex: 1;
-                height: 450px; /* Adjust height for larger screens */
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .footer .container {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            .footer-links ul {
-                flex-direction: row;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
                 gap: 2rem;
-                margin-bottom: 0;
+                padding-top: 2rem;
             }
-            .social-links {
-                margin-bottom: 0;
-            }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content p { margin: 0 auto 2.5rem; }
+            .hero-btns { justify-content: center; }
+            .hero-image-container { height: 50vh; }
+            .about-section { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
         }
 
-        @media (min-width: 1024px) {
-            h1 {
-                font-size: 3.5rem;
-            }
-            h2 {
-                font-size: 2.5rem;
-            }
-            .hero-content h1 {
-                font-size: 4.5rem;
-            }
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .feature-item-image {
-                grid-column: span 4;
-            }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .section-title h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Modern Shop</a>
-            <nav class="nav-links" id="navLinks">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">LUMINA.</a>
+            <ul class="nav-links">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="nav-cta">Shop Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Next Gen Hardware</span>
+            <h1>The Future of Personal Tech is Here.</h1>
+            <p>Experience the perfect blend of performance and design with our latest curated collection of premium electronics.</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn-primary">Browse Collection</a>
+                <a href="#about" class="btn-secondary">Learn More</a>
             </div>
         </div>
-    </header>
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office workspace with high-end tech gear" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+    </section>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern business office space with natural light and a laptop on a desk" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            </div>
-            <div class="hero-content">
-                <h1>Discover Quality. Live Modern.</h1>
-                <p>Your one-stop destination for premium products that elevate your everyday life. Shop smart, live better.</p>
-                <div class="hero-actions">
-                    <a href="#products" class="btn btn-primary">Explore Products</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <!-- Products Section -->
+    <section id="products" class="section-padding">
+        <div class="section-title">
+            <h2>Best Sellers</h2>
+            <p>Our most loved products, crafted for excellence.</p>
+        </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Elegant Silver Smartwatch" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Wearables</span>
+                    <h3 class="product-name">Titan Pro Smartwatch</h3>
+                    <p class="product-price">₹14,999</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
-        </section>
 
-        <section id="products" class="section-padding">
-            <div class="container">
-                <h2 class="text-center">Our Curated Collection</h2>
-                <p class="text-center">From smart gadgets to timeless essentials, find what you love.</p>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with a digital display and a metallic strap" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Quantum Smartwatch X1</h3>
-                            <p class="product-price">₹12,499</p>
-                            <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="High-quality noise-cancelling over-ear headphones in black, resting on a surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Aura ANC Headphones</h3>
-                            <p class="product-price">₹8,999</p>
-                            <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Wireless portable bluetooth speaker with a minimalist cylindrical design" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Echo Portable Speaker</h3>
-                            <p class="product-price">₹3,750</p>
-                            <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Professional camera lens with a wide aperture, ready for photography" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Pro-Optic 50mm Lens</h3>
-                            <p class="product-price">₹28,500</p>
-                            <a href="#" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Matte Black Wireless Headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3 class="product-name">Sonic Wave ANC Headphones</h3>
+                    <p class="product-price">₹22,499</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
-        </section>
 
-        <section id="features" class="section-padding" style="background-color: var(--light-bg);">
-            <div class="container">
-                <h2 class="text-center">Why Choose Modern Shop?</h2>
-                <p class="text-center">Experience unparalleled quality and convenience with every purchase.</p>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">✨</div>
-                        <h3>Curated Selection</h3>
-                        <p>Hand-picked products from trusted brands, ensuring quality and innovation for a modern lifestyle.</p>
-                    </div>
-                    <div class="feature-item-image">
-                        <div class="image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Two people collaborating on a laptop, representing efficient and modern service and teamwork." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                        <div class="feature-content">
-                            <h3>Exceptional Service</h3>
-                            <p>Our dedicated support team is always ready to assist you, ensuring a smooth and satisfactory shopping experience.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🚚</div>
-                        <h3>Fast & Reliable Delivery</h3>
-                        <p>Enjoy quick and secure shipping directly to your doorstep, with tracking and efficient logistics nationwide.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">💎</div>
-                        <h3>Premium Quality</h3>
-                        <p>We believe in products that last, offering you exceptional value, durability, and peace of mind with every item.</p>
-                    </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Professional Digital Tablet" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Workstation</span>
+                    <h3 class="product-name">Creative Studio Tablet 12"</h3>
+                    <p class="product-price">₹48,999</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="section-padding">
-            <div class="container">
-                <h2 class="text-center">About Modern Shop</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>At Modern Shop, we're passionate about bringing you the best. Our journey began with a simple idea: to create a curated online destination where quality meets convenience. We meticulously select each product, ensuring it not only meets our high standards but also enriches your daily life.</p>
-                        <p>We partner with innovative brands and artisans who share our commitment to excellence, sustainability, and thoughtful design. From the latest tech to timeless home goods, every item in our collection is chosen with you in mind. Experience the difference of a shop that truly cares about what you buy.</p>
-                        <a href="#contact" class="btn btn-primary">Learn More</a>
-                    </div>
-                    <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="A team of diverse professionals collaborating in a modern, brightly lit office environment, symbolizing innovation and teamwork." style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
+    <!-- Features Section -->
+    <section id="features" class="features-bg section-padding">
+        <div class="section-title">
+            <h2 style="color: white;">Why Choose Lumina?</h2>
+            <p style="color: #94a3b8;">We redefine the standards of modern technology.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon-box">01</div>
+                <h3>Premium Quality</h3>
+                <p>Every product undergoes rigorous testing to ensure it meets our world-class standards of durability.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box">02</div>
+                <h3>Express Delivery</h3>
+                <p>We provide insured express shipping across 20,000+ pin codes in India within 48-72 hours.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box">03</div>
+                <h3>24/7 Support</h3>
+                <p>Our dedicated team of tech experts is always available to help you with any queries or issues.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box">04</div>
+                <h3>Eco-Friendly</h3>
+                <p>We use 100% recyclable packaging materials and focus on sustainable manufacturing processes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="about-section">
+            <div class="about-image-container">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team collaborating in a modern office" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+            </div>
+            <div class="about-content">
+                <span style="color: var(--primary); font-weight: 700;">OUR STORY</span>
+                <h2>Innovation Driven by Passion.</h2>
+                <p>Founded in 2018, Lumina Tech started with a simple mission: to make premium technology accessible to everyone without compromising on design aesthetics.</p>
+                <p>Today, we serve over 500,000 happy customers across India, providing them with tools that empower their daily lives and boost their productivity.</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn-primary">Our Journey</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="testimonials" class="section-padding" style="background-color: var(--light-bg);">
-            <div class="container">
-                <h2 class="text-center">What Our Customers Say</h2>
-                <p class="text-center">Real experiences from our happy community.</p>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p>"I'm consistently impressed with the quality of products and the quick delivery. Modern Shop has become my go-to for all my electronics!"</p>
-                        <p class="testimonial-author">- Priya Sharma, Bengaluru</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"The customer service here is outstanding. They helped me find the perfect gift, and the packaging was beautiful. Highly recommend!"</p>
-                        <p class="testimonial-author">- Rohan Mehta, Mumbai</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Finally a store that cares about ethical sourcing and genuine products. My new headphones are phenomenal. Thank you, Modern Shop!"</p>
-                        <p class="testimonial-author">- Ananya Singh, Delhi</p>
+    <!-- Testimonials -->
+    <section id="testimonials" class="section-padding" style="background: #f1f5f9;">
+        <div class="section-title">
+            <h2>Customer Stories</h2>
+            <p>Don't take our word for it. Listen to our community.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The build quality of the Sonic Wave headphones is absolutely incredible. The sound stage is wide and the ANC is better than most flagship brands I've used."</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Arjun Sharma</h4>
+                        <span>Music Producer, Mumbai</span>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="contact" class="section-padding">
-            <div class="container">
-                <h2 class="text-center">Get In Touch</h2>
-                <p class="text-center">Have questions or need assistance? We're here to help.</p>
-                <form class="contact-form" onsubmit="alert('Message sent successfully!'); return false;">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The Titan Pro watch has become my daily driver. The battery life is phenomenal, easily lasting 10 days on a single charge. Highly recommended for fitness enthusiasts!"</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Priya Patel</h4>
+                        <span>Fitness Coach, Bangalore</span>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
+                </div>
             </div>
-        </section>
-    </main>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Ordered the tablet and it arrived the next day. The packaging was eco-friendly and the setup was seamless. Exceptional service from the Lumina team."</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Rohan Verma</h4>
+                        <span>Graphic Designer, Delhi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-col">
-                <p>&copy; 2023 Modern Shop. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>Have questions? We're here to help you.</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p style="margin-top: 1rem; color: var(--secondary);">Feel free to reach out via email or visit our flagship store.</p>
+                <div style="margin-top: 2rem;">
+                    <p><strong>Email:</strong> support@lumina.tech</p>
+                    <p><strong>Phone:</strong> +91 1800 200 4000</p>
+                    <p><strong>Address:</strong> Tech Hub, 4th Block, Koramangala, Bengaluru, KA 560034</p>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">LUMINA.</a>
+                <p>Creating premium technology experiences that inspire creativity and productivity since 2018.</p>
             </div>
             <div class="footer-links">
+                <h4>Shop</h4>
                 <ul>
-                    <li><a href="#products">Shop</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Support</a></li>
+                    <li><a href="#">Smartwatches</a></li>
+                    <li><a href="#">Headphones</a></li>
+                    <li><a href="#">Tablets</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Sustainability</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">FB</a> <!-- Placeholder for social media icons -->
-                <a href="#" aria-label="Instagram">IG</a>
-                <a href="#" aria-label="Twitter">TW</a>
+            <div class="footer-links">
+                <h4>Newsletter</h4>
+                <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Subscribe to get notified about new launches.</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Email" style="padding: 0.6rem; border-radius: 4px; border: none; width: 100%;">
+                    <button style="background: var(--primary); color: white; border: none; padding: 0.6rem 1rem; border-radius: 4px; cursor: pointer;">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Lumina Tech India Private Limited. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="#" style="color: inherit; text-decoration: none;">Twitter</a>
+                <a href="#" style="color: inherit; text-decoration: none;">Instagram</a>
+                <a href="#" style="color: inherit; text-decoration: none;">LinkedIn</a>
             </div>
         </div>
     </footer>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
 
-        // Close nav links when a link is clicked (for mobile)
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-            });
+        // Simple scroll animation for navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
         });
     </script>
 </body>
