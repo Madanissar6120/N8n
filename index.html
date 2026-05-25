@@ -3,121 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apna Shop | Premium Lifestyle & Tech Essentials</title>
-    <!-- Inter Font for modern premium typography -->
+    <title>Madan Shop - Premium Lifestyle Essentials</title>
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables & Reset */
+        /* Modern CSS Reset & Variables */
         :root {
-            --primary: #0f172a;
+            --primary: #09090b;
+            --primary-hover: #18181b;
             --accent: #4f46e5;
             --accent-hover: #4338ca;
-            --bg: #fafafa;
-            --surface: #ffffff;
-            --text: #0f172a;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --radius: 12px;
+            --bg-main: #fafafa;
+            --bg-card: #ffffff;
+            --text-main: #09090b;
+            --text-muted: #71717a;
+            --border: #e4e4e7;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        html {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Utility Classes */
+        /* Utility Components */
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 2rem;
         }
 
+        .section {
+            padding: 8rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: #e0e7ff;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 24px;
+            padding: 0.85rem 1.75rem;
             font-size: 0.95rem;
             font-weight: 600;
-            border-radius: var(--radius);
+            border-radius: var(--radius-md);
             transition: var(--transition);
             cursor: pointer;
             text-decoration: none;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
         .btn-primary {
-            background-color: var(--accent);
-            color: white;
-            border: none;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: 1px solid var(--primary);
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
-            background-color: var(--surface);
+            background-color: #ffffff;
             color: var(--primary);
             border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background-color: var(--bg);
-            border-color: var(--text-muted);
+            background-color: #f4f4f5;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -0.025em;
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        /* Navbar Layout */
+        /* Sticky Navbar */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             height: 80px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
@@ -142,185 +161,187 @@
             letter-spacing: -0.03em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
-        .logo span {
-            color: var(--accent);
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 2.5rem;
             align-items: center;
             list-style: none;
         }
 
-        .nav-links a {
-            text-decoration: none;
+        .nav-link {
             color: var(--text-muted);
+            text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
             transition: var(--transition);
         }
 
-        .nav-links a:hover {
+        .nav-link:hover {
             color: var(--primary);
         }
 
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 1.5rem;
         }
 
-        .cart-btn {
-            position: relative;
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
             background: none;
             border: none;
             cursor: pointer;
-            color: var(--primary);
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary);
+            margin: 5px 0;
             transition: var(--transition);
         }
 
-        .cart-btn:hover {
-            color: var(--accent);
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: var(--accent);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Hero Section (Split Layout) */
+        /* Hero Section */
         .hero {
-            padding-top: 120px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.05), transparent 40%);
+            padding-top: 160px;
+            padding-bottom: 80px;
+            overflow: hidden;
+            background: radial-gradient(circle at 10% 20%, rgba(243, 244, 246, 0.7) 0%, rgba(255, 255, 255, 0) 90%);
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
             align-items: center;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .hero-title {
+            font-size: 3.75rem;
             font-weight: 800;
-            line-height: 1.15;
+            line-height: 1.1;
             letter-spacing: -0.04em;
             color: var(--primary);
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 520px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
         }
 
-        .hero-actions {
+        .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 1rem;
         }
 
+        /* Hero Image Container Rule strictly applied */
         .hero-image-container {
-            height: 520px;
+            height: 80vh;
             width: 100%;
             overflow: hidden;
             position: relative;
-            border-radius: 24px;
+            background-color: #f3f4f6;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
-            background: #f5f5f5;
         }
 
-        /* Feature Section */
-        .features {
-            padding: 100px 0;
-            background-color: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
+        /* Features Section */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
         }
 
         .feature-card {
-            padding: 40px;
-            background: var(--bg);
-            border-radius: var(--radius);
+            background-color: var(--bg-card);
             border: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-md);
             transition: var(--transition);
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-md);
-            border-color: var(--accent);
+            border-color: rgba(79, 70, 229, 0.2);
         }
 
         .feature-icon-wrapper {
             width: 48px;
             height: 48px;
-            background-color: rgba(79, 70, 229, 0.1);
-            color: var(--accent);
-            border-radius: 8px;
+            background-color: #f0fdf4;
+            color: #15803d;
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .feature-card:nth-child(2) .feature-icon-wrapper {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        .feature-card:nth-child(3) .feature-icon-wrapper {
+            background-color: #faf5ff;
+            color: #7e22ce;
+        }
+
+        .feature-card:nth-child(4) .feature-icon-wrapper {
+            background-color: #fff7ed;
+            color: #c2410c;
         }
 
         .feature-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
             color: var(--primary);
         }
 
         .feature-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Products Section */
-        .products {
-            padding: 100px 0;
-        }
-
-        .products-grid {
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
         }
 
         .product-card {
-            background: var(--surface);
-            border-radius: var(--radius);
+            background-color: var(--bg-card);
             border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
             transition: var(--transition);
             display: flex;
@@ -328,10 +349,12 @@
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
+            border-color: rgba(79, 70, 229, 0.15);
         }
 
+        /* Product Image Container Rule strictly applied */
         .product-image-container {
             height: 260px;
             width: 100%;
@@ -340,596 +363,749 @@
             background: #f5f5f5;
         }
 
-        .product-info {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-tag {
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
             font-size: 0.75rem;
             font-weight: 700;
+            z-index: 10;
+        }
+
+        .product-info {
+            padding: 1.75rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
             text-transform: uppercase;
-            color: var(--accent);
             letter-spacing: 0.05em;
-            margin-bottom: 8px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.85rem;
+            color: #f59e0b;
+            font-weight: 600;
         }
 
         .product-title {
-            font-size: 1.1rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 8px;
-            text-decoration: none;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
         }
 
         .product-price {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--primary);
-            margin-top: auto;
-            margin-bottom: 16px;
         }
 
-        /* About Section (Split Layout) */
-        .about {
-            padding: 100px 0;
-            background-color: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
+        /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 5rem;
             align-items: center;
         }
 
+        /* About Image Container Rule strictly applied */
         .about-image-container {
             height: 400px;
             width: 100%;
             overflow: hidden;
             position: relative;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            background: #f5f5f5;
+            background-color: #f3f4f6;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-content {
+            padding-right: 1rem;
         }
 
         .about-content h3 {
-            font-size: 2rem;
+            font-size: 2.25rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
         }
 
         .about-content p {
             color: var(--text-muted);
-            margin-bottom: 24px;
             font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0;
         }
 
         /* Testimonials Section */
-        .testimonials {
-            padding: 100px 0;
-        }
-
-        .testimonials-grid {
+        .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 2rem;
         }
 
         .testimonial-card {
-            background: var(--surface);
-            border-radius: var(--radius);
+            background-color: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 32px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .rating {
-            color: #fbbf24;
-            margin-bottom: 16px;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            position: relative;
             display: flex;
-            gap: 4px;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .testimonial-text {
-            color: var(--text);
+        .testimonial-quote {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin-bottom: 2rem;
             font-style: italic;
-            margin-bottom: 24px;
-            font-size: 0.95rem;
         }
 
-        .customer-profile {
+        .testimonial-user {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 1rem;
         }
 
-        .customer-avatar {
-            width: 44px;
-            height: 44px;
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background-color: var(--accent);
-            color: white;
+            background-color: #e4e4e7;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 0.95rem;
+            color: var(--primary);
+            border: 2px solid var(--border);
         }
 
-        .customer-info h4 {
-            font-size: 0.95rem;
+        .testimonial-details h4 {
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary);
         }
 
-        .customer-info span {
-            font-size: 0.8rem;
+        .testimonial-details p {
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
         /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background-color: var(--surface);
-            border-top: 1px solid var(--border);
-        }
-
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
+            gap: 4rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
         }
 
         .contact-info-panel {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 4rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
         }
 
         .contact-info-panel h3 {
             font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
         }
 
         .contact-info-panel p {
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            font-size: 1.05rem;
+            color: #a1a1aa;
+            margin-bottom: 3rem;
         }
 
-        .contact-details {
+        .contact-details-list {
+            list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 2rem;
         }
 
-        .contact-item {
+        .contact-detail-item {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 1.25rem;
         }
 
-        .contact-item-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(79, 70, 229, 0.1);
-            color: var(--accent);
-            border-radius: 50%;
+        .contact-detail-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background-color: rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
-        .contact-form {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: var(--radius);
+        .contact-detail-text h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #a1a1aa;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-detail-text p {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .contact-form-panel {
+            padding: 4rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
-        .form-label {
+        .form-group label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 8px;
             color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        .form-input {
+        .form-control {
             width: 100%;
-            padding: 12px 16px;
-            border-radius: 8px;
+            padding: 0.85rem 1rem;
             border: 1px solid var(--border);
-            background-color: var(--surface);
+            border-radius: var(--radius-sm);
+            background-color: #fafafa;
             font-size: 0.95rem;
             transition: var(--transition);
             color: var(--primary);
         }
 
-        .form-input:focus {
+        .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
         }
 
-        textarea.form-input {
+        textarea.form-control {
+            min-height: 150px;
             resize: vertical;
-            min-height: 120px;
         }
 
-        /* Footer */
+        /* Footer Section */
         .footer {
             background-color: var(--primary);
-            color: white;
-            padding: 80px 0 40px 0;
+            color: #ffffff;
+            padding: 6rem 0 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
         }
 
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            letter-spacing: -0.03em;
-        }
-
-        .footer-brand h3 span {
-            color: #818cf8;
+        .footer-brand .logo {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
         }
 
         .footer-brand p {
-            color: #94a3b8;
+            color: #a1a1aa;
             font-size: 0.95rem;
-            max-width: 280px;
-            margin-bottom: 24px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 320px;
         }
 
         .footer-socials {
             display: flex;
-            gap: 16px;
+            gap: 1rem;
         }
 
-        .social-link {
-            width: 36px;
-            height: 36px;
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            text-decoration: none;
+            color: #ffffff;
             transition: var(--transition);
+            text-decoration: none;
         }
 
-        .social-link:hover {
+        .footer-social-link:hover {
             background-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        .footer-col h4 {
-            font-size: 1rem;
+        .footer-title {
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #f8fafc;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
         }
 
         .footer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 1rem;
         }
 
-        .footer-links a {
-            color: #94a3b8;
+        .footer-link {
+            color: #a1a1aa;
             text-decoration: none;
             transition: var(--transition);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        .footer-links a:hover {
-            color: white;
-            padding-left: 4px;
+        .footer-link:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            color: #a1a1aa;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            color: #ffffff;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 0 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--accent-hover);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #94a3b8;
-            font-size: 0.85rem;
-        }
-
-        /* Mobile Menu Button */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-
-        /* Toast Notification Styling */
-        .toast {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: var(--primary);
-            color: white;
-            padding: 16px 24px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transform: translateY(100px);
-            opacity: 1;
-            transition: var(--transition);
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
+            color: #71717a;
+            font-size: 0.9rem;
         }
 
         /* Responsive Breakpoints */
         @media (max-width: 1024px) {
-            .products-grid {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image-container {
+                height: 50vh;
+            }
+
+            .features-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .about-image-container {
+                height: 350px;
+                order: -1;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
             }
         }
 
         @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .navbar-container {
+                padding: 0 1rem;
             }
 
-            .hero-content {
-                text-align: center;
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
             }
 
-            .hero-content h1 {
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .section {
+                padding: 5rem 0;
+            }
+
+            .hero-title {
                 font-size: 2.75rem;
-            }
-
-            .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-actions {
-                justify-content: center;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-grid {
+            .product-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                max-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
-            .testimonials-grid {
+            .testimonial-grid {
                 grid-template-columns: 1fr;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+            .contact-info-panel {
+                padding: 2.5rem;
             }
 
-            .menu-toggle {
-                display: block;
+            .contact-form-panel {
+                padding: 2.5rem;
             }
 
-            .nav-links {
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: var(--surface);
-                flex-direction: column;
-                padding: 40px;
-                border-bottom: 1px solid var(--border);
-                display: none;
-                box-shadow: var(--shadow-lg);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .products-grid {
+            .form-row {
                 grid-template-columns: 1fr;
+                gap: 0;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
 
             .footer-bottom {
                 flex-direction: column;
-                gap: 16px;
+                gap: 1rem;
                 text-align: center;
-            }
-
-            .hero-actions {
-                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header class="navbar">
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
         <div class="container navbar-container">
             <a href="#" class="logo">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                Apna<span>Shop</span>
+                Madan Shop <span class="logo-dot"></span>
             </a>
-
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
 
             <div class="nav-actions">
-                <button class="cart-btn" aria-label="Shopping Cart">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-                    <span class="cart-badge" id="cartCount">0</span>
-                </button>
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                </button>
+                <a href="#products" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Shop Now</a>
+            </div>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge">ESTABLISHED 2024</span>
+                <h1 class="hero-title">Curating Excellence for your <span>Elite Lifestyle</span></h1>
+                <p class="hero-subtitle">Discover a premium world of thoughtfully engineered electronics, modern wear, and timeless accessories designed exclusively for the discerning individual.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Shop Collection</a>
+                    <a href="#about" class="btn btn-secondary">Our Story</a>
+                </div>
+            </div>
+            
+            <!-- Hero Image Container - Rule: 80vh height, simple visible image, no overlays -->
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Madan Shop high-end curated studio showroom showcasing premium interiors" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>Elevate Your Daily Lifestyle & Comfort</h1>
-                <p>Discover a handpicked collection of premium high-end tech, minimalist gadgets, and modern lifestyle essentials crafted for standard elegance.</p>
-                <div class="hero-actions">
-                    <a href="#products" class="btn btn-primary">
-                        Shop Collection
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Apna Shop Premium Office Showroom" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            </div>
-        </div>
-    </section>
-
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="section" id="features" style="background-color: #ffffff;">
         <div class="container">
             <div class="section-header">
-                <h2>Why Shop With Us</h2>
-                <p>We redefine modern retail through unparalleled customer care, premium-quality products, and seamless delivery networks.</p>
+                <span class="badge" style="background-color: #f0fdf4; color: #16a34a;">Why Madan Shop</span>
+                <h2>Redefining the Retail Experience</h2>
+                <p>We pride ourselves on providing premium quality, absolute customer satisfaction, and an elite ecosystem of products.</p>
             </div>
+
             <div class="features-grid">
+                <!-- Feature Card 1 -->
                 <div class="feature-card">
                     <div class="feature-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Insured Quality</h3>
+                    <p>Every single product undergoes rigorous military-grade quality testing before reaching your doorstep.</p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"/><line x1="16" y1="8" x2="20" y2="8"/><line x1="16" y1="12" x2="23" y2="12"/><line x1="1" y1="18" x2="23" y2="18"/></svg>
+                    </div>
+                    <h3>Fast Pan-India Delivery</h3>
+                    <p>Express carbon-neutral shipping options ensure your products arrive pristine within 48 hours nationwide.</p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                     </div>
                     <h3>Secure Checkout</h3>
-                    <p>All transactions are guarded by military-grade end-to-end 256-bit encryption for extreme protection.</p>
+                    <p>Multi-channel 256-bit encrypted secure gateways guaranteeing worry-free instant transactions.</p>
                 </div>
+
+                <!-- Feature Card 4 -->
                 <div class="feature-card">
                     <div class="feature-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                     </div>
-                    <h3>Express Delivery</h3>
-                    <p>Get completely free shipping and rapid delivery directly to your doorstep within 24-48 business hours.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Warranty Assured</h3>
-                    <p>Every purchase comes packed with our comprehensive 1-year product replacement assurance program.</p>
+                    <h3>Elite Support</h3>
+                    <p>Receive access to our dedicated, round-the-clock premium personal concierge desk whenever you need.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products/Services Section -->
-    <section class="products" id="products">
+    <!-- Products Section -->
+    <section class="section" id="products">
         <div class="container">
             <div class="section-header">
-                <h2>Trending Collection</h2>
-                <p>Explore our highly sought-after essentials, blending top-tier technical performance with luxurious ergonomics.</p>
+                <span class="badge">SIGNATURE GEAR</span>
+                <h2>Our Best Sellers</h2>
+                <p>Immerse yourself in our premium, masterfully constructed signature flagship models.</p>
             </div>
-            <div class="products-grid">
+
+            <div class="product-grid">
                 <!-- Product 1 -->
                 <div class="product-card">
+                    <!-- Product Image Container - Rule: 260px height, simple visible image, no overlays -->
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Apna Minimalist White Watch" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                        <span class="product-badge">New Arrival</span>
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Chrono-Classic Minimalist White Watch" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
                     </div>
                     <div class="product-info">
-                        <span class="product-tag">Wearables</span>
-                        <a href="#" class="product-title" onclick="event.preventDefault()">Apna Signature Quartz Chronometer</a>
-                        <div class="product-price">₹4,999</div>
-                        <button class="btn btn-primary add-to-cart-btn" data-name="Apna Signature Chronometer">Add to Cart</button>
+                        <div class="product-meta">
+                            <span class="product-category">Accessories</span>
+                            <span class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                4.9 (182)
+                            </span>
+                        </div>
+                        <h3 class="product-title">Chrono-Classic Minimalist Watch</h3>
+                        <p class="product-description">An elegant, premium analog-quartz watch crafted with medical grade surgical steel case and sapphire crystal glass face.</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹14,999</span>
+                            <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Purchase</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
                 <div class="product-card">
+                    <!-- Product Image Container - Rule: 260px height, simple visible image, no overlays -->
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Apna Pro Wireless Noise Cancelling Headphones" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                        <span class="product-badge">Best Seller</span>
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="AeroTune Premium Wireless Studio ANC Headphones" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
                     </div>
                     <div class="product-info">
-                        <span class="product-tag">Audio</span>
-                        <a href="#" class="product-title" onclick="event.preventDefault()">Apna Pro Wireless Studio Over-Ears</a>
-                        <div class="product-price">₹8,499</div>
-                        <button class="btn btn-primary add-to-cart-btn" data-name="Apna Pro Wireless Headphones">Add to Cart</button>
+                        <div class="product-meta">
+                            <span class="product-category">Electronics</span>
+                            <span class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                4.8 (290)
+                            </span>
+                        </div>
+                        <h3 class="product-title">AeroTune Studio Headphones</h3>
+                        <p class="product-description">Immersive deep high-definition audio with world-class hybrid active noise canceling and ultra plush memory foam cups.</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹18,499</span>
+                            <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Purchase</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
                 <div class="product-card">
+                    <!-- Product Image Container - Rule: 260px height, simple visible image, no overlays -->
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Apna Classic Black Timepiece" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Madan Premium Smart Track Hub Interface" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
                     </div>
                     <div class="product-info">
-                        <span class="product-tag">Wearables</span>
-                        <a href="#" class="product-title" onclick="event.preventDefault()">Apna Minimalist Onyx Edition Watch</a>
-                        <div class="product-price">₹6,299</div>
-                        <button class="btn btn-primary add-to-cart-btn" data-name="Apna Minimalist Onyx Watch">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Apna Pro Hifi Bass Headset" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-tag">Audio</span>
-                        <a href="#" class="product-title" onclick="event.preventDefault()">Apna Hifi Soundstage Headphones</a>
-                        <div class="product-price">11,999</div>
-                        <button class="btn btn-primary add-to-cart-btn" data-name="Apna Hifi Soundstage Headphones">Add to Cart</button>
+                        <div class="product-meta">
+                            <span class="product-category">Office Tech</span>
+                            <span class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                4.7 (94)
+                            </span>
+                        </div>
+                        <h3 class="product-title">Madan Smart Track Core Hub</h3>
+                        <p class="product-description">Automate and monitor your smart desk workspace environment. Features customizable metrics panel and sleek controls.</p>
+                        <div class="product-footer">
+                            <span class="product-price">₹28,999</span>
+                            <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Purchase</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -937,81 +1113,100 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="section" id="about" style="background-color: #ffffff;">
         <div class="container about-grid">
+            <!-- About Image Container - Rule: 400px height, simple visible image, no overlays -->
             <div class="about-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Apna Shop Team Working" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Madan Shop creative architectural and engineering executive team working on blueprints" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
+
             <div class="about-content">
-                <h3>Designed by Creators, Curated Specifically For You</h3>
-                <p>At Apna Shop, we strongly believe that high-quality, modern, minimal lifestyle products should be easily accessible without compromise. We coordinate directly with top premium design studios worldwide to select state-of-the-art consumer technology and luxury accessories.</p>
-                <p>Over the last decade, we have proudly served more than 50,000 satisfied Indian customers, providing them with timeless design architectures combined with solid tech-driven durability.</p>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <span class="badge" style="background-color: #faf5ff; color: #8b5cf6;">Our Story</span>
+                <h3>Defining Luxury and Modern Retail Commerce Since 2012</h3>
+                <p>Born out of pure love for flawless industrial design and customer-centric perfection, Madan Shop operates as a premium sanctuary of state-of-the-art products built for longevity, ease, and ultimate everyday elevation.</p>
+                <p>Whether you're crafting an exceptional, distraction-free home workspace or styling your everyday wardrobe, we present handpicked designs focused entirely on performance and luxury aesthetics.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h4>12k+</h4>
+                        <p>Customers Active</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>4.9</h4>
+                        <p>User Rating Average</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Premium Guarantee</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section class="section" id="reviews">
         <div class="container">
             <div class="section-header">
-                <h2>Our Customer Feedback</h2>
-                <p>Hear how our curated hardware & wearables make a daily difference in the lives of busy Indian professionals.</p>
+                <span class="badge" style="background-color: #fff7ed; color: #ea580c;">REVIEWS</span>
+                <h2>What Our Elite Clientele Says</h2>
+                <p>Read unfiltered feedback from professionals, developers, and collectors who trust Madan Shop daily.</p>
             </div>
-            <div class="testimonials-grid">
+
+            <div class="testimonial-grid">
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card">
-                    <div class="rating">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <div class="product-rating" style="margin-bottom: 1rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <p class="testimonial-text">"The Apna Signature Quartz Chronometer is completely stunning. It matches perfectly with both my corporate suits and standard casual tees. Highly recommended store!"</p>
-                    <div class="customer-profile">
-                        <div class="customer-avatar">RK</div>
-                        <div class="customer-info">
-                            <h4>Rohan Kapoor</h4>
-                            <span>Senior Product Architect, Mumbai</span>
+                    <p class="testimonial-quote">"Madan Shop is in a class of its own. I purchased the Chrono-Classic watch and the sheer quality of packaging and design left me completely speechless. Standard shipping to Bengaluru was incredibly fast!"</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar">AK</div>
+                        <div class="testimonial-details">
+                            <h4>Amit Kapoor</h4>
+                            <p>Senior Tech Consultant, Bengaluru</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card">
-                    <div class="rating">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <div class="product-rating" style="margin-bottom: 1rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <p class="testimonial-text">"I ordered the Wireless Studio Over-Ears. The active noise cancellation works beautifully in transit. Delivery took only 1 day!"</p>
-                    <div class="customer-profile">
-                        <div class="customer-avatar">AS</div>
-                        <div class="customer-info">
-                            <h4>Ananya Sharma</h4>
-                            <span>UX Researcher, Bengaluru</span>
+                    <p class="testimonial-quote">"The AeroTune Wireless Studio headphones sound exceptional, even superior to my professional audio-editing setup. Active noise cancelling isolates my chaotic remote office perfectly."</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar">RS</div>
+                        <div class="testimonial-details">
+                            <h4>Rohan Sharma</h4>
+                            <p>Lead Creative Director, Mumbai</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card">
-                    <div class="rating">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <div class="product-rating" style="margin-bottom: 1rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <p class="testimonial-text">"Extremely premium build quality. Customer service was incredibly helpful in resolving my warranty extension questions within minutes."</p>
-                    <div class="customer-profile">
-                        <div class="customer-avatar">VK</div>
-                        <div class="customer-info">
-                            <h4>Vikram Kumar</h4>
-                            <span>Creative Director, Delhi</span>
+                    <p class="testimonial-quote">"Their curated line is absolute perfection. I have replaced my desk system with the Madan Smart Hub interface and it tracks workspace ambient metrics effortlessly. Highly recommend!"</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar">NP</div>
+                        <div class="testimonial-details">
+                            <h4>Nisha Patel</h4>
+                            <p>UX Architect & Developer, Pune</p>
                         </div>
                     </div>
                 </div>
@@ -1020,57 +1215,90 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container contact-grid">
-            <div class="contact-info-panel">
-                <h3>Let's Keep in Touch</h3>
-                <p>Have pre-purchase inquiries, request a customized corporate bulk order plan, or simply want to say hello? Drop us a prompt message!</p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <div>
-                            <strong style="display:block; font-size: 0.9rem; color: var(--text-muted);">Call Support</strong>
-                            <span style="font-weight: 600; color: var(--primary);">+91 98765 43210</span>
-                        </div>
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Info Panel Left -->
+                <div class="contact-info-panel">
+                    <div>
+                        <h3>Let's Connect</h3>
+                        <p>Have inquiries regarding bulk premium gifting, individual custom orders, or delivery support? Reach out now.</p>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    
+                    <ul class="contact-details-list">
+                        <li class="contact-detail-item">
+                            <div class="contact-detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Phone Support</h4>
+                                <p>+91 (11) 4055-6712</p>
+                            </div>
+                        </li>
+
+                        <li class="contact-detail-item">
+                            <div class="contact-detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Support Email</h4>
+                                <p>concierge@madanshop.in</p>
+                            </div>
+                        </li>
+
+                        <li class="contact-detail-item">
+                            <div class="contact-detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Premium Studio Location</h4>
+                                <p>DLF Phase 5, Sector 54, Gurugram, HR</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <p style="font-size: 0.8rem; color: #71717a; margin-top: 2rem; margin-bottom: 0;">Madan Retail Private Limited © 2024</p>
+                </div>
+
+                <!-- Form Panel Right -->
+                <div class="contact-form-panel">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="Rohan" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" placeholder="Sharma" required>
+                            </div>
                         </div>
-                        <div>
-                            <strong style="display:block; font-size: 0.9rem; color: var(--text-muted);">E-Mail Support</strong>
-                            <span style="font-weight: 600; color: var(--primary);">support@apnashop.com</span>
+
+                        <div class="form-group">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="rohan@example.com" required>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+
+                        <div class="form-group">
+                            <label for="interest">Interested In</label>
+                            <select id="interest" class="form-control" required style="appearance: none;">
+                                <option value="">Select a product category</option>
+                                <option value="Chrono-Classic">Chrono-Classic Minimalist Watch</option>
+                                <option value="AeroTune">AeroTune Studio Headphones</option>
+                                <option value="SmartTrack">Madan Smart Track Hub</option>
+                                <option value="custom">Custom Corporate Gifting</option>
+                            </select>
                         </div>
-                        <div>
-                            <strong style="display:block; font-size: 0.9rem; color: var(--text-muted);">Head Office</strong>
-                            <span style="font-weight: 600; color: var(--primary);">Connaught Place, New Delhi, India</span>
+
+                        <div class="form-group">
+                            <label for="message">Your Personal Message</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us how we can curate your elite experience..." required></textarea>
                         </div>
-                    </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry Details</button>
+                    </form>
                 </div>
             </div>
-
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <label class="form-label" for="contactName">Full Name</label>
-                    <input type="text" id="contactName" class="form-input" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="contactEmail">Email Address</label>
-                    <input type="email" id="contactEmail" class="form-input" placeholder="name@domain.com" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="contactMessage">Detailed Message</label>
-                    <textarea id="contactMessage" class="form-input" placeholder="How can we help you?" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-            </form>
         </div>
     </section>
 
@@ -1079,126 +1307,101 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>Apna<span>Shop</span></h3>
-                    <p>Elevating daily lifestyles with meticulously refined product architecture and design excellence.</p>
+                    <a href="#" class="logo" style="color: #ffffff;">
+                        Madan Shop <span class="logo-dot"></span>
+                    </a>
+                    <p>Elevating daily routines through masterfully engineered tech, exquisite wear, and timeless luxury daily gear.</p>
                     <div class="footer-socials">
-                        <a href="#" class="social-link" onclick="event.preventDefault()" aria-label="Facebook">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        <a href="#" class="footer-social-link" aria-label="Follow Madan Shop on Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
                         </a>
-                        <a href="#" class="social-link" onclick="event.preventDefault()" aria-label="Instagram">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        <a href="#" class="footer-social-link" aria-label="Follow Madan Shop on Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         </a>
-                        <a href="#" class="social-link" onclick="event.preventDefault()" aria-label="Twitter">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                        <a href="#" class="footer-social-link" aria-label="Follow Madan Shop on LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <div class="footer-col">
-                    <h4>Shop</h4>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
                     <ul class="footer-links">
-                        <li><a href="#products">Chronometers</a></li>
-                        <li><a href="#products">Hi-Fi Audio</a></li>
-                        <li><a href="#products">Premium Wearables</a></li>
-                        <li><a href="#products">Limited Editions</a></li>
+                        <li><a href="#" class="footer-link">Featured Home</a></li>
+                        <li><a href="#features" class="footer-link">Core Value</a></li>
+                        <li><a href="#products" class="footer-link">Premium Catalog</a></li>
+                        <li><a href="#about" class="footer-link">Our Heritage</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-col">
-                    <h4>Company</h4>
+                <div>
+                    <h4 class="footer-title">Information</h4>
                     <ul class="footer-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#about">Careers</a></li>
-                        <li><a href="#about">Our Showrooms</a></li>
-                        <li><a href="#about">Press Kit</a></li>
+                        <li><a href="#reviews" class="footer-link">Public Trust Reviews</a></li>
+                        <li><a href="#contact" class="footer-link">Get In Touch</a></li>
+                        <li><a href="#" class="footer-link">FAQ Support Guide</a></li>
+                        <li><a href="#" class="footer-link">Return Exchange Policy</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#contact">Contact Support</a></li>
-                        <li><a href="#features">Warranty Details</a></li>
-                        <li><a href="#features">Track Shipping</a></li>
-                        <li><a href="#features">Returns Policy</a></li>
-                    </ul>
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Privé Newsletter</h4>
+                    <p>Subscribing awards early drop privileges, insider pricing, and styling collection previews.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Enter elite email..." required aria-label="Newsletter email input field">
+                        <button type="submit" class="newsletter-btn">Join</button>
+                    </form>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Apna Shop Private Limited. All Rights Reserved.</p>
-                <p>Designed with absolute precision.</p>
+                <p>© 2024 Madan Shop Private Limited. All world rights reserved.</p>
+                <p>Designed with pristine premium aesthetics.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Toast Component -->
-    <div class="toast" id="cartToast">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:#22c55e;"><path d="M20 6 9 17l-5-5"/></svg>
-        <span id="toastMessage">Product added to cart!</span>
-    </div>
-
     <!-- Interactive JS Functionality -->
     <script>
-        // DOM Elements
-        const menuToggle = document.getElementById('menuToggle');
+        // Responsive Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-        const cartCount = document.getElementById('cartCount');
-        const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
-        const contactForm = document.getElementById('contactForm');
-        const cartToast = document.getElementById('cartToast');
-        const toastMessage = document.getElementById('toastMessage');
 
-        // Responsive Navigation Menu Toggle
-        menuToggle.addEventListener('click', () => {
+        mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            
+            // Toggle hamburger animation
+            const spans = mobileToggle.querySelectorAll('span');
+            spans[0].style.transform = navLinks.classList.contains('active') ? 'rotate(45deg) translate(5px, 5px)' : 'none';
+            spans[1].style.opacity = navLinks.classList.contains('active') ? '0' : '1';
+            spans[2].style.transform = navLinks.classList.contains('active') ? 'rotate(-45deg) translate(5px, -5px)' : 'none';
         });
 
-        // Close Mobile Menu on Link Click
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        // Close mobile menu on clicking links
+        const navLinksElements = document.querySelectorAll('.nav-link');
+        navLinksElements.forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                const spans = mobileToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
             });
         });
 
-        // Interactive Shopping Cart System
-        let itemsInCart = 0;
-
-        function showToast(message) {
-            toastMessage.textContent = message;
-            cartToast.classList.add('show');
-            setTimeout(() => {
-                cartToast.classList.remove('show');
-            }, 3000);
-        }
-
-        addToCartBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                const productName = button.getAttribute('data-name');
-                itemsInCart++;
-                cartCount.textContent = itemsInCart;
-                
-                // Fancy button feedback
-                const originalText = button.textContent;
-                button.textContent = "Added ✓";
-                button.style.backgroundColor = "#22c55e";
-                
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.backgroundColor = "";
-                }, 1500);
-
-                showToast(`${productName} added to Apna Shop cart!`);
-            });
+        // Interactive Alert on Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('firstName').value;
+            alert(`Thank you, ${name}! Your elite inquiry has been received. Our concierge representative will contact you within the next 4 working hours.`);
+            document.getElementById('contactForm').reset();
         });
 
-        // Contact Form Submission Action
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const name = document.getElementById('contactName').value;
-            
-            showToast(`Thank you, ${name}! Your message has been sent successfully.`);
-            contactForm.reset();
+        // Interactive Alert on Newsletter Submission
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Welcome to our Privé Circle. Early collection drop codes and exclusive styling previews are on their way to your inbox.');
+            document.getElementById('newsletterForm').reset();
         });
     </script>
 </body>
