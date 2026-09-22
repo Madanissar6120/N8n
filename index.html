@@ -3,111 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateCore Technologies - Driving Digital Transformation</title>
+    <title>SwiftCart - Your Modern E-Commerce Shop</title>
     <style>
         /* CSS Variables */
         :root {
-            --primary-color: #007bff;
+            --primary-color: #0d6efd;
             --secondary-color: #6c757d;
-            --accent-color: #28a745;
-            --text-color: #343a40;
-            --light-text-color: #f8f9fa;
-            --background-color: #ffffff;
-            --light-background: #f8f9fa;
-            --card-background: rgba(255, 255, 255, 0.7);
-            --navbar-background: rgba(255, 255, 255, 0.8);
-            --border-color: #e9ecef;
-            --shadow-light: rgba(0, 0, 0, 0.08) 0px 4px 12px;
-            --shadow-hover: rgba(0, 0, 0, 0.15) 0px 8px 24px;
-            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --transition-speed: 0.3s ease;
+            --background-light: #f8f9fa;
+            --background-dark: #343a40;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --border-color: #dee2e6;
+            --card-bg: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --header-height: 70px; /* Fixed height for sticky navbar */
         }
 
         /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: var(--font-family);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--light-background);
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
         }
 
         a {
-            color: var(--primary-color);
             text-decoration: none;
-            transition: color var(--transition-speed);
+            color: var(--primary-color);
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #0056b3;
+            color: var(--primary-color); /* Maintain primary color on hover, or a darker shade */
+            opacity: 1.8;
         }
 
+        /* Typography */
         h1, h2, h3, h4, h5, h6 {
-            color: var(--text-color);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--text-dark);
         }
 
-        h1 { font-size: 2.5rem; }
+        h1 { font-size: 3rem; }
         h2 { font-size: 2rem; }
         h3 { font-size: 1.5rem; }
         p { font-size: 1rem; margin-bottom: 1rem; }
 
-        @media (min-width: 768px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.5rem; }
-            h3 { font-size: 1.75rem; }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
+        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
+            padding: 0.8rem 1.8rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
             text-align: center;
-            font-weight: 500;
-            transition: all var(--transition-speed);
             cursor: pointer;
-            text-decoration: none;
             border: none;
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
-            color: var(--light-text-color);
-            border: 1px solid var(--primary-color);
+            color: var(--text-light);
+            box-shadow: 0 4px 12px var(--shadow-medium);
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+            background-color: #0b5ed7; /* Slightly darker primary */
+            box-shadow: 0 6px 16px var(--shadow-medium);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
         }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            margin-left: 1rem;
         }
 
         .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
+            background-color: #5c636a; /* Slightly darker secondary */
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
         }
 
-        section {
-            padding: 4rem 0;
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
         }
 
         .text-center {
@@ -120,196 +117,166 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
-            background-color: var(--navbar-background);
+            height: var(--header-height);
+            background-color: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px var(--shadow-light);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
+            padding: 0 1.5rem; /* Ensure padding on navbar container */
         }
 
         .navbar-brand {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--text-dark);
         }
-        .logo-container {
-            height: 40px; /* Fixed height for logo image container */
-            width: 150px; /* Fixed width for logo image container */
-            overflow: hidden;
-            position: relative;
-            background: #fff; /* Loading state background */
+
+        .nav-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .logo-container img {
-            height: 100%;
-            width: 100%;
-            object-fit: contain; /* Use contain for logos to prevent cropping */
+            list-style: none;
         }
 
-
-        .navbar-links {
-            display: none; /* Hidden on mobile by default */
+        .nav-links li {
+            margin-left: 2.5rem;
         }
 
-        .navbar-links.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: var(--navbar-background);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem;
-            box-shadow: var(--shadow-light);
-        }
-
-        .navbar-links a {
-            padding: 0.75rem 1rem;
-            display: block;
-            color: var(--text-color);
+        .nav-links a {
+            color: var(--text-dark);
             font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
         }
 
-        .navbar-links a:hover {
-            color: var(--primary-color);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .menu-toggle {
-            display: block;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
+            display: none;
+            flex-direction: column;
             cursor: pointer;
-            color: var(--text-color);
+            padding: 0.5rem;
+            border-radius: 0.3rem;
         }
 
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
-            .navbar-links {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                width: auto;
-                background: none;
-                backdrop-filter: none;
-                border-bottom: none;
-                padding: 0;
-                box-shadow: none;
-            }
-            .navbar-links a {
-                padding: 0.5rem 1rem;
-            }
+        .menu-toggle span {
+            height: 2px;
+            width: 25px;
+            background: var(--text-dark);
+            margin-bottom: 4px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle span:last-child {
+            margin-bottom: 0;
         }
 
         /* Hero Section */
         .hero {
             position: relative;
+            color: var(--text-light);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--light-text-color);
-            height: 80vh; /* Controlled by hero-image-container */
             overflow: hidden; /* Ensure image doesn't spill */
+            padding-top: var(--header-height); /* Offset for sticky navbar */
         }
 
         .hero-image-container {
             height: 80vh;
             width: 100%;
             overflow: hidden;
-            position: absolute; /* Position the image container to fill hero */
-            top: 0;
-            left: 0;
-            z-index: 1; /* Place image behind content */
-            background: #f0f0f0; /* Loading state background */
+            position: relative;
+            background: #e0e0e0; /* Loading state background */
         }
+
         .hero-image-container img {
-            width:100%; height:100%; object-fit:cover; display:block; border:none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
             max-width: 800px;
-            background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
-            backdrop-filter: blur(5px); /* Soft blur for glass effect on content */
-            border-radius: 10px;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4); /* Slightly dark background for text readability */
+            border-radius: 1rem;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--light-text-color);
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
             color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         }
 
-        .hero .btn {
-            margin: 0 0.5rem;
+        .hero-buttons .btn {
+            margin: 0 0.8rem;
         }
 
-        @media (max-width: 767px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .hero-content {
-                padding: 1.5rem;
-            }
+        /* Products Section */
+        .products {
+            background-color: var(--background-light);
         }
 
-        /* Products/Services Section */
-        .services-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        @media (min-width: 480px) {
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .service-card {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
             overflow: hidden;
-            box-shadow: var(--shadow-light);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 4px 16px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px var(--shadow-medium);
         }
 
         .product-image-container {
@@ -319,11 +286,16 @@
             position: relative;
             background: #f5f5f5; /* Loading state background */
         }
+
         .product-image-container img {
-            width:100%; height:100%; object-fit:cover; display:block; border:none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
         }
 
-        .service-card-content {
+        .product-info {
             padding: 1.5rem;
             flex-grow: 1;
             display: flex;
@@ -331,123 +303,120 @@
             justify-content: space-between;
         }
 
-        .service-card-content h3 {
-            font-size: 1.4rem;
+        .product-info h3 {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: var(--primary-color);
+            color: var(--text-dark);
         }
 
-        .service-card-content p {
+        .product-info p {
             font-size: 0.95rem;
             color: var(--secondary-color);
             margin-bottom: 1rem;
-            flex-grow: 1;
         }
 
-        .service-price {
-            font-size: 1.2rem;
+        .product-price {
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--accent-color);
-            margin-top: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            margin-top: auto; /* Push button to bottom */
         }
 
         /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
+        .features {
+            background-color: var(--background-light);
         }
 
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .features-image-wrapper {
-            height: 400px; /* Fixed height for the main features image */
+        .features-intro-image-container { /* Custom container for the features section image */
+            height: 300px; /* Fixed height for features image */
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f0f0f0; /* Loading state background */
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
-        }
-        .features-image-wrapper img {
-            width:100%; height:100%; object-fit:cover; display:block; border:none;
+            background: #e0e0e0; /* Loading state background */
+            margin-bottom: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px var(--shadow-light);
         }
 
-        .feature-item-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+        .features-intro-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
         }
-        @media (min-width: 480px) {
-            .feature-item-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .feature-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px var(--shadow-light);
             text-align: center;
-            padding: 1rem;
-            background-color: var(--card-background);
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-        .feature-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .feature-icon-container {
-            height: 80px;
-            width: 80px;
-            overflow: hidden;
-            position: relative;
-            background: #eee; /* Loading state background */
-            border-radius: 50%; /* Make icons circular */
-            margin-bottom: 1rem;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
         }
-        .feature-icon-container img {
-            width:100%; height:100%; object-fit:cover; display:block; border:none;
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block; /* For centering */
         }
 
         .feature-item h3 {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
         }
+
         .feature-item p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--secondary-color);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--card-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p:last-of-type {
             margin-bottom: 0;
         }
 
-        /* About Us Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-            }
-            .about-text {
-                order: 2; /* Text on right, image on left */
-            }
-            .about-image-container {
-                order: 1;
-            }
+        .about-image-wrapper {
+            flex: 1;
+            min-width: 300px;
         }
 
         .about-image-container {
@@ -455,484 +424,581 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #f0f0f0; /* Loading state background */
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
+            background: #e0e0e0; /* Loading state background */
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px var(--shadow-light);
         }
+
         .about-image-container img {
-            width:100%; height:100%; object-fit:cover; display:block; border:none;
-        }
-        .about-text h2 {
-            margin-bottom: 1rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
         }
 
         /* Testimonials Section */
         .testimonials {
-            background-color: var(--light-background);
+            background-color: var(--background-light);
         }
+
         .testimonial-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
-        @media (min-width: 768px) {
-            .testimonial-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+
         .testimonial-card {
-            background-color: var(--card-background);
+            background-color: var(--card-bg);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
-            border: 1px solid var(--border-color);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px var(--shadow-light);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .testimonial-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
         }
+
         .testimonial-card p {
             font-style: italic;
-            color: var(--text-color);
+            color: var(--text-dark);
             margin-bottom: 1.5rem;
-            flex-grow: 1;
         }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            margin-top: 1rem;
-        }
-        .author-avatar-container {
-            height: 50px;
-            width: 50px;
-            overflow: hidden;
-            position: relative;
-            background: #ccc; /* Loading state background */
-            border-radius: 50%;
-            margin-right: 1rem;
-            flex-shrink: 0;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
-        }
-        .author-avatar-container img {
-            width:100%; height:100%; object-fit:cover; display:block; border:none;
-        }
-        .author-info strong {
-            display: block;
+
+        .testimonial-card .author {
+            font-weight: 600;
             color: var(--primary-color);
-        }
-        .author-info span {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
         }
 
         /* Contact Section */
+        .contact {
+            background-color: var(--card-bg);
+        }
+
         .contact-form {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--card-background);
+            margin: 3rem auto 0 auto;
+            background-color: var(--card-bg);
             padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
-            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px var(--shadow-light);
         }
-        .contact-form label {
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-color);
+            font-weight: 500;
+            color: var(--text-dark);
         }
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1.5rem;
+            padding: 0.9rem 1.2rem;
             border: 1px solid var(--border-color);
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-family: var(--font-family);
+            border-radius: 0.5rem;
             font-size: 1rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+            font-family: var(--font-family);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus {
+
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
         }
-        .contact-form textarea {
-            resize: vertical;
+
+        .form-group textarea {
             min-height: 120px;
+            resize: vertical;
         }
+
         .contact-form .btn {
             width: 100%;
-            font-size: 1.1rem;
             padding: 1rem;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--text-color);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 3rem 0;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 4rem 0;
             font-size: 0.9rem;
         }
-        .footer .container {
+
+        .footer-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            justify-items: center;
-            text-align: center;
-        }
-        @media (min-width: 480px) {
-            .footer .container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                text-align: left;
-                justify-items: start;
-            }
-        }
-        .footer-col h4 {
-            color: var(--light-text-color);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .footer-col ul li {
-            margin-bottom: 0.5rem;
-        }
-        .footer-col ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: color var(--transition-speed);
-        }
-        .footer-col ul li a:hover {
-            color: var(--light-text-color);
-        }
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-        @media (min-width: 480px) {
-            .social-links {
-                justify-content: flex-start;
-            }
-        }
-        .social-icon-container {
-            height: 30px; /* Smaller fixed height for social icons */
-            width: 30px; /* Smaller fixed width */
-            overflow: hidden;
-            position: relative;
-            background: #495057;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 0.5rem;
-        }
-        .social-icon-container img {
-            width:100%; height:100%; object-fit:cover; display:block; border:none;
         }
 
+        .footer-column h4 {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.25rem; }
+
+            .section-padding {
+                padding: 4rem 0;
+            }
+
+            .navbar .container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 10px var(--shadow-light);
+                padding: 1rem 0;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                color: var(--text-dark);
+                display: block;
+                font-size: 1.1rem;
+            }
+
+            .nav-links a::after {
+                display: none; /* Hide hover underline on mobile */
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-buttons .btn {
+                margin: 0;
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .products-grid, .features-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image-wrapper {
+                order: -1; /* Image appears before text on mobile */
+                margin-bottom: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-column ul {
+                padding-left: 0;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.1rem; }
+            p { font-size: 0.9rem; }
+
+            .btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .product-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .product-price {
+                font-size: 1.2rem;
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Image Specific Styles (Per Rule) */
+        .hero-image-container img,
+        .product-image-container img,
+        .about-image-container img,
+        .features-intro-image-container img { /* Added for features section image */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
+            /* No opacity, filter, pseudo-elements. Z-index managed by container position. */
+        }
     </style>
 </head>
 <body>
-
     <header class="navbar">
         <div class="container">
-            <a href="#hero" class="navbar-brand">
-                <div class="logo-container">
-                    <!-- Logo image is abstract/decorative as per strict rules -->
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="InnovateCore Technologies Abstract Logo" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+            <a href="#" class="navbar-brand">SwiftCart</a>
+            <nav class="nav-menu">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-            </a>
-            <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-            <nav class="navbar-links">
-                <a href="#hero">Home</a>
-                <a href="#services">Services</a>
-                <a href="#features">Features</a>
-                <a href="#about">About Us</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero" class="hero">
             <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Corporate office environment, representing business and technology solutions" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern office interior with diverse team collaborating" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
             <div class="hero-content">
-                <h1>InnovateCore Technologies</h1>
-                <p>Driving Digital Transformation with Cutting-Edge IT Solutions and Unparalleled Expertise.</p>
-                <a href="#contact" class="btn btn-primary">Get a Quote</a>
-                <a href="#services" class="btn btn-secondary">Our Services</a>
+                <h1>Experience Seamless Shopping</h1>
+                <p>Discover a curated collection of high-quality products designed to elevate your lifestyle. From electronics to fashion, find everything you need with ease.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Shop Now</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
             </div>
         </section>
 
-        <section id="services" class="section-padding">
+        <!-- Products/Services Section -->
+        <section id="products" class="products section-padding">
             <div class="container text-center">
-                <h2>Our Core IT Services</h2>
-                <p>Empowering your business with scalable, secure, and intelligent technology solutions.</p>
-                <div class="services-grid">
-                    <div class="service-card">
+                <h2>Our Latest Arrivals</h2>
+                <p>Explore our diverse range of products, crafted for quality and style.</p>
+                <div class="products-grid">
+                    <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Cloud server racks in a data center" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Sleek black smartwatch with a digital display" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="service-card-content">
-                            <h3>Cloud Infrastructure Management</h3>
-                            <p>Design, deployment, and management of robust, scalable, and secure cloud environments on AWS, Azure, or GCP.</p>
-                            <span class="service-price">Starting from ₹45,000/month</span>
-                            <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Learn More</a>
+                        <div class="product-info">
+                            <h3>Quantum Smartwatch X1</h3>
+                            <p>Track your fitness, notifications, and more with cutting-edge technology.</p>
+                            <span class="product-price">₹12,999</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
-
-                    <div class="service-card">
+                    <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Cybersecurity lock icon on a digital screen" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="White wireless headphones on a wooden surface" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="service-card-content">
-                            <h3>Cybersecurity & Data Protection</h3>
-                            <p>Comprehensive security audits, threat detection, and data encryption to safeguard your critical assets and ensure compliance.</p>
-                            <span class="service-price">Starting from ₹30,000/month</span>
-                            <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Learn More</a>
+                        <div class="product-info">
+                            <h3>Aura Wireless Headphones</h3>
+                            <p>Immerse yourself in crystal-clear audio with superior comfort.</p>
+                            <span class="product-price">₹7,499</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
-
-                    <div class="service-card">
+                    <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Artificial intelligence brain with network connections" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Minimalist desktop setup with laptop and accessories" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="service-card-content">
-                            <h3>AI & Machine Learning Solutions</h3>
-                            <p>Leverage AI-driven insights and automation to optimize operations, enhance customer experiences, and drive innovation.</p>
-                            <span class="service-price">Starting from ₹50,000/month</span>
-                            <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Learn More</a>
+                        <div class="product-info">
+                            <h3>ErgoFlow Laptop Stand</h3>
+                            <p>Enhance your workspace ergonomics and productivity effortlessly.</p>
+                            <span class="product-price">₹2,850</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
-
-                    <div class="service-card">
+                    <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Custom software development on a laptop screen" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Close-up of a stylish grey camera" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                         </div>
-                        <div class="service-card-content">
-                            <h3>Custom Software Development</h3>
-                            <p>Build bespoke applications tailored to your unique business processes, from concept to deployment and ongoing support.</p>
-                            <span class="service-price">Starting from ₹35,000/month</span>
-                            <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Learn More</a>
+                        <div class="product-info">
+                            <h3>Zenith Pro Compact Camera</h3>
+                            <p>Capture life's moments with stunning clarity and precision.</p>
+                            <span class="product-price">₹24,500</span>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="section-padding">
-            <div class="container">
-                <div class="text-center">
-                    <h2>Why Choose InnovateCore?</h2>
-                    <p>Experience the difference with our client-centric approach and commitment to technological excellence.</p>
+        <!-- Features Section -->
+        <section id="features" class="features section-padding">
+            <div class="container text-center">
+                <h2>Why Choose SwiftCart?</h2>
+                <p>We're dedicated to providing an unparalleled shopping experience.</p>
+                <div class="features-intro-image-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Abstract geometric pattern resembling a network" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-                <div class="features-grid" style="margin-top: 3rem;">
-                    <div class="features-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Modern meeting room, symbolizing collaboration and innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span> <!-- Using emoji for icon as per rules -->
+                        <h3>Blazing Fast Delivery</h3>
+                        <p>Receive your orders quickly with our optimized logistics network.</p>
                     </div>
-                    <div class="feature-item-grid">
-                        <div class="feature-item">
-                            <div class="feature-icon-container">
-                                <img src="https://images.unsplash.com/photo-1582213795328-98e945c85114?w=1200&q=80" alt="Abstract shapes representing expertise" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                            </div>
-                            <h3>Expert Team</h3>
-                            <p>Our certified professionals bring deep industry knowledge and technical prowess to every project.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon-container">
-                                <img src="https://images.unsplash.com/photo-1579737976192-d667d4f128e4?w=1200&q=80" alt="Abstract network connections representing support" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                            </div>
-                            <h3>24/7 Support</h3>
-                            <p>Reliable round-the-clock technical assistance ensuring your systems are always operational.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon-container">
-                                <img src="https://images.unsplash.com/photo-1601007887372-8411d73752e2?w=1200&q=80" alt="Abstract lines representing growth and scalability" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                            </div>
-                            <h3>Scalable Solutions</h3>
-                            <p>Solutions designed to grow with your business, adapting to evolving demands and future needs.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon-container">
-                                <img src="https://images.unsplash.com/photo-1581457319917-d2e82506b3e6?w=1200&q=80" alt="Abstract light representing innovation" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                            </div>
-                            <h3>Innovation Driven</h3>
-                            <p>We continuously embrace cutting-edge technologies to deliver forward-thinking and effective solutions.</p>
-                        </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <h3>Secure Payments</h3>
+                        <p>Shop with confidence through our encrypted and secure payment gateways.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⭐</span>
+                        <h3>Premium Quality</h3>
+                        <p>We source only the best products to ensure lasting satisfaction.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💬</span>
+                        <h3>24/7 Customer Support</h3>
+                        <p>Our dedicated team is always here to assist you with any queries.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section-padding">
+        <!-- About Section -->
+        <section id="about" class="about section-padding">
             <div class="container">
+                <h2 class="text-center">Our Story & Mission</h2>
                 <div class="about-content">
-                    <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Professional team working together in a modern office" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                    </div>
                     <div class="about-text">
-                        <h2>About InnovateCore Technologies</h2>
-                        <p>InnovateCore Technologies is a leading IT services company dedicated to empowering businesses through strategic technology implementations. With a commitment to excellence and a passion for innovation, we deliver tailored solutions that drive efficiency, enhance security, and foster growth.</p>
-                        <p>Our mission is to be your trusted partner in navigating the complexities of the digital landscape, providing expert guidance and reliable services that align with your business objectives. We believe in building lasting relationships by delivering tangible value and exceptional client experiences.</p>
-                        <a href="#contact" class="btn btn-primary">Contact Our Team</a>
+                        <p>SwiftCart was founded with a vision to revolutionize the online shopping experience. We believe in providing access to a wide array of high-quality products, coupled with unparalleled customer service and seamless delivery.</p>
+                        <p>Our mission is to empower customers with choice and convenience, ensuring every purchase is a delightful experience. We carefully curate our catalog, partner with trusted brands, and continuously innovate to meet the evolving needs of our community. Join us on this journey to a smarter, more connected way of shopping.</p>
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Get in Touch</a>
+                    </div>
+                    <div class="about-image-wrapper">
+                        <div class="about-image-container">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Diverse team working collaboratively in a modern office" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="section-padding testimonials">
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section-padding">
             <div class="container text-center">
-                <h2>What Our Clients Say</h2>
-                <p>Hear from businesses that have transformed their operations with InnovateCore.</p>
-                <div class="testimonial-grid" style="margin-top: 3rem;">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from the people who love shopping with SwiftCart.</p>
+                <div class="testimonial-grid">
                     <div class="testimonial-card">
-                        <p>"InnovateCore transformed our cloud infrastructure, significantly improving our performance and reducing costs. Their team's expertise and dedication are truly unparalleled. Highly recommended for any business seeking robust IT solutions."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar-container">
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&q=80" alt="Avatar of Ramesh Kumar, CEO" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                            </div>
-                            <div class="author-info">
-                                <strong>Ramesh Kumar</strong>
-                                <span>CEO, Ascent Digital</span>
-                            </div>
-                        </div>
+                        <p>"Absolutely thrilled with my recent purchase! The Quantum Smartwatch exceeded my expectations in both style and functionality. SwiftCart delivered it so fast!"</p>
+                        <span class="author">— Priya Sharma, Mumbai</span>
                     </div>
                     <div class="testimonial-card">
-                        <p>"The cybersecurity solutions provided by InnovateCore gave us peace of mind. Their proactive approach and 24/7 support ensured our data is safe and secure. A truly professional and reliable partner!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar-container">
-                                <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d951146?w=1200&q=80" alt="Avatar of Priya Sharma, CTO" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                            </div>
-                            <div class="author-info">
-                                <strong>Priya Sharma</strong>
-                                <span>CTO, Visionary Tech</span>
-                            </div>
-                        </div>
+                        <p>"The Aura Wireless Headphones are a game-changer. The sound quality is incredible, and the comfort is unmatched. Highly recommend SwiftCart for their genuine products."</p>
+                        <span class="author">— Rohan Singh, Delhi</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I was impressed by the customer support when I had a query. They resolved it quickly and professionally. SwiftCart is my go-to for all tech needs now."</p>
+                        <span class="author">— Ananya Das, Bangalore</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section-padding">
-            <div class="container">
-                <div class="text-center">
-                    <h2>Get in Touch with InnovateCore</h2>
-                    <p>Have a project in mind or a question? We'd love to hear from you.</p>
-                </div>
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding">
+            <div class="container text-center">
+                <h2>Connect With Us</h2>
+                <p>Have a question or need assistance? Reach out to our team.</p>
                 <form class="contact-form">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your project or inquiry" required></textarea>
-
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                    </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-col">
-                <h4>InnovateCore Technologies</h4>
-                <p>Your partner in digital transformation.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">
-                        <div class="social-icon-container">
-                            <img src="https://images.unsplash.com/photo-1595186214349-36a4959600b4?w=1200&q=80" alt="Abstract blue image representing Facebook" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <div class="social-icon-container">
-                            <img src="https://images.unsplash.com/photo-1620325763618-b2a8f8d97e20?w=1200&q=80" alt="Abstract blue image representing Twitter" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                    </a>
-                    <a href="#" aria-label="LinkedIn">
-                        <div class="social-icon-container">
-                            <img src="https://images.unsplash.com/photo-1599305417852-c820b12f6a97?w=1200&q=80" alt="Abstract grey image representing LinkedIn" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
-                        </div>
-                    </a>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>SwiftCart</h4>
+                    <p>Your ultimate destination for quality products and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a> <!-- Using text for social icons as images are restricted -->
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <p>123 Commerce St, Tech City, India</p>
+                    <p>Email: support@swiftcart.com</p>
+                    <p>Phone: +91 98765 43210</p>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            <div class="footer-bottom">
+                &copy; 2023 SwiftCart. All rights reserved.
             </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Knowledge Base</a></li>
-                    <li><a href="#">Service Status</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; <span id="currentYear"></span> InnovateCore Technologies. All rights reserved.
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile navigation toggle
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navbarLinks = document.querySelector('.navbar-links');
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
 
-            menuToggle.addEventListener('click', function() {
-                navbarLinks.classList.toggle('active');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active'); // Optional: for burger icon animation
             });
 
-            // Close mobile menu when a link is clicked
-            navbarLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth < 768) {
-                        navbarLinks.classList.remove('active');
+            // Close nav on link click for mobile
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        menuToggle.classList.remove('active');
                     }
                 });
             });
-
-            // Set current year in footer
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
     </script>
 </body>
