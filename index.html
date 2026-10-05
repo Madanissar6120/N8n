@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuminaTech | Premium Lifestyle Electronics</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Apna Shop | Premium Electronics & Lifestyle</title>
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #4f46e5;
-            --text-main: #1e293b;
-            --text-light: #64748b;
-            --bg-white: #ffffff;
-            --bg-soft: #f8fafc;
-            --border: #e2e8f0;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -24,43 +21,43 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
             color: var(--text-main);
             line-height: 1.6;
-            background-color: var(--bg-white);
             overflow-x: hidden;
         }
 
         /* Navbar */
-        .navbar {
+        nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            height: 72px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 70px;
             display: flex;
             align-items: center;
         }
 
         .nav-container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary);
             text-decoration: none;
             letter-spacing: -0.5px;
@@ -69,6 +66,7 @@
         .nav-links {
             display: flex;
             gap: 2.5rem;
+            list-style: none;
         }
 
         .nav-links a {
@@ -80,44 +78,60 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
 
-        .cta-nav {
+        .nav-cta {
             background: var(--primary);
             color: white !important;
             padding: 0.6rem 1.2rem;
-            border-radius: 6px;
+            border-radius: 8px;
+            font-weight: 600;
         }
 
         /* Hero Section */
         .hero {
-            padding: 4rem 0;
-            background: var(--bg-soft);
+            position: relative;
+            background: var(--white);
+            padding-bottom: 4rem;
         }
 
-        .hero-grid {
+        .hero-image-container {
+            height: 80vh;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #e2e8f0;
+        }
+
+        .hero-content {
             max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 4rem;
+            margin: -150px auto 0;
+            position: relative;
+            z-index: 10;
             padding: 0 2rem;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+        .hero-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 850;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
         .btn-group {
@@ -127,7 +141,7 @@
 
         .btn {
             padding: 1rem 2rem;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
@@ -137,27 +151,28 @@
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: white;
+            background: var(--primary);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: #4338ca;
+            background: var(--primary-dark);
             transform: translateY(-2px);
         }
 
-        .hero-image-container {
-            height: 80vh;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            border-radius: 20px;
-            background: #e2e8f0;
-            box-shadow: var(--shadow);
+        .btn-outline {
+            background: var(--white);
+            color: var(--text-main);
+            border: 2px solid #e2e8f0;
         }
 
-        /* Features */
-        .features {
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Products Section */
+        .section {
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -170,68 +185,27 @@
 
         .section-header h2 {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
 
-        .features-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-
-        .feature-card {
-            padding: 2rem;
-            border-radius: 12px;
-            background: var(--bg-soft);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            background: white;
-            box-shadow: var(--shadow);
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent);
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 6rem 2rem;
-            background: var(--bg-soft);
-        }
-
-        .products-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .product-card {
-            background: white;
+            background: var(--white);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             transition: var(--transition);
+            border: 1px solid #f1f5f9;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: var(--shadow);
         }
 
@@ -247,31 +221,90 @@
             padding: 1.5rem;
         }
 
-        .product-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-price {
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
             font-weight: 700;
-            color: var(--accent);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
             display: block;
         }
 
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .add-to-cart {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            text-align: left;
+        }
+
+        .feature-icon-box {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+        }
+
         /* About Section */
-        .about {
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
         }
 
         .about-image-container {
@@ -279,27 +312,35 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            border-radius: 16px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
         }
 
         /* Testimonials */
         .testimonials {
-            padding: 6rem 2rem;
-            background: var(--primary);
+            background: #0f172a;
             color: white;
+            padding: 6rem 2rem;
         }
 
         .testimonials-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .testimonial-card {
-            padding: 2.5rem;
             background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -310,343 +351,353 @@
             font-size: 1.1rem;
         }
 
-        .author {
-            font-weight: 600;
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+        }
+
+        .author-info span {
+            color: #94a3b8;
+            font-size: 0.85rem;
         }
 
         /* Contact Section */
-        .contact {
-            padding: 6rem 2rem;
+        .contact-container {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-            background: var(--bg-soft);
+            background: var(--white);
             padding: 3rem;
             border-radius: 20px;
+            box-shadow: var(--shadow);
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
-            font-weight: 500;
-            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .form-group input, .form-group textarea {
+            width: 100%;
             padding: 0.8rem 1rem;
-            border: 1px solid var(--border);
+            border: 2px solid #e2e8f0;
             border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 4rem 2rem;
-            background: #020617;
-            color: #94a3b8;
-            border-top: 1px solid #1e293b;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .footer-logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            display: block;
-            text-decoration: none;
-        }
-
-        .footer-links h4 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            color: inherit;
-            text-decoration: none;
+            outline: none;
             transition: var(--transition);
         }
 
-        .footer-links a:hover {
-            color: var(--accent);
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
         }
 
-        .copyright {
-            text-align: center;
-            margin-top: 4rem;
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-col h4 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid #1e293b;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-grid, .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero-content {
-                order: 2;
-                text-align: center;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-image-container {
-                height: 50vh;
-                order: 1;
-            }
-            .btn-group {
-                justify-content: center;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links {
-                display: none;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .about-section { grid-template-columns: 1fr; }
+            .hero-content { margin-top: -50px; }
+            .hero-card { padding: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav>
         <div class="nav-container">
-            <a href="#" class="logo">LUMINA TECH</a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#products">Products</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="cta-nav">Shop Now</a>
-            </div>
+            <a href="#" class="logo">APNA SHOP</a>
+            <ul class="nav-links">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="nav-cta">Shop Now</a></li>
+            </ul>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-grid">
-            <div class="hero-content">
-                <h1>Elevate Your Digital Lifestyle.</h1>
-                <p>Experience the perfect fusion of minimalist design and high-performance technology. Engineered for those who demand excellence.</p>
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern corporate office interior" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        </div>
+        <div class="hero-content">
+            <div class="hero-card">
+                <h1>Future of Tech is Here.</h1>
+                <p>Experience the next generation of premium electronics and lifestyle products curated specifically for the modern professional.</p>
                 <div class="btn-group">
                     <a href="#products" class="btn btn-primary">Browse Collection</a>
-                    <a href="#about" class="btn" style="border: 1px solid var(--border)">Learn More</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
                 </div>
-            </div>
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modern Minimalist Workspace" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <!-- Features Section -->
+    <section id="features" class="section">
         <div class="section-header">
-            <h2>Why Choose Lumina</h2>
-            <p>Built with precision, designed for utility.</p>
+            <h2>Why Choose Apna Shop?</h2>
+            <p>We redefine excellence through quality and service.</p>
         </div>
         <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">01</div>
-                <h3>Next-Gen Design</h3>
-                <p>Every product follows our signature aesthetic—clean lines, premium materials, and intuitive interfaces.</p>
+            <div class="feature-item">
+                <div class="feature-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h3>Secure Payments</h3>
+                <p>Fully encrypted transactions with support for all major Indian UPI and cards.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">02</div>
-                <h3>Eco-Conscious</h3>
-                <p>We use 100% recycled aluminum and biodegradable packaging without compromising on durability.</p>
+            <div class="feature-item">
+                <div class="feature-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+                <h3>Express Delivery</h3>
+                <p>Get your products delivered within 24-48 hours across major metro cities.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">03</div>
-                <h3>Smart Integration</h3>
-                <p>Our ecosystem works seamlessly across all your devices, powered by our custom LuminaOS.</p>
+            <div class="feature-item">
+                <div class="feature-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                </div>
+                <h3>Easy Returns</h3>
+                <p>Not satisfied? No worries. Our 7-day no-questions-asked return policy has you covered.</p>
             </div>
         </div>
     </section>
 
-    <section id="products" class="products">
-        <div class="products-container">
-            <div class="section-header">
-                <h2>Featured Collection</h2>
-                <p>Our most popular innovations, curated for you.</p>
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <p>Handpicked premium essentials for your workspace.</p>
+        </div>
+        <div class="grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Premium Smart Watch" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Wearables</span>
+                    <h3 class="product-name">Apex Pro Smart Watch</h3>
+                    <p class="product-price">₹14,999</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Lumina A1 Smart Watch" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lumina A1 Smart Watch</h3>
-                        <span class="product-price">₹19,999</span>
-                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">Ceramic finish with 7-day battery life and health tracking.</p>
-                        <button class="btn btn-primary" style="width: 100%; padding: 0.8rem;">Add to Cart</button>
-                    </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="Noise Cancelling Headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
                 </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=80" alt="SonicFlow Pro Headphones" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                    </div>
-                    <div class="product-info">
-                        <h3>SonicFlow Pro Headphones</h3>
-                        <span class="product-price">₹27,500</span>
-                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">Active noise cancellation with studio-grade spatial audio.</p>
-                        <button class="btn btn-primary" style="width: 100%; padding: 0.8rem;">Add to Cart</button>
-                    </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3 class="product-name">Studio Wireless X-200</h3>
+                    <p class="product-price">₹8,490</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Lumina A2 Graphite" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lumina A2 Graphite</h3>
-                        <span class="product-price">₹22,999</span>
-                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">Limited edition dark graphite with sapphire glass.</p>
-                        <button class="btn btn-primary" style="width: 100%; padding: 0.8rem;">Add to Cart</button>
-                    </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Tech Dashboard Monitor" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Computing</span>
+                    <h3 class="product-name">UltraWide 34" Productivity Hub</h3>
+                    <p class="product-price">₹42,000</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="about-grid">
-            <div class="about-image-container">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Lumina Team" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
-            </div>
-            <div class="about-content">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Our Story</h2>
-                <p style="margin-bottom: 1.5rem;">Founded in 2018, Lumina Tech began with a simple mission: to eliminate the clutter in consumer electronics. We believe that technology should be a quiet companion that empowers you, not a loud distraction.</p>
-                <p>Based in Bangalore, our team of designers and engineers work tirelessly to source the finest materials and build products that last a lifetime. We aren't just selling gadgets; we're crafting the tools for your best work.</p>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-image-container">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Team collaborating in office" style="width:100%; height:100%; object-fit:cover; display:block; border:none;" loading="lazy">
+        </div>
+        <div class="about-content">
+            <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Our Story</span>
+            <h2>Crafting the New Standard of Digital Retail.</h2>
+            <p>Founded in 2023, Apna Shop started with a simple mission: to make premium global technology accessible to everyone in India. We believe that tools define your productivity, and lifestyle products define your comfort.</p>
+            <p style="margin-top: 1rem;">Our team meticulously vets every product to ensure it meets our rigorous standards for durability, design, and performance.</p>
+            <div style="margin-top: 2rem;">
+                <a href="#" class="btn btn-primary">Read More</a>
             </div>
         </div>
     </section>
 
+    <!-- Testimonials -->
     <section class="testimonials">
         <div class="section-header">
-            <h2 style="color: white;">Trusted by Professionals</h2>
+            <h2 style="color: white;">Customer Reviews</h2>
+            <p style="color: #94a3b8;">What our community says about us.</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p class="testimonial-text">"The Lumina A1 is the first smartwatch that actually looks like a piece of high-end jewelry. The interface is incredibly snappy."</p>
-                <p class="author">— Rohan Sharma, Creative Director</p>
+                <p class="testimonial-text">"The quality of the Studio Wireless headphones is insane. Delivery was faster than expected. Truly a premium experience!"</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Arjun Sharma</h4>
+                        <span>Verified Buyer, Bangalore</span>
+                    </div>
+                </div>
             </div>
             <div class="testimonial-card">
-                <p class="testimonial-text">"I've used every major headphone brand, but the SonicFlow Pro is in a league of its own for long studio sessions."</p>
-                <p class="author">— Ananya Iyer, Music Producer</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Lumina's commitment to sustainability is what won me over. The build quality is absolutely phenomenal."</p>
-                <p class="author">— Vikram Goel, Tech Analyst</p>
+                <p class="testimonial-text">"Finally found a store that understands modern aesthetics and doesn't compromise on build quality. The monitor is a game changer."</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Priya Patel</h4>
+                        <span>Designer, Mumbai</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- Contact Section -->
+    <section id="contact" class="section">
         <div class="section-header">
-            <h2>Contact Us</h2>
-            <p>Have questions? Our team is here to help.</p>
+            <h2>Get In Touch</h2>
+            <p>Have questions? We're here to help you.</p>
         </div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
-                <label>Message</label>
-                <textarea rows="5" placeholder="How can we help you?" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
+        <div class="contact-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Tell us how we can help..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
     </section>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="footer-grid">
-            <div>
-                <a href="#" class="footer-logo">LUMINA TECH</a>
-                <p>Redefining the standard for premium consumer electronics through minimalist design and unmatched performance.</p>
+            <div class="footer-col">
+                <a href="#" class="logo">APNA SHOP</a>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Redefining Indian ecommerce with quality, speed, and trust.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Shop</h4>
                 <ul>
-                    <li><a href="#">Smart Watches</a></li>
-                    <li><a href="#">Audio Gear</a></li>
+                    <li><a href="#">Electronics</a></li>
                     <li><a href="#">Accessories</a></li>
-                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Home Office</a></li>
+                    <li><a href="#">Best Sellers</a></li>
                 </ul>
             </div>
-            <div class="footer-links">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Returns & Repairs</a></li>
-                    <li><a href="#">User Manuals</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="copyright">
-            &copy; 2024 Lumina Tech Electronics Pvt. Ltd. All rights reserved.
+        <div class="footer-bottom">
+            <p>&copy; 2024 Apna Shop Pvt Ltd. All rights reserved. Built for the modern web.</p>
         </div>
     </footer>
 
     <script>
-        // Simple scroll behavior for navigation
+        // Smooth Scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
-                        top: target.offsetTop - 72,
+                        top: target.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        // Simple Form Submission Alert
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! Our team will get back to you shortly.');
+            this.reset();
         });
     </script>
 </body>
